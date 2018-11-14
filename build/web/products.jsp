@@ -14,12 +14,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
         <script src="Assets/js/jquery.min.js"></script>
         <script src="Assets/js/script.js" type="text/javascript"></script>
         <script type="text/javascript" src="Assets/js/move-top.js"></script>
         <script type="text/javascript" src="Assets/js/easing.js"></script>
+        <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="wrap">
@@ -149,7 +149,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="clear"></div>
                 </div>
-                 <div class="h_menu">
+                <div class="h_menu">
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
@@ -292,89 +292,157 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <div class="main">
                 <div class="content">
+                    <div class="content_top">
+                        <div class="heading">
+                            <h3>Feature Products</h3>
+                        </div>
+                        <div class="sort">
+                            <p>Sort by:
+                                <select>
+                                    <option>Lowest Price</option>
+                                    <option>Highest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>In Stock</option>  				   				
+                                </select>
+                            </p>
+                        </div>
+                        <div class="show">
+                            <p>Show:
+                                <select>
+                                    <option>4</option>
+                                    <option>8</option>
+                                    <option>12</option>
+                                    <option>16</option>
+                                    <option>20</option>
+                                    <option>In Stock</option>  				   				
+                                </select>
+                            </p>
+                        </div>
+                        <div class="page-no">
+                            <p>Result Pages:<ul>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li>[<a href="#"> Next>>></a >]</li>
+                            </ul></p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
                     <div class="section group">
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Who We Are</h3>
-                            <img src="Assets/images/about-img.jpg" alt="" />
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-3.jsp"><img src="Assets/images/feature-pic1.png" alt="" /></a>
+                            <h2>Lorem Ipsum is simply </h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                            <p><span class="strike">$528.22</span><span class="price">$505.22</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Add to Cart</a></span> </div>
+                            <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
                         </div>
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Our History</h3>
-                            <div class="history-desc">
-                                <div class="year"><p>1998 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2001 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2006 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2010 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2013 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                                <div class="clear"></div>
-                            </div>
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-2.jsp"><img src="Assets/images/feature-pic2.jpg" alt="" /></a>
+                            <h2>Lorem Ipsum is simply </h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                            <p><span class="strike">$640.89</span><span class="price">$620.87</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="#" class="cart-button">Add to Cart</a></span> </div>
+                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
                         </div>
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Opportunities</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <div class="list">
-                                <ul>
-                                    <li><a href="#">Text of the printing</a></li>
-                                    <li><a href="#">Lorem Ipsum has been the standard</a></li>
-                                    <li><a href="#">Dummy text ever since the 1500s</a></li>
-                                    <li><a href="#">Unknown printer took a galley</a></li>
-                                    <li><a href="#">Led it to make a type specimen</a></li>
-                                    <li><a href="#">Not only five centuries</a></li>
-                                    <li><a href="#">Electronic typesetting</a></li>
-                                    <li><a href="#">Unchanged. It was popularised</a></li>
-                                    <li><a href="#">Sheets containing Lorem Ipsume</a></li>
-                                </ul>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-4.jsp"><img src="Assets/images/feature-pic3.jpg" alt="" /></a>
+                            <h2>Lorem Ipsum is simply </h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                            <p><span class="strike">$240.66</span><span class="price">$220.97</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-6.jsp" class="cart-button">Add to Cart</a></span> </div>
+                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
+                        </div>
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-4.jsp"><img src="Assets/images/feature-pic4.png" alt="" /></a>
+                            <h2>Lorem Ipsum is simply </h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                            <p><span class="strike">$436.22</span><span class="price">$415.54</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-4.jsp" class="cart-button">Add to Cart</a></span> </div>
+                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
                         </div>
                     </div>
-                    <h2>OUR TEAM</h2>
-                    <div class="section group">
-                        <div class="grid_1_of_5 images_1_of_5">					
-                            <img src="Assets/images/team1.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="content_bottom">
+                        <div class="heading">
+                            <h3>New Products</h3>
                         </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="sort">
+                            <p>Sort by:
+                                <select>
+                                    <option>Lowest Price</option>
+                                    <option>Highest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>In Stock</option>  				   				
+                                </select>
+                            </p>
                         </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team3.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="show">
+                            <p>Show:
+                                <select>
+                                    <option>4</option>
+                                    <option>8</option>
+                                    <option>12</option>
+                                    <option>16</option>
+                                    <option>20</option>
+                                    <option>In Stock</option>  				   				
+                                </select>
+                            </p>
                         </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team4.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="page-no">
+                            <p>Result Pages:<ul>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li>[<a href="#"> Next>>></a >]</li>
+                            </ul></p>
                         </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div>
+                    <div class="section group">
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-3.jsp"><img src="Assets/images/new-pic1.jpg" alt="" /></a>
+                            <div class="discount">
+                                <span class="percentage">40%</span>
+                            </div>
+                            <h2>Lorem Ipsum is simply </h2>
+                            <p><span class="strike">$438.99</span><span class="price">$403.66</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Add to Cart</a></span> </div>
+                            <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
+                        </div>
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-4.jsp"><img src="Assets/images/new-pic2.jpg" alt="" /></a>
+                            <div class="discount">
+                                <span class="percentage">22%</span>
+                            </div>
+                            <h2>Lorem Ipsum is simply </h2>
+                            <p><span class="strike">$667.22</span><span class="price">$621.75</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-4.jsp" class="cart-button">Add to Cart</a></span></div>
+                            <div class="button"><span><a href="preview-4.jsp" class="details">Details</a></span></div>
+                        </div>
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-2.jsp"><img src="Assets/images/feature-pic2.jpg" alt="" /></a>
+                            <div class="discount">
+                                <span class="percentage">55%</span>
+                            </div>
+                            <h2>Lorem Ipsum is simply </h2>
+                            <p><span class="strike">$457.22</span><span class="price">$428.02</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-2.jsp" class="cart-button">Add to Cart</a></span> </div>
+                            <div class="button"><span><a href="preview-2.jsp" class="details">Details</a></span></div>
+                        </div>
+                        <div class="grid_1_of_4 images_1_of_4">
+                            <a href="preview-2.jsp"><img src="Assets/images/new-pic3.jpg" alt="" /></a>
+                            <div class="discount">
+                                <span class="percentage">66%</span>
+                            </div>
+                            <h2>Lorem Ipsum is simply </h2>					 
+                            <p><span class="strike">$643.22</span><span class="price">$457.88</span></p>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-2.jsp" class="cart-button">Add to Cart</a></span> </div>
+                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
+                        </div>
                     </div>
                 </div>
             </div>

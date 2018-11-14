@@ -12,14 +12,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
         <script src="Assets/js/jquery.min.js"></script>
         <script src="Assets/js/script.js" type="text/javascript"></script>
         <script type="text/javascript" src="Assets/js/move-top.js"></script>
         <script type="text/javascript" src="Assets/js/easing.js"></script>
+        <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+        <link href="Assets/css/appointment_style.css" rel="stylesheet" type="text/css"/>
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
     </head>
     <body>
         <div class="wrap">
@@ -36,16 +42,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         }"><input type="submit" value="SEARCH">
                             </form>
                         </div>
-                        <div class="shopping_cart">
-                            <div class="cart">
-                                <a href="#" title="View my shopping cart" rel="nofollow">
-                                    <strong class="opencart"> </strong>
-                                    <span class="cart_title">Cart</span>
-                                    <span class="no_product">(empty)</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="languages">
+                        <div class="languages" title="language">
                             <div id="language" class="wrapper-dropdown" tabindex="1">EN
                                 <strong class="opencart"> </strong>
                                 <ul class="dropdown languges">					
@@ -105,7 +102,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             </script>
                         </div>
-                        <div class="currency">
+                        <div class="currency" title="currency">
                             <div id="currency" class="wrapper-dropdown" tabindex="1">$
                                 <strong class="opencart"> </strong>
                                 <ul class="dropdown">
@@ -149,7 +146,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="clear"></div>
                 </div>
-                 <div class="h_menu">
+                <div class="h_menu">
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
@@ -289,168 +286,144 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </nav> 
                     <script src="Assets/js/menu.js" type="text/javascript"></script>
                 </div>
-            </div>
-            <div class="main">
-                <div class="content">
-                    <div class="section group">
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Who We Are</h3>
-                            <img src="Assets/images/about-img.jpg" alt="" />
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        </div>
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Our History</h3>
-                            <div class="history-desc">
-                                <div class="year"><p>1998 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2001 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2006 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2010 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2013 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Opportunities</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <div class="list">
+                <div>
+                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
+                </div>
+                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
+                <div style="float:right">
+                    <form action="" method="post">
+                        <table>
+                            <tr>
+                                <th><input type="text" name="thongtin_search" /></th>
+                                <th><button type="submit" class="btn btn-success" style="width:auto;">Search</button></th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div style="float:left;margin-left:30px;">
+                    <form action="" method="post">
+                        <table>
+                            <tr>
+                                <th>
+                                    <select name="thongtin_sort">
+                                        <option value="0">Mã khách hàng</option>
+                                        <option value="1">Tên khách hàng</option>
+                                        <option value="2">Ngày sinh</option>
+                                    </select>
+                                </th>
+                                <th><button type="submit" class="btn btn-success" style="width:auto;">Sort</button></th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <table class="table" style="border:1px;">
+                    <tr class="tr" style="background-color: #666666">
+                        <th style="color:white">STT</th>
+                        <th style="color:white">Mã khách hàng</th>
+                        <th style="color:white">Tên khách hàng</th>
+                        <th style="color:white">Số điện thoại</th>
+                        <th style="color:white">Edit</th>
+                        <th style="color:white">Delete</th>
+                        <th style="color:white">Xem chi tiết</th>
+                    </tr>
+
+                    <tr>
+                        <td style="color:black">Trí Nguyễn</td>
+                        <td style="color:black">Trí Nguyễn</td>
+                        <td style="color:black">Trí Nguyễn</td>
+                        <td style="color:black">Trí Nguyễn</td>
+                        <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                        <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
+                        <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
+                    </tr>
+                </table>
+                <div class="footer">
+                    <div class="wrapper">	
+                        <div class="section group">
+                            <div class="col_1_of_4 span_1_of_4">
+                                <h4>Information</h4>
                                 <ul>
-                                    <li><a href="#">Text of the printing</a></li>
-                                    <li><a href="#">Lorem Ipsum has been the standard</a></li>
-                                    <li><a href="#">Dummy text ever since the 1500s</a></li>
-                                    <li><a href="#">Unknown printer took a galley</a></li>
-                                    <li><a href="#">Led it to make a type specimen</a></li>
-                                    <li><a href="#">Not only five centuries</a></li>
-                                    <li><a href="#">Electronic typesetting</a></li>
-                                    <li><a href="#">Unchanged. It was popularised</a></li>
-                                    <li><a href="#">Sheets containing Lorem Ipsume</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Customer Service</a></li>
+                                    <li><a href="#"><span>Advanced Search</span></a></li>
+                                    <li><a href="#">Orders and Returns</a></li>
+                                    <li><a href="#"><span>Contact Us</span></a></li>
                                 </ul>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <div class="col_1_of_4 span_1_of_4">
+                                <h4>Why buy from us</h4>
+                                <ul>
+                                    <li><a href="about.jsp">About Us</a></li>
+                                    <li><a href="faq.jsp">Customer Service</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="contact.jsp"><span>Site Map</span></a></li>
+                                    <li><a href="preview-2.jsp"><span>Search Terms</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="col_1_of_4 span_1_of_4">
+                                <h4>My account</h4>
+                                <ul>
+                                    <li><a href="contact.jsp">Sign In</a></li>
+                                    <li><a href="index.jsp">View Cart</a></li>
+                                    <li><a href="#">My Wishlist</a></li>
+                                    <li><a href="#">Track My Order</a></li>
+                                    <li><a href="faq.jsp">Help</a></li>
+                                </ul>
+                            </div>
+                            <div class="col_1_of_4 span_1_of_4">
+                                <h4>Contact</h4>
+                                <ul>
+                                    <li><span>+91-123-456789</span></li>
+                                    <li><span>+00-123-000000</span></li>
+                                </ul>
+                                <div class="social-icons">
+                                    <h4>Follow Us</h4>
+                                    <ul>
+                                        <li class="facebook"><a href="#" target="_blank"> </a></li>
+                                        <li class="twitter"><a href="#" target="_blank"> </a></li>
+                                        <li class="googleplus"><a href="#" target="_blank"> </a></li>
+                                        <li class="contact"><a href="#" target="_blank"> </a></li>
+                                        <div class="clear"></div>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <h2>OUR TEAM</h2>
-                    <div class="section group">
-                        <div class="grid_1_of_5 images_1_of_5">					
-                            <img src="Assets/images/team1.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team3.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team4.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="wrapper">	
-                <div class="section group">
-                    <div class="col_1_of_4 span_1_of_4">
-                        <h4>Information</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#"><span>Advanced Search</span></a></li>
-                            <li><a href="#">Orders and Returns</a></li>
-                            <li><a href="#"><span>Contact Us</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_4 span_1_of_4">
-                        <h4>Why buy from us</h4>
-                        <ul>
-                            <li><a href="about.jsp">About Us</a></li>
-                            <li><a href="faq.jsp">Customer Service</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="contact.jsp"><span>Site Map</span></a></li>
-                            <li><a href="preview-2.jsp"><span>Search Terms</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_4 span_1_of_4">
-                        <h4>My account</h4>
-                        <ul>
-                            <li><a href="contact.jsp">Sign In</a></li>
-                            <li><a href="index.jsp">View Cart</a></li>
-                            <li><a href="#">My Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="faq.jsp">Help</a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_4 span_1_of_4">
-                        <h4>Contact</h4>
-                        <ul>
-                            <li><span>+91-123-456789</span></li>
-                            <li><span>+00-123-000000</span></li>
-                        </ul>
-                        <div class="social-icons">
-                            <h4>Follow Us</h4>
-                            <ul>
-                                <li class="facebook"><a href="#" target="_blank"> </a></li>
-                                <li class="twitter"><a href="#" target="_blank"> </a></li>
-                                <li class="googleplus"><a href="#" target="_blank"> </a></li>
-                                <li class="contact"><a href="#" target="_blank"> </a></li>
-                                <div class="clear"></div>
-                            </ul>
+                        <div class="copy_right">
+                            <p>&copy; 2013 Smart Store. All Rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a> </p>
                         </div>
                     </div>
                 </div>
-                <div class="copy_right">
-                    <p>&copy; 2013 Smart Store. All Rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a> </p>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-                                $(document).ready(function () {
-                                    /*
-                                     var defaults = {
-                                     containerID: 'toTop', // fading element id
-                                     containerHoverID: 'toTopHover', // fading element hover id
-                                     scrollSpeed: 1200,
-                                     easingType: 'linear' 
-                                     };
-                                     */
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        /*
+                         var defaults = {
+                         containerID: 'toTop', // fading element id
+                         containerHoverID: 'toTopHover', // fading element hover id
+                         scrollSpeed: 1200,
+                         easingType: 'linear' 
+                         };
+                         */
 
-                                    $().UItoTop({easingType: 'easeOutQuart'});
+                        $().UItoTop({easingType: 'easeOutQuart'});
 
-                                });
-        </script>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-    </body>
-</html>
+                    });
+                </script>
+                <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+                <link href="Assets/css/flexslider.css" rel='stylesheet' type='text/css' />
+                <script defer src="Assets/js/jquery.flexslider.js"></script>
+                <script type="text/javascript">
+                    $(function () {
+                        SyntaxHighlighter.all();
+                    });
+                    $(window).load(function () {
+                        $('.flexslider').flexslider({
+                            animation: "slide",
+                            start: function (slider) {
+                                $('body').removeClass('loading');
+                            }
+                        });
+                    });
+                </script>
+                </body>
+                </html>
 

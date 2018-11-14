@@ -14,12 +14,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+        <script src="Assets/js/jquery.min.js"></script>
         <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
-        <script src="Assets/js/jquery.min.js"></script>
-        <script src="Assets/js/script.js" type="text/javascript"></script>
-        <script type="text/javascript" src="Assets/js/move-top.js"></script>
-        <script type="text/javascript" src="Assets/js/easing.js"></script>
+        <script src="Assets/js/script.js" type="text/javascript"></script> 
+
     </head>
     <body>
         <div class="wrap">
@@ -31,9 +30,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="header_top_right">
                         <div class="search_box">
                             <form>
-                                <input type="text" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'Search for Products';
-                                        }"><input type="submit" value="SEARCH">
+                                <input type="text" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search for Products'; }"><input type="submit" value="SEARCH">
                             </form>
                         </div>
                         <div class="shopping_cart">
@@ -78,31 +75,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <script type="text/javascript">
                                 function DropDown(el) {
-                                    this.dd = el;
-                                    this.initEvents();
+                                this.dd = el;
+                                this.initEvents();
                                 }
                                 DropDown.prototype = {
-                                    initEvents: function () {
-                                        var obj = this;
-
-                                        obj.dd.on('click', function (event) {
-                                            $(this).toggleClass('active');
-                                            event.stopPropagation();
-                                        });
-                                    }
+                                initEvents : function() {
+                                var obj = this;
+                                obj.dd.on('click', function(event){
+                                $(this).toggleClass('active');
+                                event.stopPropagation();
+                                });
+                                }
                                 }
 
-                                $(function () {
+                                $(function() {
 
-                                    var dd = new DropDown($('#language'));
-
-                                    $(document).click(function () {
-                                        // all dropdowns
-                                        $('.wrapper-dropdown').removeClass('active');
-                                    });
-
+                                var dd = new DropDown($('#language'));
+                                $(document).click(function() {
+                                // all dropdowns
+                                $('.wrapper-dropdown').removeClass('active');
                                 });
-
+                                });
                             </script>
                         </div>
                         <div class="currency">
@@ -115,31 +108,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <script type="text/javascript">
                                 function DropDown(el) {
-                                    this.dd = el;
-                                    this.initEvents();
+                                this.dd = el;
+                                this.initEvents();
                                 }
                                 DropDown.prototype = {
-                                    initEvents: function () {
-                                        var obj = this;
-
-                                        obj.dd.on('click', function (event) {
-                                            $(this).toggleClass('active');
-                                            event.stopPropagation();
-                                        });
-                                    }
+                                initEvents : function() {
+                                var obj = this;
+                                obj.dd.on('click', function(event){
+                                $(this).toggleClass('active');
+                                event.stopPropagation();
+                                });
+                                }
                                 }
 
-                                $(function () {
+                                $(function() {
 
-                                    var dd = new DropDown($('#currency'));
-
-                                    $(document).click(function () {
-                                        // all dropdowns
-                                        $('.wrapper-dropdown').removeClass('active');
-                                    });
-
+                                var dd = new DropDown($('#currency'));
+                                $(document).click(function() {
+                                // all dropdowns
+                                $('.wrapper-dropdown').removeClass('active');
                                 });
-
+                                });
                             </script>
                         </div>
                         <div class="login">
@@ -149,12 +138,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="clear"></div>
                 </div>
-                 <div class="h_menu">
+                <div class="h_menu">
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="index.jsp">Trang chủ</a></li>
-                            <li class="activate"><a href="products.jsp">Sản phẩm</a>
+                            <li><a href="index.jsp">HOME</a></li>
+                            <li class="activate"><a href="products.jsp">Products</a>
                                 <ul class="sub-menu list-unstyled">
                                     <div class="nag-mother-list">
                                         <div class="navg-drop-main">
@@ -237,7 +226,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>
-                            <li><a href="products.jsp">Sản phẩm hàng đầu</a>			
+                            <li><a href="products.jsp">Top Brand</a>			
                                 <ul class="sub-menu list-unstyled sub-menu2">
                                     <div class="navg-drop-main">
                                         <div class="nav-drop nav-top-brand"> 
@@ -251,7 +240,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>		
-                            <li><a href="faq.jsp">Dịch vụ</a>
+                            <li><a href="faq.jsp">Services</a>
                                 <ul class="sub-menu list-unstyled sub-menu3">
                                     <div class="navg-drop-main">
                                         <div class="nav-drop"> 
@@ -281,9 +270,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>
-                            <li><a href="about.jsp">Giới thiệu</a></li>
+                            <li><a href="about.jsp">About</a></li>
+                            <li><a href="#">Delivery</a></li>
                             <li><a href="faq.jsp">Faqs</a></li>
-                            <li><a href="contact.jsp">Liên hệ</a></li>
+                            <li><a href="contact.jsp">CONTACT</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </nav> 
@@ -292,89 +282,172 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <div class="main">
                 <div class="content">
-                    <div class="section group">
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Who We Are</h3>
-                            <img src="Assets/images/about-img.jpg" alt="" />
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <div class="content_top">
+                        <div class="back-links">
+                            <p><a href="index.jsp">Home</a> >> <a href="#">Electronics</a></p>
                         </div>
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Our History</h3>
-                            <div class="history-desc">
-                                <div class="year"><p>1998 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2001 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2006 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2010 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="history-desc">
-                                <div class="year"><p>2013 -</p></div>
-                                <p class="history">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                                <div class="clear"></div>
-                            </div>
+                        <div class="sort">
+                            <p>Sort by:
+                                <select>
+                                    <option>Lowest Price</option>
+                                    <option>Highest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>Lowest Price</option>
+                                    <option>In Stock</option>  				   				
+                                </select>
+                            </p>
                         </div>
-                        <div class="col_1_of_3 span_1_of_3">
-                            <h3>Opportunities</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            <div class="list">
-                                <ul>
-                                    <li><a href="#">Text of the printing</a></li>
-                                    <li><a href="#">Lorem Ipsum has been the standard</a></li>
-                                    <li><a href="#">Dummy text ever since the 1500s</a></li>
-                                    <li><a href="#">Unknown printer took a galley</a></li>
-                                    <li><a href="#">Led it to make a type specimen</a></li>
-                                    <li><a href="#">Not only five centuries</a></li>
-                                    <li><a href="#">Electronic typesetting</a></li>
-                                    <li><a href="#">Unchanged. It was popularised</a></li>
-                                    <li><a href="#">Sheets containing Lorem Ipsume</a></li>
-                                </ul>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <div class="show">
+                            <p>Show:
+                                <select>
+                                    <option>4</option>
+                                    <option>8</option>
+                                    <option>12</option>
+                                    <option>16</option>
+                                    <option>20</option>
+                                    <option>In Stock</option>  				   				
+                                </select>
+                            </p>
                         </div>
+                        <div class="page-no">
+                            <p>Result Pages:<ul>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li>[<a href="#"> Next>>></a >]</li>
+                            </ul></p>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <h2>OUR TEAM</h2>
                     <div class="section group">
-                        <div class="grid_1_of_5 images_1_of_5">					
-                            <img src="Assets/images/team1.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="cont-desc span_1_of_2">				
+                            <div class="grid images_3_of_2">
+                                <img src="Assets/images/preview-img3.jpg" alt="" />
+                            </div>
+                            <div class="desc span_3_of_2">
+                                <h2>Lorem Ipsum is simply dummy text </h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>					
+                                <div class="price">
+                                    <p>Price: <span>$698.03</span></p>
+                                </div>
+                                <div class="available">
+                                    <p>Available Options :</p>
+                                    <ul>
+                                        <li>Color:
+                                            <select>
+                                                <option>Silver</option>
+                                                <option>Black</option>
+                                                <option>Dark Black</option>
+                                                <option>Red</option>
+                                            </select></li>
+                                        <li>Size:<select>
+                                                <option>Large</option>
+                                                <option>Medium</option>
+                                                <option>small</option>
+                                                <option>Large</option>
+                                                <option>small</option>
+                                            </select></li>
+                                        <li>Quality:<select>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select></li>
+                                    </ul>
+                                </div>
+                                <div class="share">
+                                    <p>Share Product :</p>
+                                    <ul>
+                                        <li><a href="#"><img src="Assets/images/youtube.png" alt=""></a></li>
+                                        <li><a href="#"><img src="Assets/images/facebook.png" alt=""></a></li>
+                                        <li><a href="#"><img src="Assets/images/twitter.png" alt=""></a></li>
+                                        <li><a href="#"><img src="Assets/images/linkedin.png" alt=""></a></li>
+                                    </ul>
+                                </div>
+                                <div class="add-cart">
+                                    <div class="rating">
+                                        <p>Rating:<img src="Assets/images/rating.png"><span>[3 of 5 Stars]</span></p>
+                                    </div>
+                                    <div class="button"><span><a href="#">Đặt hàng</a></span></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="product-desc">
+                                <h2>Product Details</h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            </div>
+                            <div class="product-tags">
+                                <h2>Product Tags</h2>
+                                <h4>Add Your Tags:</h4>
+                                <div class="input-box">
+                                    <input type="text" value="" />
+                                </div>
+                                <div class="button"><span><a href="#">Add Tags</a></span></div>
+                            </div>				
                         </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="rightsidebar span_3_of_1">
+                            <h2>CATEGORIES</h2>
+                            <ul>
+                                <li><a href="#">Mobile Phones</a></li>
+                                <li><a href="#">Desktop</a></li>
+                                <li><a href="#">Laptop</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Software</a></li>
+                                <li><a href="#">Sports & Fitness</a></li>
+                                <li><a href="#">Footwear</a></li>
+                                <li><a href="#">Jewellery</a></li>
+                                <li><a href="#">Clothing</a></li>
+                                <li><a href="#">Home Decor & Kitchen</a></li>
+                                <li><a href="#">Beauty & Healthcare</a></li>
+                                <li><a href="#">Toys, Kids & Babies</a></li>
+                            </ul>
+                            <div class="subscribe">
+                                <h2>Newsletters Signup</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.......</p>
+                                <div class="signup">
+                                    <form>
+                                        <input type="text" value="E-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';"><input type="submit" value="Sign up">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="community-poll">
+                                <h2>Community POll</h2>
+                                <p>What is the main reason for you to purchase products online?</p>
+                                <div class="poll">
+                                    <form>
+                                        <ul>
+                                            <li>
+                                                <input type="radio" name="vote" class="radio" value="1">
+                                                <span class="label"><label>More convenient shipping and delivery </label></span>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="vote" class="radio" value="2">
+                                                <span class="label"><label for="vote_2">Lower price</label></span>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="vote" class="radio"  value="3">
+                                                <span class="label"><label for="vote_3">Bigger choice</label></span>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="vote" class="radio"  value="5">
+                                                <span class="label"><label for="vote_5">Payments security </label></span>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="vote" class="radio" value="6">
+                                                <span class="label"><label for="vote_6">30-day Money Back Guarantee </label></span>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="vote" class="radio" value="7">
+                                                <span class="label"><label for="vote_7">Other.</label></span>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team3.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team4.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
-                            <h3>Lorem Ipsum is simply </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div>
                     </div>
                 </div>
             </div>
@@ -435,22 +508,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-                                $(document).ready(function () {
-                                    /*
-                                     var defaults = {
-                                     containerID: 'toTop', // fading element id
-                                     containerHoverID: 'toTopHover', // fading element hover id
-                                     scrollSpeed: 1200,
-                                     easingType: 'linear' 
-                                     };
-                                     */
-
-                                    $().UItoTop({easingType: 'easeOutQuart'});
-
-                                });
-        </script>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
     </body>
 </html>
 

@@ -10,21 +10,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>Free Smart Store Website Template | Contact :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css/menu.css" rel="stylesheet" type="text/css" media="all"/>
-<script src="js/jquery.min.js"></script>
+<link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="Assets/js/jquery.min.js"></script>
 <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script> 
+<script type="text/javascript" src="Assets/js/move-top.js"></script>
+<script type="text/javascript" src="Assets/js/easing.js"></script> 
 </head>
 <body>
   <div class="wrap">
 	<div class="header">
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt="" /></a>
+				<a href="index.jsp"><img src="Assets/images/logo.png" alt="" /></a>
 			</div>
 			  <div class="header_top_right">
 			    <div class="search_box">
@@ -47,27 +47,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<ul class="dropdown languges">					
 							 <li>
 							 	<a href="#" title="Français">
-									<span><img src="images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
+									<span><img src="Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
 								</a>
 							 </li>
 								<li>
 									<a href="#" title="Français">
-										<span><img src="images/au.png" alt="fr" width="26" height="26"></span><span class="lang">Français</span>
+										<span><img src="Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">Français</span>
 									</a>
 								</li>
 						<li>
 							<a href="#" title="Español">
-								<span><img src="images/bm.png" alt="es" width="26" height="26"></span><span class="lang">Español</span>
+								<span><img src="Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">Español</span>
 							</a>
 						</li>
 								<li>
 									<a href="#" title="Deutsch">
-										<span><img src="images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
+										<span><img src="Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
 									</a>
 								</li>
 						<li>
 							<a href="#" title="Russian">
-								<span><img src="images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
+								<span><img src="Assets/images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
 							</a>
 						</li>					
 				   </ul>
@@ -139,7 +139,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
    </div>
 		   <div class="login">
-		   	   <span><a href="login.html"><img src="images/login.png" alt="" title="login"/></a></span>
+		   	   <span><a href="login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
 		   </div>
 		 <div class="clear"></div>
 	   </div>
@@ -149,142 +149,142 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
 		<nav>
 		<ul class="menu list-unstyled">
-			<li><a href="index.html">HOME</a></li>
-			<li class="activate"><a href="products.html">Products</a>
+			<li><a href="index.jsp">HOME</a></li>
+			<li class="activate"><a href="products.jsp">Products</a>
 				<ul class="sub-menu list-unstyled">
 				 <div class="nag-mother-list">
 				   <div class="navg-drop-main">
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 1</a></li>
-						<li><a href="products.html">Product 2</a></li>
-						<li><a href="products.html">Product 3</a>
+						<li><a href="products.jsp">Product 1</a></li>
+						<li><a href="products.jsp">Product 2</a></li>
+						<li><a href="products.jsp">Product 3</a>
 						</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 1</a></li>
-						<li><a href="products.html">Product 2</a></li>
-						<li><a href="products.html">Product 3</a>
+						<li><a href="products.jsp">Product 1</a></li>
+						<li><a href="products.jsp">Product 2</a></li>
+						<li><a href="products.jsp">Product 3</a>
 								</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 1</a></li>
-						<li><a href="products.html">Product 2</a></li>
-						<li><a href="products.html">Product 3</a></li>
+						<li><a href="products.jsp">Product 1</a></li>
+						<li><a href="products.jsp">Product 2</a></li>
+						<li><a href="products.jsp">Product 3</a></li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 1</a></li>
-						<li><a href="products.html">Product 2</a></li>
-						<li><a href="products.html">Product 3</a></li>
+						<li><a href="products.jsp">Product 1</a></li>
+						<li><a href="products.jsp">Product 2</a></li>
+						<li><a href="products.jsp">Product 3</a></li>
 					</div>
 					<div class="clear"> </div>
 				</div>
 				<div class="navg-drop-main">
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a>
 		
 						</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a>
 								</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a></li>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a></li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a></li>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a></li>
 					</div>
 					<div class="clear"> </div>
 				 </div>
 				 <div class="navg-drop-main">
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a>
 		
 						</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a>
 								</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a></li>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a></li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a></li>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a></li>
 					</div>
 					<div class="clear"> </div>
 				 </div>
 				</div>
 			</ul>
 			</li>
-			<li><a href="products.html">Top Brand</a>			
+			<li><a href="products.jsp">Top Brand</a>			
 				<ul class="sub-menu list-unstyled sub-menu2">
 				  <div class="navg-drop-main">
 						<div class="nav-drop nav-top-brand"> 
-							<li><a href="products.html">Product 1</a></li>
-							<li><a href="products.html">Product 2</a></li>
-							<li><a href="products.html">Product 3</a></li>					
-							<li><a href="products.html">Product 4</a></li>
-						   <li><a href="products.html">Product 5</a></li>
-						   <li><a href="products.html">Product 6</a></li>
+							<li><a href="products.jsp">Product 1</a></li>
+							<li><a href="products.jsp">Product 2</a></li>
+							<li><a href="products.jsp">Product 3</a></li>					
+							<li><a href="products.jsp">Product 4</a></li>
+						   <li><a href="products.jsp">Product 5</a></li>
+						   <li><a href="products.jsp">Product 6</a></li>
 						</div>								
 					</div>
 				</ul>
 			</li>		
-			<li><a href="faq.html">Services</a>
+			<li><a href="faq.jsp">Services</a>
 				<ul class="sub-menu list-unstyled sub-menu3">
 				  <div class="navg-drop-main">
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a>
 		
 						</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a>
 								</li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a></li>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a></li>
 					</div>
 					<div class="nav-drop"> 
-						<li><a href="products.html">Product 4</a></li>
-						<li><a href="products.html">Product 5</a></li>
-						<li><a href="products.html">Product 6</a></li>
+						<li><a href="products.jsp">Product 4</a></li>
+						<li><a href="products.jsp">Product 5</a></li>
+						<li><a href="products.jsp">Product 6</a></li>
 					</div>
 					<div class="clear"> </div>
 				 </div>
 			  </ul>
 			</li>
-			<li><a href="about.html">About</a></li>
+			<li><a href="about.jsp">About</a></li>
 			<li><a href="#">Delivery</a></li>
-			<li><a href="faq.html">Faqs</a></li>
-			<li><a href="contact.html">CONTACT</a></li>
+			<li><a href="faq.jsp">Faqs</a></li>
+			<li><a href="contact.jsp">CONTACT</a></li>
 			<div class="clear"> </div>
 		</ul>
 		</nav> 
-		<script src="js/menu.js" type="text/javascript"></script>
+		<script src="Assets/js/menu.js" type="text/javascript"></script>
 		</div>
  </div>
  <div class="main">
@@ -295,7 +295,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   				<p><span>24 hours | 7 days a week | 365 days a year &nbsp;&nbsp; Live Technical Support</span></p>
   				<p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
   			</div>
-  				<img src="images/contact.png" alt="" />
+  				<img src="Assets/images/contact.png" alt="" />
   			<div class="clear"></div>
   		</div>
     	<div class="section group">
@@ -363,21 +363,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="faq.html">Customer Service</a></li>
+						<li><a href="about.jsp">About Us</a></li>
+						<li><a href="faq.jsp">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html"><span>Site Map</span></a></li>
-						<li><a href="preview-2.html"><span>Search Terms</span></a></li>
+						<li><a href="contact.jsp"><span>Site Map</span></a></li>
+						<li><a href="preview-2.jsp"><span>Search Terms</span></a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
+							<li><a href="contact.jsp">Sign In</a></li>
+							<li><a href="index.jsp">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="faq.html">Help</a></li>
+							<li><a href="faq.jsp">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
