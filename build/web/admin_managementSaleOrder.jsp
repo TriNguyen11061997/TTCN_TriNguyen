@@ -161,7 +161,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <script src="Assets/js/menu.js" type="text/javascript"></script>
                 </div>
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH ĐƠN HÀNG</h2>
                 </div>
                 <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">
