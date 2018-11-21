@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/Project_TTCN"/>
+<Context path="">
+    <Resource name="jdbc/TTCN" auth="Container"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/TTCN?autoReconnect=true"
+        username="root"
+        password="1106"
+        maxActive="100" maxIde="30" maxWait="10000"
+        logAbandoned="true" removeAbandoned="true"
+        removeAbandonedTimeOut="60" type="javax.sql.DataSource"/>
+</Context>
