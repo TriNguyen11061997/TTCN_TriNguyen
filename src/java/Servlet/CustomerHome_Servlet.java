@@ -12,10 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Trí Nguyễn
- */
 public class CustomerHome_Servlet extends HttpServlet {
 
     @Override

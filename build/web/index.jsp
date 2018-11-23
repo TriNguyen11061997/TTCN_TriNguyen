@@ -280,7 +280,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>
-                            <li><a href="about.jsp">Giới thiệu</a></li>
+                            <li><a href="Public/about.jsp">Giới thiệu</a></li>                           
                             <li><a href="faq.jsp">Faqs</a></li>
                             <li><a href="contact.jsp">Liên hệ</a></li>
                             <div class="clear"> </div>
