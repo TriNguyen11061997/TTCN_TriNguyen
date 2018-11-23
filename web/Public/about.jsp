@@ -11,22 +11,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <title>Smart phone store</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="../Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="../Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
         <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
-        <script src="Assets/js/jquery.min.js"></script>
-        <script src="Assets/js/script.js" type="text/javascript"></script>
-        <script type="text/javascript" src="Assets/js/move-top.js"></script>
-        <script type="text/javascript" src="Assets/js/easing.js"></script>
+        <script src="../Assets/js/jquery.min.js"></script>
+        <script src="../Assets/js/script.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../Assets/js/move-top.js"></script>
+        <script type="text/javascript" src="../Assets/js/easing.js"></script>
     </head>
     <body>
         <div class="wrap">
             <div class="header">
                 <div class="header_top">
                     <div class="logo">
-                        <a href="index.jsp"><img src="Assets/images/logo.png" alt="" /></a>
+                        <a href="index.jsp"><img src="../Assets/images/logo.png" alt="" /></a>
                     </div>
                     <div class="header_top_right">
                         <div class="search_box">
@@ -51,27 +51,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <ul class="dropdown languges">					
                                     <li>
                                         <a href="#" title="FranÃ§ais">
-                                            <span><img src="Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
+                                            <span><img src="../Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="FranÃ§ais">
-                                            <span><img src="Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">FranÃ§ais</span>
+                                            <span><img src="../Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">FranÃ§ais</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="EspaÃ±ol">
-                                            <span><img src="Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">EspaÃ±ol</span>
+                                            <span><img src="../Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">EspaÃ±ol</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="Deutsch">
-                                            <span><img src="Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
+                                            <span><img src="../Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="Russian">
-                                            <span><img src="Assets/images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
+                                            <span><img src="../Assets/images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
                                         </a>
                                     </li>					
                                 </ul>
@@ -143,19 +143,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </script>
                         </div>
                         <div class="login">
-                            <span><a href="login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
+                            <span><a href="login.jsp"><img src="../Assets/images/login.png" alt="" title="login"/></a></span>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
                 </div>
-                 <div class="h_menu">
+                <div class="h_menu">
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="index.jsp">Trang chủ</a></li>
+                            <li><a href="../index.jsp">Trang chủ</a></li>
                             <li class="activate"><a href="products.jsp">Sản phẩm</a>
-                                <ul class="sub-menu list-unstyled">
+                                <ul class="sub-menu list-unstyled">                                   
                                     <div class="nag-mother-list">
                                         <div class="navg-drop-main">
                                             <div class="nav-drop"> 
@@ -287,7 +287,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="clear"> </div>
                         </ul>
                     </nav> 
-                    <script src="Assets/js/menu.js" type="text/javascript"></script>
+                    <script src="../Assets/js/menu.js" type="text/javascript"></script>
                 </div>
             </div>
             <div class="main">
@@ -295,7 +295,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="section group">
                         <div class="col_1_of_3 span_1_of_3">
                             <h3>Who We Are</h3>
-                            <img src="Assets/images/about-img.jpg" alt="" />
+                            <img src="../Assets/images/about-img.jpg" alt="" />
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                         </div>
@@ -349,27 +349,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h2>OUR TEAM</h2>
                     <div class="section group">
                         <div class="grid_1_of_5 images_1_of_5">					
-                            <img src="Assets/images/team1.jpg" alt="" />
+                            <img src="../Assets/images/team1.jpg" alt="" />
                             <h3>Lorem Ipsum is simply </h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                         <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
+                            <img src="../Assets/images/team2.jpg" alt="" />
                             <h3>Lorem Ipsum is simply </h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                         <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team3.jpg" alt="" />
+                            <img src="../Assets/images/team3.jpg" alt="" />
                             <h3>Lorem Ipsum is simply </h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                         <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team4.jpg" alt="" />
+                            <img src="../Assets/images/team4.jpg" alt="" />
                             <h3>Lorem Ipsum is simply </h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                         <div class="grid_1_of_5 images_1_of_5">
-                            <img src="Assets/images/team2.jpg" alt="" />
+                            <img src="../Assets/images/team2.jpg" alt="" />
                             <h3>Lorem Ipsum is simply </h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
