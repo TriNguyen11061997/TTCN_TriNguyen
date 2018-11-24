@@ -10,5 +10,5 @@ package Info;
  * @author Trí Nguyễn
  */
 public class ICProductsInfo {
-    
+    private int ICProductID;
 }
