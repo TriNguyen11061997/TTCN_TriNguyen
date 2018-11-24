@@ -10,5 +10,7 @@ package Info;
  * @author Trí Nguyễn
  */
 public class ICProductDetailsInfo {
+    private String name1;
+    
     
 }
