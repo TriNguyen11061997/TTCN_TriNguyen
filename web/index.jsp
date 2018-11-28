@@ -153,7 +153,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <nav>
                         <ul class="menu list-unstyled">
                             <li><a href="index.jsp">Trang chủ</a></li>
-                            <li class="activate"><a href="products.jsp">Sản phẩm</a>
+                            <li class="activate"><a href="/index_servlet">Sản phẩm</a>
                                 <ul class="sub-menu list-unstyled">
                                     <div class="nag-mother-list">
                                         <div class="navg-drop-main">
