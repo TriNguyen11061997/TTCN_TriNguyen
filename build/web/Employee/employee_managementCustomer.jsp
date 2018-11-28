@@ -11,12 +11,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <title>Smart phone store</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
-        <script src="Assets/js/jquery.min.js"></script>
-        <script src="Assets/js/script.js" type="text/javascript"></script>
-        <script type="text/javascript" src="Assets/js/move-top.js"></script>
-        <script type="text/javascript" src="Assets/js/easing.js"></script>
+        <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="../Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+        <script src="../Assets/js/jquery.min.js"></script>
+        <script src="../Assets/js/script.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../Assets/js/move-top.js"></script>
+        <script type="text/javascript" src="../Assets/js/easing.js"></script>
         <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,7 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
-        <link href="Assets/css/appointment_style.css" rel="stylesheet" type="text/css"/>
+        <link href="../Assets/css/appointment_style.css" rel="stylesheet" type="text/css"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
     </head>
     <body>
@@ -32,7 +32,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="header">
                 <div class="header_top">
                     <div class="logo">
-                        <a href="index.jsp"><img src="Assets/images/logo.png" alt="" /></a>
+                        <a href="index.jsp"><img src="../Assets/images/logo.png" alt="" /></a>
                     </div>
                     <div class="header_top_right">
                         <div class="search_box">
@@ -48,27 +48,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <ul class="dropdown languges">					
                                     <li>
                                         <a href="#" title="FranÃ§ais">
-                                            <span><img src="Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
+                                            <span><img src="../Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="FranÃ§ais">
-                                            <span><img src="Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">FranÃ§ais</span>
+                                            <span><img src="../Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">FranÃ§ais</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="EspaÃ±ol">
-                                            <span><img src="Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">EspaÃ±ol</span>
+                                            <span><img src="../Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">EspaÃ±ol</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="Deutsch">
-                                            <span><img src="Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
+                                            <span><img src="../Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="Russian">
-                                            <span><img src="Assets/images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
+                                            <span><img src="../Assets/images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
                                         </a>
                                     </li>					
                                 </ul>
@@ -140,7 +140,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </script>
                         </div>
                         <div class="login">
-                            <span><a href="login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
+                            <span><a href="login.jsp"><img src="../Assets/images/login.png" alt="" title="login"/></a></span>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -151,88 +151,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <nav>
                         <ul class="menu list-unstyled">
                             <li><a href="index.jsp">Trang chủ</a></li>
-                            <li class="activate"><a href="products.jsp">Sản phẩm</a>
-                                <ul class="sub-menu list-unstyled">
-                                    <div class="nag-mother-list">
-                                        <div class="navg-drop-main">
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 1</a></li>
-                                                <li><a href="products.jsp">Product 2</a></li>
-                                                <li><a href="products.jsp">Product 3</a>
-                                                </li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 1</a></li>
-                                                <li><a href="products.jsp">Product 2</a></li>
-                                                <li><a href="products.jsp">Product 3</a>
-                                                </li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 1</a></li>
-                                                <li><a href="products.jsp">Product 2</a></li>
-                                                <li><a href="products.jsp">Product 3</a></li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 1</a></li>
-                                                <li><a href="products.jsp">Product 2</a></li>
-                                                <li><a href="products.jsp">Product 3</a></li>
-                                            </div>
-                                            <div class="clear"> </div>
-                                        </div>
-                                        <div class="navg-drop-main">
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a>
-
-                                                </li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a>
-                                                </li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a></li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a></li>
-                                            </div>
-                                            <div class="clear"> </div>
-                                        </div>
-                                        <div class="navg-drop-main">
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a>
-
-                                                </li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a>
-                                                </li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a></li>
-                                            </div>
-                                            <div class="nav-drop"> 
-                                                <li><a href="products.jsp">Product 4</a></li>
-                                                <li><a href="products.jsp">Product 5</a></li>
-                                                <li><a href="products.jsp">Product 6</a></li>
-                                            </div>
-                                            <div class="clear"> </div>
-                                        </div>
-                                    </div>
-                                </ul>
+                            <li class="activate"><a href="/CustomerHome_Servlet">Quản lý khách hàng</a>
                             </li>
                             <li><a href="products.jsp">Sản phẩm hàng đầu</a>			
                                 <ul class="sub-menu list-unstyled sub-menu2">
@@ -249,34 +168,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 </ul>
                             </li>		
                             <li><a href="faq.jsp">Dịch vụ</a>
-                                <ul class="sub-menu list-unstyled sub-menu3">
-                                    <div class="navg-drop-main">
-                                        <div class="nav-drop"> 
-                                            <li><a href="products.jsp">Product 4</a></li>
-                                            <li><a href="products.jsp">Product 5</a></li>
-                                            <li><a href="products.jsp">Product 6</a>
-
-                                            </li>
-                                        </div>
-                                        <div class="nav-drop"> 
-                                            <li><a href="products.jsp">Product 4</a></li>
-                                            <li><a href="products.jsp">Product 5</a></li>
-                                            <li><a href="products.jsp">Product 6</a>
-                                            </li>
-                                        </div>
-                                        <div class="nav-drop"> 
-                                            <li><a href="products.jsp">Product 4</a></li>
-                                            <li><a href="products.jsp">Product 5</a></li>
-                                            <li><a href="products.jsp">Product 6</a></li>
-                                        </div>
-                                        <div class="nav-drop"> 
-                                            <li><a href="products.jsp">Product 4</a></li>
-                                            <li><a href="products.jsp">Product 5</a></li>
-                                            <li><a href="products.jsp">Product 6</a></li>
-                                        </div>
-                                        <div class="clear"> </div>
-                                    </div>
-                                </ul>
                             </li>
                             <li><a href="about.jsp">Giới thiệu</a></li>
                             <li><a href="faq.jsp">Faqs</a></li>
@@ -284,7 +175,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="clear"> </div>
                         </ul>
                     </nav> 
-                    <script src="Assets/js/menu.js" type="text/javascript"></script>
+                    <script src="../Assets/js/menu.js" type="text/javascript"></script>
                 </div>
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
@@ -409,8 +300,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     });
                 </script>
                 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-                <link href="Assets/css/flexslider.css" rel='stylesheet' type='text/css' />
-                <script defer src="Assets/js/jquery.flexslider.js"></script>
+                <link href="../Assets/css/flexslider.css" rel='stylesheet' type='text/css' />
+                <script defer src="../Assets/js/jquery.flexslider.js"></script>
                 <script type="text/javascript">
                     $(function () {
                         SyntaxHighlighter.all();
