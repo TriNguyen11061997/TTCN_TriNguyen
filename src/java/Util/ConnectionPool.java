@@ -19,16 +19,21 @@ import javax.sql.DataSource;
 
 public class ConnectionPool {
 
+    
+    
     public static Connection getConnection() {
         try {
             InitialContext ctx = new InitialContext();
             DataSource ds
-                    = (DataSource) ctx.lookup("java:comp/env/jdbc/TTCN");
+                    = (DataSource) ctx.lookup("java:comp/env/jdbc/ttcn");
             return ds.getConnection();
         } catch (NamingException ex) {
             return null;
         } catch (SQLException ex) {
             return null;
         }
+    }
+    public static void main(String[] args) {
+        System.out.println(getConnection());
     }
 }
