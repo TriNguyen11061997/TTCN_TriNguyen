@@ -12,6 +12,7 @@ import java.sql.Date;
  * @author Trí Nguyễn
  */
 public class ARSaleOrdersInfo {
+
     int ARSaleOrderID;
     Date AACreatedDate;
     String AACreatedUser;
@@ -34,11 +35,13 @@ public class ARSaleOrdersInfo {
     Double ARSaleOrderTotalAmount;
     String ARSaleOrderPaymentMethod;
     String ARSaleOrderPaymentStatus;
+    ARCustomersInfo customer;
+    HREmployeesInfo employee;
 
     public ARSaleOrdersInfo() {
     }
 
-    public ARSaleOrdersInfo(int ARSaleOrderID, Date AACreatedDate, String AACreatedUser, Date AAUpdatedDate, String AAUpdatedUser, String AAStatus, int FK_ARCustomerID, int FK_HREmployeeID, String ARSaleOrderNo, String ARSaleOrderName, String ARSaleOrderDesc, String ARSaleOrderComment, String ARSaleOrderStatus, Date ARSaleOrderDate, Double ARSaleOrderDiscountPerCent, Double ARSaleOrderDiscountAmount, Double ARSaleOrderTaxPercent, Double ARSaleOrderTaxAmount, Double ARSaleOrderShippingFees, Double ARSaleOrderTotalAmount, String ARSaleOrderPaymentMethod, String ARSaleOrderPaymentStatus) {
+    public ARSaleOrdersInfo(int ARSaleOrderID, Date AACreatedDate, String AACreatedUser, Date AAUpdatedDate, String AAUpdatedUser, String AAStatus, int FK_ARCustomerID, int FK_HREmployeeID, String ARSaleOrderNo, String ARSaleOrderName, String ARSaleOrderDesc, String ARSaleOrderComment, String ARSaleOrderStatus, Date ARSaleOrderDate, Double ARSaleOrderDiscountPerCent, Double ARSaleOrderDiscountAmount, Double ARSaleOrderTaxPercent, Double ARSaleOrderTaxAmount, Double ARSaleOrderShippingFees, Double ARSaleOrderTotalAmount, String ARSaleOrderPaymentMethod, String ARSaleOrderPaymentStatus, ARCustomersInfo customer, HREmployeesInfo employee) {
         this.ARSaleOrderID = ARSaleOrderID;
         this.AACreatedDate = AACreatedDate;
         this.AACreatedUser = AACreatedUser;
@@ -61,6 +64,8 @@ public class ARSaleOrdersInfo {
         this.ARSaleOrderTotalAmount = ARSaleOrderTotalAmount;
         this.ARSaleOrderPaymentMethod = ARSaleOrderPaymentMethod;
         this.ARSaleOrderPaymentStatus = ARSaleOrderPaymentStatus;
+        this.customer = customer;
+        this.employee = employee;
     }
 
     public int getARSaleOrderID() {
@@ -238,6 +243,21 @@ public class ARSaleOrdersInfo {
     public void setARSaleOrderPaymentStatus(String ARSaleOrderPaymentStatus) {
         this.ARSaleOrderPaymentStatus = ARSaleOrderPaymentStatus;
     }
-    
-    
+
+    public ARCustomersInfo getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(ARCustomersInfo customer) {
+        this.customer = customer;
+    }
+
+    public HREmployeesInfo getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(HREmployeesInfo employee) {
+        this.employee = employee;
+    }
+
 }
