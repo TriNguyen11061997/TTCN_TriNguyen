@@ -250,7 +250,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>		
-                            <li><a href="faq.jsp">Dịch vụ</a>
+                            <li><a href="Employee/employee_Home.jsp">Dịch vụ</a>
                                 <ul class="sub-menu list-unstyled sub-menu3">
                                     <div class="navg-drop-main">
                                         <div class="nav-drop"> 
