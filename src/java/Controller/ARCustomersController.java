@@ -5,10 +5,41 @@
  */
 package Controller;
 
+import Info.ARCustomersInfo;
+import Util.ConnectionPool;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Trí Nguyễn
  */
 public class ARCustomersController {
-    
+
+    Connection conn;
+    PreparedStatement sttm;
+    ResultSet rs;
+
+    public ARCustomersController() {
+        conn = ConnectionPool.getConnection();
+    }
+
+    public List<ARCustomersInfo> GetALlObject() throws SQLException {
+        List<ARCustomersInfo> listARCustomersInfos = new ArrayList<>();
+        sttm = conn.prepareCall("CALL ARCustomers_GetALLObject()");
+        rs = sttm.executeQuery();
+        ARCustomersInfo objARCustomersInfo;
+        while (rs.next()) {
+            objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerID(rs.getInt("ARCustomerID"));
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            objARCustomersInfo.setARCustomerNo(rs.getString("ARCustomerNo"));
+            listARCustomersInfos.add(objARCustomersInfo);
+        }
+        return listARCustomersInfos;
+    }
 }

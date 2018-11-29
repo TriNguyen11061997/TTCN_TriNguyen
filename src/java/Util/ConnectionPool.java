@@ -19,8 +19,6 @@ import javax.sql.DataSource;
 
 public class ConnectionPool {
 
-    
-    
     public static Connection getConnection() {
         try {
             InitialContext ctx = new InitialContext();
@@ -32,8 +30,5 @@ public class ConnectionPool {
         } catch (SQLException ex) {
             return null;
         }
-    }
-    public static void main(String[] args) {
-        System.out.println(getConnection());
     }
 }
