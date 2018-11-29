@@ -150,27 +150,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="index.jsp">Trang chủ</a></li>
-                            <li class="activate"><a href="/Employee_CustomerHome_Servlet">Quản lý khách hàng</a>
+                            <li><a href="employee_Home.jsp">Trang chủ</a></li>
+                            <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a>
                             </li>
-                            <li><a href="products.jsp">Sản phẩm hàng đầu</a>			
-                                <ul class="sub-menu list-unstyled sub-menu2">
-                                    <div class="navg-drop-main">
-                                        <div class="nav-drop nav-top-brand"> 
-                                            <li><a href="products.jsp">Product 1</a></li>
-                                            <li><a href="products.jsp">Product 2</a></li>
-                                            <li><a href="products.jsp">Product 3</a></li>					
-                                            <li><a href="products.jsp">Product 4</a></li>
-                                            <li><a href="products.jsp">Product 5</a></li>
-                                            <li><a href="products.jsp">Product 6</a></li>
-                                        </div>								
-                                    </div>
-                                </ul>
+                            <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
                             </li>		
-                            <li><a href="faq.jsp">Dịch vụ</a>
+                            <li><a href="faq.jsp">Hóa đơn bán hàng</a>
                             </li>
-                            <li><a href="about.jsp">Giới thiệu</a></li>
-                            <li><a href="faq.jsp">Faqs</a></li>
+                            <li><a href="about.jsp">Bình luận</a></li>
+                            <li><a href="faq.jsp">Bài đăng</a></li>
                             <li><a href="contact.jsp">Liên hệ</a></li>
                             <div class="clear"> </div>
                         </ul>

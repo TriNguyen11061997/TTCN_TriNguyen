@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>Employee_SaleOrderHome_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_SaleOrderHome_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin_SaleOrderHome_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_SaleOrderHome_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerHome_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_SaleOrderHome_Servlet</servlet-name>
+        <url-pattern>/Employee_SaleOrderHome_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_SaleOrderHome_Servlet</servlet-name>
+        <url-pattern>/Admin_SaleOrderHome_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
