@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -150,16 +151,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="admin_Home.jsp">Trang chủ</a></li>
-                            <li class="activate"><a href="/Admin_CustomerHome_Servlet">Nhân viên</a>
+                            <li><a href="Employee/employee_Home.jsp">Trang chủ</a></li>
+                            <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a>
                             </li>
-                            <li><a href="/Admin_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
+                            <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
                             </li>		
-                            <li><a href="faq.jsp">Hóa đơn bán hàng</a>
+                            <li><a href="">Hóa đơn bán hàng</a>
                             </li>
-                            <li><a href="about.jsp">Doanh thu</a></li>
-                            <li><a href="faq.jsp">Tính lương</a></li>
-                            <li><a href="contact.jsp">Liên hệ</a></li>
+                            <li><a href="">Bình luận</a></li>
+                            <li><a href="">Bài đăng</a></li>
+                            <li><a href="">Liên hệ</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </nav> 
@@ -198,23 +199,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
                         <th style="color:white">STT</th>
-                        <th style="color:white">Mã khách hàng</th>
-                        <th style="color:white">Tên khách hàng</th>
+                        <th style="color:white">Mã đơn hàng</th>
+                        <th style="color:white">Tên đơn hàng</th>
                         <th style="color:white">Số điện thoại</th>
                         <th style="color:white">Edit</th>
                         <th style="color:white">Delete</th>
                         <th style="color:white">Xem chi tiết</th>
                     </tr>
-
-                    <tr>
-                        <td style="color:black">Trí Nguyễn</td>
-                        <td style="color:black">Trí Nguyễn</td>
-                        <td style="color:black">Trí Nguyễn</td>
-                        <td style="color:black">Trí Nguyễn</td>
-                        <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                        <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-                        <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
-                    </tr>
+                    <c:forEach var="saleOrder" items = "${listSaleOrder}">                     
+                        <tr>
+                            <td style="color:black">${saleOrder.ARSaleOrderID}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderNo}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderName}</td>
+                            <td style="color:black">Trí Nguyễn</td>
+                            <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
+                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
+                        </tr>
+                    </c:forEach>
                 </table>
                 <div class="footer">
                     <div class="wrapper">	
