@@ -1,9 +1,3 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -142,7 +136,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </script>
                         </div>
                         <div class="login">
-                            <span><a href="login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
+                            <span><a href="Public/login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
                         </div>
                         <div class="clear"></div>
                     </div>

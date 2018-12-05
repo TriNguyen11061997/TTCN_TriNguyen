@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Trí Nguyễn
  */
-public class Admin_SaleOrderHome_Servlet extends HttpServlet {
+public class Admin_SaleOrderManagement_Servlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +38,7 @@ public class Admin_SaleOrderHome_Servlet extends HttpServlet {
                 request.getRequestDispatcher("Admin/admin_SaleOrderManagement.jsp").include(request, response);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Employee_SaleOrderHome_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Employee_SaleOrderManagement_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

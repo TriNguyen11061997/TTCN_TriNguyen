@@ -5,11 +5,12 @@
  */
 package Servlet;
 
-import Controller.ARSaleOrdersController;
-import Info.ARSaleOrdersInfo;
+import Controller.ARCustomersController;
+import Info.ARCustomersInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,9 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Trí Nguyễn
  */
-public class Employee_SaleOrderHome_Servlet extends HttpServlet {
+public class Employee_CustomerManagement_Servlet extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,14 +32,13 @@ public class Employee_SaleOrderHome_Servlet extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
-            ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
-            List<ARSaleOrdersInfo> listSaleOrder = objARSaleOrdersController.GetAllObjectForEmployee();
-            if (listSaleOrder.size() > 0) {
-                request.setAttribute("listSaleOrder", listSaleOrder);
-                request.getRequestDispatcher("Employee/employee_SaleOrderManagement.jsp").include(request, response);
-            }
+            ARCustomersController objARCustomersController = new ARCustomersController();
+            List<ARCustomersInfo> listCustomer =  new ArrayList<>();
+            listCustomer = objARCustomersController.GetALlObject();
+            request.setAttribute("listCustomer", listCustomer);
+            request.getRequestDispatcher("Employee/employee_CustomerManagement.jsp").include(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(Employee_SaleOrderHome_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Employee_CustomerManagement_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
