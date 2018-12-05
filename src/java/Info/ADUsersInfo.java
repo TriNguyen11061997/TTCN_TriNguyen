@@ -12,7 +12,7 @@ import java.sql.Date;
  * @author Trí Nguyễn
  */
 public class ADUsersInfo {
-    
+
     private int ADUserID;
     private String AAStatus;
     private String AACreatedUser;
@@ -21,17 +21,17 @@ public class ADUsersInfo {
     private Date AAUpdatedDate;
     private int FK_HREmployeeID;
     private int FK_ADUserGroupID;
-    private int ADUserName;
-    private Date ADPassword;
-    private String ADUserActiveCheck;
+    private String ADUserName;
+    private String ADPassword;
+    private int ADUserActiveCheck;
     private String ADUserResetToken;
     private HREmployeesInfo HREmployee;
-    private  ADUserGroupsInfo ADUserGroup;
+    private ADUserGroupsInfo ADUserGroup;
 
     public ADUsersInfo() {
     }
 
-    public ADUsersInfo(int ADUserID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, int FK_HREmployeeID, int FK_ADUserGroupID, int ADUserName, Date ADPassword, String ADUserActiveCheck, String ADUserResetToken, HREmployeesInfo HREmployee, ADUserGroupsInfo ADUserGroup) {
+    public ADUsersInfo(int ADUserID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, int FK_HREmployeeID, int FK_ADUserGroupID, String ADUserName, String ADPassword, int ADUserActiveCheck, String ADUserResetToken, HREmployeesInfo HREmployee, ADUserGroupsInfo ADUserGroup) {
         this.ADUserID = ADUserID;
         this.AAStatus = AAStatus;
         this.AACreatedUser = AACreatedUser;
@@ -112,27 +112,27 @@ public class ADUsersInfo {
         this.FK_ADUserGroupID = FK_ADUserGroupID;
     }
 
-    public int getADUserName() {
+    public String getADUserName() {
         return ADUserName;
     }
 
-    public void setADUserName(int ADUserName) {
+    public void setADUserName(String ADUserName) {
         this.ADUserName = ADUserName;
     }
 
-    public Date getADPassword() {
+    public String getADPassword() {
         return ADPassword;
     }
 
-    public void setADPassword(Date ADPassword) {
+    public void setADPassword(String ADPassword) {
         this.ADPassword = ADPassword;
     }
 
-    public String getADUserActiveCheck() {
+    public int getADUserActiveCheck() {
         return ADUserActiveCheck;
     }
 
-    public void setADUserActiveCheck(String ADUserActiveCheck) {
+    public void setADUserActiveCheck(int ADUserActiveCheck) {
         this.ADUserActiveCheck = ADUserActiveCheck;
     }
 
@@ -159,9 +159,5 @@ public class ADUsersInfo {
     public void setADUserGroup(ADUserGroupsInfo ADUserGroup) {
         this.ADUserGroup = ADUserGroup;
     }
-    
-    
-    
-    
     
 }

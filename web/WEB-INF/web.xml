@@ -2,11 +2,11 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>Employee_SaleOrderHome_Servlet</servlet-name>
-        <servlet-class>Servlet.Employee_SaleOrderHome_Servlet</servlet-class>
+        <servlet-class>Servlet.Employee_SaleOrderManagement_Servlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Admin_SaleOrderHome_Servlet</servlet-name>
-        <servlet-class>Servlet.Admin_SaleOrderHome_Servlet</servlet-class>
+        <servlet-class>Servlet.Admin_SaleOrderManagement_Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
@@ -31,7 +31,7 @@
     </servlet>
     <servlet>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
-        <servlet-class>Servlet.Employee_CustomerHome_Servlet</servlet-class>
+        <servlet-class>Servlet.Employee_CustomerManagement_Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>About_Servlet</servlet-name>
@@ -67,7 +67,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Login_Servlet</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <url-pattern>/Login_Servlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Preview_Servlet</servlet-name>
