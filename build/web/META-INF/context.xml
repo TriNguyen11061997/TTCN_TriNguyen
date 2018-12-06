@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="">
-    <Resource name="jdbc/ttcn" auth="Container"
+    <Resource name="jdbc/sql12268549" auth="Container"
         driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost:3306/ttcn?autoReconnect=true"
-        username="root"
-        password="1106"
+        url="jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12268549?autoReconnect=true"
+        username="sql12268549"
+        password="IAL7GG3CYu"
         maxActive="100" maxIde="30" maxWait="10000"
         logAbandoned="true" removeAbandoned="true"
         removeAbandonedTimeOut="60" type="javax.sql.DataSource"/>

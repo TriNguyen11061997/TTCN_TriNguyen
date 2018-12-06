@@ -36,17 +36,17 @@ public class Index_Servlet extends HttpServlet {
         @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            List<ICProductsInfo> listPro = null;
-            listPro = ProductDAO.getListProduct();
-            request.setAttribute("listPro", listPro);
-            
-             RequestDispatcher rd = request.getRequestDispatcher("/Public/products.jsp");
+      
+//            List<ICProductsInfo> listPro = null;
+//            listPro = ProductDAO.getListProduct();
+//            request.setAttribute("listPro", listPro);
+//            
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
 
-        } catch (SQLException ex) {
-            Logger.getLogger(Index_Servlet.class.getName()).log(Level.SEVERE, null, ex);
-     }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Index_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+//     }
         
            }
 

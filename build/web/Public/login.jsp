@@ -1,37 +1,32 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <title>Free Smart Store Website Template | login :: w3layouts</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-        <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
-        <script src="Assets/js/jquery.min.js"></script>
+        <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="../Assets/css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="../Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+        <script src="../Assets/js/jquery.min.js"></script>
         <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="Assets/js/move-top.js"></script>
-        <script type="text/javascript" src="Assets/js/easing.js"></script> 
+        <script type="text/javascript" src="../Assets/js/move-top.js"></script>
+        <script type="text/javascript" src="../Assets/js/easing.js"></script> 
     </head>
     <body>
         <div class="wrap">
             <div class="header">
                 <div class="header_top">
                     <div class="logo">
-                        <a href="index.jsp"><img src="Assets/images/logo.png" alt="" /></a>
+                        <a href="index.jsp"><img src="../Assets/images/logo.png" alt="" /></a>
                     </div>
                     <div class="header_top_right">
                         <div class="search_box">
                             <form>
                                 <input type="text" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Search for Products';
-                                                }"><input type="submit" value="SEARCH">
+                                            this.value = 'Search for Products';
+                                        }"><input type="submit" value="SEARCH">
                             </form>
                         </div>
                         <div class="shopping_cart">
@@ -48,28 +43,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <strong class="opencart"> </strong>
                                 <ul class="dropdown languges">					
                                     <li>
-                                        <a href="#" title="Français">
-                                            <span><img src="Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
+                                        <a href="#" title="FranÃ§ais">
+                                            <span><img src="../Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">English</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="Français">
-                                            <span><img src="Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">Français</span>
+                                        <a href="#" title="FranÃ§ais">
+                                            <span><img src="../Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">FranÃ§ais</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="Español">
-                                            <span><img src="Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">Español</span>
+                                        <a href="#" title="EspaÃ±ol">
+                                            <span><img src="../Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">EspaÃ±ol</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="Deutsch">
-                                            <span><img src="Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
+                                            <span><img src="../Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Deutsch</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="Russian">
-                                            <span><img src="Assets/images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
+                                            <span><img src="../Assets/images/cu.png" alt="ru" width="26" height="26"></span><span class="lang">Russian</span>
                                         </a>
                                     </li>					
                                 </ul>
@@ -108,7 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <strong class="opencart"> </strong>
                                 <ul class="dropdown">
                                     <li><a href="#"><span>$</span>Dollar</a></li>
-                                    <li><a href="#"><span>€</span>Euro</a></li>
+                                    <li><a href="#"><span>â¬</span>Euro</a></li>
                                 </ul>
                             </div>
                             <script type="text/javascript">
@@ -141,7 +136,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </script>
                         </div>
                         <div class="login">
-                            <span><a href="login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
+                            <span><a href="login.jsp"><img src="../Assets/images/login.png" alt="" title="login"/></a></span>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -151,8 +146,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="index.jsp">HOME</a></li>
-                            <li class="activate"><a href="products.jsp">Products</a>
+                            <li><a href="index.jsp">Trang chủ</a></li>
+                            <li class="activate"><a href="/index_servlet">Sản phẩm</a>
                                 <ul class="sub-menu list-unstyled">
                                     <div class="nag-mother-list">
                                         <div class="navg-drop-main">
@@ -235,7 +230,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>
-                            <li><a href="products.jsp">Top Brand</a>			
+                            <li><a href="products.jsp">Sản phẩm hàng đầu</a>			
                                 <ul class="sub-menu list-unstyled sub-menu2">
                                     <div class="navg-drop-main">
                                         <div class="nav-drop nav-top-brand"> 
@@ -249,7 +244,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>		
-                            <li><a href="faq.jsp">Services</a>
+                            <li><a href="Employee/employee_Home.jsp">Dịch vụ</a>
                                 <ul class="sub-menu list-unstyled sub-menu3">
                                     <div class="navg-drop-main">
                                         <div class="nav-drop"> 
@@ -279,10 +274,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </ul>
                             </li>
-                            <li><a href="about.jsp">About</a></li>
-                            <li><a href="#">Delivery</a></li>
+                            <li><a href="Public/about.jsp">Giới thiệu</a></li>                           
                             <li><a href="faq.jsp">Faqs</a></li>
-                            <li><a href="contact.jsp">CONTACT</a></li>
+                            <li><a href="contact.jsp">Liên hệ</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </nav> 
@@ -293,7 +287,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="section group">
                             <div class="listview_1_of_2 images_1_of_2">
                                 <div class="listimg listimg_2_of_1">
-                                    <a href="preview.jsp"> <img src="Assets/images/pic4.png" alt="" /></a>
+                                    <a href="preview.jsp"> <img src="../Assets/images/pic4.png" alt="" /></a>
                                 </div>
                                 <div class="text list_2_of_1">
                                     <h2>Iphone</h2>
@@ -303,7 +297,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>			
                             <div class="listview_1_of_2 images_1_of_2">
                                 <div class="listimg listimg_2_of_1">
-                                    <a href="preview-5.jsp"><img src="Assets/images/pic3.png" alt="" / ></a>
+                                    <a href="preview-5.jsp"><img src="../Assets/images/pic3.png" alt="" / ></a>
                                 </div>
                                 <div class="text list_2_of_1">
                                     <h2>Samsung</h2>
@@ -315,7 +309,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="section group">
                             <div class="listview_1_of_2 images_1_of_2">
                                 <div class="listimg listimg_2_of_1">
-                                    <a href="preview-3.jsp"> <img src="Assets/images/pic3.jpg" alt="" /></a>
+                                    <a href="preview-3.jsp"> <img src="../Assets/images/pic3.jpg" alt="" /></a>
                                 </div>
                                 <div class="text list_2_of_1">
                                     <h2>Acer</h2>
@@ -325,7 +319,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>			
                             <div class="listview_1_of_2 images_1_of_2">
                                 <div class="listimg listimg_2_of_1">
-                                    <a href="preview-6.jsp"><img src="Assets/images/pic1.png" alt="" /></a>
+                                    <a href="preview-6.jsp"><img src="../Assets/images/pic1.png" alt="" /></a>
                                 </div>
                                 <div class="text list_2_of_1">
                                     <h2>Canon</h2>
@@ -341,10 +335,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <section class="slider">
                             <div class="flexslider">
                                 <ul class="slides">
-                                    <li><img src="Assets/images/1.jpg" alt=""/></li>
-                                    <li><img src="Assets/images/2.jpg" alt=""/></li>
-                                    <li><img src="Assets/images/3.jpg" alt=""/></li>
-                                    <li><img src="Assets/images/4.jpg" alt=""/></li>
+                                    <li><img src="../Assets/images/1.jpg" alt=""/></li>
+                                    <li><img src="../Assets/images/2.jpg" alt=""/></li>
+                                    <li><img src="../Assets/images/3.jpg" alt=""/></li>
+                                    <li><img src="../Assets/images/4.jpg" alt=""/></li>
                                 </ul>
                             </div>
                         </section>
@@ -358,34 +352,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="login_panel">
                         <h3>Existing Customers</h3>
                         <p>Sign in with the form below.</p>
-                        <form action="hello" method="get" id="member">
-                            <input name="Domain" type="text" value="Username" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                    this.value = 'Username';}">
-                            <input name="Domain" type="password" value="Password" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                this.value = 'Password';
-                            }">
+                        <form action="/Login_Servlet" method="Post" id="member">
+                            <input name="UserName" type="text" value="Username" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                        this.value = 'Username';
+                                    }">
+                            <input name="Password" type="password" value="Password" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                        this.value = 'Password';
+                                    }">
+                            <p style="color: red">${Error}</p>
+                            <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
+                            <div class="search"><div><input type="submit" value="Sign In" class="grey"></div></div>
                         </form>
-                        <p class="note">If you forgot your passoword just enter your email and click <a href="#">here</a></p>
-                        <a href="admin_home.jsp"> <div class="buttons"><div><button class="grey">Sign In</button></div></div></a>
                     </div>
                     <div class="register_account">
                         <h3>Register New Account</h3>
                         <form>
                             <table>
                                 <tbody><tr><td><div><input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                            this.value = 'Name';}" ></div>
+                                            this.value = 'Name';
+                                        }" ></div>
                                             <div><input type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Company Name';}"></div>
+                                                        this.value = 'Company Name';
+                                                    }"></div>
                                             <div><input type="text" value="E-Mail" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'E-Mail';}"></div>
+                                                        this.value = 'E-Mail';
+                                                    }"></div>
                                             <div><input type="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'password';}"></div>
+                                                        this.value = 'password';
+                                                    }"></div>
                                         </td>
                                         <td><div><input type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Address';}"></div>
+                                                    this.value = 'Address';
+                                                }"></div>
                                             <div><select id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
                                                     <option value="null">Select a Country</option>         
-                                                    <option value="AX">Åland Islands</option>
+                                                    <option value="AX">Ãland Islands</option>
                                                     <option value="AF">Afghanistan</option>
                                                     <option value="AL">Albania</option>
                                                     <option value="DZ">Algeria</option>
@@ -581,8 +582,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                     <option value="SN">Senegal</option>
                                                 </select></div>		        
                                             <div><input type="text" value="City" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                      this.value = 'City';
-                                  }"></div>
+                                                        this.value = 'City';
+                                                    }"></div>
                                             <div>
                                                 <input type="text" value="" class="code"> - <input type="text" value="" class="number">
                                                 <p>Country Code + Phone Number</p>
@@ -671,20 +672,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             });
         </script>
         <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-        <link href="Assets/css/flexslider.css" rel='stylesheet' type='text/css' />
-        <script defer src="Assets/js/jquery.flexslider.js"></script>
+        <link href="../Assets/css/flexslider.css" rel='stylesheet' type='text/css' />
+        <script defer src="../Assets/js/jquery.flexslider.js"></script>
         <script type="text/javascript">
-$(function () {
-SyntaxHighlighter.all();
-});
-$(window).load(function () {
-$('.flexslider').flexslider({
-animation: "slide",
-start: function (slider) {
-$('body').removeClass('loading');
-}
-});
-});
+            $(function () {
+                SyntaxHighlighter.all();
+            });
+            $(window).load(function () {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
         </script>
     </body>
 </html>
