@@ -9,6 +9,10 @@ package Util;
  *
  * @author Trí Nguyễn
  */
-public class Constains {
-    
+public final class Enums {
+
+    public enum UserGroup {
+        Admin;
+    }
+
 }

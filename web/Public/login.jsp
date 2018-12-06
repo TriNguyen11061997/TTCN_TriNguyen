@@ -359,9 +359,8 @@
                             <input name="Password" type="password" value="Password" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
                                         this.value = 'Password';
                                     }">
-
+                            <p style="color: red">${Error}</p>
                             <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
-
                             <div class="search"><div><input type="submit" value="Sign In" class="grey"></div></div>
                         </form>
                     </div>

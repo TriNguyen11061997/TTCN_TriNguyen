@@ -40,6 +40,7 @@ public class ARCustomersController {
             objARCustomersInfo.setARCustomerNo(rs.getString("ARCustomerNo"));
             listARCustomersInfos.add(objARCustomersInfo);
         }
+        conn.close();
         return listARCustomersInfos;
     }
 }
