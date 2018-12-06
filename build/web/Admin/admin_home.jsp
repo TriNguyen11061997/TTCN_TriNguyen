@@ -102,12 +102,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             </script>
                         </div>
-                        <div class="currency" title="currency">
-                            <div id="currency" class="wrapper-dropdown" tabindex="1">$
+                        <div class="languages" title="language">
+                            <div id="user" class="wrapper-dropdown" tabindex="1">TK
                                 <strong class="opencart"> </strong>
-                                <ul class="dropdown">
-                                    <li><a href="#"><span>$</span>Dollar</a></li>
-                                    <li><a href="#"><span>â¬</span>Euro</a></li>
+                                <ul class="dropdown languges">					
+                                    <li>
+                                        <a href="/Logout_Servlet">Logout</a>
+                                    </li>
+                                    <li>
+                                        <a>Tài khoản</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Logout_Servlet">Logout</a>
+                                    </li>
                                 </ul>
                             </div>
                             <script type="text/javascript">
@@ -128,7 +135,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                 $(function () {
 
-                                    var dd = new DropDown($('#currency'));
+                                    var dd = new DropDown($('#user'));
 
                                     $(document).click(function () {
                                         // all dropdowns
@@ -138,9 +145,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 });
 
                             </script>
-                        </div>
-                        <div class="login">
-                            <span><a href="login.jsp"><img src="../Assets/images/login.png" alt="" title="login"/></a></span>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -158,8 +162,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li><a href="faq.jsp">Hóa đơn bán hàng</a>
                             </li>
                             <li><a href="about.jsp">Doanh thu</a></li>
-                            <li><a href="faq.jsp">Tính lương</a></li>
-                            <li><a href="contact.jsp">Liên hệ</a></li>
+                            <li><a href="faq.jsp">Tính lương</a></li>                           
                             <div class="clear"> </div>
                         </ul>
                     </nav> 

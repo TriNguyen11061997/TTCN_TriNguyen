@@ -159,7 +159,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </li>
                             <li><a href="about.jsp">Bình luận</a></li>
                             <li><a href="faq.jsp">Bài đăng</a></li>
-                            <li><a href="contact.jsp">Liên hệ</a></li>
+                            <li><a href="/employee_servlet">Sản phẩm</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </nav> 

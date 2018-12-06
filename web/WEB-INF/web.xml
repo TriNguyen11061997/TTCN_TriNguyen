@@ -85,4 +85,13 @@
         <servlet-name>Preview_Servlet</servlet-name>
         <url-pattern>/preview</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Employee_Home_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_Home_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Employee_Home_Servlet</servlet-name>
+        <url-pattern>/employee_servlet</url-pattern>
+    </servlet-mapping>
 </web-app>

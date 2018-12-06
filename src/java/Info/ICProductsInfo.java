@@ -27,21 +27,21 @@ public class ICProductsInfo {
     private Boolean ICProductActiveCheck;
     private int FK_HREmployeeID;
     private String ICProductPromotion;
-    private byte[] ICProductPicture1;
-    private byte[] ICProductPicture2;
-    private byte[] ICProductPicture3;
-    private byte[] ICProductPicture4;
-    private byte[] ICProductPicture5;
-    private byte[] ICProductPicture6;
-    private byte[] ICProductPicture7;
-    private byte[] ICProductPicture8;
+    private String ICProductPicture1;
+    private String ICProductPicture2;
+    private String ICProductPicture3;
+    private String ICProductPicture4;
+    private String ICProductPicture5;
+    private String ICProductPicture6;
+    private String ICProductPicture7;
+    private String ICProductPicture8;
     private String ICProductVideo;
     private String ICProductDetailHeDieuHanh;
 
     public ICProductsInfo() {
     }
 
-    public ICProductsInfo(int ICProductID, String AACreatedUser, Date AACreatedDate, String AAUpdatedUser, Date AAUpdatedDate, String AAStatus, String ICProductNo, String ICProductSupplierNumber, Double ICProductSupplierPrice, String ICProductName, String ICProductDesc, Boolean ICProductActiveCheck, int FK_HREmployeeID, String ICProductPromotion, byte[] ICProductPicture1, byte[] ICProductPicture2, byte[] ICProductPicture3, byte[] ICProductPicture4, byte[] ICProductPicture5, byte[] ICProductPicture6, byte[] ICProductPicture7, byte[] ICProductPicture8, String ICProductVideo, String ICProductDetailHeDieuHanh) {
+    public ICProductsInfo(int ICProductID, String AACreatedUser, Date AACreatedDate, String AAUpdatedUser, Date AAUpdatedDate, String AAStatus, String ICProductNo, String ICProductSupplierNumber, Double ICProductSupplierPrice, String ICProductName, String ICProductDesc, Boolean ICProductActiveCheck, int FK_HREmployeeID, String ICProductPromotion, String ICProductPicture1, String ICProductPicture2, String ICProductPicture3, String ICProductPicture4, String ICProductPicture5, String ICProductPicture6, String ICProductPicture7, String ICProductPicture8, String ICProductVideo, String ICProductDetailHeDieuHanh) {
         this.ICProductID = ICProductID;
         this.AACreatedUser = AACreatedUser;
         this.AACreatedDate = AACreatedDate;
@@ -180,67 +180,67 @@ public class ICProductsInfo {
         this.ICProductPromotion = ICProductPromotion;
     }
 
-    public byte[] getICProductPicture1() {
+    public String getICProductPicture1() {
         return ICProductPicture1;
     }
 
-    public void setICProductPicture1(byte[] ICProductPicture1) {
+    public void setICProductPicture1(String ICProductPicture1) {
         this.ICProductPicture1 = ICProductPicture1;
     }
 
-    public byte[] getICProductPicture2() {
+    public String getICProductPicture2() {
         return ICProductPicture2;
     }
 
-    public void setICProductPicture2(byte[] ICProductPicture2) {
+    public void setICProductPicture2(String ICProductPicture2) {
         this.ICProductPicture2 = ICProductPicture2;
     }
 
-    public byte[] getICProductPicture3() {
+    public String getICProductPicture3() {
         return ICProductPicture3;
     }
 
-    public void setICProductPicture3(byte[] ICProductPicture3) {
+    public void setICProductPicture3(String ICProductPicture3) {
         this.ICProductPicture3 = ICProductPicture3;
     }
 
-    public byte[] getICProductPicture4() {
+    public String getICProductPicture4() {
         return ICProductPicture4;
     }
 
-    public void setICProductPicture4(byte[] ICProductPicture4) {
+    public void setICProductPicture4(String ICProductPicture4) {
         this.ICProductPicture4 = ICProductPicture4;
     }
 
-    public byte[] getICProductPicture5() {
+    public String getICProductPicture5() {
         return ICProductPicture5;
     }
 
-    public void setICProductPicture5(byte[] ICProductPicture5) {
+    public void setICProductPicture5(String ICProductPicture5) {
         this.ICProductPicture5 = ICProductPicture5;
     }
 
-    public byte[] getICProductPicture6() {
+    public String getICProductPicture6() {
         return ICProductPicture6;
     }
 
-    public void setICProductPicture6(byte[] ICProductPicture6) {
+    public void setICProductPicture6(String ICProductPicture6) {
         this.ICProductPicture6 = ICProductPicture6;
     }
 
-    public byte[] getICProductPicture7() {
+    public String getICProductPicture7() {
         return ICProductPicture7;
     }
 
-    public void setICProductPicture7(byte[] ICProductPicture7) {
+    public void setICProductPicture7(String ICProductPicture7) {
         this.ICProductPicture7 = ICProductPicture7;
     }
 
-    public byte[] getICProductPicture8() {
+    public String getICProductPicture8() {
         return ICProductPicture8;
     }
 
-    public void setICProductPicture8(byte[] ICProductPicture8) {
+    public void setICProductPicture8(String ICProductPicture8) {
         this.ICProductPicture8 = ICProductPicture8;
     }
 

@@ -1,9 +1,6 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%@page import="Controller.ICProductController"%>
+<%@page import="Info.ICProductsInfo"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE HTML>
 <html>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -142,7 +139,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </script>
                         </div>
                         <div class="login">
-                            <span><a href="login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
+                            <span><a href="Public/login.jsp"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -288,30 +285,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </nav> 
                     <script src="Assets/js/menu.js" type="text/javascript"></script>
                 </div>
-
+<%  ICProductController ProductDAO = new ICProductController();
+    List<ICProductsInfo> listPro = ProductDAO.getListProduct();
+    
+%>
                 <div class="header_bottom">
                     <div class="header_bottom_left">
                         <div class="section group">
+                            <%
+                                int i=1;
+                                for(ICProductsInfo item1 : listPro){
+                                    if(i==3) break;    
+                                    
+                                
+                            %>
                             <div class="listview_1_of_2 images_1_of_2">
                                 <div class="listimg listimg_2_of_1">
-                                    <a href="preview.jsp"> <img src="Assets/images/pic4.png" alt="" /></a>
+                                    <a href="preview.jsp"> <img src="Images/<%=item1.getICProductPicture1()%>" alt="" /></a>
                                 </div>
                                 <div class="text list_2_of_1">
                                     <h2>Iphone</h2>
                                     <p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
                                     <div class="button"><span><a href="preview.jsp">Giỏ hàng</a></span></div>
                                 </div>
-                            </div>			
-                            <div class="listview_1_of_2 images_1_of_2">
-                                <div class="listimg listimg_2_of_1">
-                                    <a href="preview.jsp"><img src="Assets/images/pic3.png" alt="" / ></a>
-                                </div>
-                                <div class="text list_2_of_1">
-                                    <h2>Samsung</h2>
-                                    <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-                                    <div class="button"><span><a href="preview.jsp">Giỏ hàng</a></span></div>
-                                </div>
                             </div>
+                            <%i++;}%>
+                            
                         </div>
                         <div class="section group">
                             <div class="listview_1_of_2 images_1_of_2">
@@ -395,38 +394,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="clear"></div>
                     </div>
                     <div class="section group">
+                        <%
+                            for(ICProductsInfo item : listPro){
+                        %>
                         <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-3.jsp"><img src="Assets/images/feature-pic1.png" alt="" /></a>
-                            <h2>Lorem Ipsum is simply </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                            <p><span class="strike">$528.22</span><span class="price">$505.22</span></p>
+                            <a href="preview-3.jsp"><img src="Images/<%=item.getICProductPicture1()%>" alt="" /></a>
+                            <h2><%=item.getICProductDesc()%> </h2>
+                            <p><%=item.getICProductName()%></p>
+                            <p><span class="strike">$528.22</span><span class="price">$<%=item.getICProductSupplierPrice()%></span></p>
                             <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Giỏ hàng</a></span> </div>
                             <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
                         </div>
-                        <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-2.jsp"><img src="Assets/images/feature-pic2.jpg" alt="" /></a>
-                            <h2>Lorem Ipsum is simply </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                            <p><span class="strike">$640.89</span><span class="price">$620.87</span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Giỏ hàng</a></span> </div>
-                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
-                        </div>
-                        <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-4.jsp"><img src="Assets/images/feature-pic3.jpg" alt="" /></a>
-                            <h2>Lorem Ipsum is simply </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                            <p><span class="strike">$240.66</span><span class="price">$220.97</span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-6.jsp" class="cart-button">Giỏ hàng</a></span> </div>
-                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
-                        </div>
-                        <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-2.jsp"><img src="Assets/images/feature-pic4.png" alt="" /></a>
-                            <h2>Lorem Ipsum is simply </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                            <p><span class="strike">$436.22</span><span class="price">$415.54</span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Giỏ hàng</a></span> </div>
-                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
-                        </div>
+                        <%}%>
+                        
                     </div>
                     <div class="content_bottom">
                         <div class="heading">
@@ -467,46 +447,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="clear"></div>
                     </div>
                     <div class="section group">
+                        <%
+                             for(ICProductsInfo item2 : listPro){
+                        %>
                         <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-3.jsp"><img src="Assets/images/new-pic1.jpg" alt="" /></a>
+                            <a href="preview-3.jsp"><img src="Images/<%=item2.getICProductPicture1()%>" alt="" /></a>
                             <div class="discount">
                                 <span class="percentage">40%</span>
                             </div>
-                            <h2>Lorem Ipsum is simply </h2>
-                            <p><span class="strike">$438.99</span><span class="price">$403.66</span></p>
+                            <h2><%=item2.getICProductName()%> </h2>
+                            <p><span class="strike">$438.99</span><span class="price">$<%=item2.getICProductSupplierPrice()%></span></p>
                             <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Giỏ hàng</a></span> </div>
                             <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
                         </div>
-                        <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-4.jsp"><img src="Assets/images/new-pic2.jpg" alt="" /></a>
-                            <div class="discount">
-                                <span class="percentage">22%</span>
-                            </div>
-                            <h2>Lorem Ipsum is simply </h2>
-                            <p><span class="strike">$667.22</span><span class="price">$621.75</span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-4.jsp" class="cart-button">Giỏ hàng</a></span></div>
-                            <div class="button"><span><a href="preview-4.jsp" class="details">Details</a></span></div>
-                        </div>
-                        <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-2.jsp"><img src="Assets/images/feature-pic2.jpg" alt="" /></a>
-                            <div class="discount">
-                                <span class="percentage">55%</span>
-                            </div>
-                            <h2>Lorem Ipsum is simply </h2>
-                            <p><span class="strike">$457.22</span><span class="price">$428.02</span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-2.jsp" class="cart-button">Giỏ hàng</a></span> </div>
-                            <div class="button"><span><a href="preview-2.jsp" class="details">Details</a></span></div>
-                        </div>
-                        <div class="grid_1_of_4 images_1_of_4">
-                            <a href="preview-2.jsp"> <img src="Assets/images/new-pic3.jpg" alt="" /></a>
-                            <div class="discount">
-                                <span class="percentage">66%</span>
-                            </div>
-                            <h2>Lorem Ipsum is simply </h2>					 
-                            <p><span class="strike">$643.22</span><span class="price">$457.88</span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-2.jsp" class="cart-button">Giỏ hàng</a></span> </div>
-                            <div class="button"><span><a href="#" class="details">Details</a></span></div>
-                        </div>
+                        <%}%>
+                        
+                        
+                        
                     </div>
                 </div>
             </div>

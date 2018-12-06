@@ -47,6 +47,9 @@ public class ICProductController {
            ICProductsInfo item = new ICProductsInfo();
            item.setICProductID(rs.getInt("ICProductID"));
            item.setICProductName(rs.getString("ICProductName"));
+           item.setICProductDesc(rs.getString("ICProductDesc"));
+           item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+           item.setICProductPicture1(rs.getString("ICProductPicture1"));
            listPro.add(item);
        }
        }catch(SQLException e){
