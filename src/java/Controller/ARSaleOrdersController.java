@@ -37,6 +37,7 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
             listSaleOrder.add(objARSaleOrdersInfo);
         }
+        conn.close();
         return listSaleOrder;
     }
      public List<ARSaleOrdersInfo> GetAllObjectForAdmin() throws SQLException{
@@ -52,6 +53,7 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
             listSaleOrder.add(objARSaleOrdersInfo);
         }
+        conn.close();
         return listSaleOrder;
     }
 }

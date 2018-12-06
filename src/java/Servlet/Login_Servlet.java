@@ -7,6 +7,7 @@ package Servlet;
 
 import Controller.ADUsersController;
 import Info.ADUsersInfo;
+import Util.Constants;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -39,15 +40,30 @@ public class Login_Servlet extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
-            HttpSession session = request.getSession();           
+            HttpSession session = request.getSession();
             ADUsersController objADUsersController = new ADUsersController();
-            ADUsersInfo objADUsersInfo = objADUsersController.GetObjectByNameAndPassword(request.getParameter("UserName"), request.getParameter("Password"));
+            ADUsersInfo objADUsersInfo = objADUsersController.GetObjectByNameAndPassword(request.getParameter("UserName"), request.getParameter("Password"));           
             if (objADUsersInfo != null) {
-                session.setAttribute("HREmployeeID",objADUsersInfo.getFK_HREmployeeID());
-                request.getRequestDispatcher("Employee/employee_Home.jsp").include(request, response);
+                session.setAttribute("HREmployeeID", objADUsersInfo.getFK_HREmployeeID());
+                switch (objADUsersInfo.getFK_ADUserGroupID()) {
+                    case Constants.UserGroup.Admin:
+                        request.getRequestDispatcher("Admin/admin_Home.jsp").include(request, response);
+                        break;
+                    case Constants.UserGroup.Employee:
+                        request.getRequestDispatcher("Employee/employee_Home.jsp").include(request, response);
+                        break;
+                    case Constants.UserGroup.Customer:
+                        request.getRequestDispatcher("index.jsp").include(request, response);
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                request.setAttribute("Error", "UserName or Parsword không đúng!");
+                request.getRequestDispatcher("Public/login.jsp").include(request, response);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Login_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            request.getRequestDispatcher("Public/login.jsp").include(request, response);
         }
     }
 

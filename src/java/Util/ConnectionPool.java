@@ -23,7 +23,7 @@ public class ConnectionPool {
         try {
             InitialContext ctx = new InitialContext();
             DataSource ds
-                    = (DataSource) ctx.lookup("java:comp/env/jdbc/ttcn");
+                    = (DataSource) ctx.lookup("java:comp/env/jdbc/sql12268549");
             return ds.getConnection();
         } catch (NamingException ex) {
             return null;

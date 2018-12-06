@@ -8,6 +8,10 @@
         <servlet-name>Admin_SaleOrderHome_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_SaleOrderManagement_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin_Home</servlet-name>
+        <servlet-class>Servlet.Admin_Home</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerHome_Servlet</url-pattern>
@@ -19,6 +23,10 @@
     <servlet-mapping>
         <servlet-name>Admin_SaleOrderHome_Servlet</servlet-name>
         <url-pattern>/Admin_SaleOrderHome_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_Home</servlet-name>
+        <url-pattern>/Admin_Home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
