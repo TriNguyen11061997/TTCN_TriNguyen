@@ -12,67 +12,68 @@ import java.sql.Date;
  * @author Trí Nguyễn
  */
 public class HREmployeesInfo {
-    private int AREmployeeID;
+
+    private int HREmployeeID;
     private String AAStatus;
     private String AACreatedUser;
     private String AAUpdatedUser;
     private Date AACreatedDate;
     private Date AAUpdatedDate;
-    private String AREmployeeNo;
-    private String AREmployeeName;
-    private int AREmployeeGender;
-    private Date AREmployeeBirthDay;
-    private String AREmployeeStatus;
-    private String AREmployeeDesc;
-    private Byte[] AREmployeePicture;
-    private String AREmployeeIDNumber;
-    private String AREmployeeCardNumber;
-    private String AREmployeeTaxNumber;
-    private Date AREmployeeStartWorkingDate;
-    private Date AREmployeeEndWorkingDate;
-    private String AREmployeeTel1;
-    private String AREmployeeTel2;
-    private String AREmployeeEmail;
-    private String AREmployeeContactAddress;
-    private String AREmployeeContactAddressCity;
-    private String AREmployeeContactAddressCountry;
+    private String HREmployeeNo;
+    private String HREmployeeName;
+    private int HREmployeeGender;
+    private Date HREmployeeBirthDay;
+    private String HREmployeeStatus;
+    private String HREmployeeDesc;
+    private Byte[] HREmployeePicture;
+    private String HREmployeeIDNumber;
+    private String HREmployeeCardNumber;
+    private String HREmployeeTaxNumber;
+    private Date HREmployeeStartWorkingDate;
+    private Date HREmployeeEndWorkingDate;
+    private String HREmployeeTel1;
+    private String HREmployeeTel2;
+    private String HREmployeeEmail;
+    private String HREmployeeContactAddress;
+    private String HREmployeeContactAddressCity;
+    private String HREmployeeContactAddressCountry;
 
     public HREmployeesInfo() {
     }
 
-    public HREmployeesInfo(int AREmployeeID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, String AREmployeeNo, String AREmployeeName, int AREmployeeGender, Date AREmployeeBirthDay, String AREmployeeStatus, String AREmployeeDesc, Byte[] AREmployeePicture, String AREmployeeIDNumber, String AREmployeeCardNumber, String AREmployeeTaxNumber, Date AREmployeeStartWorkingDate, Date AREmployeeEndWorkingDate, String AREmployeeTel1, String AREmployeeTel2, String AREmployeeEmail, String AREmployeeContactAddress, String AREmployeeContactAddressCity, String AREmployeeContactAddressCountry) {
-        this.AREmployeeID = AREmployeeID;
+    public HREmployeesInfo(int HREmployeeID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, String HREmployeeNo, String HREmployeeName, int HREmployeeGender, Date HREmployeeBirthDay, String HREmployeeStatus, String HREmployeeDesc, Byte[] HREmployeePicture, String HREmployeeIDNumber, String HREmployeeCardNumber, String HREmployeeTaxNumber, Date HREmployeeStartWorkingDate, Date HREmployeeEndWorkingDate, String HREmployeeTel1, String HREmployeeTel2, String HREmployeeEmail, String HREmployeeContactAddress, String HREmployeeContactAddressCity, String HREmployeeContactAddressCountry) {
+        this.HREmployeeID = HREmployeeID;
         this.AAStatus = AAStatus;
         this.AACreatedUser = AACreatedUser;
         this.AAUpdatedUser = AAUpdatedUser;
         this.AACreatedDate = AACreatedDate;
         this.AAUpdatedDate = AAUpdatedDate;
-        this.AREmployeeNo = AREmployeeNo;
-        this.AREmployeeName = AREmployeeName;
-        this.AREmployeeGender = AREmployeeGender;
-        this.AREmployeeBirthDay = AREmployeeBirthDay;
-        this.AREmployeeStatus = AREmployeeStatus;
-        this.AREmployeeDesc = AREmployeeDesc;
-        this.AREmployeePicture = AREmployeePicture;
-        this.AREmployeeIDNumber = AREmployeeIDNumber;
-        this.AREmployeeCardNumber = AREmployeeCardNumber;
-        this.AREmployeeTaxNumber = AREmployeeTaxNumber;
-        this.AREmployeeStartWorkingDate = AREmployeeStartWorkingDate;
-        this.AREmployeeEndWorkingDate = AREmployeeEndWorkingDate;
-        this.AREmployeeTel1 = AREmployeeTel1;
-        this.AREmployeeTel2 = AREmployeeTel2;
-        this.AREmployeeEmail = AREmployeeEmail;
-        this.AREmployeeContactAddress = AREmployeeContactAddress;
-        this.AREmployeeContactAddressCity = AREmployeeContactAddressCity;
-        this.AREmployeeContactAddressCountry = AREmployeeContactAddressCountry;
+        this.HREmployeeNo = HREmployeeNo;
+        this.HREmployeeName = HREmployeeName;
+        this.HREmployeeGender = HREmployeeGender;
+        this.HREmployeeBirthDay = HREmployeeBirthDay;
+        this.HREmployeeStatus = HREmployeeStatus;
+        this.HREmployeeDesc = HREmployeeDesc;
+        this.HREmployeePicture = HREmployeePicture;
+        this.HREmployeeIDNumber = HREmployeeIDNumber;
+        this.HREmployeeCardNumber = HREmployeeCardNumber;
+        this.HREmployeeTaxNumber = HREmployeeTaxNumber;
+        this.HREmployeeStartWorkingDate = HREmployeeStartWorkingDate;
+        this.HREmployeeEndWorkingDate = HREmployeeEndWorkingDate;
+        this.HREmployeeTel1 = HREmployeeTel1;
+        this.HREmployeeTel2 = HREmployeeTel2;
+        this.HREmployeeEmail = HREmployeeEmail;
+        this.HREmployeeContactAddress = HREmployeeContactAddress;
+        this.HREmployeeContactAddressCity = HREmployeeContactAddressCity;
+        this.HREmployeeContactAddressCountry = HREmployeeContactAddressCountry;
     }
 
-    public int getAREmployeeID() {
-        return AREmployeeID;
+    public int getHREmployeeID() {
+        return HREmployeeID;
     }
 
-    public void setAREmployeeID(int AREmployeeID) {
-        this.AREmployeeID = AREmployeeID;
+    public void setHREmployeeID(int HREmployeeID) {
+        this.HREmployeeID = HREmployeeID;
     }
 
     public String getAAStatus() {
@@ -115,149 +116,148 @@ public class HREmployeesInfo {
         this.AAUpdatedDate = AAUpdatedDate;
     }
 
-    public String getAREmployeeNo() {
-        return AREmployeeNo;
+    public String getHREmployeeNo() {
+        return HREmployeeNo;
     }
 
-    public void setAREmployeeNo(String AREmployeeNo) {
-        this.AREmployeeNo = AREmployeeNo;
+    public void setHREmployeeNo(String HREmployeeNo) {
+        this.HREmployeeNo = HREmployeeNo;
     }
 
-    public String getAREmployeeName() {
-        return AREmployeeName;
+    public String getHREmployeeName() {
+        return HREmployeeName;
     }
 
-    public void setAREmployeeName(String AREmployeeName) {
-        this.AREmployeeName = AREmployeeName;
+    public void setHREmployeeName(String HREmployeeName) {
+        this.HREmployeeName = HREmployeeName;
     }
 
-    public int getAREmployeeGender() {
-        return AREmployeeGender;
+    public int getHREmployeeGender() {
+        return HREmployeeGender;
     }
 
-    public void setAREmployeeGender(int AREmployeeGender) {
-        this.AREmployeeGender = AREmployeeGender;
+    public void setHREmployeeGender(int HREmployeeGender) {
+        this.HREmployeeGender = HREmployeeGender;
     }
 
-    public Date getAREmployeeBirthDay() {
-        return AREmployeeBirthDay;
+    public Date getHREmployeeBirthDay() {
+        return HREmployeeBirthDay;
     }
 
-    public void setAREmployeeBirthDay(Date AREmployeeBirthDay) {
-        this.AREmployeeBirthDay = AREmployeeBirthDay;
+    public void setHREmployeeBirthDay(Date HREmployeeBirthDay) {
+        this.HREmployeeBirthDay = HREmployeeBirthDay;
     }
 
-    public String getAREmployeeStatus() {
-        return AREmployeeStatus;
+    public String getHREmployeeStatus() {
+        return HREmployeeStatus;
     }
 
-    public void setAREmployeeStatus(String AREmployeeStatus) {
-        this.AREmployeeStatus = AREmployeeStatus;
+    public void setHREmployeeStatus(String HREmployeeStatus) {
+        this.HREmployeeStatus = HREmployeeStatus;
     }
 
-    public String getAREmployeeDesc() {
-        return AREmployeeDesc;
+    public String getHREmployeeDesc() {
+        return HREmployeeDesc;
     }
 
-    public void setAREmployeeDesc(String AREmployeeDesc) {
-        this.AREmployeeDesc = AREmployeeDesc;
+    public void setHREmployeeDesc(String HREmployeeDesc) {
+        this.HREmployeeDesc = HREmployeeDesc;
     }
 
-    public Byte[] getAREmployeePicture() {
-        return AREmployeePicture;
+    public Byte[] getHREmployeePicture() {
+        return HREmployeePicture;
     }
 
-    public void setAREmployeePicture(Byte[] AREmployeePicture) {
-        this.AREmployeePicture = AREmployeePicture;
+    public void setHREmployeePicture(Byte[] HREmployeePicture) {
+        this.HREmployeePicture = HREmployeePicture;
     }
 
-    public String getAREmployeeIDNumber() {
-        return AREmployeeIDNumber;
+    public String getHREmployeeIDNumber() {
+        return HREmployeeIDNumber;
     }
 
-    public void setAREmployeeIDNumber(String AREmployeeIDNumber) {
-        this.AREmployeeIDNumber = AREmployeeIDNumber;
+    public void setHREmployeeIDNumber(String HREmployeeIDNumber) {
+        this.HREmployeeIDNumber = HREmployeeIDNumber;
     }
 
-    public String getAREmployeeCardNumber() {
-        return AREmployeeCardNumber;
+    public String getHREmployeeCardNumber() {
+        return HREmployeeCardNumber;
     }
 
-    public void setAREmployeeCardNumber(String AREmployeeCardNumber) {
-        this.AREmployeeCardNumber = AREmployeeCardNumber;
+    public void setHREmployeeCardNumber(String HREmployeeCardNumber) {
+        this.HREmployeeCardNumber = HREmployeeCardNumber;
     }
 
-    public String getAREmployeeTaxNumber() {
-        return AREmployeeTaxNumber;
+    public String getHREmployeeTaxNumber() {
+        return HREmployeeTaxNumber;
     }
 
-    public void setAREmployeeTaxNumber(String AREmployeeTaxNumber) {
-        this.AREmployeeTaxNumber = AREmployeeTaxNumber;
+    public void setHREmployeeTaxNumber(String HREmployeeTaxNumber) {
+        this.HREmployeeTaxNumber = HREmployeeTaxNumber;
     }
 
-    public Date getAREmployeeStartWorkingDate() {
-        return AREmployeeStartWorkingDate;
+    public Date getHREmployeeStartWorkingDate() {
+        return HREmployeeStartWorkingDate;
     }
 
-    public void setAREmployeeStartWorkingDate(Date AREmployeeStartWorkingDate) {
-        this.AREmployeeStartWorkingDate = AREmployeeStartWorkingDate;
+    public void setHREmployeeStartWorkingDate(Date HREmployeeStartWorkingDate) {
+        this.HREmployeeStartWorkingDate = HREmployeeStartWorkingDate;
     }
 
-    public Date getAREmployeeEndWorkingDate() {
-        return AREmployeeEndWorkingDate;
+    public Date getHREmployeeEndWorkingDate() {
+        return HREmployeeEndWorkingDate;
     }
 
-    public void setAREmployeeEndWorkingDate(Date AREmployeeEndWorkingDate) {
-        this.AREmployeeEndWorkingDate = AREmployeeEndWorkingDate;
+    public void setHREmployeeEndWorkingDate(Date HREmployeeEndWorkingDate) {
+        this.HREmployeeEndWorkingDate = HREmployeeEndWorkingDate;
     }
 
-    public String getAREmployeeTel1() {
-        return AREmployeeTel1;
+    public String getHREmployeeTel1() {
+        return HREmployeeTel1;
     }
 
-    public void setAREmployeeTel1(String AREmployeeTel1) {
-        this.AREmployeeTel1 = AREmployeeTel1;
+    public void setHREmployeeTel1(String HREmployeeTel1) {
+        this.HREmployeeTel1 = HREmployeeTel1;
     }
 
-    public String getAREmployeeTel2() {
-        return AREmployeeTel2;
+    public String getHREmployeeTel2() {
+        return HREmployeeTel2;
     }
 
-    public void setAREmployeeTel2(String AREmployeeTel2) {
-        this.AREmployeeTel2 = AREmployeeTel2;
+    public void setHREmployeeTel2(String HREmployeeTel2) {
+        this.HREmployeeTel2 = HREmployeeTel2;
     }
 
-    public String getAREmployeeEmail() {
-        return AREmployeeEmail;
+    public String getHREmployeeEmail() {
+        return HREmployeeEmail;
     }
 
-    public void setAREmployeeEmail(String AREmployeeEmail) {
-        this.AREmployeeEmail = AREmployeeEmail;
+    public void setHREmployeeEmail(String HREmployeeEmail) {
+        this.HREmployeeEmail = HREmployeeEmail;
     }
 
-    public String getAREmployeeContactAddress() {
-        return AREmployeeContactAddress;
+    public String getHREmployeeContactAddress() {
+        return HREmployeeContactAddress;
     }
 
-    public void setAREmployeeContactAddress(String AREmployeeContactAddress) {
-        this.AREmployeeContactAddress = AREmployeeContactAddress;
+    public void setHREmployeeContactAddress(String HREmployeeContactAddress) {
+        this.HREmployeeContactAddress = HREmployeeContactAddress;
     }
 
-    public String getAREmployeeContactAddressCity() {
-        return AREmployeeContactAddressCity;
+    public String getHREmployeeContactAddressCity() {
+        return HREmployeeContactAddressCity;
     }
 
-    public void setAREmployeeContactAddressCity(String AREmployeeContactAddressCity) {
-        this.AREmployeeContactAddressCity = AREmployeeContactAddressCity;
+    public void setHREmployeeContactAddressCity(String HREmployeeContactAddressCity) {
+        this.HREmployeeContactAddressCity = HREmployeeContactAddressCity;
     }
 
-    public String getAREmployeeContactAddressCountry() {
-        return AREmployeeContactAddressCountry;
+    public String getHREmployeeContactAddressCountry() {
+        return HREmployeeContactAddressCountry;
     }
 
-    public void setAREmployeeContactAddressCountry(String AREmployeeContactAddressCountry) {
-        this.AREmployeeContactAddressCountry = AREmployeeContactAddressCountry;
+    public void setHREmployeeContactAddressCountry(String HREmployeeContactAddressCountry) {
+        this.HREmployeeContactAddressCountry = HREmployeeContactAddressCountry;
     }
-    
-    
+
 }

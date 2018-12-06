@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Trí Nguyễn
  */
-public class Admin_Home extends HttpServlet {
+public class Admin_Home_Servlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
