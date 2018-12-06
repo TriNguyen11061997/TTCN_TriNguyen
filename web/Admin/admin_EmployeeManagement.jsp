@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
 <html>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -103,12 +96,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             </script>
                         </div>
-                        <div class="currency" title="currency">
-                            <div id="currency" class="wrapper-dropdown" tabindex="1">$
+                        <div class="languages" title="language">
+                            <div id="user" class="wrapper-dropdown" tabindex="1">TK
                                 <strong class="opencart"> </strong>
-                                <ul class="dropdown">
-                                    <li><a href="#"><span>$</span>Dollar</a></li>
-                                    <li><a href="#"><span>â¬</span>Euro</a></li>
+                                <ul class="dropdown languges">					
+                                    <li>
+                                        <a href="/Logout_Servlet">Logout</a>
+                                    </li>
+                                    <li>
+                                        <a>Tài khoản</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Logout_Servlet">Logout</a>
+                                    </li>
                                 </ul>
                             </div>
                             <script type="text/javascript">
@@ -129,7 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                 $(function () {
 
-                                    var dd = new DropDown($('#currency'));
+                                    var dd = new DropDown($('#user'));
 
                                     $(document).click(function () {
                                         // all dropdowns
@@ -140,9 +140,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             </script>
                         </div>
-                        <div class="login">
-                            <span><a href="login.jsp"><img src="../Assets/images/login.png" alt="" title="login"/></a></span>
-                        </div>
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
@@ -151,16 +148,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="Employee/employee_Home.jsp">Trang chủ</a></li>
-                            <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a>
+                            <li><a href="admin_Home.jsp">Trang chủ</a></li>
+                            <li class="activate"><a href="/Admin_EmployeeManagement_Servlet">Nhân viên</a>
                             </li>
-                            <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
+                            <li><a href="/Admin_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
                             </li>		
                             <li><a href="faq.jsp">Hóa đơn bán hàng</a>
                             </li>
-                            <li><a href="about.jsp">Bình luận</a></li>
-                            <li><a href="faq.jsp">Bài đăng</a></li>
-                            <li><a href="contact.jsp">Liên hệ</a></li>
+                            <li><a href="about.jsp">Doanh thu</a></li>
+                            <li><a href="faq.jsp">Tính lương</a></li>                           
                             <div class="clear"> </div>
                         </ul>
                     </nav> 
@@ -199,19 +195,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
                         <th style="color:white">STT</th>
-                        <th style="color:white">Mã khách hàng</th>
-                        <th style="color:white">Tên khách hàng</th>
+                        <th style="color:white">Mã nhân viên</th>
+                        <th style="color:white">Tên nhân viên</th>
+                        <th style="color:white">Ngày sinh</th>
+                        <th style="color:white">CMND</th>
                         <th style="color:white">Số điện thoại</th>
+                        <th style="color:white">Địa chỉ</th>
                         <th style="color:white">Edit</th>
                         <th style="color:white">Delete</th>
                         <th style="color:white">Xem chi tiết</th>
                     </tr>
-                    <c:forEach var="customer" items = "${listCustomer}">                     
+                    <c:forEach var="employee" items = "${listEmployees}">                     
                         <tr>
-                            <td style="color:black">${customer.ARCustomerID}</td>
-                            <td style="color:black">${customer.ARCustomerNo}</td>
-                            <td style="color:black">${customer.ARCustomerName}</td>
-                            <td style="color:black">Trí Nguyễn</td>
+                            <td style="color:black">${employee.HREmployeeID}</td>
+                            <td style="color:black">${employee.HREmployeeNo}</td>
+                            <td style="color:black">${employee.HREmployeeName}</td>
+                            <td style="color:black">${employee.HREmployeeBirthDay}</td>
+                            <td style="color:black">${employee.HREmployeeCardNumber}</td>
+                            <td style="color:black">${employee.HREmployeeTel1}</td>
+                            <td style="color:black">${employee.HREmployeeContactAddress}</td>
                             <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                             <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
