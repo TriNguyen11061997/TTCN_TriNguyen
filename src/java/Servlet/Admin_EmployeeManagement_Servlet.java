@@ -30,7 +30,6 @@ public class Admin_EmployeeManagement_Servlet extends HttpServlet {
         try {
             response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
-            response.setCharacterEncoding("UTF-8");
             HREmployeesController objHEmployeesController = new HREmployeesController();
             List<HREmployeesInfo> listEmployees = objHEmployeesController.GetALlObject();
             if (listEmployees.size() > 0) {

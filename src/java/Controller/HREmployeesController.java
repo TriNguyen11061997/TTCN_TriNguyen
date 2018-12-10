@@ -14,6 +14,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -51,8 +53,8 @@ public class HREmployeesController {
         conn.close();
         return listHREmployeesInfos;
     }
-    public HREmployeesInfo GetObjectByID(int ID) throws SQLException{
-        List<HREmployeesInfo> listHREmployeesInfos = new ArrayList<>();
+
+    public HREmployeesInfo GetObjectByID(int ID) throws SQLException {
         sttm = conn.prepareCall("CALL HREmployees_GetObjectByID(?)");
         sttm.setInt(1, ID);
         rs = sttm.executeQuery();
@@ -65,17 +67,49 @@ public class HREmployeesController {
             objHREmployeesInfo.setHREmployeeBirthDay(rs.getDate("HREmployeeBirthDay"));
             objHREmployeesInfo.setHREmployeeCardNumber(rs.getString("HREmployeeCardNumber"));
             objHREmployeesInfo.setHREmployeeTel1(rs.getString("HREmployeeTel1"));
+            objHREmployeesInfo.setHREmployeeEmail(rs.getString("HREmployeeEmail"));
             objHREmployeesInfo.setHREmployeeContactAddress(rs.getString("HREmployeeContactAddress"));
             objHREmployeesInfo.setHREmployeeContactAddressCity(rs.getString("HREmployeeContactAddressCity"));
             objHREmployeesInfo.setHREmployeeContactAddressCountry(rs.getString("HREmployeeContactAddressCountry"));
             objHREmployeesInfo.setHREmployeeStatus(rs.getString("HREmployeeStatus"));
+            objHREmployeesInfo.setHREmployeePicture(rs.getString("HREmployeePicture"));
+            objHREmployeesInfo.setHREmployeeDesc(rs.getString("HREmployeeDesc"));
+            objHREmployeesInfo.setHREmployeeIDNumber(rs.getString("HREmployeeIDNumber"));
+            objHREmployeesInfo.setHREmployeeStartWorkingDate(rs.getDate("HREmployeeStartWorkingDate"));
+            objHREmployeesInfo.setHREmployeeEndWorkingDate(rs.getDate("HREmployeeEndWorkingDate"));
             return objHREmployeesInfo;
         }
         conn.close();
         return null;
     }
-    public boolean Update(HREmployeesInfo objEmployeesInfo){
-        
-        return  false;
+
+    public HREmployeesInfo Update(HREmployeesInfo objEmployeesInfo) {
+        try {
+            // ngày chỗ ni phải in ra được xem thử
+            // soa có chữ call á cái đó là thủ tục à. chứ t không viết câu lệnh trên ni
+            sttm = conn.prepareCall("CALL HREmployees_Update(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            // mở cái modal coi cái entity à
+            
+            sttm.setInt(1, objEmployeesInfo.getHREmployeeID());
+            sttm.setString(2,objEmployeesInfo.getHREmployeeName());
+            sttm.setInt(3, objEmployeesInfo.getHREmployeeGender());
+            sttm.setDate(4, objEmployeesInfo.getHREmployeeBirthDay());
+            sttm.setString(5, objEmployeesInfo.getHREmployeeStatus());
+            sttm.setString(6, objEmployeesInfo.getHREmployeeDesc());
+            sttm.setString(7, objEmployeesInfo.getHREmployeeIDNumber());
+            sttm.setString(8, objEmployeesInfo.getHREmployeeCardNumber());
+            sttm.setString(9, objEmployeesInfo.getHREmployeeTaxNumber());
+            sttm.setString(10, objEmployeesInfo.getHREmployeeTel1());
+            sttm.setString(11, objEmployeesInfo.getHREmployeeEmail());
+            sttm.setString(12, objEmployeesInfo.getHREmployeeContactAddress());
+            sttm.setString(13, objEmployeesInfo.getHREmployeeContactAddressCity());
+            sttm.setString(14, objEmployeesInfo.getHREmployeeContactAddressCountry());
+            rs = sttm.executeQuery();
+            sttm.execute();
+            conn.close();
+            return objEmployeesInfo;
+        } catch (SQLException ex) {
+            return null;
+        }
     }
 }

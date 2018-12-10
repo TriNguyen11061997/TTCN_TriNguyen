@@ -22,11 +22,15 @@
                 <div class="container">
                     <div class="row">                       
                         <form class="form-card" action="/Admin_EmployeeUpdate_Servlet">
-
+                            <input id="name" name="name" class="form-control" type="hidden">
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left1">
                                     <img class="image1" src="../Images/employee_1.jpg" alt=""/>
-                                </div>                               
+                                    <div class='col-xs-12 form-group'>
+                                        <input type="file" name="" class="inputfile" />                                
+                                    </div>
+                                </div> 
+
                                 <div class='col-xs-12 form-group'  id="right1">
                                     <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
                                     <input id="name" name="name" class="form-control" type="text" required="">                                  
@@ -35,9 +39,8 @@
                                     <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
                                     <input id="name" name="name" class="form-control" type="text" required="">                                  
                                 </div>                               
-                            </div>
-                            <br><br><br><br><br><br><br>
-
+                            </div>                                                                     
+                            <br><br><br><br><br><br><br><br><br>
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="phone-input-field">Giới tính</label>
