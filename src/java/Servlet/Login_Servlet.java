@@ -47,10 +47,11 @@ public class Login_Servlet extends HttpServlet {
                 session.setAttribute("HREmployeeID", objADUsersInfo.getFK_HREmployeeID());
                 switch (objADUsersInfo.getFK_ADUserGroupID()) {
                     case Constants.UserGroup.Admin:
-                        request.getRequestDispatcher("Admin/admin_Home.jsp").include(request, response);
+                        //request.getRequestDispatcher("/Admin_Home_Servlet").include(request, response);
+                        response.sendRedirect("/Admin_Home_Servlet");
                         break;
                     case Constants.UserGroup.Employee:
-                        request.getRequestDispatcher("Employee/employee_Home.jsp").include(request, response);
+                        response.sendRedirect("/Employee_Home_Servlet");
                         break;
                     case Constants.UserGroup.Customer:
                         request.getRequestDispatcher("index.jsp").include(request, response);

@@ -20,6 +20,10 @@
         <servlet-name>Admin_EmployeeManagement_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_EmployeeManagement_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin_EmployeeUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_EmployeeUpdate_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerHome_Servlet</url-pattern>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>Admin_EmployeeManagement_Servlet</servlet-name>
         <url-pattern>/Admin_EmployeeManagement_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_EmployeeUpdate_Servlet</servlet-name>
+        <url-pattern>/Admin_EmployeeUpdate_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -101,13 +109,12 @@
         <servlet-name>Preview_Servlet</servlet-name>
         <url-pattern>/preview</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>Employee_Home_Servlet</servlet-name>
         <servlet-class>Servlet.Employee_Home_Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Employee_Home_Servlet</servlet-name>
-        <url-pattern>/employee_servlet</url-pattern>
+        <url-pattern>/Employee_Home_Servlet</url-pattern>
     </servlet-mapping>
 </web-app>
