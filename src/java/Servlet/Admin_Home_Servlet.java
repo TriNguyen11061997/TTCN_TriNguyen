@@ -27,18 +27,23 @@ public class Admin_Home_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
+         try {
             response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
             HttpSession session = request.getSession();
-            HREmployeesController objEmployeesController = new HREmployeesController();
-            HREmployeesInfo objEmployeesInfo = objEmployeesController.GetObjectByID(Integer.parseInt(session.getAttribute("HREmployeeID").toString()));
-            request.setAttribute("Employee", objEmployeesInfo);
-            request.getRequestDispatcher("Admin/admin_Home.jsp").forward(request, response);
+            if (session.getAttribute("HREmployeeID") != null) {
+                HREmployeesController objEmployeesController = new HREmployeesController();             
+                HREmployeesInfo objEmployeesInfo = objEmployeesController.GetObjectByID(Integer.parseInt(session.getAttribute("HREmployeeID").toString()));
+                request.setAttribute("Employee", objEmployeesInfo);
+                request.getRequestDispatcher("Admin/admin_Home.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         } catch (SQLException ex) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+
     }
 
 }

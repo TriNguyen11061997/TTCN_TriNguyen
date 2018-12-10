@@ -25,7 +25,7 @@ public class HREmployeesInfo {
     private Date HREmployeeBirthDay;
     private String HREmployeeStatus;
     private String HREmployeeDesc;
-    private Byte[] HREmployeePicture;
+    private String HREmployeePicture;
     private String HREmployeeIDNumber;
     private String HREmployeeCardNumber;
     private String HREmployeeTaxNumber;
@@ -41,7 +41,7 @@ public class HREmployeesInfo {
     public HREmployeesInfo() {
     }
 
-    public HREmployeesInfo(int HREmployeeID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, String HREmployeeNo, String HREmployeeName, int HREmployeeGender, Date HREmployeeBirthDay, String HREmployeeStatus, String HREmployeeDesc, Byte[] HREmployeePicture, String HREmployeeIDNumber, String HREmployeeCardNumber, String HREmployeeTaxNumber, Date HREmployeeStartWorkingDate, Date HREmployeeEndWorkingDate, String HREmployeeTel1, String HREmployeeTel2, String HREmployeeEmail, String HREmployeeContactAddress, String HREmployeeContactAddressCity, String HREmployeeContactAddressCountry) {
+    public HREmployeesInfo(int HREmployeeID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, String HREmployeeNo, String HREmployeeName, int HREmployeeGender, Date HREmployeeBirthDay, String HREmployeeStatus, String HREmployeeDesc, String HREmployeePicture, String HREmployeeIDNumber, String HREmployeeCardNumber, String HREmployeeTaxNumber, Date HREmployeeStartWorkingDate, Date HREmployeeEndWorkingDate, String HREmployeeTel1, String HREmployeeTel2, String HREmployeeEmail, String HREmployeeContactAddress, String HREmployeeContactAddressCity, String HREmployeeContactAddressCountry) {
         this.HREmployeeID = HREmployeeID;
         this.AAStatus = AAStatus;
         this.AACreatedUser = AACreatedUser;
@@ -164,11 +164,11 @@ public class HREmployeesInfo {
         this.HREmployeeDesc = HREmployeeDesc;
     }
 
-    public Byte[] getHREmployeePicture() {
+    public String getHREmployeePicture() {
         return HREmployeePicture;
     }
 
-    public void setHREmployeePicture(Byte[] HREmployeePicture) {
+    public void setHREmployeePicture(String HREmployeePicture) {
         this.HREmployeePicture = HREmployeePicture;
     }
 

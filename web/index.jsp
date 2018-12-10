@@ -285,19 +285,20 @@
                     </nav> 
                     <script src="Assets/js/menu.js" type="text/javascript"></script>
                 </div>
-<%  ICProductController ProductDAO = new ICProductController();
-    List<ICProductsInfo> listPro = ProductDAO.getListProduct();
-    
-%>
+                <%  ICProductController ProductDAO = new ICProductController();
+                    List<ICProductsInfo> listPro = ProductDAO.getListProduct();
+
+                %>
                 <div class="header_bottom">
                     <div class="header_bottom_left">
                         <div class="section group">
-                            <%
-                                int i=1;
-                                for(ICProductsInfo item1 : listPro){
-                                    if(i==3) break;    
-                                    
-                                
+                            <%                                int i = 1;
+                                for (ICProductsInfo item1 : listPro) {
+                                    if (i == 3) {
+                                        break;
+                                    }
+
+
                             %>
                             <div class="listview_1_of_2 images_1_of_2">
                                 <div class="listimg listimg_2_of_1">
@@ -309,8 +310,9 @@
                                     <div class="button"><span><a href="preview.jsp">Giỏ hàng</a></span></div>
                                 </div>
                             </div>
-                            <%i++;}%>
-                            
+                            <%i++;
+                                }%>
+
                         </div>
                         <div class="section group">
                             <div class="listview_1_of_2 images_1_of_2">
@@ -395,7 +397,7 @@
                     </div>
                     <div class="section group">
                         <%
-                            for(ICProductsInfo item : listPro){
+                            for (ICProductsInfo item : listPro) {
                         %>
                         <div class="grid_1_of_4 images_1_of_4">
                             <a href="preview-3.jsp"><img src="Images/<%=item.getICProductPicture1()%>" alt="" /></a>
@@ -406,7 +408,7 @@
                             <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
                         </div>
                         <%}%>
-                        
+
                     </div>
                     <div class="content_bottom">
                         <div class="heading">
@@ -448,7 +450,7 @@
                     </div>
                     <div class="section group">
                         <%
-                             for(ICProductsInfo item2 : listPro){
+                            for (ICProductsInfo item2 : listPro) {
                         %>
                         <div class="grid_1_of_4 images_1_of_4">
                             <a href="preview-3.jsp"><img src="Images/<%=item2.getICProductPicture1()%>" alt="" /></a>
@@ -461,9 +463,9 @@
                             <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
                         </div>
                         <%}%>
-                        
-                        
-                        
+
+
+
                     </div>
                 </div>
             </div>
