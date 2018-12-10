@@ -21,18 +21,12 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet(name = "Employee_Home_Servlet", urlPatterns = {"/Employee_Home_Servlet"})
 public class Employee_Home_Servlet extends HttpServlet {
 
-      @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.getRequestDispatcher("Employee/employee_Home.jsp").include(request, response);
     }
-      @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-          RequestDispatcher rd = request.getRequestDispatcher("/employee_Home.jsp");
-          rd.forward(request, response);
-                  
-                  
-    }
-
 }

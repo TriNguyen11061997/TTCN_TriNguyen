@@ -26,7 +26,7 @@ public class ARSaleOrdersController {
     }
     public List<ARSaleOrdersInfo> GetAllObjectForEmployee() throws SQLException{
         List<ARSaleOrdersInfo> listSaleOrder =new ArrayList<>();
-        sttm = conn.prepareCall("Call ARSaleOrders_GetALLObjectForEmployee()");
+        sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForEmployee()");
         rs = sttm.executeQuery();
         ARSaleOrdersInfo objARSaleOrdersInfo;
         while (rs.next()) {            
@@ -42,7 +42,7 @@ public class ARSaleOrdersController {
     }
      public List<ARSaleOrdersInfo> GetAllObjectForAdmin() throws SQLException{
         List<ARSaleOrdersInfo> listSaleOrder =new ArrayList<>();
-        sttm = conn.prepareCall("Call ARSaleOrders_GetALLObjectForAdmin()");
+        sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForAdmin()");
         rs = sttm.executeQuery();
         ARSaleOrdersInfo objARSaleOrdersInfo;
         while (rs.next()) {            

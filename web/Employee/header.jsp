@@ -124,15 +124,16 @@
         <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
         <nav>
             <ul class="menu list-unstyled">
-                <li><a href="/Admin_Home_Servlet">Trang chủ</a></li>
-                <li class="activate"><a href="/Admin_EmployeeManagement_Servlet">Nhân viên</a>
+                <li><a href="employee_Home.jsp">Trang chủ</a></li>
+                <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a>
                 </li>
-                <li><a href="/Admin _SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
+                <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
                 </li>		
-                <li><a href="faq.jsp">Hóa đơn bán hàng</a>
+                <li><a href="faq.jsp">Hóa đơn</a>
                 </li>
-                <li><a href="about.jsp">Doanh thu</a></li>
-                <li><a href="faq.jsp">Tính lương</a></li>                           
+                <li><a href="about.jsp">Bình luận</a></li>
+                <li><a href="faq.jsp">Bài đăng</a></li>
+                <li><a href="/employee_servlet">Sản phẩm</a></li>
                 <div class="clear"> </div>
             </ul>
         </nav> 

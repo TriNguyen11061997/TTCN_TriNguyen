@@ -18,7 +18,7 @@
         <div class="wrap">
             <%@include file="/Admin/header.jsp" %>
             <div class="main">
-                <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THÔNG TIN CÁ NHÂN</h2>               
+                <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">CẬP NHẬT NHÂN VIÊN</h2>               
                 <div class="container">
                     <div class="row">                       
                         <form class="form-card" action="/Admin_EmployeeUpdate_Servlet">
@@ -29,11 +29,11 @@
                                 </div>                               
                                 <div class='col-xs-12 form-group'  id="right1">
                                     <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
-                                    <input id="name" name="name" value= "${Employee.HREmployeeNo}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right1">
                                     <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
-                                    <input id="name" name="name" value= "${Employee.HREmployeeNo}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
                                 </div>                               
                             </div>
                             <br><br><br><br><br><br><br>
@@ -42,17 +42,14 @@
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="phone-input-field">Giới tính</label>
                                     <select class="form-control locked">
-                                        <option value="0">Nam</option>
-                                        <option value="1">Nữ</option>
-                                        <option value="2">Giới tính khác</option>
+                                        <option>Nam</option>
+                                        <option>Nữ</option>
+                                        <option>Giới tính khác</option>
                                     </select>                                
                                 </div>
                                 <div class='col-xs-12 form-group'  id="right">
                                     <label class="control-label locked" for="name-input-field">Tình trạng</label>
-                                    <select class="form-control locked">
-                                        <option value="New">Tạo mới</option>
-                                        <option value="Complete">Hoàn tất</option>
-                                    </select>                                         
+                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
                                 </div>
                             </div>                           
                             <div class='form-group'>                              
