@@ -150,25 +150,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="employee_Home.jsp">Trang chủ</a></li>
-                            <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a>
-                            </li>
-                            <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
-                            </li>		
-                            <li><a href="faq.jsp">Hóa đơn bán hàng</a>
-                            </li>
-                            <li><a href="about.jsp">Bình luận</a></li>
-                            <li><a href="faq.jsp">Bài đăng</a></li>
-                            <li><a href="/employee_servlet">Sản phẩm</a></li>
+                            <li><a href="/employee_servlet">Home</a></li>
+                            <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a></li>
+                            <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a></li>		
+                            <li><a href="">Hóa đơn bán hàng</a></li>
+                            <li><a href="">Bình luận</a></li>
+                            <li><a href="">Bài đăng</a></li>
+                            <li><a href="/employee/product">Sản phẩm</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </nav> 
                     <script src="../Assets/js/menu.js" type="text/javascript"></script>
                 </div>
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH SẢN PHẨM</h2>
                 </div>
-                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
+                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm sản phẩm</button></a>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -198,19 +195,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
                         <th style="color:white">STT</th>
-                        <th style="color:white">Mã khách hàng</th>
-                        <th style="color:white">Tên khách hàng</th>
-                        <th style="color:white">Số điện thoại</th>
+                        <th style="color:white">Mã sản phẩm</th>
+                        <th style="color:white">Tên sản phẩm</th>
+                        <th style="color:white">Mô tả</th>
+                        <th style="color:white">Hình ảnh</th>
                         <th style="color:white">Edit</th>
                         <th style="color:white">Delete</th>
                         <th style="color:white">Xem chi tiết</th>
                     </tr>
 
                     <tr>
-                        <td style="color:black">Trí Nguyễn</td>
-                        <td style="color:black">Trí Nguyễn</td>
-                        <td style="color:black">Trí Nguyễn</td>
-                        <td style="color:black">Trí Nguyễn</td>
+                        <td style="color:black">1</td>
+                        <td style="color:black">VLXX1</td>
+                        <td style="color:black">SAMSUN GALAXY NOTE 9 </td>
+                        <td style="color:black">Điện thoại max đẹp</td>
+                        <td style="color:black;width: 100px;height:100px;"><img src="/Images/note9.png"  /></td>
                         <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                         <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                         <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>

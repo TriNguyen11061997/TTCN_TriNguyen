@@ -151,7 +151,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
                     <nav>
                         <ul class="menu list-unstyled">
-                            <li><a href="Employee/employee_Home.jsp">Trang chủ</a></li>
+                            <li><a href="/employee_servlet">Home</a></li>
                             <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a>
                             </li>
                             <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
@@ -160,7 +160,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </li>
                             <li><a href="">Bình luận</a></li>
                             <li><a href="">Bài đăng</a></li>
-                            <li><a href="">Liên hệ</a></li>
+                            <li><a href="/employee/product">Sản phẩm</a></li>
                             <div class="clear"> </div>
                         </ul>
                     </nav> 

@@ -11,6 +11,12 @@
         <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
         <script src="Assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/templates/public/layout/scripts/jquery.min.js"></script>
+	<!-- Homepage Specific -->
+	
+	
+	
+	
         <script src="Assets/js/script.js" type="text/javascript"></script>
         <script type="text/javascript" src="Assets/js/move-top.js"></script>
         <script type="text/javascript" src="Assets/js/easing.js"></script>
@@ -302,11 +308,12 @@
                             <div class="listview_1_of_2 images_1_of_2">
                                 <div class="listimg listimg_2_of_1">
                                     <a href="preview.jsp"> <img src="Images/<%=item1.getICProductPicture1()%>" alt="" /></a>
+                                  
                                 </div>
                                 <div class="text list_2_of_1">
                                     <h2>Iphone</h2>
                                     <p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
-                                    <div class="button"><span><a href="preview.jsp">Giỏ hàng</a></span></div>
+                                    <div class="button"><span><a href="javascript:void(0)" class="cart-button" onclick="onpenform(<%=item1.getICProductID()%>,1)">Giỏ hàng</a></span></div>
                                 </div>
                             </div>
                             <%i++;}%>
@@ -395,19 +402,46 @@
                     </div>
                     <div class="section group">
                         <%
+                            int i1=0;
                             for(ICProductsInfo item : listPro){
+                                if(i1==4)break;
                         %>
                         <div class="grid_1_of_4 images_1_of_4">
                             <a href="preview-3.jsp"><img src="Images/<%=item.getICProductPicture1()%>" alt="" /></a>
                             <h2><%=item.getICProductDesc()%> </h2>
                             <p><%=item.getICProductName()%></p>
                             <p><span class="strike">$528.22</span><span class="price">$<%=item.getICProductSupplierPrice()%></span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Giỏ hàng</a></span> </div>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="javascript:void(0)" class="cart-button" onclick="onpenform(<%=item.getICProductID()%>)">Giỏ hàng</a></span> </div>
                             <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
                         </div>
-                        <%}%>
+                        <%i1++;}%>
                         
                     </div>
+                        <script type="text/javascript">
+                            function onpenform(idProduct){
+
+                              $.ajaxSetup({
+                                headers: {
+                                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                              });
+                              $.ajax({
+                                  url: "<%=request.getContextPath()%>/add/cart",
+                                type: 'POST',
+                                cache: false,
+                                data: {
+                                    aidpro: idProduct
+                                 
+                                },
+                                success: function(data){
+                                  $('.cart').html(data);
+                                },
+                                error: function (){
+                                  alert('Có lỗi');
+                                }
+                              });  
+                            }
+                          </script>
                     <div class="content_bottom">
                         <div class="heading">
                             <h3>New Products</h3>
@@ -448,7 +482,9 @@
                     </div>
                     <div class="section group">
                         <%
+                            int i2=0;
                              for(ICProductsInfo item2 : listPro){
+                                 if(i2==4) break;
                         %>
                         <div class="grid_1_of_4 images_1_of_4">
                             <a href="preview-3.jsp"><img src="Images/<%=item2.getICProductPicture1()%>" alt="" /></a>
@@ -457,10 +493,10 @@
                             </div>
                             <h2><%=item2.getICProductName()%> </h2>
                             <p><span class="strike">$438.99</span><span class="price">$<%=item2.getICProductSupplierPrice()%></span></p>
-                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="preview-3.jsp" class="cart-button">Giỏ hàng</a></span> </div>
+                            <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a class="cart-button" href="javascript:void(0)" onclick="onpenform(<%=item2.getICProductID()%>,1)">Giỏ hàng</a></span> </div>
                             <div class="button"><span><a href="preview-3.jsp" class="details">Details</a></span></div>
                         </div>
-                        <%}%>
+                        <%i2++;}%>
                         
                         
                         

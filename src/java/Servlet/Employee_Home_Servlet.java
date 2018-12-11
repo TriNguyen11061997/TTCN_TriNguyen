@@ -29,7 +29,7 @@ public class Employee_Home_Servlet extends HttpServlet {
       @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          RequestDispatcher rd = request.getRequestDispatcher("/employee_Home.jsp");
+          RequestDispatcher rd = request.getRequestDispatcher("/Employee/employee_Home.jsp");
           rd.forward(request, response);
                   
                   

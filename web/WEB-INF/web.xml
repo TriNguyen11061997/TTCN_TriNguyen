@@ -110,4 +110,22 @@
         <servlet-name>Employee_Home_Servlet</servlet-name>
         <url-pattern>/employee_servlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Employee_ProductManagement_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_ProductManagement_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Employee_ProductManagement_Servlet</servlet-name>
+        <url-pattern>/employee/product</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Cart_Servlet</servlet-name>
+        <servlet-class>Servlet.Cart_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cart_Servlet</servlet-name>
+        <url-pattern>/add/cart</url-pattern>
+    </servlet-mapping>
 </web-app>
