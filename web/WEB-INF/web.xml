@@ -5,7 +5,7 @@
         <servlet-class>Servlet.Employee_SaleOrderManagement_Servlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Admin_SaleOrderHome_Servlet</servlet-name>
+        <servlet-name>Admin_SaleOrderManagement_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_SaleOrderManagement_Servlet</servlet-class>
     </servlet>
     <servlet>
@@ -24,6 +24,14 @@
         <servlet-name>Admin_EmployeeUpdate_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_EmployeeUpdate_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin_SaleOrderUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_SaleOrderUpdate_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin_SaleOrderLoadUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_SaleOrderLoadUpdate_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerHome_Servlet</url-pattern>
@@ -33,8 +41,8 @@
         <url-pattern>/Employee_SaleOrderHome_Servlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Admin_SaleOrderHome_Servlet</servlet-name>
-        <url-pattern>/Admin_SaleOrderHome_Servlet</url-pattern>
+        <servlet-name>Admin_SaleOrderManagement_Servlet</servlet-name>
+        <url-pattern>/Admin_SaleOrderManagement_Servlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Admin_Home_Servlet</servlet-name>
@@ -51,6 +59,14 @@
     <servlet-mapping>
         <servlet-name>Admin_EmployeeUpdate_Servlet</servlet-name>
         <url-pattern>/Admin_EmployeeUpdate_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_SaleOrderUpdate_Servlet</servlet-name>
+        <url-pattern>/Admin_SaleOrderUpdate_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_SaleOrderLoadUpdate_Servlet</servlet-name>
+        <url-pattern>/Admin_SaleOrderLoadUpdate_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
