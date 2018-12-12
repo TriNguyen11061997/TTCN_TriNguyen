@@ -26,17 +26,16 @@ public class Admin_EmployeeUpdate_Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        // để mở project cũ ra xem có gì khác ko
-        // 2 dòng trên ni có vấn đề, mở đoạn taaoj user hàm create employee t chưa viết hàm đó. mà 2 cai  như nahu
         HttpSession session = request.getSession();
-        // lấy info gì sout info bị lỗi font ra xem thử
         if (session.getAttribute("HREmployeeID") != null) {
             HREmployeesController objEmployeesController = new HREmployeesController();
             HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
             objEmployeesInfo.setHREmployeeID(Integer.parseInt(request.getParameter("HREmployeeID")));
-            System.out.println("tên jsp: "+request.getParameter("HREmployeeName"));
+            String tentin = new String(request.getParameter("HREmployeeName").getBytes("ISO-8859-1"), "UTF-8");
+            System.out.println("tên jsp: " + tentin);
             objEmployeesInfo.setHREmployeeName(request.getParameter("HREmployeeName"));
             objEmployeesInfo.setHREmployeeNo(request.getParameter("HREmployeeNo"));
             objEmployeesInfo.setHREmployeePicture(request.getParameter("HREmployeePicture"));

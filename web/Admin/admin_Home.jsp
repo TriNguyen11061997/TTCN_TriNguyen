@@ -1,7 +1,7 @@
 <%@page import="Info.HREmployeesInfo"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
-    <%@ page language="java" pageEncoding="UTF-8"%>
     <% HREmployeesInfo objEmployeesInfo = (HREmployeesInfo) request.getAttribute("Employee");%>
     <head>
         <title>Smart phone store</title>
