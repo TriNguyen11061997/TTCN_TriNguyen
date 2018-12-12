@@ -32,7 +32,7 @@ public class Admin_SaleOrderManagement_Servlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
             ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
-            List<ARSaleOrdersInfo> listSaleOrder = objARSaleOrdersController.GetAllObjectForEmployee();
+            List<ARSaleOrdersInfo> listSaleOrder = objARSaleOrdersController.GetAllObjectForAdmin();
             if (listSaleOrder.size() > 0) {
                 request.setAttribute("listSaleOrder", listSaleOrder);
                 request.getRequestDispatcher("Admin/admin_SaleOrderManagement.jsp").include(request, response);

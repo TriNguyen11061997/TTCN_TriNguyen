@@ -22,13 +22,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link href="../Assets/css/appointment_style.css" rel="stylesheet" type="text/css"/>
-        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
     </head>
     <body>
         <div class="wrap">
+            <%@include file="/Employee/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH ĐƠN HÀNG</h2>
                 </div>
                 <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">

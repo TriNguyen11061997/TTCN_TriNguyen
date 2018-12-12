@@ -127,7 +127,7 @@
                 <li><a href="/Admin_Home_Servlet">Trang chủ</a></li>
                 <li class="activate"><a href="/Admin_EmployeeManagement_Servlet">Nhân viên</a>
                 </li>
-                <li><a href="/Admin _SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
+                <li><a href="/Admin_SaleOrderManagement_Servlet">Đơn bán hàng</a>			                                
                 </li>		
                 <li><a href="faq.jsp">Hóa đơn bán hàng</a>
                 </li>

@@ -20,7 +20,7 @@
             <%@include file="/Admin/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH ĐƠN HÀNG</h2>
                 </div>
                 <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">
@@ -51,23 +51,29 @@
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
-                        <th style="color:white">STT</th>
+                        <th style="color:white">Ngày chứng từ</th>
                         <th style="color:white">Mã đơn hàng</th>
+                        <th style="color:white">Khách hàng</th>
                         <th style="color:white">Tên đơn hàng</th>
-                        <th style="color:white">Số điện thoại</th>
+                        <th style="color:white">Mô tả</th>
+                        <th style="color:white">Nhân viên</th>
+                        <th style="color:white">Tình trạng</th>
+                        <th style="color:white">Tổng tiền</th>
                         <th style="color:white">Edit</th>
-                        <th style="color:white">Delete</th>
-                        <th style="color:white">Xem chi tiết</th>
+                        <th style="color:white">Delete</th>                       
                     </tr>
                     <c:forEach var="saleOrder" items = "${listSaleOrder}">                     
                         <tr>
-                            <td style="color:black">${saleOrder.ARSaleOrderID}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderDate}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderNo}</td>
+                            <td style="color:black">${saleOrder.customer.ARCustomerName}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderName}</td>
-                            <td style="color:black"></td>
+                            <td style="color:black">${saleOrder.ARSaleOrderDesc}</td>
+                             <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
+                             <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
+                             <td style="color:black">${saleOrder.ARSaleOrderTaxAmount}</td>                         
                             <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
+                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>                          
                         </tr>
                     </c:forEach>
                 </table>

@@ -18,4 +18,10 @@ public class Constants {
         public static final int Customer = 3;
     }
 
+    public class Gender {
+
+        public static final String man = "nam";
+        public static final int feman = 2;
+    }
+
 }
