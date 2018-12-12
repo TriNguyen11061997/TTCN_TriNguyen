@@ -85,11 +85,7 @@ public class HREmployeesController {
 
     public HREmployeesInfo Update(HREmployeesInfo objEmployeesInfo) {
         try {
-            // ngày chỗ ni phải in ra được xem thử
-            // soa có chữ call á cái đó là thủ tục à. chứ t không viết câu lệnh trên ni
             sttm = conn.prepareCall("CALL HREmployees_Update(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            // mở cái modal coi cái entity à
-            
             sttm.setInt(1, objEmployeesInfo.getHREmployeeID());
             sttm.setString(2,objEmployeesInfo.getHREmployeeName());
             sttm.setInt(3, objEmployeesInfo.getHREmployeeGender());
