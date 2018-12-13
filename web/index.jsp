@@ -32,7 +32,7 @@
                                         }"><input type="submit" value="SEARCH">
                             </form>
                         </div>
-                        <div class="shopping_cart">
+                        <div class="shopping_cart change">
                             <div class="cart">
                                 <a href="#" title="View my shopping cart" rel="nofollow">
                                     <strong class="opencart"> </strong>
@@ -307,7 +307,8 @@
                                 <div class="text list_2_of_1">
                                     <h2>Iphone</h2>
                                     <p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
-                                    <div class="button"><span><a href="preview.jsp">Giỏ hàng</a></span></div>
+                                    
+                                    <div class="button"><span><a href="javascript:void(0)" onclick="changeActive(<%=item1.getICProductID()%>)">Giỏ hàng</a></span></div>
                                 </div>
                             </div>
                             <%i++;
@@ -556,6 +557,31 @@
                                         }
                                     });
                                 });
+        </script>
+        <script>
+              function changeActive(id){
+		    $.ajaxSetup({
+		    headers: {
+		      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+		  });
+		    $.ajax({
+		      url: "<%=request.getContextPath()%>/cart_add",
+		      type: 'POST',
+		      cache: false,
+		      data: {
+		        aid: id
+		      },
+		
+		      success: function(data){
+		        $(".change").html(data); 
+		      },
+		      error: function (){
+		        alert('Có lỗi');
+		      }
+		    }); 
+		  }
+
         </script>
     </body>
 </html>
