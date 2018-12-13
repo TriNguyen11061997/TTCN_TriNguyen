@@ -133,4 +133,12 @@
         <servlet-name>Employee_Home_Servlet</servlet-name>
         <url-pattern>/Employee_Home_Servlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Cart_Servlet</servlet-name>
+        <servlet-class>Servlet.Cart_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cart_Servlet</servlet-name>
+        <url-pattern>/cart_add</url-pattern>
+    </servlet-mapping>
 </web-app>
