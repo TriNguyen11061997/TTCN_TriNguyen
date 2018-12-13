@@ -72,4 +72,40 @@ public class ARSaleOrdersController {
         conn.close();
         return listSaleOrder;
     }
+
+    public ARSaleOrdersInfo GetObjectByID(int saleOrderID) throws SQLException {
+        sttm = conn.prepareCall("Call ARSaleOrders_GetObjectByID(?)");
+        sttm.setInt(1, saleOrderID);
+        rs = sttm.executeQuery();
+        ARSaleOrdersInfo objARSaleOrdersInfo;
+        while (rs.next()) {
+            objARSaleOrdersInfo = new ARSaleOrdersInfo();
+            objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
+            objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
+            objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
+            objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
+            objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
+            objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
+            objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
+            objARSaleOrdersInfo.setARSaleOrderDiscountAmount(rs.getDouble("ARSaleOrderDiscountAmount"));
+            objARSaleOrdersInfo.setARSaleOrderDiscountPerCent(rs.getDouble("ARSaleOrderDiscountPerCent"));
+            objARSaleOrdersInfo.setARSaleOrderTaxPercent(rs.getDouble("ARSaleOrderTaxPercent"));
+            objARSaleOrdersInfo.setARSaleOrderTaxAmount(rs.getDouble("ARSaleOrderTaxAmount"));
+            objARSaleOrdersInfo.setARSaleOrderShippingFees(rs.getDouble("ARSaleOrderShippingFees"));
+            ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            objARCustomersInfo.setARCustomerTel1(rs.getString("ARCustomerTel1"));
+            objARCustomersInfo.setARCustomerEmail(rs.getString("ARCustomerEmail"));
+            objARCustomersInfo.setARCustomerContactAddress(rs.getString("ARCustomerContactAddress"));
+            objARCustomersInfo.setARCustomerContactAddressCity(rs.getString("ARCustomerContactAddressCity"));
+            objARCustomersInfo.setARCustomerContactAddressCountry(rs.getString("ARCustomerContactAddressCountry"));
+            objARSaleOrdersInfo.setCustomer(objARCustomersInfo);
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
+            return objARSaleOrdersInfo;
+        }
+        conn.close();
+        return null;
+    }
 }
