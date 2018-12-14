@@ -32,6 +32,10 @@
         <servlet-name>Admin_SaleOrderLoadUpdate_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_SaleOrderLoadUpdate_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_EmployeesAdd_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerHome_Servlet</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>Admin_SaleOrderLoadUpdate_Servlet</servlet-name>
         <url-pattern>/Admin_SaleOrderLoadUpdate_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
+        <url-pattern>/Admin_EmployeesAdd_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

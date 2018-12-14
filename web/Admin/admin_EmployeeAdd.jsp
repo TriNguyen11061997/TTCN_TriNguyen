@@ -20,83 +20,87 @@
                 <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THÊM MỚI NHÂN VIÊN</h2>               
                 <div class="container">
                     <div class="row">                       
-                        <form class="form-card" action="/Admin_EmployeeUpdate_Servlet">
+                        <form class="form-card" action="/Admin_EmployeesAdd_Servlet" method="post">
 
                             <div class='form-group'>                        
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="HREmployeeNo" class="form-control" type="text" required="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="HREmployeeName" class="form-control" type="text" required="">                                  
                                 </div>                               
                             </div>
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="phone-input-field">Giới tính</label>
-                                    <select class="form-control locked">
-                                        <option>Nam</option>
-                                        <option>Nữ</option>
-                                        <option>Giới tính khác</option>
+                                    <select class="form-control locked" name="HREmployeeGender">
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                        <option value="2">Giới tính khác</option>
                                     </select>                                
                                 </div>
                                 <div class='col-xs-12 form-group'  id="right">
+                         
                                     <label class="control-label locked" for="name-input-field">Tình trạng</label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <select class="form-control locked" name="HREmployeeStatus">
+                                        <option value="Working">Đang làm việc</option>
+                                        <option value="NotWorking">Ngưng làm việc</option>
+                                    </select>
                                 </div>
                             </div>                           
                             <div class='form-group'>                              
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="name-input-field">Ngày sinh</label>
-                                    <input id="name" name="name" class="form-control" type="date" required="">                                  
+                                    <input id="name" name="HREmployeeBirthDay" class="form-control" type="date" required="">                                  
                                 </div>
                             </div>
                             <div class='form-group'>                              
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="name-input-field">Số điện thoại</label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="HREmployeeTel1" class="form-control" type="text" required="">                                  
                                 </div>
                             </div>
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="name-input-field">Chứng minh nhân dân</label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="HREmployeeIDNumber" class="form-control" type="text" required="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="name-input-field">Số tài khoản</label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="HREmployeeCardNumber" class="form-control" type="text" required="">                                  
                                 </div>
                             </div>
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="email-input-field">Email</label>
-                                    <input id="email" name="email" type="text" placeholder="email@email.com" class="form-control locked" required="">
+                                    <input id="email" name="HREmployeeEmail" type="text" placeholder="email@email.com" class="form-control locked" required="">
                                 </div>
                             </div>                                                     
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="name-input-field">Thành phố </label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="HREmployeeContactAddressCity" class="form-control" type="text" required="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="name-input-field">Quốc gia</label>
-                                    <input id="name" name="name" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="HREmployeeContactAddressCountry" class="form-control" type="text" required="">                                  
                                 </div>
                             </div>
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="desc-input-field">Address</label>
-                                    <textarea name="address" id="address" cols="0" rows="3" class="form-control locked"></textarea>
+                                    <textarea name="HREmployeeContactAddress" id="address" cols="0" rows="3" class="form-control locked"></textarea>
                                 </div>
                             </div>
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="desc-input-field">Mô tả</label>
-                                    <textarea name="desc" id="desc" cols="0" rows="3" class="form-control locked"></textarea>
+                                    <textarea name="HREmployeeDesc" id="desc" cols="0" rows="3" class="form-control locked"></textarea>
                                 </div>
                             </div>
-                            <input type="submit" value="Submit" class="form-control locked" style="background-color: #17a2b8">
+                            <input type="submit"  value="Submit" class="form-control locked" style="background-color: #17a2b8">
                         </form>
                     </div>
                 </div>
