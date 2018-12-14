@@ -22,12 +22,12 @@
     </head>
     <body>
         <div class="wrap">
-            <%@include file="/Admin/header.jsp" %>
+            <%@include file="/Employee/header.jsp" %>
             <div class="main">
                 <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THÔNG TIN ĐƠN HÀNG</h2>               
                 <div class="container">
                     <div class="row">                       
-                        <form class="form-card" action="/Admin_SaleOrderUpdate_Servlet" method="post">
+                        <form class="form-card" action="/Employee_SaleOrderUpdate_Servlet" method="post">
                             <input id="name" name="ARSaleOrderID" value="${saleorder.ARSaleOrderID}" class="form-control" type="hidden">
                             <div class='form-group'>                                                          
                                 <div class='col-xs-12 form-group'  id="left3">
@@ -45,15 +45,15 @@
                                             ARSaleOrdersInfo objARSaleOrdersInfo = (ARSaleOrdersInfo) request.getAttribute("saleorder");
                                             if (objARSaleOrdersInfo.getARSaleOrderStatus().equals("Confirm")) {
                                         %>
-                                        <option value="New" disabled="">Tạo mới</option>
+                                        <option value="New">Tạo mới</option>
                                         <option value="Confirm" selected="selected">Xác nhận</option>
-                                        <option value="Approve">Duyệt</option>
-                                        <option value="Cancel" >Hủy</option>
+                                        <option value="Approve" disabled="">Duyệt</option>
+                                        <option value="Cancel">Hủy</option>
                                         <option value="Approve" disabled="">Hoàn tất</option>
                                         <%} else {%>
-                                        <option value="New" disabled="">Tạo mới</option>
+                                        <option value="New" selected="selected">Tạo mới</option>
                                         <option value="Confirm" >Xác nhận</option>
-                                        <option value="Approve" selected="selected">Duyệt</option>
+                                        <option value="Approve">Duyệt</option>
                                         <option value="Cancel">Hủy</option>
                                         <option value="Approve" disabled="">Hoàn tất</option>
                                         <%}%>
@@ -123,29 +123,18 @@
                                 <div class='col-xs-12 form-group' id="left">
                                     <label class="control-label locked" for="name-input-field">Phương thức thanh toán</label>
                                     <select class="form-control locked" name="ARSaleOrderPaymentMethod"> 
-                                        <%
-                                            if (objARSaleOrdersInfo.getARSaleOrderPaymentMethod().equals("AfterReceipt")) {
-                                        %>
-                                        <option value="AfterReceipt" selected="selected">Thanh toán sau khi nhận hàng</option>
-                                        <option value="PaymentCash" >Thanh toán bằng thẻ tín dụng</option>
-                                        <% } else {%>
-                                        <option value="AfterReceipt" >Thanh toán sau khi nhận hàng</option>
+
+                                        <option value="AfterReceipt">Thanh toán sau khi nhận hàng</option>
                                         <option value="PaymentCash" selected="selected">Thanh toán bằng thẻ tín dụng</option>
-                                        <%}%>
+
                                     </select>                                        
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="email-input-field">Trạng thái thanh toán</label>
                                     <select class="form-control locked" name="ARSaleOrderPaymentStatus"> 
-                                        <%
-                                            if (objARSaleOrdersInfo.getARSaleOrderPaymentStatus().equals("Paid")) {
-                                        %>
+
                                         <option value="Paid"selected="selected">Đã thanh toán</option>
                                         <option value="Unpaid">Chưa thanh toán</option>
-                                        <% } else {%>
-                                        <option value="Paid">Đã thanh toán</option>
-                                        <option value="Unpaid" selected="selected">Chưa thanh toán</option>
-                                        <%}%>                                      
 
                                     </select>      
                                 </div>
@@ -190,7 +179,7 @@
             </div>
         </div>
 
-        <%@include file="/Admin/footer.jsp" %>
+        <%@include file="/Employee/footer.jsp" %>
     </body>
 </html>
 

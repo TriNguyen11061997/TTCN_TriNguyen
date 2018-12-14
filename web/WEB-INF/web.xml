@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>Employee_SaleOrderHome_Servlet</servlet-name>
+        <servlet-name>Employee_SaleOrderManagement_Servlet</servlet-name>
         <servlet-class>Servlet.Employee_SaleOrderManagement_Servlet</servlet-class>
     </servlet>
     <servlet>
@@ -32,13 +32,25 @@
         <servlet-name>Admin_SaleOrderLoadUpdate_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_SaleOrderLoadUpdate_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Employee_HomeUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_HomeUpdate_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin_EmployeeLoadUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_EmployeeLoadUpdate_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_InvoiceManagement</servlet-name>
+        <servlet-class>Servlet.Employee_InvoiceManagement</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
-        <url-pattern>/Employee_CustomerHome_Servlet</url-pattern>
+        <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
+        <url-pattern>/Employee_CustomerManagement_Servlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Employee_SaleOrderHome_Servlet</servlet-name>
-        <url-pattern>/Employee_SaleOrderHome_Servlet</url-pattern>
+        <servlet-name>Employee_SaleOrderManagement_Servlet</servlet-name>
+        <url-pattern>/Employee_SaleOrderManagement_Servlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Admin_SaleOrderManagement_Servlet</servlet-name>
@@ -68,6 +80,26 @@
         <servlet-name>Admin_SaleOrderLoadUpdate_Servlet</servlet-name>
         <url-pattern>/Admin_SaleOrderLoadUpdate_Servlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_HomeUpdate_Servlet</servlet-name>
+        <url-pattern>/Employee_HomeUpdate_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_EmployeeLoadUpdate_Servlet</servlet-name>
+        <url-pattern>/Admin_EmployeeLoadUpdate_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_SaleOrderLoadUpdate_Servlet</servlet-name>
+        <url-pattern>/Employee_SaleOrderLoadUpdate_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_SaleOrderUpdate_Servlet</servlet-name>
+        <url-pattern>/Employee_SaleOrderUpdate_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_InvoiceManagement</servlet-name>
+        <url-pattern>/Employee_InvoiceManagement</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -78,8 +110,16 @@
         <servlet-class>Servlet.About_Servlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
+        <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
         <servlet-class>Servlet.Employee_CustomerManagement_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_SaleOrderLoadUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_SaleOrderLoadUpdate_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_SaleOrderUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_SaleOrderUpdate_Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>About_Servlet</servlet-name>

@@ -2,7 +2,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
-    <% HREmployeesInfo objEmployeesInfo = (HREmployeesInfo) request.getAttribute("Employee");%>
     <head>
         <title>Smart phone store</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -45,7 +44,9 @@
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="phone-input-field">Giới tính</label>
                                     <select class="form-control locked" name="HREmployeeGender"> 
-                                        <%if (objEmployeesInfo.getHREmployeeGender() == 0) {%>
+                                        <%
+                                            HREmployeesInfo objEmployeesInfo = (HREmployeesInfo) request.getAttribute("Employee");
+                                            if (objEmployeesInfo.getHREmployeeGender() == 0) {%>
                                         <option value="0" selected="selected">Nữ</option>
                                         <option value="1">Nam</option>
                                         <%} else {%>
@@ -55,10 +56,16 @@
                                     </select>                                
                                 </div>
                                 <div class='col-xs-12 form-group'  id="right">
-                                    <label class="control-label locked" for="name-input-field">Tình trạng</label>
+                                    <label class="control-label locked" for="name-input-field">Tình trạng</label>                                 
                                     <select class="form-control locked" name="HREmployeeStatus">
-                                        <option value="Working">Đang làm việc</option>
+                                        <%
+                                            if (objEmployeesInfo.getHREmployeeStatus().equals("Working")) {%>
+                                            <option value="Working" selected="selected">Đang làm việc</option>
                                         <option value="NotWorking">Ngưng làm việc</option>
+                                        <%} else {%>
+                                        <option value="Working">Đang làm việc</option>
+                                        <option value="NotWorking" selected="selected">Ngưng làm việc</option>
+                                        <%}%>
                                     </select>                                         
                                 </div>
                             </div>                           
@@ -101,13 +108,13 @@
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="desc-input-field">Address</label>
-                                    <textarea name="HREmployeeContactAddress" id="address"value= "${Employee.HREmployeeContactAddress}" cols="0" rows="3" class="form-control locked"></textarea>
+                                    <textarea name="HREmployeeContactAddress" id="address"value= "${Employee.HREmployeeContactAddress}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeContactAddress}</textarea>
                                 </div>
                             </div>
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="desc-input-field">Mô tả</label>
-                                    <textarea name="HREmployeeDesc" id="desc" value= "${Employee.HREmployeeDesc}" cols="0" rows="3" class="form-control locked"></textarea>
+                                    <textarea name="HREmployeeDesc" id="desc" value= "${Employee.HREmployeeDesc}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeDesc}</textarea>
                                 </div>
                             </div>
 

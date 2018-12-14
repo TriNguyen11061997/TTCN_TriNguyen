@@ -43,6 +43,15 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
             objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
             objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
+            objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
+            objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
+            objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
+            ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            objARSaleOrdersInfo.setCustomer(objARCustomersInfo);
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
             listSaleOrder.add(objARSaleOrdersInfo);
         }
         conn.close();
@@ -94,6 +103,8 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderTaxPercent(rs.getDouble("ARSaleOrderTaxPercent"));
             objARSaleOrdersInfo.setARSaleOrderTaxAmount(rs.getDouble("ARSaleOrderTaxAmount"));
             objARSaleOrdersInfo.setARSaleOrderShippingFees(rs.getDouble("ARSaleOrderShippingFees"));
+            objARSaleOrdersInfo.setARSaleOrderPaymentMethod(rs.getString("ARSaleOrderPaymentMethod"));
+            objARSaleOrdersInfo.setARSaleOrderPaymentStatus(rs.getString("ARSaleOrderPaymentStatus"));
             ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
             objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
             objARCustomersInfo.setARCustomerTel1(rs.getString("ARCustomerTel1"));
@@ -124,5 +135,25 @@ public class ARSaleOrdersController {
         } catch (SQLException ex) {
             return false;
         }
+    }
+
+    public List<ARSaleOrdersInfo> GetObjectForInvoice() throws SQLException {
+        List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
+        sttm = conn.prepareCall("Call ARSaleOrders_GetObjectForInvoice()");
+        rs = sttm.executeQuery();
+        ARSaleOrdersInfo objARSaleOrdersInfo;
+        while (rs.next()) {
+            objARSaleOrdersInfo = new ARSaleOrdersInfo();
+            objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
+            objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
+            objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
+            objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
+            objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
+            objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
+            objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
+            listSaleOrder.add(objARSaleOrdersInfo);
+        }
+        conn.close();
+        return listSaleOrder;
     }
 }
