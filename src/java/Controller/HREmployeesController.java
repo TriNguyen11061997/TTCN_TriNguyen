@@ -108,4 +108,32 @@ public class HREmployeesController {
             return null;
         }
     }
+    
+    public HREmployeesInfo Add(HREmployeesInfo objEmployeesInfo){
+        try {
+            sttm = conn.prepareCall("CALL HREmployees_Add(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            sttm.setString(1, objEmployeesInfo.getHREmployeeNo());
+            sttm.setString(2,objEmployeesInfo.getHREmployeeName());
+            sttm.setInt(3, objEmployeesInfo.getHREmployeeGender());
+            sttm.setDate(4, objEmployeesInfo.getHREmployeeBirthDay());
+            sttm.setString(5, objEmployeesInfo.getHREmployeeStatus());
+            sttm.setString(6, objEmployeesInfo.getHREmployeeDesc());
+            sttm.setString(7, objEmployeesInfo.getHREmployeePicture());
+            sttm.setString(8, objEmployeesInfo.getHREmployeeIDNumber());
+            sttm.setString(9, objEmployeesInfo.getHREmployeeCardNumber());
+            sttm.setString(10, objEmployeesInfo.getHREmployeeTel1());
+            sttm.setString(11, objEmployeesInfo.getHREmployeeEmail());
+            sttm.setString(12, objEmployeesInfo.getHREmployeeContactAddress());
+            sttm.setString(13, objEmployeesInfo.getHREmployeeContactAddressCity());
+            sttm.setString(14, objEmployeesInfo.getHREmployeeContactAddressCountry());
+
+            sttm.execute();
+            conn.close();
+            return objEmployeesInfo;
+        } catch (SQLException ex) {
+            Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
 }
