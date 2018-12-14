@@ -1,3 +1,5 @@
+<%@page import="Info.ARCartsInfo"%>
+<%@page import="Controller.ARCartsController"%>
 <%@page import="Controller.ICProductController"%>
 <%@page import="Info.ICProductsInfo"%>
 <%@page import="java.util.List"%>
@@ -10,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
-        <script src="Assets/js/jquery.min.js"></script>
+        <script src="Assets/js/jquery.min.js" type="text/javascript"></script>
         <script src="Assets/js/script.js" type="text/javascript"></script>
         <script type="text/javascript" src="Assets/js/move-top.js"></script>
         <script type="text/javascript" src="Assets/js/easing.js"></script>
@@ -32,12 +34,16 @@
                                         }"><input type="submit" value="SEARCH">
                             </form>
                         </div>
-                        <div class="shopping_cart change">
+                        <%
+                            ARCartsController ar = new ARCartsController();
+                            List<ARCartsInfo> listCart = ar.GetALlObject();
+                        %>
+                        <div class="shopping_cart" id="change">
                             <div class="cart">
-                                <a href="#" title="View my shopping cart" rel="nofollow">
+                                <a href="/cart" title="View my shopping cart" rel="nofollow">
                                     <strong class="opencart"> </strong>
                                     <span class="cart_title">Giỏ hàng</span>
-                                    <span class="no_product">(Rỗng)</span>
+                                    <span class="no_product"><%=listCart.size()%></span>
                                 </a>
                             </div>
                         </div>
@@ -308,7 +314,7 @@
                                     <h2>Iphone</h2>
                                     <p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
                                     
-                                    <div class="button"><span><a href="javascript:void(0)" onclick="changeActive(<%=item1.getICProductID()%>)">Giỏ hàng</a></span></div>
+                                    <div class="button"><span><a href="/cart_add?id=<%=item1.getICProductID()%>" >Giỏ hàng</a></span></div>
                                 </div>
                             </div>
                             <%i++;
@@ -558,7 +564,7 @@
                                     });
                                 });
         </script>
-        <script>
+<!--        <script>
               function changeActive(id){
 		    $.ajaxSetup({
 		    headers: {
@@ -574,7 +580,8 @@
 		      },
 		
 		      success: function(data){
-		        $(".change").html(data); 
+		        $("#change").html(data);
+                        
 		      },
 		      error: function (){
 		        alert('Có lỗi');
@@ -582,7 +589,7 @@
 		    }); 
 		  }
 
-        </script>
+        </script>-->
     </body>
 </html>
 

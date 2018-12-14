@@ -1,0 +1,58 @@
+.form-card {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 2%;
+}
+#left{
+    width: 49%;
+    float: left 
+}
+#right{
+    width: 50%;
+    float: right 
+}
+#left1{
+    width: 30%;
+    float: left 
+}
+#right1{
+    width: 60%;
+    float: right 
+}
+.image1{
+    width: 160px;
+    height: 160px;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.form-card {
+    width: 100%;
+    display: inline-block;             
+    margin-bottom: 2%;
+}
+#left3{
+    width: 33%;
+    float: left;
+}
+#left4{
+    width: 33%;
+    float: left;
+    margin-left: 0.5%;
+}        
+#right3{
+    width: 33%;
+    float: right;
+}
+#left5{
+    width: 33%;
+    float: none;
+}
+#none{              
+    float: none;
+}         
