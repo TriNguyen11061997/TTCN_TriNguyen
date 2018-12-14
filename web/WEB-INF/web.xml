@@ -43,6 +43,8 @@
     <servlet>
         <servlet-name>Employee_InvoiceManagement</servlet-name>
         <servlet-class>Servlet.Employee_InvoiceManagement</servlet-class>
+        <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_EmployeesAdd_Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
@@ -99,6 +101,8 @@
     <servlet-mapping>
         <servlet-name>Employee_InvoiceManagement</servlet-name>
         <url-pattern>/Employee_InvoiceManagement</url-pattern>
+        <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
+        <url-pattern>/Admin_EmployeesAdd_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -180,5 +184,13 @@
     <servlet-mapping>
         <servlet-name>Cart_Servlet</servlet-name>
         <url-pattern>/cart_add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
+        <servlet-class>Servlet.Cart_SaleOrder_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
     </servlet-mapping>
 </web-app>
