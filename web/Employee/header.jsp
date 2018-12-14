@@ -2,7 +2,7 @@
 <div class="header">
     <div class="header_top">
         <div class="logo">
-            <a href="index.jsp"><img src="../Assets/images/logo.png" alt="" /></a>
+            <a href="/Employee_Home_Servlet"><img src="../Assets/images/logo.png" alt="" /></a>
         </div>
         <div class="header_top_right">
             <div class="search_box">
@@ -124,12 +124,12 @@
         <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
         <nav>
             <ul class="menu list-unstyled">
-                <li><a href="employee_Home.jsp">Trang chủ</a></li>
-                <li class="activate"><a href="/Employee_CustomerHome_Servlet">Khách hàng</a>
+                <li><a href="/Employee_Home_Servlet">Trang chủ</a></li>
+                <li class="activate"><a href="/Employee_CustomerManagement_Servlet">Khách hàng</a>
                 </li>
-                <li><a href="/Employee_SaleOrderHome_Servlet">Đơn bán hàng</a>			                                
+                <li><a href="/Employee_SaleOrderManagement_Servlet">Đơn bán hàng</a>			                                
                 </li>		
-                <li><a href="faq.jsp">Hóa đơn</a>
+                <li><a href="/Employee_InvoiceManagement">Hóa đơn</a>
                 </li>
                 <li><a href="about.jsp">Bình luận</a></li>
                 <li><a href="faq.jsp">Bài đăng</a></li>

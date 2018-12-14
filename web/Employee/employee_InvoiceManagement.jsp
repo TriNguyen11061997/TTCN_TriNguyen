@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
 <html>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -19,8 +12,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script type="text/javascript" src="../Assets/js/move-top.js"></script>
         <script type="text/javascript" src="../Assets/js/easing.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link href="../Assets/css/appointment_style.css" rel="stylesheet" type="text/css"/>
         <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
     </head>
@@ -29,7 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <%@include file="/Employee/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH HÓA ĐƠN</h2>
                 </div>
                 <div style="float:right">
                     <form action="" method="post">
@@ -42,6 +33,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </form>
                 </div>
                 <div style="float:left;">
+                    <form action="" method="post">
+                        <table>
+                            <tr>
+                                <th>
+                                    <select name="ARSaleOrderID">                               
+                                        <option>-Chọn đơn hàng-</option>
+                                        <c:forEach  var="saleOrder" items = "${listSaleOrder}">
+                                            <option value="${saleOrder.ARSaleOrderID}">${saleOrder.ARSaleOrderNo} ${saleOrder.ARSaleOrderName}</option>
+                                        </c:forEach>
+                                    </select>
+                                </th>
+                                <th><button type="submit" class="btn btn-success" style="width:auto;">Tạo mới</button></th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div style="float:left;margin-left: 20px">
                     <form action="" method="post">
                         <table>
                             <tr>
@@ -59,29 +67,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
-                        <th style="color:white">Mã khách hàng</th>
-                        <th style="color:white">Tên khách hàng</th>
-                        <th style="color:white">Ngày sinh</th>
-                        <th style="color:white">Email</th>
-                        <th style="color:white">Số điện thoại</th>
-                        <th style="color:white">Địa chỉ</th>
-                        <th style="color:white">Thành phố</th>
-                        <th style="color:white">Edit</th>
-                        <th style="color:white">Delete</th>
-                        <th style="color:white">Xem chi tiết</th>
+                        <th style="color:white">Ngày chứng từ</th>
+                        <th style="color:white">Mã đơn hàng</th>
+                        <th style="color:white">Khách hàng</th>
+                        <th style="color:white">Tên đơn hàng</th>
+                        <th style="color:white">Ghi chú</th>
+                        <th style="color:white">Nhân viên</th>
+                        <th style="color:white">Tổng tiền</th>
+                        <th style="color:white">Tình trạng</th>                     
+                        <th style="color:white">Xuất hóa đơn</th>
                     </tr>
-                    <c:forEach var="customer" items = "${listCustomer}">                     
+                    <c:forEach var="invoice" items = "${listInvoice}">                     
                         <tr>
-                            <td style="color:black">${customer.ARCustomerNo}</td>
-                            <td style="color:black">${customer.ARCustomerName}</td>
-                            <td style="color:black">${customer.ARCustomerBirthDay}</td>
-                            <td style="color:black">${customer.ARCustomerEmail}</td>
-                            <td style="color:black">${customer.ARCustomerTel1}</td>
-                            <td style="color:black">${customer.ARCustomerContactAddress}</td>
-                            <td style="color:black">${customer.ARCustomerContactAddressCity}</td>
-                            <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
+                            <td style="color:black">${saleOrder.ARSaleOrderDate}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderNo}</td>
+                            <td style="color:black">${saleOrder.customer.ARCustomerName}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderName}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderDesc}</td>
+                            <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderTaxAmount}</td>                                               
+                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>                       
                         </tr>
                     </c:forEach>
                 </table>
