@@ -22,7 +22,6 @@
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH ĐƠN HÀNG</h2>
                 </div>
-                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -33,7 +32,7 @@
                         </table>
                     </form>
                 </div>
-                <div style="float:left;margin-left:30px;">
+                <div style="float:left;">
                     <form action="" method="post">
                         <table>
                             <tr>

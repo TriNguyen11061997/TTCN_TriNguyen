@@ -5,11 +5,14 @@
  */
 package Servlet;
 
+import Controller.ARSaleOrderItemsController;
 import Controller.ARSaleOrdersController;
+import Info.ARSaleOrderItemsInfo;
 import Info.ARSaleOrdersInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -34,7 +37,10 @@ public class Admin_SaleOrderLoadUpdate_Servlet extends HttpServlet {
             try {
                 ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
                 ARSaleOrdersInfo objARSaleOrdersInfo = objARSaleOrdersController.GetObjectByID(Integer.parseInt(request.getParameter("ARSaleOrderID")));
-                request.setAttribute("saleorder", objARSaleOrdersInfo);
+                ARSaleOrderItemsController objARSaleOrderItemsController = new ARSaleOrderItemsController();
+                List<ARSaleOrderItemsInfo> listSaleOrderItem= objARSaleOrderItemsController.GetObjectBySaleOrderID(Integer.parseInt(request.getParameter("ARSaleOrderID")));
+                request.setAttribute("saleorder", objARSaleOrdersInfo);               
+                request.setAttribute("listSaleOrderItem", listSaleOrderItem);          
                 request.getRequestDispatcher("Admin/admin_SaleOrderUpdate.jsp").forward(request, response);
             } catch (SQLException ex) {
                 request.setAttribute("Error", "Không thể cập nhật cho đơn hàng này");

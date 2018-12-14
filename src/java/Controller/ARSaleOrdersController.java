@@ -15,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -107,5 +109,20 @@ public class ARSaleOrdersController {
         }
         conn.close();
         return null;
+    }
+
+    public boolean Update(ARSaleOrdersInfo objARSaleOrdersInfo) {
+        try {
+            sttm = conn.prepareCall("Call ARSaleOrders_Update(?,?,?,?)");
+            sttm.setInt(1, objARSaleOrdersInfo.getARSaleOrderID());
+            sttm.setString(2, objARSaleOrdersInfo.getARSaleOrderStatus());
+            sttm.setString(3, objARSaleOrdersInfo.getARSaleOrderPaymentStatus());
+            sttm.setDouble(4, objARSaleOrdersInfo.getARSaleOrderShippingFees());
+            rs = sttm.executeQuery();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
     }
 }
