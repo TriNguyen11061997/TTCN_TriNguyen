@@ -141,4 +141,12 @@
         <servlet-name>Cart_Servlet</servlet-name>
         <url-pattern>/cart_add</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
+        <servlet-class>Servlet.Cart_SaleOrder_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
 </web-app>
