@@ -23,7 +23,7 @@
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH NHÂN VIÊN</h2>
                 </div>
-                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
+                <a href="/Admin/admin_EmployeeAdd.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -52,7 +52,6 @@
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
-                        <th style="color:white">STT</th>
                         <th style="color:white">Mã nhân viên</th>
                         <th style="color:white">Tên nhân viên</th>
                         <th style="color:white">Ngày sinh</th>
@@ -67,7 +66,6 @@
                     </tr>
                     <c:forEach var="employee" items = "${listEmployees}">                     
                         <tr>
-                            <td style="color:black">${employee.HREmployeeID}</td>
                             <td style="color:black">${employee.HREmployeeNo}</td>
                             <td style="color:black">${employee.HREmployeeName}</td>
                             <td style="color:black">${employee.HREmployeeBirthDay}</td>
@@ -76,7 +74,7 @@
                             <td style="color:black">${employee.HREmployeeContactAddress}</td>
                             <td style="color:black">${employee.HREmployeeContactAddressCity}</td>
                             <td style="color:black">${employee.HREmployeeStatus}</td>
-                            <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="/Admin_EmployeeLoadUpdate_Servlet?ID=${employee.HREmployeeID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                             <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
                         </tr>
@@ -84,7 +82,7 @@
                 </table>
             </div>
         </div>
-         <%@include file="/Admin/footer.jsp" %>   
+        <%@include file="/Admin/footer.jsp" %>   
     </body>
 </html>
 

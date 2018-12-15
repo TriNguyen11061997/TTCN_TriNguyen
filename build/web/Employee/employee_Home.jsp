@@ -1,28 +1,131 @@
+<%@page import="Info.HREmployeesInfo"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <% HREmployeesInfo objEmployeesInfo = (HREmployeesInfo) request.getAttribute("Employee");%>
     <head>
         <title>Smart phone store</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="../Assets/css/menu.css" rel="stylesheet" type="text/css" media="all"/>
         <script src="../Assets/js/jquery.min.js"></script>
         <script src="../Assets/js/script.js" type="text/javascript"></script>
-        <script type="text/javascript" src="../Assets/js/move-top.js"></script>
-        <script type="text/javascript" src="../Assets/js/easing.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link href="../Assets/css/appointment_style.css" rel="stylesheet" type="text/css"/>
-        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link href="../Assets/css/form.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="wrap">    
+        <div class="wrap">
             <%@include file="/Employee/header.jsp" %>
             <div class="main">
-                <h2 style="text-align: center;margin-top: 20px; color: ">THÔNG TIN NHÂN THÂN</h2>
-            </div>           
+                <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THÔNG TIN CÁ NHÂN</h2>               
+                <div class="container">
+                    <div class="row">                       
+                        <form class="form-card" action="/Employee_HomeUpdate_Servlet" method="post">
+                            <input id="name" name="HREmployeeID" value="${Employee.HREmployeeID}" class="form-control" type="hidden">
+                            <input id="name" name="HREmployeePicture" value="${Employee.HREmployeePicture}" class="form-control" type="hidden">
+                            <div class='form-group'>
+                                <div class='col-xs-12 form-group'  id="left1">
+                                    <img class="image1" src="../Images/${Employee.HREmployeePicture}" alt=""/>
+                                </div>                               
+                                <div class='col-xs-12 form-group'  id="right1">
+                                    <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
+                                    <input id="name" name="HREmployeeNo" value= "${Employee.HREmployeeNo}" class="form-control" type="text" readonly="">                                  
+                                </div>
+                                <div class='col-xs-12 form-group' id="right1">
+                                    <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
+                                    <input id="name" name="HREmployeeName" value= "${Employee.HREmployeeName}" class="form-control" type="text" required="">                                  
+                                </div>                               
+                            </div>
+                            <br><br><br><br><br><br><br>
+
+                            <div class='form-group'>
+                                <div class='col-xs-12 form-group'  id="left">
+                                    <label class="control-label locked" for="phone-input-field">Giới tính</label>
+                                    <select class="form-control locked" name="HREmployeeGender"> 
+                                        <%if (objEmployeesInfo.getHREmployeeGender() == 0) {%>
+                                        <option value="0" selected="selected">Nữ</option>
+                                        <option value="1">Nam</option>
+                                        <%} else {%>
+                                        <option value="0">Nữ</option>
+                                        <option value="1" selected="selected">Nam</option>
+                                        <%}%>
+                                    </select>                                
+                                </div>
+                                <div class='col-xs-12 form-group'  id="right">
+                                    <label class="control-label locked" for="name-input-field">Tình trạng</label>
+                                    <select class="form-control locked" name="HREmployeeStatus">
+                                        <option value="Working">Đang làm việc</option>
+                                        <option value="NotWorking">Ngưng làm việc</option>
+                                    </select>                                         
+                                </div>
+                            </div>                           
+                            <div class='form-group'>                              
+                                <div class='col-xs-12 form-group'>
+                                    <label class="control-label locked" for="name-input-field">Ngày sinh</label>
+                                    <input id="name" value= "${Employee.HREmployeeBirthDay}" name="HREmployeeBirthDay" class="form-control" type="date" required="">                                  
+                                </div>
+                            </div>
+                            <div class='form-group'>                              
+                                <div class='col-xs-12 form-group' id="left">
+                                    <label class="control-label locked" for="name-input-field">Số điện thoại</label>
+                                    <input id="name" name="HREmployeeTel1" value= "${Employee.HREmployeeTel1}" class="form-control" type="text" required="">                                  
+                                </div>
+                                <div class='col-xs-12 form-group' id="right">
+                                    <label class="control-label locked" for="email-input-field">Email</label>
+                                    <input id="email" name="HREmployeeEmail" value= "${Employee.HREmployeeEmail}" type="text" placeholder="email@gmail.com" class="form-control" required="">
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <div class='col-xs-12 form-group'  id="left">
+                                    <label class="control-label locked" for="name-input-field">Chứng minh nhân dân</label>
+                                    <input id="name" name="HREmployeeIDNumber" value= "${Employee.HREmployeeIDNumber}" class="form-control" type="text" required="">                                  
+                                </div>
+                                <div class='col-xs-12 form-group' id="right">
+                                    <label class="control-label locked" for="name-input-field">Số tài khoản</label>
+                                    <input id="name" name="HREmployeeCardNumber" value= "${Employee.HREmployeeCardNumber}" class="form-control" type="text" required="">                                  
+                                </div>
+                            </div>                                                                           
+                            <div class='form-group'>
+                                <div class='col-xs-12 form-group'  id="left">
+                                    <label class="control-label locked" for="name-input-field">Thành phố </label>
+                                    <input id="name" name="HREmployeeContactAddressCity" value= "${Employee.HREmployeeContactAddressCity}" class="form-control" type="text" required="">                                  
+                                </div>
+                                <div class='col-xs-12 form-group' id="right">
+                                    <label class="control-label locked" for="name-input-field">Quốc gia</label>
+                                    <input id="name" name="HREmployeeContactAddressCountry"value= "${Employee.HREmployeeContactAddressCountry}" class="form-control" type="text" required="">                                  
+                                </div>
+                            </div>
+                            <div class="form-group locked">
+                                <div class='col-xs-12 form-group'>
+                                    <label class="control-label locked" for="desc-input-field">Address</label>
+                                    <textarea name="HREmployeeContactAddress" id="address"value= "${Employee.HREmployeeContactAddress}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeContactAddress}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group locked">
+                                <div class='col-xs-12 form-group'>
+                                    <label class="control-label locked" for="desc-input-field">Mô tả</label>
+                                    <textarea name="HREmployeeDesc" id="desc" value= "${Employee.HREmployeeDesc}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeDesc}</textarea>
+                                </div>
+                            </div>
+
+                            <div class='form-group'>                              
+                                <div class='col-xs-12 form-group' id="left">
+                                    <label class="control-label locked" for="name-input-field">Ngày bắt đầu làm việc</label>
+                                    <input id="name" name="HREmployeeStartWorkingDate" value= "${Employee.HREmployeeStartWorkingDate}" class="form-control" type="date" readonly="">                                  
+                                </div>
+                                <div class='col-xs-12 form-group' id="right">
+                                    <label class="control-label locked" for="email-input-field">Ngày kết thúc làm việc</label>
+                                    <input id="email" name="HREmployeeEndWorkingDate" value= "${Employee.HREmployeeEndWorkingDate}" type="date"  class="form-control locked" readonly="">
+                                </div>
+                            </div>
+                            <input type="submit" value="Cập nhật" class="form-control locked" style="background-color: #17a2b8">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <%@include file="/Employee/footer.jsp" %>
     </body>

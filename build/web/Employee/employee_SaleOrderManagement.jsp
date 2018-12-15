@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
 <html>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -19,9 +12,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script type="text/javascript" src="../Assets/js/move-top.js"></script>
         <script type="text/javascript" src="../Assets/js/easing.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link href="../Assets/css/appointment_style.css" rel="stylesheet" type="text/css"/>
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700" rel="stylesheet">
     </head>
     <body>
         <div class="wrap">
@@ -30,7 +22,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH ĐƠN HÀNG</h2>
                 </div>
-                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -41,7 +32,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </table>
                     </form>
                 </div>
-                <div style="float:left;margin-left:30px;">
+                <div style="float:left;">
                     <form action="" method="post">
                         <table>
                             <tr>
@@ -59,29 +50,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
-                        <th style="color:white">STT</th>
+                        <th style="color:white">Ngày chứng từ</th>
                         <th style="color:white">Mã đơn hàng</th>
+                        <th style="color:white">Khách hàng</th>
                         <th style="color:white">Tên đơn hàng</th>
-                        <th style="color:white">Số điện thoại</th>
+                        <th style="color:white">Ghi chú</th>
+                        <th style="color:white">Nhân viên</th>
+                        <th style="color:white">Tình trạng</th>
+                        <th style="color:white">Tổng tiền</th>
                         <th style="color:white">Edit</th>
-                        <th style="color:white">Delete</th>
-                        <th style="color:white">Xem chi tiết</th>
+                        <th style="color:white">Delete</th>                       
                     </tr>
                     <c:forEach var="saleOrder" items = "${listSaleOrder}">                     
                         <tr>
-                            <td style="color:black">${saleOrder.ARSaleOrderID}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderDate}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderNo}</td>
+                            <td style="color:black">${saleOrder.customer.ARCustomerName}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderName}</td>
-                            <td style="color:black">Trí Nguyễn</td>
-                            <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
+                            <td style="color:black">${saleOrder.ARSaleOrderDesc}</td>
+                             <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
+                             <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
+                             <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>                         
+                            <td><a href="/Employee_SaleOrderLoadUpdate_Servlet?ARSaleOrderID=${saleOrder.ARSaleOrderID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>                          
                         </tr>
                     </c:forEach>
                 </table>
             </div>
         </div>
-        <%@include file="/Employee/footer.jsp" %>
+            <%@include file="/Employee/footer.jsp" %>
     </body>
 </html>
 

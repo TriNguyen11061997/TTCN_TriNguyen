@@ -5,8 +5,11 @@
  */
 package Servlet;
 
+import Controller.ARCartsController;
+import Info.ICProductsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +32,9 @@ public class Cart_SaleOrder_Servlet extends HttpServlet {
         @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            ARCartsController arc = new ARCartsController();
+            List<ICProductsInfo> listPro = arc.getListProduct();
+            request.setAttribute("listProduct", listPro);
             RequestDispatcher rd = request.getRequestDispatcher("/Public/cart.jsp");
             rd.forward(request, response);
     }

@@ -67,5 +67,104 @@ public class ICProductController {
        
        
        return listPro;
-   }    
+   }
+   //Số lượng sản phẩm
+   public int countProducts(){
+       int result = 0;
+       
+       String sql = "SELECT COUNT(*) as sum FROM ICProducts";
+       
+       try {
+           conn = ConnectionPool.getConnection();
+           st = conn.createStatement();
+           rs = st.executeQuery(sql);
+           if(rs.next()){
+               result = rs.getInt("sum");
+           }
+       } catch (Exception e) {
+       }finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+       
+       return result;
+   }
+   
+   //phân trang public cho phần sản phẩm 
+   public ArrayList<ICProductsInfo> getItemPagination(int offset){
+       ArrayList<ICProductsInfo> listProduct = new ArrayList<>();
+       
+       String sql = "SELECT * FROM ICProducts ORDER BY ICProducts.ICProductID DESC LIMIT " + offset +",4";
+       try {
+           conn = ConnectionPool.getConnection();
+           st = conn.createStatement();
+           rs = st.executeQuery(sql);
+           while(rs.next()){
+               ICProductsInfo objProduct = new ICProductsInfo();
+               objProduct.setICProductID(rs.getInt("ICProductID"));
+               objProduct.setICProductName(rs.getString("ICProductName"));
+               objProduct.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+               objProduct.setICProductPicture1(rs.getString("ICProductPicture1"));
+               
+               listProduct.add(objProduct);
+           }
+       } catch (Exception e) {
+           
+       }finally {
+			if(rs != null && st != null && conn != null){
+				try {
+					rs.close();
+					st.close();
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+       
+       
+       return  listProduct;
+   }
+   
+   //tìm kiếm sản phẩm 
+   public ArrayList<ICProductsInfo> getListSearch(String name){
+       ArrayList<ICProductsInfo> listPro = new ArrayList<>();
+       String sql = "SELECT * FROM ICProducts WHERE ICProducts.ICProductName LIKE "  + "'%"+name+"%'" ;
+       try {
+           conn = ConnectionPool.getConnection();
+           st = conn.createStatement();
+           rs = st.executeQuery(sql);
+           while(rs.next()){
+               ICProductsInfo obj = new ICProductsInfo();
+                obj.setICProductID(rs.getInt("ICProductID"));
+                obj.setICProductName(rs.getString("ICProductName"));
+                obj.setICProductDesc(rs.getString("ICProductDesc"));
+                obj.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                obj.setICProductPicture1(rs.getString("ICProductPicture1"));
+               
+               
+               listPro.add(obj);
+           }
+           
+       } catch (Exception e) {
+       }finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+       
+       return listPro;
+   }
 }
