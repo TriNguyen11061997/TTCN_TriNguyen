@@ -37,11 +37,12 @@ public class ICProductsInfo {
     private String ICProductPicture8;
     private String ICProductVideo;
     private String ICProductDetailHeDieuHanh;
+    private int Qty;
 
     public ICProductsInfo() {
     }
 
-    public ICProductsInfo(int ICProductID, String AACreatedUser, Date AACreatedDate, String AAUpdatedUser, Date AAUpdatedDate, String AAStatus, String ICProductNo, String ICProductSupplierNumber, Double ICProductSupplierPrice, String ICProductName, String ICProductDesc, Boolean ICProductActiveCheck, int FK_HREmployeeID, String ICProductPromotion, String ICProductPicture1, String ICProductPicture2, String ICProductPicture3, String ICProductPicture4, String ICProductPicture5, String ICProductPicture6, String ICProductPicture7, String ICProductPicture8, String ICProductVideo, String ICProductDetailHeDieuHanh) {
+    public ICProductsInfo(int ICProductID, String AACreatedUser, Date AACreatedDate, String AAUpdatedUser, Date AAUpdatedDate, String AAStatus, String ICProductNo, String ICProductSupplierNumber, Double ICProductSupplierPrice, String ICProductName, String ICProductDesc, Boolean ICProductActiveCheck, int FK_HREmployeeID, String ICProductPromotion, String ICProductPicture1, String ICProductPicture2, String ICProductPicture3, String ICProductPicture4, String ICProductPicture5, String ICProductPicture6, String ICProductPicture7, String ICProductPicture8, String ICProductVideo, String ICProductDetailHeDieuHanh, int Qty) {
         this.ICProductID = ICProductID;
         this.AACreatedUser = AACreatedUser;
         this.AACreatedDate = AACreatedDate;
@@ -66,12 +67,18 @@ public class ICProductsInfo {
         this.ICProductPicture8 = ICProductPicture8;
         this.ICProductVideo = ICProductVideo;
         this.ICProductDetailHeDieuHanh = ICProductDetailHeDieuHanh;
+        this.Qty = Qty;
     }
-
+     public int getQty() {
+        return Qty;
+    }
+     public void setQty(int Qty) {
+        this.Qty = Qty;
+    }
     public int getICProductID() {
         return ICProductID;
     }
-
+    
     public void setICProductID(int ICProductID) {
         this.ICProductID = ICProductID;
     }

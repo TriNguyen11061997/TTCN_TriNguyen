@@ -2,7 +2,7 @@
 <div class="header">
     <div class="header_top">
         <div class="logo">
-            <a href="index.jsp"><img src="../Assets/images/logo.png" alt="" /></a>
+            <a href="/Admin_Home_Servlet"><img src="../Assets/images/logo.png" alt="" /></a>
         </div>
         <div class="header_top_right">
             <div class="search_box">
