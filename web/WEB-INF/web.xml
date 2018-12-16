@@ -135,7 +135,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Contact_Servlet</servlet-name>
-        <url-pattern>/contact</url-pattern>
+        <url-pattern>/contact</url-pattern>Contact_Servlet
+        
     </servlet-mapping>
     <servlet>
         <servlet-name>Faq_Servlet</servlet-name>
@@ -151,7 +152,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Index_Servlet</servlet-name>
-        <url-pattern>/index_servlet</url-pattern>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Login_Servlet</servlet-name>
@@ -193,6 +194,7 @@
         <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>Admin_Revenue_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_Revenue_Servlet</servlet-class>
@@ -200,5 +202,23 @@
     <servlet-mapping>
         <servlet-name>Admin_Revenue_Servlet</servlet-name>
         <url-pattern>/Admin_Revenue_Servlet</url-pattern>
+    
+    <servlet>
+        <servlet-name>Product_Servlet</servlet-name>
+        <servlet-class>Servlet.Product_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Product_Servlet</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>Search_Servlet</servlet-name>
+        <servlet-class>Servlet.Search_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search_Servlet</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
 </web-app>

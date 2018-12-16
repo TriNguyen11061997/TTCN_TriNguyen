@@ -37,10 +37,25 @@ public class Index_Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
       
-//            List<ICProductsInfo> listPro = null;
-//            listPro = ProductDAO.getListProduct();
-//            request.setAttribute("listPro", listPro);
-//            
+
+            ICProductController ic = new ICProductController();
+            int current_page = 1;
+            
+            //tong so trang 
+            int sumpro = ic.countProducts();
+            int sumpage = (int)Math.ceil((float)sumpro/4);
+            
+            //lay trang hien tai
+            if(request.getParameter("page")!=null){
+                current_page = Integer.parseInt(request.getParameter("page"));
+            }
+            int offset = (current_page - 1) * 4;
+            request.setAttribute("sumpage", sumpage);
+            request.setAttribute("current_page", current_page);
+            
+            ArrayList<ICProductsInfo> listPro = ic.getItemPagination(offset);
+            request.setAttribute("listPro", listPro);
+            
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
 

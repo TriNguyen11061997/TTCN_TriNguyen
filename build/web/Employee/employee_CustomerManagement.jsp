@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
-       <title>Smart phone store</title>
+        <title>Smart phone store</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -31,7 +31,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH KHÁCH HÀNG</h2>
                 </div>
-                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -42,7 +41,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </table>
                     </form>
                 </div>
-                <div style="float:left;margin-left:30px;">
+                <div style="float:left;">
                     <form action="" method="post">
                         <table>
                             <tr>
@@ -60,20 +59,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
-                        <th style="color:white">STT</th>
                         <th style="color:white">Mã khách hàng</th>
                         <th style="color:white">Tên khách hàng</th>
+                        <th style="color:white">Ngày sinh</th>
+                        <th style="color:white">Email</th>
                         <th style="color:white">Số điện thoại</th>
+                        <th style="color:white">Địa chỉ</th>
+                        <th style="color:white">Thành phố</th>
                         <th style="color:white">Edit</th>
                         <th style="color:white">Delete</th>
                         <th style="color:white">Xem chi tiết</th>
                     </tr>
                     <c:forEach var="customer" items = "${listCustomer}">                     
                         <tr>
-                            <td style="color:black">${customer.ARCustomerID}</td>
                             <td style="color:black">${customer.ARCustomerNo}</td>
                             <td style="color:black">${customer.ARCustomerName}</td>
-                            <td style="color:black">Trí Nguyễn</td>
+                            <td style="color:black">${customer.ARCustomerBirthDay}</td>
+                            <td style="color:black">${customer.ARCustomerEmail}</td>
+                            <td style="color:black">${customer.ARCustomerTel1}</td>
+                            <td style="color:black">${customer.ARCustomerContactAddress}</td>
+                            <td style="color:black">${customer.ARCustomerContactAddressCity}</td>
                             <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                             <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>

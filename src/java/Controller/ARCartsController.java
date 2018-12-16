@@ -7,11 +7,13 @@ package Controller;
 
 import Info.ARCartsInfo;
 import Info.ARCustomersInfo;
+import Info.ICProductsInfo;
 import Util.ConnectionPool;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +22,11 @@ import java.util.List;
  * @author KA
  */
 public class ARCartsController {
-     Connection conn;
-    PreparedStatement ps;
-    PreparedStatement pst;
-    ResultSet rs;
+    private Connection conn;
+    private PreparedStatement ps;
+    private PreparedStatement pst;
+    private ResultSet rs;
+    private Statement st;
 
     public ARCartsController() {
         conn = ConnectionPool.getConnection();
@@ -111,5 +114,38 @@ public class ARCartsController {
         
         
         return result;
+    }
+    //show ra giỏ hàng
+    public List<ICProductsInfo> getListProduct(){
+        List<ICProductsInfo> listProduct = new ArrayList<>();
+        String sql = "SELECT *, ARCarts.ARCartQty as qty FROM ICProducts INNER JOIN ARCarts ON ICProducts.ICProductID=ARCarts.FK_ICProductID";
+        
+        try {
+            conn = ConnectionPool.getConnection();
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+                ICProductsInfo item = new ICProductsInfo();
+                
+                //add them
+                item.setICProductName(rs.getString("ICProductName"));
+                item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                item.setQty(rs.getInt("qty"));
+                
+                listProduct.add(item);
+            }
+        } catch (Exception e) {
+        }finally {
+			try {
+				rs.close();
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+        
+        return listProduct;
     }
 }
