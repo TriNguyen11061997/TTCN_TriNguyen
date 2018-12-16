@@ -194,6 +194,14 @@
         <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Admin_Revenue_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_Revenue_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Admin_Revenue_Servlet</servlet-name>
+        <url-pattern>/Admin_Revenue_Servlet</url-pattern>
     
     <servlet>
         <servlet-name>Product_Servlet</servlet-name>
