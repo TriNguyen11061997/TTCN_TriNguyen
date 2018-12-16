@@ -63,6 +63,7 @@ public class HREmployeesController {
             objHREmployeesInfo = new HREmployeesInfo();
             objHREmployeesInfo.setHREmployeeID(rs.getInt("HREmployeeID"));
             objHREmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objHREmployeesInfo.setHREmployeeGender(rs.getInt("HREmployeeGender"));
             objHREmployeesInfo.setHREmployeeNo(rs.getString("HREmployeeNo"));
             objHREmployeesInfo.setHREmployeeBirthDay(rs.getDate("HREmployeeBirthDay"));
             objHREmployeesInfo.setHREmployeeCardNumber(rs.getString("HREmployeeCardNumber"));

@@ -41,6 +41,11 @@ public class ARCustomersController {
             objARCustomersInfo.setARCustomerID(rs.getInt("ARCustomerID"));
             objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
             objARCustomersInfo.setARCustomerNo(rs.getString("ARCustomerNo"));
+            objARCustomersInfo.setARCustomerBirthDay(rs.getDate("ARCustomerBirthDay"));
+            objARCustomersInfo.setARCustomerTel1(rs.getString("ARCustomerTel1"));
+            objARCustomersInfo.setARCustomerEmail(rs.getString("ARCustomerEmail"));
+            objARCustomersInfo.setARCustomerContactAddress(rs.getString("ARCustomerContactAddress"));
+            objARCustomersInfo.setARCustomerContactAddressCity(rs.getString("ARCustomerContactAddressCity"));
             listARCustomersInfos.add(objARCustomersInfo);
         }
         conn.close();

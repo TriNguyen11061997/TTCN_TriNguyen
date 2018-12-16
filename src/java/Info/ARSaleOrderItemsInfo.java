@@ -36,13 +36,13 @@ public class ARSaleOrderItemsInfo {
     Double ARSaleOrderItemTotalAmount;
     String ARSaleOrderItemPaymentMethod;
     String ARSaleOrderItemPaymentStatus;
-    Double ARSaleOrderUnitCost;
-    Double ARSaleOrderQty;
+    Double ARSaleOrderItemUnitCost;
+    Double ARSaleOrderItemQty;
 
     public ARSaleOrderItemsInfo() {
     }
 
-    public ARSaleOrderItemsInfo(int ARSaleOrderItemID, Date AACreatedDate, String AACreatedUser, Date AAUpdatedDate, String AAUpdatedUser, String AAStatus, int FK_ARCustomerID, int FK_HREmployeeID, int FK_ARSaleOrderID, int FK_ICProductID, String ARSaleOrderItemNo, String ARSaleOrderItemName, String ARSaleOrderItemDesc, String ARSaleOrderItemComment, String ARSaleOrderItemStatus, Date ARSaleOrderItemDate, Double ARSaleOrderItemDiscountPerCent, Double ARSaleOrderItemDiscountAmount, Double ARSaleOrderItemTaxPercent, Double ARSaleOrderItemTaxAmount, Double ARSaleOrderItemShippingFees, Double ARSaleOrderItemTotalAmount, String ARSaleOrderItemPaymentMethod, String ARSaleOrderItemPaymentStatus, Double ARSaleOrderUnitCost, Double ARSaleOrderQty) {
+    public ARSaleOrderItemsInfo(int ARSaleOrderItemID, Date AACreatedDate, String AACreatedUser, Date AAUpdatedDate, String AAUpdatedUser, String AAStatus, int FK_ARCustomerID, int FK_HREmployeeID, int FK_ARSaleOrderID, int FK_ICProductID, String ARSaleOrderItemNo, String ARSaleOrderItemName, String ARSaleOrderItemDesc, String ARSaleOrderItemComment, String ARSaleOrderItemStatus, Date ARSaleOrderItemDate, Double ARSaleOrderItemDiscountPerCent, Double ARSaleOrderItemDiscountAmount, Double ARSaleOrderItemTaxPercent, Double ARSaleOrderItemTaxAmount, Double ARSaleOrderItemShippingFees, Double ARSaleOrderItemTotalAmount, String ARSaleOrderItemPaymentMethod, String ARSaleOrderItemPaymentStatus, Double ARSaleOrderItemUnitCost, Double ARSaleOrderItemQty) {
         this.ARSaleOrderItemID = ARSaleOrderItemID;
         this.AACreatedDate = AACreatedDate;
         this.AACreatedUser = AACreatedUser;
@@ -67,8 +67,8 @@ public class ARSaleOrderItemsInfo {
         this.ARSaleOrderItemTotalAmount = ARSaleOrderItemTotalAmount;
         this.ARSaleOrderItemPaymentMethod = ARSaleOrderItemPaymentMethod;
         this.ARSaleOrderItemPaymentStatus = ARSaleOrderItemPaymentStatus;
-        this.ARSaleOrderUnitCost = ARSaleOrderUnitCost;
-        this.ARSaleOrderQty = ARSaleOrderQty;
+        this.ARSaleOrderItemUnitCost = ARSaleOrderItemUnitCost;
+        this.ARSaleOrderItemQty = ARSaleOrderItemQty;
     }
 
     public int getARSaleOrderItemID() {
@@ -263,20 +263,20 @@ public class ARSaleOrderItemsInfo {
         this.ARSaleOrderItemPaymentStatus = ARSaleOrderItemPaymentStatus;
     }
 
-    public Double getARSaleOrderUnitCost() {
-        return ARSaleOrderUnitCost;
+    public Double getARSaleOrderItemUnitCost() {
+        return ARSaleOrderItemUnitCost;
     }
 
-    public void setARSaleOrderUnitCost(Double ARSaleOrderUnitCost) {
-        this.ARSaleOrderUnitCost = ARSaleOrderUnitCost;
+    public void setARSaleOrderItemUnitCost(Double ARSaleOrderItemUnitCost) {
+        this.ARSaleOrderItemUnitCost = ARSaleOrderItemUnitCost;
     }
 
-    public Double getARSaleOrderQty() {
-        return ARSaleOrderQty;
+    public Double getARSaleOrderItemQty() {
+        return ARSaleOrderItemQty;
     }
 
-    public void setARSaleOrderQty(Double ARSaleOrderQty) {
-        this.ARSaleOrderQty = ARSaleOrderQty;
+    public void setARSaleOrderItemQty(Double ARSaleOrderItemQty) {
+        this.ARSaleOrderItemQty = ARSaleOrderItemQty;
     }
     
     

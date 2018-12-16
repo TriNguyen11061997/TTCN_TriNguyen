@@ -17,7 +17,7 @@ public class ARCartsInfo {
     private String AAStatus;
     private String ARCartNo;
     private String ARCartName;
-    private String ARCartQty;
+    private int ARCartQty;
     private int FK_ICProductID;
     private int FK_ARCustomerID;
     private String ARCartStatus;
@@ -28,7 +28,7 @@ public class ARCartsInfo {
     public ARCartsInfo() {
     }
 
-    public ARCartsInfo(int ARCartID, String AAStatus, String ARCartNo, String ARCartName, String ARCartQty, int FK_ICProductID, int FK_ARCustomerID, String ARCartStatus, Date ARCartDate, ICProductsInfo ICProduct, ARCustomersInfo ARCustomer) {
+    public ARCartsInfo(int ARCartID, String AAStatus, String ARCartNo, String ARCartName, int ARCartQty, int FK_ICProductID, int FK_ARCustomerID, String ARCartStatus, Date ARCartDate, ICProductsInfo ICProduct, ARCustomersInfo ARCustomer) {
         this.ARCartID = ARCartID;
         this.AAStatus = AAStatus;
         this.ARCartNo = ARCartNo;
@@ -74,11 +74,11 @@ public class ARCartsInfo {
         this.ARCartName = ARCartName;
     }
 
-    public String getARCartQty() {
+    public int getARCartQty() {
         return ARCartQty;
     }
 
-    public void setARCartQty(String ARCartQty) {
+    public void setARCartQty(int ARCartQty) {
         this.ARCartQty = ARCartQty;
     }
 
@@ -128,6 +128,10 @@ public class ARCartsInfo {
 
     public void setARCustomer(ARCustomersInfo ARCustomer) {
         this.ARCustomer = ARCustomer;
+    }
+
+    public void setARCartDate(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

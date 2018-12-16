@@ -22,7 +22,6 @@
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH ĐƠN HÀNG</h2>
                 </div>
-                <a href="/customer_add.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm khách hàng</button></a>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -33,7 +32,7 @@
                         </table>
                     </form>
                 </div>
-                <div style="float:left;margin-left:30px;">
+                <div style="float:left;">
                     <form action="" method="post">
                         <table>
                             <tr>
@@ -55,7 +54,7 @@
                         <th style="color:white">Mã đơn hàng</th>
                         <th style="color:white">Khách hàng</th>
                         <th style="color:white">Tên đơn hàng</th>
-                        <th style="color:white">Mô tả</th>
+                        <th style="color:white">Ghi chú</th>
                         <th style="color:white">Nhân viên</th>
                         <th style="color:white">Tình trạng</th>
                         <th style="color:white">Tổng tiền</th>
@@ -71,8 +70,8 @@
                             <td style="color:black">${saleOrder.ARSaleOrderDesc}</td>
                              <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
                              <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
-                             <td style="color:black">${saleOrder.ARSaleOrderTaxAmount}</td>                         
-                            <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                             <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>                         
+                            <td><a href="/Admin_SaleOrderLoadUpdate_Servlet?ARSaleOrderID=${saleOrder.ARSaleOrderID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>                          
                         </tr>
                     </c:forEach>

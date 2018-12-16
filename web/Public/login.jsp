@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 
 <html>
@@ -283,6 +284,8 @@
                     </nav> 
                     <script src="Assets/js/menu.js" type="text/javascript"></script>
                 </div>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/Public/header.jsp" %>
                 <div class="header_bottom">
                     <div class="header_bottom_left">
                         <div class="section group">
@@ -699,4 +702,4 @@
         </script>
     </body>
 </html>
-
+       <%@include file="/Public/footer.jsp" %>
