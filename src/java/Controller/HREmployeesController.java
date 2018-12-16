@@ -137,4 +137,16 @@ public class HREmployeesController {
         }
     }
     
+    public HREmployeesInfo Delete(HREmployeesInfo objEmployeesInfo){
+        try {
+            sttm = conn.prepareCall("CALL HREmployees_Delete(?)");
+            sttm.setInt(1, objEmployeesInfo.getHREmployeeID());
+            sttm.execute();
+            conn.close();
+            return objEmployeesInfo;
+        } catch (SQLException ex) {
+            Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }
