@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+
 <html>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -366,24 +367,31 @@
                     </div>
                     <div class="register_account">
                         <h3>Register New Account</h3>
-                        <form>
+                        <form method="post" action="/CreacteAccount_Servlet">
                             <table>
-                                <tbody><tr><td><div><input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <input type="text" required="true" value="Name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {
                                             this.value = 'Name';
                                         }" ></div>
-                                            <div><input type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                        this.value = 'Company Name';
-                                                    }"></div>
-                                            <div><input type="text" value="E-Mail" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                            <div><input type="text" required="true" value="E-Mail" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                         this.value = 'E-Mail';
                                                     }"></div>
-                                            <div><input type="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                    <div><input type="text" required="true"  name="user" value="User" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                       this.value = 'User' ;
+                                                    }"></div>        
+                                            <div><input  style="padding: 8px; margin: 5px  0 5px 0; width: 340px; height: 14px" value="password" type="password" required="true" name="password"   onfocus="this.value = '';" onblur="if (this.value == '') {
                                                         this.value = 'password';
-                                                    }"></div>
+                                                    }"></div> 
                                         </td>
-                                        <td><div><input type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                        <td><div><input type="text" required="true" value="Address" name="address" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                     this.value = 'Address';
                                                 }"></div>
+                                            <div><input type="text" required="true" value="City" name="city" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                        this.value = 'City';
+                                                    }"></div>
                                             <div><select id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
                                                     <option value="null">Select a Country</option>         
                                                     <option value="AX">Ãland Islands</option>
@@ -570,6 +578,7 @@
                                                     <option value="RO">Romania</option>
                                                     <option value="RU">Russia</option>
                                                     <option value="RW">Rwanda</option>
+                                                    <option value="VN">VietNam</option>
                                                     <option value="SH">Saint Helena</option>
                                                     <option value="KN">Saint Kitts And Nevis</option>
                                                     <option value="LC">Saint Lucia</option>
@@ -581,17 +590,17 @@
                                                     <option value="SA">Saudi Arabia</option>
                                                     <option value="SN">Senegal</option>
                                                 </select></div>		        
-                                            <div><input type="text" value="City" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                        this.value = 'City';
-                                                    }"></div>
+                                            
                                             <div>
-                                                <input type="text" value="" class="code"> - <input type="text" value="" class="number">
-                                                <p>Country Code + Phone Number</p>
+                                                <input type="text" required="t  rue" name="numberID" value="NumberID" onfocus="this.value = '';"  > 
+                                                <input type="text" required="true" name="phone"  value="Phone number" onfocus="this.value = '';" >
+                                                
                                             </div>
                                         </td>
                                     </tr> 
                                 </tbody></table> 
-                            <div class="search"><div><button class="grey">Create Account</button></div></div>
+                            <p style="color: red">${dangky}</p>
+                            <div class="search"><div><input type="submit" value="Create Account" class="grey"></div></div>
                             <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a>.</p>
                             <div class="clear"></div>
                         </form>
@@ -656,6 +665,7 @@
                 </div>
             </div>
         </div>
+                            
         <script type="text/javascript">
             $(document).ready(function () {
                 /*

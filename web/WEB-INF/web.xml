@@ -36,6 +36,14 @@
         <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_EmployeesAdd_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreacteAccount_Servlet</servlet-name>
+        <servlet-class>Servlet.CreacteAccount_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin_EmployeeDelete_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_EmployeeDelete_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerHome_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerHome_Servlet</url-pattern>
@@ -75,6 +83,14 @@
     <servlet-mapping>
         <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
         <url-pattern>/Admin_EmployeesAdd_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreacteAccount_Servlet</servlet-name>
+        <url-pattern>/CreacteAccount_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_EmployeeDelete_Servlet</servlet-name>
+        <url-pattern>/Admin_EmployeeDelete_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
