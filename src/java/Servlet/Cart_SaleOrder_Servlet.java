@@ -32,8 +32,13 @@ public class Cart_SaleOrder_Servlet extends HttpServlet {
         @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            
+            
+            int idcus = Integer.parseInt(request.getParameter("idcus"));
+            
+            
             ARCartsController arc = new ARCartsController();
-            List<ICProductsInfo> listPro = arc.getListProduct();
+            List<ICProductsInfo> listPro = arc.getListProduct(idcus);
             request.setAttribute("listProduct", listPro);
             RequestDispatcher rd = request.getRequestDispatcher("/Public/cart.jsp");
             rd.forward(request, response);

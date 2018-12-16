@@ -27,8 +27,8 @@
                     <a href="/preview?id=<%=item1.getICProductID()%>"> <img src="Images/<%=item1.getICProductPicture1()%>" alt="" /></a>
                 </div>
                 <div class="text list_2_of_1">
-                    <h2>Iphone</h2>
-                    <p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
+                    <h2><%=item1.getICProductName()%></h2>
+                    <p><%=item1.getICProductDesc()%></p>
 
                     <div class="button"><span><a href="/cart_add?id=<%=item1.getICProductID()%>" >Giỏ hàng</a></span></div>
                 </div>
@@ -84,44 +84,28 @@
             <div class="heading">
                 <h3>Feature Products</h3>
             </div>
-            <%if (request.getAttribute("current_page") != null && request.getAttribute("sumpage") != null) {%>
-            <div class="page-no">
-                <p>Result Pages:<ul>
-                    <%
-                        int current_page = (Integer) request.getAttribute("current_page");
-                        String active = "";
-                        int sumpage = (Integer) request.getAttribute("sumpage");%>
-                    <%
-                        for (int j = 1; j <= sumpage; j++) {
-                            if (current_page == j) {
-                                active = "class = 'active'";
-                            } else {
-                                active = "";
-                            }
-
-
-                    %>
-                    <li <%=active%> ><a href="<%=request.getContextPath()%>/index?page=<%=j%>"><%=j%></a></li>
-                        <%}%>
-
-                    <li <%if (current_page == sumpage) { %> class="disabled" <%}%>>[<a href="<%=request.getContextPath()%>/index?page=<%=current_page + 1%>"> Next>>></a >]</li>
-                </ul></p>
-            </div>
-            <%}%>
+            
+            
             <div class="clear"></div>
         </div>
         <div class="section group">
             <%
-                if (request.getAttribute("listPro") != null) {
-                    ArrayList<ICProductsInfo> list = (ArrayList<ICProductsInfo>) request.getAttribute("listPro");
-                    for (ICProductsInfo item : list) {
+                ArrayList<ICProductsInfo> listPro1 = ProductDAO.getItemPagination(4);
+                
+                if (listPro1 != null) {
+                   
+                    for (ICProductsInfo item : listPro1) {
             %>
             <div class="grid_1_of_4 images_1_of_4">
                 <a href="/preview?id=<%=item.getICProductID()%>"><img src="Images/<%=item.getICProductPicture1()%>" alt="" /></a>
                 <h2><%=item.getICProductDesc()%> </h2>
                 <p><%=item.getICProductName()%></p>
-                <p><span class="strike">$528.22</span><span class="price">$<%=item.getICProductSupplierPrice()%></span></p>
-                <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="/cart_add?id=<%=item.getICProductID()%>" class="cart-button">Giỏ hàng</a></span> </div>
+                <p><span class="strike"></span><span class="price"><%=item.getICProductSupplierPrice()%> VNĐ</span></p>
+                <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a <%if(session.getAttribute("HREmployeeID")!=null){ %> 
+                            <% int ID = 0;
+                                ID = (Integer)session.getAttribute("HREmployeeID");
+                            %>
+                            href="/cart_add?id=<%=item.getICProductID()%>&idcus=<%=ID%>"<%}else{%> href="/Login_Servlet" <%}%> class="cart-button">Giỏ hàng</a></span> </div>
                 <div class="button"><span><a href="/preview?id=<%=item.getICProductID()%>" class="details">Details</a></span></div>
             </div>
             <%}
@@ -134,37 +118,14 @@
             </div>
 
 
-            <%if (request.getAttribute("current_page") != null && request.getAttribute("sumpage") != null) {%>
-            <div class="page-no">
-                <p>Result Pages:<ul>
-                    <%
-                        int current_page = (Integer) request.getAttribute("current_page");
-                        String active = "";
-                        int sumpage = (Integer) request.getAttribute("sumpage");%>
-                    <%
-                        for (int j = 1; j <= sumpage; j++) {
-                            if (current_page == j) {
-                                active = "class = 'active'";
-                            } else {
-                                active = "";
-                            }
-
-
-                    %>
-                    <li <%=active%> ><a href="<%=request.getContextPath()%>/index?page=<%=j%>"><%=j%></a></li>
-                        <%}%>
-
-                    <li <%if (current_page == sumpage) { %> class="disabled" <%}%>>[<a href="<%=request.getContextPath()%>/index?page=<%=current_page + 1%>"> Next>>></a >]</li>
-                </ul></p>
-            </div>
-            <%}%>
+            
             <div class="clear"></div>
         </div>
         <div class="section group">
             <%
-                if (request.getAttribute("listPro") != null) {
+                if (listPro1 != null) {
                     ArrayList<ICProductsInfo> list = (ArrayList<ICProductsInfo>) request.getAttribute("listPro");
-                    for (ICProductsInfo item2 : list) {
+                    for (ICProductsInfo item2 : listPro1) {
             %>
             <div class="grid_1_of_4 images_1_of_4">
                 <a href="preview-3.jsp"><img src="Images/<%=item2.getICProductPicture1()%>" alt="" /></a>
@@ -172,8 +133,12 @@
                     <span class="percentage">40%</span>
                 </div>
                 <h2><%=item2.getICProductName()%> </h2>
-                <p><span class="strike">$438.99</span><span class="price">$<%=item2.getICProductSupplierPrice()%></span></p>
-                <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a href="/cart_add?id=<%=item2.getICProductID()%>" class="cart-button">Giỏ hàng</a></span> </div>
+                <p><span class="strike"></span><span class="price"><%=item2.getICProductSupplierPrice()%> VNĐ</span></p>
+               <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a <%if(session.getAttribute("HREmployeeID")!=null){ %> 
+                            <% int ID = 0;
+                                ID = (Integer)session.getAttribute("HREmployeeID");
+                            %>
+                            href="/cart_add?id=<%=item2.getICProductID()%>&idcus=<%=ID%>"<%}else{%> href="/Login_Servlet" <%}%> class="cart-button">Giỏ hàng</a></span> </div>
                 <div class="button"><span><a href="/preview?id=<%=item2.getICProductID()%>" class="details">Details</a></span></div>
             </div>
             <%}

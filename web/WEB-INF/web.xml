@@ -217,4 +217,13 @@
         <servlet-name>CreacteAccount_Servlet</servlet-name>
         <url-pattern>/CreacteAccount_Servlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SubmitPay_Servlet</servlet-name>
+        <servlet-class>Servlet.SubmitPay_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubmitPay_Servlet</servlet-name>
+        <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
 </web-app>

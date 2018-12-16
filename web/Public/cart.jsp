@@ -28,6 +28,8 @@
                             
                         <%  Double tongPhu = 0.0;
                             Double fax = 0.0;
+                           
+                             
                             if(request.getAttribute("listProduct")!=null){
                             
                             List<ICProductsInfo> list = (List<ICProductsInfo>)request.getAttribute("listProduct");
@@ -93,7 +95,15 @@
                         <%}}%>
 
                                 </div>
-
+                        <%
+                            
+                            if(session.getAttribute("HREmployeeID")!=null)
+                        {
+                                id = (Integer)session.getAttribute("HREmployeeID");
+                                ARCartsController ar1 = new ARCartsController();
+                                List<ARCartsInfo> listar = ar1.getListCartByID(id);
+                                if(listar.size()!=0){
+                        %>
                             <div class="full-width order-summary">
                                 <div class="full-width" style="background-color: #f3f4f5;">
                                     <div class="wy-inline-block wy-width-60"></div>
@@ -122,10 +132,10 @@
                                     <div class="wy-inline-block wy-width-60"></div>
                                     <div class="wy-inline-block" style="width: 15%"></div>
                                     <div class="wy-inline-block">
-                                        Thuế:
+                                        Phí ship hàng:
                                     </div>
                                     <div class="wy-inline-block float-right text-right" style="padding-right: 20px;">
-                                        $<span class="total-tax">0.00</span>
+                                        <span class="total-tax">30.000 VNĐ</span>
                                         <input type="hidden" id="total-tax" value="0"/>
                                     </div>
                                 </div>
@@ -138,13 +148,14 @@
                                     </div>
                                     <div class="wy-inline-block float-right text-right" style="padding-right: 20px;">
                                         <%
-                                            Double tongTT = tongPhu + fax;
+                                            Double tongTT = tongPhu + fax + 30000;
                                         %>
-                                        $<span class="total-amount" style="font-family:'proxima_nova_rgbold', Arial, Helvetica, sans-serif;"><%=tongTT%></span>
+                                        <span class="total-amount" style="font-family:'proxima_nova_rgbold', Arial, Helvetica, sans-serif;"><%=tongTT%> VNĐ</span>
                                         <input type="hidden" id="total-amount" value="299" />
                                     </div>
                                 </div>
                             </div>
+                                        <%}}%>
                         </div>
 
                         <div class="ChoiceLink" style="color: #00a1dd; font-size: 24px; font-weight: bold;font-family: Arial, Helvetica, sans-serif;padding: 30px 0;">
@@ -846,7 +857,7 @@
                         </div>
 
                         <div style="text-align:center; padding:40px 0px 20px 0px;">
-                            <a id="paybutton" class="inSubmitBTN-new" onclick='processPurchase()'>Submit Order</a>
+                            <a <% if(id!=0){%>  href="/submit?idcus=<%=id%>" <%}else{%> href="" <%}%> id="paybutton" class="inSubmitBTN-new" >Submit Order</a>
                         </div>
 
                         <div style="width:100%; margin:0px auto 0px auto; font-family:'proxima_novalight', Arial, Helvetica, sans-serif; font-size:14px; line-height:normal; color:#CCC; text-align:justify; padding:50px 0px 50px 0px;">
