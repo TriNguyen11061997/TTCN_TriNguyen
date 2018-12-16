@@ -156,4 +156,26 @@ public class ARSaleOrdersController {
         conn.close();
         return listSaleOrder;
     }
+
+    public List<ARSaleOrdersInfo> GetObjectForRevenue(int t,int n) throws SQLException {
+        List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
+        sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForRevenue(?,?)");
+        sttm.setInt(1, t);
+        sttm.setInt(2, n);
+        rs = sttm.executeQuery();
+        ARSaleOrdersInfo objARSaleOrdersInfo;
+        while (rs.next()) {
+            objARSaleOrdersInfo = new ARSaleOrdersInfo();
+            objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
+            objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
+            objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
+            objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
+            objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
+            objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
+            objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
+            listSaleOrder.add(objARSaleOrdersInfo);
+        }
+        conn.close();
+        return listSaleOrder;
+    }
 }

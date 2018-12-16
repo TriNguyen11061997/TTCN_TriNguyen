@@ -259,5 +259,7 @@ public class ARSaleOrdersInfo {
     public void setEmployee(HREmployeesInfo employee) {
         this.employee = employee;
     }
+    //extra
+    public double Sum;
 
 }
