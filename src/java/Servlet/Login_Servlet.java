@@ -44,6 +44,7 @@ public class Login_Servlet extends HttpServlet {
             ADUsersController objADUsersController = new ADUsersController();
             ADUsersInfo objADUsersInfo = objADUsersController.GetObjectByNameAndPassword(request.getParameter("UserName"), request.getParameter("Password"));           
             if (objADUsersInfo != null) {
+                //Lưu tren session
                 session.setAttribute("HREmployeeID", objADUsersInfo.getFK_HREmployeeID());
                 switch (objADUsersInfo.getFK_ADUserGroupID()) {
                     case Constants.UserGroup.Admin:
@@ -51,6 +52,7 @@ public class Login_Servlet extends HttpServlet {
                         response.sendRedirect("/Admin_Home_Servlet");
                         break;
                     case Constants.UserGroup.Employee:
+                       
                         response.sendRedirect("/Employee_Home_Servlet");
                         break;
                     case Constants.UserGroup.Customer:
