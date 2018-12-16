@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
-         <title>Free Smart Store Website Template | login :: w3layouts</title>
+        <title>Free Smart Store Website Template | login :: w3layouts</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -17,7 +17,7 @@
         <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="../Assets/js/move-top.js"></script>
         <script type="text/javascript" src="../Assets/js/easing.js"></script> 
-        
+
     </head>
     <body>
         <div class="wrap">
@@ -37,16 +37,16 @@
                         <%
                             ARCartsController ar = new ARCartsController();
                             List<ARCartsInfo> listCart = ar.GetALlObject();
-                            
+
                         %>
                         <div class="shopping_cart" id="change">
                             <div class="cart">
                                 <a href="/cart" title="View my shopping cart" rel="nofollow">
                                     <strong class="opencart"> </strong>
                                     <span class="cart_title">Giỏ hàng</span>
-                                    <%if(listCart!=null){%>
+                                    <%if (listCart != null) {%>
                                     <span class="no_product"><%=listCart.size()%></span>
-                                    <%}else{%>
+                                    <%} else {%>
                                     <span class="no_product">Rỗng</span>
                                     <%}%>
                                 </a>
@@ -54,30 +54,30 @@
                         </div>
                         <div class="languages" title="language">
                             <div id="language" class="wrapper-dropdown" tabindex="1">
-                                <span><a href="/Login_Servlet"><img src="Assets/images/login.png" alt="" title="login"/></a></span>
+                                <span><a href=""><img src="Assets/images/login.png" alt="" title="login"/></a></span>
                                 <strong class="opencart"> </strong>
                                 <ul class="dropdown languges" style="width:200px;">					
                                     <li>
                                         <a href="#" title="FranÃ§ais">
-                                            <span><img src="Assets/images/gb.png" alt="en" width="26" height="26"></span><span class="lang">Thông tin cá nhân</span>
+                                            <span class="lang">Thông tin cá nhân</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="FranÃ§ais">
-                                            <span><img src="Assets/images/au.png" alt="fr" width="26" height="26"></span><span class="lang">Thông tin giỏ hàng</span>
+                                            <span class="lang">Thông tin giỏ hàng</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="EspaÃ±ol">
-                                            <span><img src="Assets/images/bm.png" alt="es" width="26" height="26"></span><span class="lang">Đăng nhập</span>
+                                        <a href="Public/login.jsp" title="EspaÃ±ol">
+                                            <span class="lang">Đăng nhập</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" title="Deutsch">
-                                            <span><img src="Assets/images/ck.png" alt="de" width="26" height="26"></span><span class="lang">Đăng xuất</span>
+                                            <span class="lang">Đăng xuất</span>
                                         </a>
                                     </li>
-                                    					
+
                                 </ul>
                             </div>
                             <script type="text/javascript">
@@ -109,8 +109,8 @@
 
                             </script>
                         </div>
-                        
-                        
+
+
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>

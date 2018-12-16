@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 
 <html>
@@ -284,8 +283,6 @@
                     </nav> 
                     <script src="Assets/js/menu.js" type="text/javascript"></script>
                 </div>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="/Public/header.jsp" %>
                 <div class="header_bottom">
                     <div class="header_bottom_left">
                         <div class="section group">
@@ -377,13 +374,13 @@
                                         <td>
                                             <div>
                                                 <input type="text" required="true" value="Name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'Name';
-                                        }" ></div>
+                                                            this.value = 'Name';
+                                                        }" ></div>
                                             <div><input type="text" required="true" value="E-Mail" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                         this.value = 'E-Mail';
                                                     }"></div>
-                                                    <div><input type="text" required="true"  name="user" value="User" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                       this.value = 'User' ;
+                                            <div><input type="text" required="true"  name="user" value="User" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                                        this.value = 'User';
                                                     }"></div>        
                                             <div><input  style="padding: 8px; margin: 5px  0 5px 0; width: 340px; height: 14px" value="password" type="password" required="true" name="password"   onfocus="this.value = '';" onblur="if (this.value == '') {
                                                         this.value = 'password';
@@ -593,11 +590,11 @@
                                                     <option value="SA">Saudi Arabia</option>
                                                     <option value="SN">Senegal</option>
                                                 </select></div>		        
-                                            
+
                                             <div>
                                                 <input type="text" required="t  rue" name="numberID" value="NumberID" onfocus="this.value = '';"  > 
                                                 <input type="text" required="true" name="phone"  value="Phone number" onfocus="this.value = '';" >
-                                                
+
                                             </div>
                                         </td>
                                     </tr> 
@@ -668,7 +665,7 @@
                 </div>
             </div>
         </div>
-                            
+
         <script type="text/javascript">
             $(document).ready(function () {
                 /*
@@ -702,4 +699,4 @@
         </script>
     </body>
 </html>
-       <%@include file="/Public/footer.jsp" %>
+
