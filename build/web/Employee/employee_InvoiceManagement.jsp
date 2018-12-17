@@ -22,6 +22,7 @@
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH HÓA ĐƠN</h2>
                 </div>
+                <br><br>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -33,18 +34,18 @@
                     </form>
                 </div>
                 <div style="float:left;">
-                    <form action="" method="post">
+                    <form action="/Employee_InvoiceAdd_Servlet" method="post">
                         <table>
                             <tr>
                                 <th>
                                     <select name="ARSaleOrderID">                               
-                                        <option>-Chọn đơn hàng-</option>
+                                        <option>--Chọn đơn hàng--</option>
                                         <c:forEach  var="saleOrder" items = "${listSaleOrder}">
                                             <option value="${saleOrder.ARSaleOrderID}">${saleOrder.ARSaleOrderNo} ${saleOrder.ARSaleOrderName}</option>
                                         </c:forEach>
                                     </select>
                                 </th>
-                                <th><button type="submit" class="btn btn-success" style="width:auto;">Tạo mới</button></th>
+                                <th><button type="submit" class="btn btn-success" style="width:auto;">Tạo hóa đơn</button></th>
                             </tr>
                         </table>
                     </form>
@@ -72,22 +73,24 @@
                         <th style="color:white">Khách hàng</th>
                         <th style="color:white">Tên đơn hàng</th>
                         <th style="color:white">Ghi chú</th>
-                        <th style="color:white">Nhân viên</th>
+                        <th style="color:white">Nhân viên</th>                      
+                        <th style="color:white">Tình trạng</th>   
                         <th style="color:white">Tổng tiền</th>
-                        <th style="color:white">Tình trạng</th>                     
                         <th style="color:white">Xuất hóa đơn</th>
+                        <th style="color:white">Cập nhật t/t đơn hàng</th>
                     </tr>
                     <c:forEach var="invoice" items = "${listInvoice}">                     
                         <tr>
-                            <td style="color:black">${saleOrder.ARSaleOrderDate}</td>
-                            <td style="color:black">${saleOrder.ARSaleOrderNo}</td>
-                            <td style="color:black">${saleOrder.customer.ARCustomerName}</td>
-                            <td style="color:black">${saleOrder.ARSaleOrderName}</td>
-                            <td style="color:black">${saleOrder.ARSaleOrderDesc}</td>
-                            <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
-                            <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
-                            <td style="color:black">${saleOrder.ARSaleOrderTaxAmount}</td>                                               
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>                       
+                            <td style="color:black">${invoice.ARInvoiceDate}</td>
+                            <td style="color:black">${invoice.saleorder.ARSaleOrderNo}</td>
+                            <td style="color:black">${invoice.customer.ARCustomerName}</td>
+                            <td style="color:black">${invoice.ARInvoiceName}</td>
+                            <td style="color:black">${invoice.ARInvoiceDesc}</td>
+                            <td style="color:black">${invoice.employee.HREmployeeName}</td>
+                            <td style="color:black">${invoice.ARInvoiceStatus}</td>
+                            <td style="color:black">${invoice.ARInvoiceTotalAmount}</td>                                               
+                            <td><a href="/Employee_InvoiceExport_Servlet?ID=${invoice.ARInvoiceID}"><button class="btn btn-success" style="heightMaBenhNhan:30px">XUẤT HÓA ĐƠN</button></a></td>
+                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30p;width: 100%"> ...</button></a></td>               
                         </tr>
                     </c:forEach>
                 </table>

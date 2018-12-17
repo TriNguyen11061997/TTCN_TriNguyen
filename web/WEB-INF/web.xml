@@ -41,10 +41,80 @@
         <servlet-class>Servlet.Admin_EmployeeLoadUpdate_Servlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Employee_InvoiceManagement</servlet-name>
-        <servlet-class>Servlet.Employee_InvoiceManagement</servlet-class>
         <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_EmployeesAdd_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_InvoiceManagement</servlet-name>
+        <servlet-class>Servlet.Employee_InvoiceManagement</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>About_Servlet</servlet-name>
+        <servlet-class>Servlet.About_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_CustomerManagement_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_SaleOrderLoadUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_SaleOrderLoadUpdate_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_SaleOrderUpdate_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_SaleOrderUpdate_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Contact_Servlet</servlet-name>
+        <servlet-class>Servlet.Contact_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Faq_Servlet</servlet-name>
+        <servlet-class>Servlet.Faq_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Index_Servlet</servlet-name>
+        <servlet-class>Servlet.Index_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login_Servlet</servlet-name>
+        <servlet-class>Servlet.Login_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Preview_Servlet</servlet-name>
+        <servlet-class>Servlet.Preview_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_Home_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_Home_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cart_Servlet</servlet-name>
+        <servlet-class>Servlet.Cart_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
+        <servlet-class>Servlet.Cart_SaleOrder_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin_Revenue_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_Revenue_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin_EmployeeDelete_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_EmployeeDelete_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreacteAccount_Servlet</servlet-name>
+        <servlet-class>Servlet.CreacteAccount_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_InvoiceAdd_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_InvoiceAdd_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_InvoiceExport_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_InvoiceExport_Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
@@ -101,122 +171,70 @@
     <servlet-mapping>
         <servlet-name>Employee_InvoiceManagement</servlet-name>
         <url-pattern>/Employee_InvoiceManagement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Admin_EmployeesAdd_Servlet</servlet-name>
         <url-pattern>/Admin_EmployeesAdd_Servlet</url-pattern>
     </servlet-mapping>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
-    <servlet>
-        <servlet-name>About_Servlet</servlet-name>
-        <servlet-class>Servlet.About_Servlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
-        <servlet-class>Servlet.Employee_CustomerManagement_Servlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Employee_SaleOrderLoadUpdate_Servlet</servlet-name>
-        <servlet-class>Servlet.Employee_SaleOrderLoadUpdate_Servlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Employee_SaleOrderUpdate_Servlet</servlet-name>
-        <servlet-class>Servlet.Employee_SaleOrderUpdate_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>About_Servlet</servlet-name>
         <url-pattern>/about</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Contact_Servlet</servlet-name>
-        <servlet-class>Servlet.Contact_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Contact_Servlet</servlet-name>
         <url-pattern>/contact</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Faq_Servlet</servlet-name>
-        <servlet-class>Servlet.Faq_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Faq_Servlet</servlet-name>
         <url-pattern>/faq</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Index_Servlet</servlet-name>
-        <servlet-class>Servlet.Index_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Index_Servlet</servlet-name>
         <url-pattern>/index_servlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Login_Servlet</servlet-name>
-        <servlet-class>Servlet.Login_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Login_Servlet</servlet-name>
         <url-pattern>/Login_Servlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Preview_Servlet</servlet-name>
-        <servlet-class>Servlet.Preview_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Preview_Servlet</servlet-name>
         <url-pattern>/preview</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Employee_Home_Servlet</servlet-name>
-        <servlet-class>Servlet.Employee_Home_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_Home_Servlet</servlet-name>
         <url-pattern>/Employee_Home_Servlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Cart_Servlet</servlet-name>
-        <servlet-class>Servlet.Cart_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Cart_Servlet</servlet-name>
         <url-pattern>/cart_add</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
-        <servlet-class>Servlet.Cart_SaleOrder_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Cart_SaleOrder_Servlet</servlet-name>
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Admin_Revenue_Servlet</servlet-name>
-        <servlet-class>Servlet.Admin_Revenue_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Admin_Revenue_Servlet</servlet-name>
         <url-pattern>/Admin_Revenue_Servlet</url-pattern>
     </servlet-mapping>
-     <servlet>
-        <servlet-name>Admin_EmployeeDelete_Servlet</servlet-name>
-        <servlet-class>Servlet.Admin_EmployeeDelete_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Admin_EmployeeDelete_Servlet</servlet-name>
         <url-pattern>/Admin_EmployeeDelete_Servlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>CreacteAccount_Servlet</servlet-name>
-        <servlet-class>Servlet.CreacteAccount_Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>CreacteAccount_Servlet</servlet-name>
         <url-pattern>/CreacteAccount_Servlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_InvoiceAdd_Servlet</servlet-name>
+        <url-pattern>/Employee_InvoiceAdd_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_InvoiceExport_Servlet</servlet-name>
+        <url-pattern>/Employee_InvoiceExport_Servlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
     
     <servlet>
         <servlet-name>SubmitPay_Servlet</servlet-name>

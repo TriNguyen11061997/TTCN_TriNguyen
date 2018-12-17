@@ -6,13 +6,12 @@
 package Servlet;
 
 import Controller.ARInvoicesController;
-import Controller.ARSaleOrdersController;
 import Info.ARInvoicesInfo;
-import Info.ARSaleOrdersInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Trí Nguyễn
  */
-public class Employee_InvoiceManagement extends HttpServlet {
+public class Employee_InvoiceAdd_Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,16 +29,11 @@ public class Employee_InvoiceManagement extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
-            ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
             ARInvoicesController objARInvoicesController = new ARInvoicesController();
-            List<ARSaleOrdersInfo> listSaleOrder = objARSaleOrdersController.GetObjectForInvoice();
-            List<ARInvoicesInfo> listInvoice = objARInvoicesController.GetAllObject();
-            request.setAttribute("listInvoice", listInvoice);
-            request.setAttribute("listSaleOrder", listSaleOrder);
-            request.getRequestDispatcher("Employee/employee_InvoiceManagement.jsp").include(request, response);
-
+            objARInvoicesController.Insert(Integer.parseInt(request.getParameter("ARSaleOrderID")));     
+            response.sendRedirect("/Employee_InvoiceManagement");
         } catch (SQLException ex) {
-            request.getRequestDispatcher("index.jsp").include(request, response);
+            Logger.getLogger(Employee_InvoiceAdd_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -29,10 +29,11 @@ public class ARSaleOrdersController {
     ResultSet rs;
 
     public ARSaleOrdersController() {
-        conn = ConnectionPool.getConnection();
+        
     }
 
     public List<ARSaleOrdersInfo> GetAllObjectForEmployee() throws SQLException {
+        conn = ConnectionPool.getConnection();
         List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
         sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForEmployee()");
         rs = sttm.executeQuery();
@@ -54,11 +55,11 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
             listSaleOrder.add(objARSaleOrdersInfo);
         }
-        conn.close();
         return listSaleOrder;
     }
 
     public List<ARSaleOrdersInfo> GetAllObjectForAdmin() throws SQLException {
+        conn = ConnectionPool.getConnection();
         List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
         sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForAdmin()");
         rs = sttm.executeQuery();
@@ -80,11 +81,11 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
             listSaleOrder.add(objARSaleOrdersInfo);
         }
-        conn.close();
         return listSaleOrder;
     }
 
     public ARSaleOrdersInfo GetObjectByID(int saleOrderID) throws SQLException {
+        conn = ConnectionPool.getConnection();
         sttm = conn.prepareCall("Call ARSaleOrders_GetObjectByID(?)");
         sttm.setInt(1, saleOrderID);
         rs = sttm.executeQuery();
@@ -92,6 +93,8 @@ public class ARSaleOrdersController {
         while (rs.next()) {
             objARSaleOrdersInfo = new ARSaleOrdersInfo();
             objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
+            objARSaleOrdersInfo.setFK_ARCustomerID(rs.getInt("FK_ARCustomerID"));
+            objARSaleOrdersInfo.setFK_HREmployeeID(rs.getInt("FK_HREmployeeID"));
             objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
             objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
             objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
@@ -118,11 +121,11 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
             return objARSaleOrdersInfo;
         }
-        conn.close();
         return null;
     }
 
     public boolean Update(ARSaleOrdersInfo objARSaleOrdersInfo) {
+        conn = ConnectionPool.getConnection();
         try {
             sttm = conn.prepareCall("Call ARSaleOrders_Update(?,?,?,?)");
             sttm.setInt(1, objARSaleOrdersInfo.getARSaleOrderID());
@@ -130,7 +133,6 @@ public class ARSaleOrdersController {
             sttm.setString(3, objARSaleOrdersInfo.getARSaleOrderPaymentStatus());
             sttm.setDouble(4, objARSaleOrdersInfo.getARSaleOrderShippingFees());
             rs = sttm.executeQuery();
-            conn.close();
             return true;
         } catch (SQLException ex) {
             return false;
@@ -138,6 +140,7 @@ public class ARSaleOrdersController {
     }
 
     public List<ARSaleOrdersInfo> GetObjectForInvoice() throws SQLException {
+        conn = ConnectionPool.getConnection();
         List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
         sttm = conn.prepareCall("Call ARSaleOrders_GetObjectForInvoice()");
         rs = sttm.executeQuery();
@@ -153,15 +156,25 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
             listSaleOrder.add(objARSaleOrdersInfo);
         }
-        conn.close();
         return listSaleOrder;
     }
 
-    public List<ARSaleOrdersInfo> GetObjectForRevenue(int t,int n) throws SQLException {
+    public List<ARSaleOrdersInfo> GetObjectForRevenue(int t, int n) throws SQLException {
+        conn = ConnectionPool.getConnection();
         List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
-        sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForRevenue(?,?)");
-        sttm.setInt(1, t);
-        sttm.setInt(2, n);
+        if (t == 0 && n != 0) {
+            sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForRevenueByYear(?)");
+            sttm.setInt(1, n);
+        } else if (n == 0 && t != 0) {
+            sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForRevenueByMonth(?)");
+            sttm.setInt(1, t);
+        } else if (t == 0 && n == 0) {
+            sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForRevenue()");
+        } else {
+            sttm = conn.prepareCall("Call ARSaleOrders_GetAllObjectForRevenueByMonthAndYear(?,?)");
+            sttm.setInt(1, t);
+            sttm.setInt(2, n);
+        }
         rs = sttm.executeQuery();
         ARSaleOrdersInfo objARSaleOrdersInfo;
         while (rs.next()) {
@@ -175,7 +188,6 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
             listSaleOrder.add(objARSaleOrdersInfo);
         }
-        conn.close();
         return listSaleOrder;
     }
 }
