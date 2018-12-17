@@ -37,6 +37,7 @@ public class ADUsersController {
         ps.setString(2, pass);
         rs = ps.executeQuery();
         while (rs.next()) {
+            objADUsersInfo.setADUserID(rs.getInt("ADUserID"));
             objADUsersInfo.setADUserName(rs.getString("ADUserName"));
             objADUsersInfo.setFK_HREmployeeID(rs.getInt("FK_HREmployeeID"));
             objADUsersInfo.setFK_ADUserGroupID(rs.getInt("FK_ADUserGroupID"));

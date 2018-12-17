@@ -6,6 +6,7 @@
 package Servlet;
 
 import Controller.ARCartsController;
+import Info.ADUsersInfo;
 import Info.ARCartsInfo;
 import java.io.IOException;
 import java.sql.Date;
@@ -19,6 +20,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 /**
  *
  * @author KA
@@ -38,7 +41,14 @@ public class Cart_Servlet extends HttpServlet {
         try {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
-             int idProduct = Integer.parseInt(request.getParameter("id"));
+            
+            
+            
+            int idProduct = Integer.parseInt(request.getParameter("id"));
+            int idCus = Integer.parseInt(request.getParameter("idcus"));
+             
+             
+             
             ARCartsController arcc = new ARCartsController();
             List<ARCartsInfo> obj = arcc.GetALlObject();
             for(int i=0;i<obj.size();i++){
@@ -57,8 +67,12 @@ public class Cart_Servlet extends HttpServlet {
             
             //code thêm giỏ hàng
             ARCartsInfo objCart = new ARCartsInfo();
-            
            
+           
+            //set id user vao
+            //objCart.setFK_ARCustomerID(objUsers.getADUserID());
+            
+            objCart.setFK_ARCustomerID(idCus);
             objCart.setFK_ICProductID(idProduct);
             
             objCart.setARCartQty(1);
