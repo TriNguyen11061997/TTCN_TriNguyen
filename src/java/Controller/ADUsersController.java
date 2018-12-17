@@ -22,8 +22,7 @@ public class ADUsersController {
     PreparedStatement ps;
     ResultSet rs;
 
-    public ADUsersController() {
-        conn = ConnectionPool.getConnection();
+    public ADUsersController() {      
     }
 
     public void GetObjectByID() {
@@ -31,6 +30,7 @@ public class ADUsersController {
     }
 
     public ADUsersInfo GetObjectByNameAndPassword(String name, String pass) throws SQLException {
+        conn = ConnectionPool.getConnection();
         ADUsersInfo objADUsersInfo = new ADUsersInfo();
         ps = conn.prepareCall("Call ADUsers_GetObjectByNameAnhPassword(?,?)");
         ps.setString(1, name);

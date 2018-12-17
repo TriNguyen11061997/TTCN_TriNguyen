@@ -161,8 +161,6 @@
                         <th style="color:white">Số lượng</th>
                         <th style="color:white">Đơn giá</th>
                         <th style="color:white">Thành tiền</th>
-                        <th style="color:white">Edit</th>
-                        <th style="color:white">Delete</th>
                     </tr>                 
                     <c:forEach var="item" items = "${listSaleOrderItem}">                     
                         <tr>
@@ -171,8 +169,6 @@
                             <td style="color:black">${item.ARSaleOrderItemQty}</td>
                             <td style="color:black">${item.ARSaleOrderItemUnitCost}</td>
                             <td style="color:black">${item.ARSaleOrderItemTotalAmount}</td>  
-                            <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                         </tr>
                     </c:forEach>
                 </table>

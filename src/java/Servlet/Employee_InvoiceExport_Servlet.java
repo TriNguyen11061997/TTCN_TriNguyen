@@ -6,8 +6,10 @@
 package Servlet;
 
 import Controller.ARInvoicesController;
+import Controller.ARSaleOrderItemsController;
 import Controller.ARSaleOrdersController;
 import Info.ARInvoicesInfo;
+import Info.ARSaleOrderItemsInfo;
 import Info.ARSaleOrdersInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Trí Nguyễn
  */
-public class Employee_InvoiceManagement extends HttpServlet {
+public class Employee_InvoiceExport_Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,20 +32,20 @@ public class Employee_InvoiceManagement extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
-            ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
             ARInvoicesController objARInvoicesController = new ARInvoicesController();
-            List<ARSaleOrdersInfo> listSaleOrder = objARSaleOrdersController.GetObjectForInvoice();
-            List<ARInvoicesInfo> listInvoice = objARInvoicesController.GetAllObject();
-            request.setAttribute("listInvoice", listInvoice);
-            request.setAttribute("listSaleOrder", listSaleOrder);
-            request.getRequestDispatcher("Employee/employee_InvoiceManagement.jsp").include(request, response);
+            ARInvoicesInfo objARInvoicesInfo = objARInvoicesController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
+            ARSaleOrderItemsController objARSaleOrderItemsController = new ARSaleOrderItemsController();
+            List<ARSaleOrderItemsInfo> listSaleOrderItem = objARSaleOrderItemsController.GetObjectBySaleOrderID(objARInvoicesInfo.getSaleorder().getARSaleOrderID());
+            request.setAttribute("invoice", objARInvoicesInfo);
+            request.setAttribute("listSaleOrderItem", listSaleOrderItem);
+            request.getRequestDispatcher("Employee/employee_InvoiceExport.jsp").include(request, response);
 
         } catch (SQLException ex) {
-            request.getRequestDispatcher("index.jsp").include(request, response);
+            response.sendRedirect("/Employee_InvoiceManagement");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

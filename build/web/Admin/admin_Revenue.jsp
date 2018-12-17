@@ -28,7 +28,8 @@
                             <tr>
                                 <th>
                                     <select name="month">                                      
-                                        <option value="1" selected="selected">Tháng 1</option>
+                                        <option value="0" selected="selected">--Tháng--</option>
+                                        <option value="1">Tháng 1</option>
                                         <option value="2">Tháng 2</option>
                                         <option value="3">Tháng 3</option>
                                         <option value="4">Tháng 4</option>
@@ -43,6 +44,7 @@
                                     </select>
                                 <th>
                                     <select name="year">
+                                        <option value="0" selected="selected">--Năm--</option>
                                         <option value="2009">2009</option>
                                         <option value="2010">2010</option>
                                         <option value="2011">2011</option>
@@ -52,7 +54,7 @@
                                         <option value="2015">2015</option>
                                         <option value="2016">2016</option>
                                         <option value="2017">2017</option>
-                                        <option value="2018" selected="selected">2018</option>
+                                        <option value="2018">2018</option>
                                         <option value="2019">2019</option>
                                     </select>
                                 </th>
@@ -82,7 +84,7 @@
                         <td></td>
                         <td></td>
                         <td style="color:black"><b>Tổng tiền:</b></td>
-                        <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>           
+                        <td style="color:black">${sum}</td>           
                     </tr>
                 </table>
             </div>

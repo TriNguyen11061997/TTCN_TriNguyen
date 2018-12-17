@@ -48,24 +48,20 @@ public class ARCustomersController {
             objARCustomersInfo.setARCustomerContactAddressCity(rs.getString("ARCustomerContactAddressCity"));
             listARCustomersInfos.add(objARCustomersInfo);
         }
-        conn.close();
         return listARCustomersInfos;
     }
-    
-    
-    
-    
-    public boolean CreateAccount(String user, String password, ARCustomersInfo arc){
+
+    public boolean CreateAccount(String user, String password, ARCustomersInfo arc) {
         ADUsersInfo objADUsersInfo = new ADUsersInfo();
         try {
             sttm = conn.prepareCall("CALL ADUsers_CheckAccount(?, ?)");
             sttm.setString(1, user);
             sttm.setString(2, arc.getARCustomerIDNumber());
             rs = sttm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 return false;
             }
-            
+
             sttm = conn.prepareCall("CALL ARCustomesr_Add(?, ?, ?, ?, ?, ?, ?)");
             sttm.setString(1, arc.getARCustomerName());
             sttm.setString(2, arc.getARCustomerTel1());
@@ -74,24 +70,20 @@ public class ARCustomersController {
             sttm.setString(5, arc.getARCustomerContactAddress());
             sttm.setString(6, arc.getARCustomerContactAddressCity());
             sttm.setString(7, arc.getARCustomerContactAddressCountry());
-            if(sttm.execute()){
-                conn.close();
+            if (sttm.execute()) {
                 return false;
             }
-            
-            
+
             sttm = conn.prepareCall("CALL CreateAccount(?, ?, ?)");
             sttm.setString(1, user);
             sttm.setString(2, password);
             sttm.setString(3, arc.getARCustomerIDNumber());
-            if(sttm.execute()){
+            if (sttm.execute()) {
                 conn.close();
                 return false;
             }
-            conn.close();
             return true;
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ARCustomersController.class.getName()).log(Level.SEVERE, null, ex);
             return false;

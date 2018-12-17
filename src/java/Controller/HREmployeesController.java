@@ -50,7 +50,6 @@ public class HREmployeesController {
             objHREmployeesInfo.setHREmployeeStatus(rs.getString("HREmployeeStatus"));
             listHREmployeesInfos.add(objHREmployeesInfo);
         }
-        conn.close();
         return listHREmployeesInfos;
     }
 
@@ -80,7 +79,6 @@ public class HREmployeesController {
             objHREmployeesInfo.setHREmployeeEndWorkingDate(rs.getDate("HREmployeeEndWorkingDate"));
             return objHREmployeesInfo;
         }
-        conn.close();
         return null;
     }
 
@@ -103,7 +101,6 @@ public class HREmployeesController {
             sttm.setString(14, objEmployeesInfo.getHREmployeeContactAddressCountry());
             rs = sttm.executeQuery();
             sttm.execute();
-            conn.close();
             return objEmployeesInfo;
         } catch (SQLException ex) {
             return null;
@@ -129,7 +126,6 @@ public class HREmployeesController {
             sttm.setString(14, objEmployeesInfo.getHREmployeeContactAddressCountry());
 
             sttm.execute();
-            conn.close();
             return objEmployeesInfo;
         } catch (SQLException ex) {
             Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,7 +138,6 @@ public class HREmployeesController {
             sttm = conn.prepareCall("CALL HREmployees_Delete(?)");
             sttm.setInt(1, objEmployeesInfo.getHREmployeeID());
             sttm.execute();
-            conn.close();
             return objEmployeesInfo;
         } catch (SQLException ex) {
             Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);

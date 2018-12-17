@@ -29,17 +29,29 @@ public class Admin_Revenue_Servlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
             ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
-            int thang;
-            int nam;
-            if (request.getParameter("month") == null || request.getParameter("year") == null) {
-                thang = 12;
-                nam = 2018;
-            } else {
-                thang = Integer.parseInt(request.getParameter("month"));
+            int thang = 0;
+            int nam = 0;
+            double sumMoney = 0;
+            if (request.getParameter("month") == null && request.getParameter("year") != null) {
                 nam = Integer.parseInt(request.getParameter("year"));
+            } else if (request.getParameter("year") == null && request.getParameter("month") != null) {
+                thang = Integer.parseInt(request.getParameter("month"));
+            } else if (request.getParameter("month") == null && request.getParameter("year") == null) {
+                thang = 0;
+                nam = 0;
+            } else if (request.getParameter("month") != null && request.getParameter("year") != null) {
+                nam = Integer.parseInt(request.getParameter("year"));
+                thang = Integer.parseInt(request.getParameter("month"));
+            } else {
+                thang = 0;
+                nam = 0;
             }
             List<ARSaleOrdersInfo> listSaleOrder;
             listSaleOrder = objARSaleOrdersController.GetObjectForRevenue(thang, nam);
+            for (ARSaleOrdersInfo objARSaleOrdersInfo : listSaleOrder) {
+                sumMoney += objARSaleOrdersInfo.getARSaleOrderTotalAmount();
+            }
+            request.setAttribute("sum", sumMoney);
             request.setAttribute("listSaleOrder", listSaleOrder);
             request.getRequestDispatcher("Admin/admin_Revenue.jsp").include(request, response);
 
