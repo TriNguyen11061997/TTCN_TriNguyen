@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
-        <title>Free Smart Store Website Template | login :: w3layouts</title>
+        <title>Smart Store</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -37,22 +37,18 @@
                         </div>
                         <%
                             ARCartsController ar = new ARCartsController();
-                            List<ARCartsInfo> listCart = ar.GetALlObject();
-                           // ADUsersInfo objUser = (ADUsersInfo)session.getAttribute("HREmployeeID");
                         %>
                         <div class="shopping_cart" id="change">
                             <div class="cart">
                                 <%int id = 0;
-                                    if (session.getAttribute("HREmployeeID") !=null) {
-                                            
-                                            id = (Integer)session.getAttribute("HREmployeeID");
+                                    if (session.getAttribute("HREmployeeID") != null) {
+                                        id = (Integer) session.getAttribute("HREmployeeID");
                                     }
                                 %>
                                 <a href="/cart?idcus=<%=id%>" title="View my shopping cart" rel="nofollow">
                                     <strong class="opencart"> </strong>
                                     <span class="cart_title">Giỏ hàng</span>
-                                    <%if (session.getAttribute("HREmployeeID") !=null) {
-                                           
+                                    <%if (session.getAttribute("HREmployeeID") != null) {
                                             List<ARCartsInfo> listar = ar.getListCartByID(id);%>
                                     <span class="no_product"><%=listar.size()%></span>
                                     <%} else {%>
@@ -63,10 +59,10 @@
                         </div>
                         <div class="languages" title="language">
                             <div id="language" class="wrapper-dropdown" tabindex="1">
-                                <span><a href=""><img src="Assets/images/login.png" alt="" title="login"/></a></span>
+                                <span><a href="">TK</a></span>
                                 <strong class="opencart"> </strong>
                                 <ul class="dropdown languges" style="width:200px;">
-                                    <%if(session.getAttribute("HREmployeeID") != null){%>
+                                    <%if (session.getAttribute("HREmployeeID") != null) {%>
                                     <li>
                                         <a href="#" title="Thông tin cá nhân">
                                             <span class="lang">Thông tin cá nhân</span>
@@ -74,18 +70,18 @@
                                     </li>
                                     <li>
                                         <a href="#" title="Thông tin giỏ hàng">
-                                            <span class="lang">Thông tin giỏ hàng</span>
+                                            <span class="lang">Đơn hàng của bạn</span>
                                         </a>
                                     </li>
                                     <%}%>
-                                     <%if(session.getAttribute("HREmployeeID") == null){%>
+                                    <%if (session.getAttribute("HREmployeeID") == null) {%>
                                     <li>
                                         <a href="/Login_Servlet" title="Đăng nhập">
                                             <span class="lang">Đăng nhập</span>
                                         </a>
                                     </li>
                                     <%}%>
-                                     <%if(session.getAttribute("HREmployeeID") != null){%>
+                                    <%if (session.getAttribute("HREmployeeID") != null) {%>
                                     <li>
                                         <a href="/Logout_Servlet" title="Đăng xuất">
                                             <span class="lang">Đăng xuất</span>
@@ -269,3 +265,5 @@
                     </nav> 
                     <script src="Assets/js/menu.js" type="text/javascript"></script>
                 </div>
+            </div>
+

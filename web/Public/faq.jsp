@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/Public/header.jsp" %>
-
- </div>
  <div class="main">
     <div class="content">
     	<h2>Frequently Asked Questions</h2>
@@ -49,4 +47,6 @@
  </div>
 </div>
    <%@include file="/Public/footer.jsp" %>
+</body>
+</html>
 

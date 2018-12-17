@@ -68,9 +68,9 @@
                             <td style="color:black">${saleOrder.customer.ARCustomerName}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderName}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderDesc}</td>
-                             <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
-                             <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
-                             <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>                         
+                            <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>                         
                             <td><a href="/Admin_SaleOrderLoadUpdate_Servlet?ARSaleOrderID=${saleOrder.ARSaleOrderID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>                          
                         </tr>

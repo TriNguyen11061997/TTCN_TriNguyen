@@ -20,7 +20,7 @@ public class ICProductsInfo {
     private Date AAUpdatedDate;
     private String AAStatus;
     private String ICProductNo;
-    private String ICProductSupplierNumber;
+    private Double ICProductPrice;
     private Double ICProductSupplierPrice;
     private String ICProductName;
     private String ICProductDesc;
@@ -42,7 +42,7 @@ public class ICProductsInfo {
     public ICProductsInfo() {
     }
 
-    public ICProductsInfo(int ICProductID, String AACreatedUser, Date AACreatedDate, String AAUpdatedUser, Date AAUpdatedDate, String AAStatus, String ICProductNo, String ICProductSupplierNumber, Double ICProductSupplierPrice, String ICProductName, String ICProductDesc, Boolean ICProductActiveCheck, int FK_HREmployeeID, String ICProductPromotion, String ICProductPicture1, String ICProductPicture2, String ICProductPicture3, String ICProductPicture4, String ICProductPicture5, String ICProductPicture6, String ICProductPicture7, String ICProductPicture8, String ICProductVideo, String ICProductDetailHeDieuHanh, int Qty) {
+    public ICProductsInfo(int ICProductID, String AACreatedUser, Date AACreatedDate, String AAUpdatedUser, Date AAUpdatedDate, String AAStatus, String ICProductNo, Double ICProductPrice, Double ICProductSupplierPrice, String ICProductName, String ICProductDesc, Boolean ICProductActiveCheck, int FK_HREmployeeID, String ICProductPromotion, String ICProductPicture1, String ICProductPicture2, String ICProductPicture3, String ICProductPicture4, String ICProductPicture5, String ICProductPicture6, String ICProductPicture7, String ICProductPicture8, String ICProductVideo, String ICProductDetailHeDieuHanh, int Qty) {
         this.ICProductID = ICProductID;
         this.AACreatedUser = AACreatedUser;
         this.AACreatedDate = AACreatedDate;
@@ -50,7 +50,7 @@ public class ICProductsInfo {
         this.AAUpdatedDate = AAUpdatedDate;
         this.AAStatus = AAStatus;
         this.ICProductNo = ICProductNo;
-        this.ICProductSupplierNumber = ICProductSupplierNumber;
+        this.ICProductPrice = ICProductPrice;
         this.ICProductSupplierPrice = ICProductSupplierPrice;
         this.ICProductName = ICProductName;
         this.ICProductDesc = ICProductDesc;
@@ -69,16 +69,19 @@ public class ICProductsInfo {
         this.ICProductDetailHeDieuHanh = ICProductDetailHeDieuHanh;
         this.Qty = Qty;
     }
-     public int getQty() {
+
+    public int getQty() {
         return Qty;
     }
-     public void setQty(int Qty) {
+
+    public void setQty(int Qty) {
         this.Qty = Qty;
     }
+
     public int getICProductID() {
         return ICProductID;
     }
-    
+
     public void setICProductID(int ICProductID) {
         this.ICProductID = ICProductID;
     }
@@ -131,12 +134,12 @@ public class ICProductsInfo {
         this.ICProductNo = ICProductNo;
     }
 
-    public String getICProductSupplierNumber() {
-        return ICProductSupplierNumber;
+    public Double getICProductPrice() {
+        return ICProductPrice;
     }
 
-    public void setICProductSupplierNumber(String ICProductSupplierNumber) {
-        this.ICProductSupplierNumber = ICProductSupplierNumber;
+    public void setICProductPrice(Double ICProductPrice) {
+        this.ICProductPrice = ICProductPrice;
     }
 
     public Double getICProductSupplierPrice() {
@@ -266,8 +269,5 @@ public class ICProductsInfo {
     public void setICProductDetailHeDieuHanh(String ICProductDetailHeDieuHanh) {
         this.ICProductDetailHeDieuHanh = ICProductDetailHeDieuHanh;
     }
-    
-    
-    
 
 }

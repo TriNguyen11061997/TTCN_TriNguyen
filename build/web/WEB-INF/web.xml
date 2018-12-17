@@ -235,4 +235,13 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+    
+    <servlet>
+        <servlet-name>SubmitPay_Servlet</servlet-name>
+        <servlet-class>Servlet.SubmitPay_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubmitPay_Servlet</servlet-name>
+        <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
 </web-app>

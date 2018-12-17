@@ -24,24 +24,22 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet(name = "Cart_SaleOrder_Servlet", urlPatterns = {"/Cart_SaleOrder_Servlet"})
 public class Cart_SaleOrder_Servlet extends HttpServlet {
 
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         doPost(request, response);
+        doPost(request, response);
     }
-        @Override
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-            
-            int idcus = Integer.parseInt(request.getParameter("idcus"));
-            
-            
-            ARCartsController arc = new ARCartsController();
-            List<ICProductsInfo> listPro = arc.getListProduct(idcus);
-            request.setAttribute("listProduct", listPro);
-            RequestDispatcher rd = request.getRequestDispatcher("/Public/cart.jsp");
-            rd.forward(request, response);
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        int idcus = Integer.parseInt(request.getParameter("idcus"));
+        ARCartsController arc = new ARCartsController();
+        List<ICProductsInfo> listPro = arc.getListProduct(idcus);
+        request.setAttribute("listProduct", listPro);
+        request.getRequestDispatcher("/Public/cart.jsp").include(request, response);
     }
 
 }

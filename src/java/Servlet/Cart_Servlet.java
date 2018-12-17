@@ -22,89 +22,61 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+
 /**
  *
  * @author KA
  */
 //@WebServlet(name = "Cart_Servlet", urlPatterns = {"/Cart_Servlet"})
 public class Cart_Servlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
     private ARCartsController ARCart = new ARCartsController();
-    public Cart_Servlet(){
+
+    public Cart_Servlet() {
         super();
     }
-  
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Xử lý thêm vào giỏ hàng-thanhuchiha
         try {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
-            
-            
-            
             int idProduct = Integer.parseInt(request.getParameter("id"));
             int idCus = Integer.parseInt(request.getParameter("idcus"));
-             
-             
-             
             ARCartsController arcc = new ARCartsController();
             List<ARCartsInfo> obj = arcc.GetALlObject();
-            for(int i=0;i<obj.size();i++){
+            for (int i = 0; i < obj.size(); i++) {
                 //Kiem tra trung san pham
-                if(obj.get(i).getFK_ICProductID()==idProduct){
-                    int qtyAfter = obj.get(i).getARCartQty()+1;
+                if (obj.get(i).getFK_ICProductID() == idProduct) {
+                    int qtyAfter = obj.get(i).getARCartQty() + 1;
                     obj.get(i).setARCartQty(qtyAfter);
                     obj.get(i).setARCartID(obj.get(i).getARCartID());
-                    if(ARCart.Update(obj.get(i))==1){
+                    if (ARCart.Update(obj.get(i)) == 1) {
                         RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                         rd.forward(request, response);
                         return;
                     }
                 }
             }
-            
             //code thêm giỏ hàng
             ARCartsInfo objCart = new ARCartsInfo();
-           
-           
             //set id user vao
             //objCart.setFK_ARCustomerID(objUsers.getADUserID());
-            
             objCart.setFK_ARCustomerID(idCus);
             objCart.setFK_ICProductID(idProduct);
-            
             objCart.setARCartQty(1);
             objCart.setAAStatus("Alive");
-            //objCart.setARCartQty(2.0);
-            //objCart.setFK_ARCustomerID(12);
-            //objCart.setARCartDate();
-            if(ARCart.Insert(objCart)==1){
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }else
+            if (ARCart.Insert(objCart) == 1) {
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            } else {
                 System.out.println("Thêm thất bại");
+            }
             System.out.println("id = " + idProduct);
         } catch (SQLException ex) {
             Logger.getLogger(Cart_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-       
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-                //thêm csdl cart
-                doGet(request, response);
-//        int i=1;
-//       
-//           // System.out.println("gia tri" + idProduct);
-//        response.getWriter().print("<div class=\"cart\">\n" +"<a href=\"#\" title=\"View my shopping cart\" rel=\"nofollow\">\n" +"<strong class=\"opencart\"> </strong>\n" +"<span class=\"cart_title\">Giỏ hàng</span>\n" +"<span class=\"no_product\">1</span>\n" +"</a>\n" +"</div>");
-	
-        
-       
-        
     }
 
 }

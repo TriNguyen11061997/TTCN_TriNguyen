@@ -6,10 +6,13 @@
 package Servlet;
 
 import Controller.ARCartsController;
+import Controller.ARSaleOrderItemsController;
+import Info.ARSaleOrderItemsInfo;
 import Info.ARSaleOrdersInfo;
 import Info.ICProductsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,51 +27,59 @@ import javax.servlet.http.HttpServletResponse;
  */
 //@WebServlet(name = "About_Servlet", urlPatterns = {"/About_Servlet"})
 public class SubmitPay_Servlet extends HttpServlet {
-
-     @Override
+    
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         doPost(request, response);
+        doPost(request, response);
     }
-        @Override
+    
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-            //chuyển trạng thái submit của giỏ hàng
-            int idcus = Integer.parseInt(request.getParameter("idcus"));
-            ARCartsController arc = new ARCartsController();
-            ARSaleOrdersInfo objSale = new ARSaleOrdersInfo();
-            List<ICProductsInfo> listPro = arc.getListProduct(idcus);
-            
-            double tongphu=0,tongchinh=0,phiship=30000.0;
-            
-            for(ICProductsInfo item : listPro){
-                double tongTien = item.getQty() * item.getICProductSupplierPrice();
-                tongphu+=tongTien;
+        //chuyển trạng thái submit của giỏ hàng
+        int idcus = Integer.parseInt(request.getParameter("idcus"));
+        ARCartsController arc = new ARCartsController();
+        ARSaleOrdersInfo objSale = new ARSaleOrdersInfo();
+        ARSaleOrderItemsController objARSaleOrderItemsController = new ARSaleOrderItemsController();
+        List<ICProductsInfo> listPro = arc.getListProduct(idcus);
+        List<ARSaleOrderItemsInfo> listSaleOrderItems = new ArrayList<>();
+        ARSaleOrderItemsInfo objARSaleOrderItemsInfo;
+        double tongphu = 0, tongchinh = 0, phiship = 30000.0;
+        for (ICProductsInfo item : listPro) {
+            objARSaleOrderItemsInfo = new ARSaleOrderItemsInfo();
+            objARSaleOrderItemsInfo.setFK_ICProductID(item.getICProductID());
+            objARSaleOrderItemsInfo.setARSaleOrderItemName(item.getICProductName());
+            objARSaleOrderItemsInfo.setARSaleOrderItemDesc(item.getICProductDesc());
+            objARSaleOrderItemsInfo.setARSaleOrderItemQty((double) item.getQty());
+            objARSaleOrderItemsInfo.setARSaleOrderItemUnitCost(item.getICProductPrice());
+            double tongTien = item.getQty() * item.getICProductPrice();
+            objARSaleOrderItemsInfo.setARSaleOrderItemTotalAmount(tongTien);
+            listSaleOrderItems.add(objARSaleOrderItemsInfo);
+            tongphu += tongTien;
+        }
+        tongchinh = tongphu + phiship;
+        objSale.setAAStatus("Alive");
+        objSale.setFK_ARCustomerID(idcus);
+        objSale.setARSaleOrderStatus("New");
+        objSale.setARSaleOrderShippingFees(phiship);
+        objSale.setARSaleOrderTotalAmount(tongchinh);
+        
+        if (arc.submit_cart(objSale) == 1) {
+            for (ARSaleOrderItemsInfo SaleOrderItem : listSaleOrderItems) {
+                objARSaleOrderItemsController.Insert(SaleOrderItem);
             }
-            tongchinh = tongphu + phiship;
-            
-            objSale.setAAStatus("Alive");
-            objSale.setFK_ARCustomerID(idcus);
-            objSale.setARSaleOrderStatus("NEW");
-            objSale.setARSaleOrderShippingFees(phiship);
-            objSale.setARSaleOrderTotalAmount(tongchinh);
-            
-            if(arc.submit_cart(objSale) == 1){
-                //xóa đơn hàng
-                System.out.println("Them thanh cong vao order");
-                if(arc.delCart(idcus) == 1){
-                     RequestDispatcher rd = request.getRequestDispatcher("/index_servlet");
-                     rd.forward(request, response);
-                     return;
-                }
+            System.out.println("Them thanh cong vao order");
+            if (arc.delCart(idcus) == 1) {
+                RequestDispatcher rd = request.getRequestDispatcher("/index_servlet");
+                rd.forward(request, response);
+                return;
             }
-                //chuyển trang về index
-            RequestDispatcher rd = request.getRequestDispatcher("/index_servlet");
-            rd.forward(request, response);
-            
-            
-            
+        }
+        //chuyển trang về index
+        RequestDispatcher rd = request.getRequestDispatcher("/index_servlet");
+        rd.forward(request, response);
+        
     }
-
+    
 }

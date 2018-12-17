@@ -25,7 +25,6 @@ import java.util.List;
 public class ARCartsController {
 
     private Connection conn;
-    private PreparedStatement ps;
     private PreparedStatement pst;
     private ResultSet rs;
     private Statement st;
@@ -50,23 +49,18 @@ public class ARCartsController {
 //        
 //    }
 
-    public int Insert(ARCartsInfo objCart) {
-        conn = ConnectionPool.getConnection();
+    public int Insert(ARCartsInfo objCart) {      
         int result = 0;
-        String sql = "INSERT INTO ARCarts(AAStatus,ARCartQty,FK_ICProductID) VALUES(?,?,?)";
-
-        String sql = "INSERT INTO ARCarts(AAStatus,ARCartQty,FK_ICProductID,FK_ARCustomerID) VALUES(?,?,?,?)";        
+        String sql = "INSERT INTO ARCarts(AAStatus,ARCartQty,FK_ICProductID,FK_ARCustomerID) VALUES(?,?,?,?)";
         try {
             conn = ConnectionPool.getConnection();
             pst = conn.prepareStatement(sql);
-
             //pst.setDouble(1, objCart.getARCartQty());
-            
             pst.setString(1, objCart.getAAStatus());
             pst.setInt(2, objCart.getARCartQty());
             pst.setInt(3, objCart.getFK_ICProductID());
-            pst.setInt(2,objCart.getARCartQty());
-            pst.setInt(3,objCart.getFK_ICProductID());
+            pst.setInt(2, objCart.getARCartQty());
+            pst.setInt(3, objCart.getFK_ICProductID());
             pst.setInt(4, objCart.getFK_ARCustomerID());
             //pst.setInt(2, objCart.getFK_ARCustomerID());
             result = pst.executeUpdate();
@@ -99,43 +93,38 @@ public class ARCartsController {
         return listARCartsInfos;
     }
 
-    public int Update(ARCartsInfo objCart) {
-        conn = ConnectionPool.getConnection();
-    
-    public ArrayList<ARCartsInfo> getListCartByID(int idcus){
+    public ArrayList<ARCartsInfo> getListCartByID(int idcus) {
         ArrayList<ARCartsInfo> listCart = new ArrayList<>();
         String sql = "SELECT * FROM ARCarts WHERE FK_ARCustomerID = ?";
-         ARCartsInfo objARCartsInfo;
+        ARCartsInfo objARCartsInfo;
         try {
             conn = ConnectionPool.getConnection();
-			
             pst = conn.prepareStatement(sql);
-			
             pst.setInt(1, idcus);
-			
             rs = pst.executeQuery();
-            while(rs.next()){
-                 objARCartsInfo = new ARCartsInfo();
-                 objARCartsInfo.setARCartID(rs.getInt("ARCartID"));
-                 objARCartsInfo.setARCartQty(rs.getInt("ARCartQty"));
-                 objARCartsInfo.setFK_ICProductID(rs.getInt("FK_ICProductID"));
-                 listCart.add(objARCartsInfo);
+            while (rs.next()) {
+                objARCartsInfo = new ARCartsInfo();
+                objARCartsInfo.setARCartID(rs.getInt("ARCartID"));
+                objARCartsInfo.setARCartQty(rs.getInt("ARCartQty"));
+                objARCartsInfo.setFK_ICProductID(rs.getInt("FK_ICProductID"));
+                listCart.add(objARCartsInfo);
             }
         } catch (Exception e) {
-        }finally {
-			try {
-				rs.close();
-				pst.close();
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-        
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
         return listCart;
     }
-    public int Update(ARCartsInfo objCart){
+
+    public int Update(ARCartsInfo objCart) {
         int result = 0;
         String sql = "UPDATE ARCarts SET ARCartQty = ? WHERE ARCartID = ?";
         try {
@@ -158,28 +147,21 @@ public class ARCartsController {
         return result;
     }
 
-    //show ra giỏ hàng
-    public List<ICProductsInfo> getListProduct() {
-        conn = ConnectionPool.getConnection();
+    //show ra giỏ hàng  
+    public List<ICProductsInfo> getListProduct(int idcus) {
         List<ICProductsInfo> listProduct = new ArrayList<>();
-        String sql = "SELECT *, ARCarts.ARCartQty as qty FROM ICProducts INNER JOIN ARCarts ON ICProducts.ICProductID=ARCarts.FK_ICProductID";
-
-    public List<ICProductsInfo> getListProduct(int idcus){
-        List<ICProductsInfo> listProduct = new ArrayList<>();
-        String sql = "SELECT *, ARCarts.ARCartQty as qty FROM ICProducts INNER JOIN ARCarts ON ICProducts.ICProductID=ARCarts.FK_ICProductID WHERE ARCarts.FK_ARCustomerID = "+idcus;
-        
+        String sql = "SELECT *, ARCarts.ARCartQty as qty FROM ICProducts INNER JOIN ARCarts ON ICProducts.ICProductID=ARCarts.FK_ICProductID WHERE ARCarts.FK_ARCustomerID = " + idcus;
         try {
             conn = ConnectionPool.getConnection();
             st = conn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()) {
                 ICProductsInfo item = new ICProductsInfo();
-
-                //add them
+                item.setICProductID(rs.getInt("ICProductID"));
                 item.setICProductName(rs.getString("ICProductName"));
-                item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                item.setICProductDesc(rs.getString("ICProductDesc"));
+                item.setICProductPrice(rs.getDouble("ICProductPrice"));
                 item.setQty(rs.getInt("qty"));
-
                 listProduct.add(item);
             }
         } catch (Exception e) {
@@ -195,59 +177,58 @@ public class ARCartsController {
 
         return listProduct;
     }
-    
+
     //submit giỏ hàng
-    public int submit_cart(ARSaleOrdersInfo objSale){
+    public int submit_cart(ARSaleOrdersInfo objSale) {
         int result = 0;
         String sql = "INSERT INTO ARSaleOrders(AAStatus,FK_ARCustomerID,ARSaleOrderStatus,ARSaleOrderShippingFees,ARSaleOrderTotalAmount) VALUES(?,?,?,?,?)";
         try {
             conn = ConnectionPool.getConnection();
             pst = conn.prepareStatement(sql);
-            
             pst.setString(1, objSale.getAAStatus());
             pst.setInt(2, objSale.getFK_ARCustomerID());
             pst.setString(3, objSale.getARSaleOrderStatus());
             pst.setDouble(4, objSale.getARSaleOrderShippingFees());
             pst.setDouble(5, objSale.getARSaleOrderTotalAmount());
-            
-             result=pst.executeUpdate();
+
+            result = pst.executeUpdate();
         } catch (Exception e) {
-        }finally {
-			try {
-				pst.close();
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-        
-        
+        } finally {
+            try {
+                pst.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
         return result;
     }
+
     //xóa đơn hàng khi đã submit
-    public int delCart(int idcus){
+    public int delCart(int idcus) {
         int result = 0;
-        String sql = "DELETE FROM ARCarts WHERE ARCarts.FK_ARCustomerID = "+idcus;
-        
+        String sql = "DELETE FROM ARCarts WHERE ARCarts.FK_ARCustomerID = " + idcus;
+
         try {
             conn = ConnectionPool.getConnection();
-            pst = conn.prepareStatement(sql);	
+            pst = conn.prepareStatement(sql);
             result = pst.executeUpdate();
-	} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-	}finally {
-			try {
-				
-				pst.close();
-				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-        
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+
+                pst.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
         return result;
     }
 }

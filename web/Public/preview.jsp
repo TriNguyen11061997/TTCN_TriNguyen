@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/Public/header.jsp" %>
-            </div>
+
             <div class="main">
                 <div class="content">
                     <div class="content_top">
