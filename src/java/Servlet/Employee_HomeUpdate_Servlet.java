@@ -5,20 +5,24 @@
  */
 package Servlet;
 
-import Controller.HREmployeesController;
-import Info.HREmployeesInfo;
+import Controller.ARCustomersController;
+import Info.ARCustomersInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author PC
  */
-public class Admin_EmployeeDelete_Servlet extends HttpServlet {
+@WebServlet(name = "Employee_HomeUpdate_Servlet", urlPatterns = {"/Employee_HomeUpdate_Servlet"})
+public class Employee_HomeUpdate_Servlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,22 +36,33 @@ public class Admin_EmployeeDelete_Servlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        
-        HREmployeesController hREmployeesController = new HREmployeesController();
-        HREmployeesInfo hREmployeesInfo = new HREmployeesInfo();
-        hREmployeesInfo.setHREmployeeID(Integer.parseInt(request.getParameter("ID")));
-        
-        HREmployeesInfo objHREmployeesInfo = hREmployeesController.Delete(hREmployeesInfo);
-        
-        if (objHREmployeesInfo != null) {
-                response.sendRedirect("Admin_EmployeeManagement_Servlet");
-                
-                
-        } else {
-            request.setAttribute("Delete", "Xóa nhân viên thất bại!");
-            request.getRequestDispatcher("Admin_EmployeeManagement_Servlet").include(request, response);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("HREmployeeID") != null) {
+            ARCustomersController aRCustomersController = new ARCustomersController();
+            ARCustomersInfo aRCustomersInfo = new ARCustomersInfo();
+            aRCustomersInfo.setARCustomerID(Integer.parseInt(request.getParameter("ARCustomerID")));
+            aRCustomersInfo.setARCustomerNo(request.getParameter("ARCustomerNo"));
+            aRCustomersInfo.setARCustomerName(request.getParameter("ARCustomerName"));
+            aRCustomersInfo.setARCustomerGender(Integer.parseInt(request.getParameter("ARCustomerGender")));
+            aRCustomersInfo.setARCustomerBirthDay(Date.valueOf(request.getParameter("ARCustomerBirthDay")));
+            aRCustomersInfo.setARCustomerTel1(request.getParameter("ARCustomerTel1"));
+            aRCustomersInfo.setARCustomerEmail(request.getParameter("ARCustomerEmail"));
+            aRCustomersInfo.setARCustomerIDNumber(request.getParameter("ARCustomerIDNumber"));
+            aRCustomersInfo.setARCustomerCardNumber(request.getParameter("ARCustomerCardNumber"));
+            aRCustomersInfo.setARCustomerContactAddressCity(request.getParameter("ARCustomerContactAddressCity"));
+            aRCustomersInfo.setARCustomerContactAddressCountry(request.getParameter("ARCustomerContactAddressCountry"));
+            aRCustomersInfo.setARCustomerContactAddress(request.getParameter("ARCustomerContactAddress"));
+            aRCustomersInfo.setARCustomerDesc(request.getParameter("ARCustomerDesc"));
+            ARCustomersInfo arc = aRCustomersController.Update(aRCustomersInfo);
+            if(arc != null){
+                response.sendRedirect("Employee_CustomerManagement_Servlet");
+            }
+            else{
+                response.sendRedirect("Employee_CustomerManagement_Servlet");
+            }
         }
     }
 

@@ -79,8 +79,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <td style="color:black">${customer.ARCustomerTel1}</td>
                             <td style="color:black">${customer.ARCustomerContactAddress}</td>
                             <td style="color:black">${customer.ARCustomerContactAddressCity}</td>
-                            <td><a href="/CustomerLoadUpdate_Servlet?ID="><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
+                            <td><a href="/CustomerLoadUpdate_Servlet?ID=${customer.ARCustomerID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="/Employee_Delete_Servlet?id=${customer.ARCustomerID}"><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                             <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
                         </tr>
                     </c:forEach>

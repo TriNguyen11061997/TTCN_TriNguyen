@@ -5,21 +5,24 @@
  */
 package Servlet;
 
+import Controller.ARCustomersController;
 import Controller.HREmployeesController;
+import Info.ARCustomersInfo;
 import Info.HREmployeesInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.jws.WebService;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  *
  * @author PC
  */
-public class Admin_EmployeeDelete_Servlet extends HttpServlet {
-
+@WebServlet(urlPatterns = {"/Employee_Delete_Servlet"})
+public class Employee_Delete_Servlet extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,19 +38,21 @@ public class Admin_EmployeeDelete_Servlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         
-        HREmployeesController hREmployeesController = new HREmployeesController();
-        HREmployeesInfo hREmployeesInfo = new HREmployeesInfo();
-        hREmployeesInfo.setHREmployeeID(Integer.parseInt(request.getParameter("ID")));
+        ARCustomersController aRCustomersController = new ARCustomersController();
+        ARCustomersInfo aRCustomersInfo = new ARCustomersInfo();
+        aRCustomersInfo.setARCustomerID(Integer.parseInt(request.getParameter("id")));
         
-        HREmployeesInfo objHREmployeesInfo = hREmployeesController.Delete(hREmployeesInfo);
         
-        if (objHREmployeesInfo != null) {
-                response.sendRedirect("Admin_EmployeeManagement_Servlet");
-                
-                
+        ARCustomersInfo objARCustomersInfo = aRCustomersController.Delete(aRCustomersInfo);
+        
+        
+        
+        if (objARCustomersInfo != null) {
+                response.sendRedirect("Employee_CustomerManagement_Servlet");
+                      
         } else {
-            request.setAttribute("Delete", "Xóa nhân viên thất bại!");
-            request.getRequestDispatcher("Admin_EmployeeManagement_Servlet").include(request, response);
+            request.setAttribute("Delete", "Xóa khách hàng thất bại!");
+            request.getRequestDispatcher("Employee_CustomerManagement_Servlet").include(request, response);
         }
     }
 
@@ -89,5 +94,4 @@ public class Admin_EmployeeDelete_Servlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

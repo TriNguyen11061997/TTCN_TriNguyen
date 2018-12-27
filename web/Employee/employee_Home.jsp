@@ -1,8 +1,9 @@
+<%@page import="Info.ARCustomersInfo"%>
 <%@page import="Info.HREmployeesInfo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
-    <% HREmployeesInfo objEmployeesInfo = (HREmployeesInfo) request.getAttribute("Employee");%>
+    <% ARCustomersInfo Customer = (ARCustomersInfo)request.getAttribute("Customer");%>
     <head>
         <title>Smart phone store</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -24,19 +25,19 @@
                 <div class="container">
                     <div class="row">                       
                         <form class="form-card" action="/Employee_HomeUpdate_Servlet" method="post">
-                            <input id="name" name="HREmployeeID" value="${Employee.HREmployeeID}" class="form-control" type="hidden">
-                            <input id="name" name="HREmployeePicture" value="${Employee.HREmployeePicture}" class="form-control" type="hidden">
+                            <input id="name" name="ARCustomerID" value="${Customer.ARCustomerID}" class="form-control" type="hidden">
+                            <input id="name" name="ARCustomerPicture" value="${Customer.ARCustomerPicture}" class="form-control" type="hidden">
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left1">
-                                    <img class="image1" src="../Images/${Employee.HREmployeePicture}" alt=""/>
+                                    <img class="image1" src="../Images/${Customer.ARCustomerPicture}" alt=""/>
                                 </div>                               
                                 <div class='col-xs-12 form-group'  id="right1">
                                     <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
-                                    <input id="name" name="HREmployeeNo" value= "${Employee.HREmployeeNo}" class="form-control" type="text" readonly="">                                  
+                                    <input id="name" name="ARCustomerNo" value= "${Customer.ARCustomerNo}" class="form-control" type="text" readonly="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right1">
                                     <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
-                                    <input id="name" name="HREmployeeName" value= "${Employee.HREmployeeName}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="ARCustomerName" value= "${Customer.ARCustomerName}" class="form-control" type="text" required="">                                  
                                 </div>                               
                             </div>
                             <br><br><br><br><br><br><br>
@@ -44,8 +45,8 @@
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="phone-input-field">Giới tính</label>
-                                    <select class="form-control locked" name="HREmployeeGender"> 
-                                        <%if (objEmployeesInfo.getHREmployeeGender() == 0) {%>
+                                    <select class="form-control locked" name="ARCustomerGender"> 
+                                        <%if (Customer.getARCustomerGender() == 0) {%>
                                         <option value="0" selected="selected">Nữ</option>
                                         <option value="1">Nam</option>
                                         <%} else {%>
@@ -57,70 +58,63 @@
                                 <div class='col-xs-12 form-group'  id="right">
                                     <label class="control-label locked" for="name-input-field">Tình trạng</label>
                                     <select class="form-control locked" name="HREmployeeStatus">
+                                        
                                         <option value="Working">Đang làm việc</option>
                                         <option value="NotWorking">Ngưng làm việc</option>
+                                       
                                     </select>                                         
                                 </div>
                             </div>                           
                             <div class='form-group'>                              
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="name-input-field">Ngày sinh</label>
-                                    <input id="name" value= "${Employee.HREmployeeBirthDay}" name="HREmployeeBirthDay" class="form-control" type="date" required="">                                  
+                                    <input id="name" value= "${Customer.ARCustomerBirthDay}" name="ARCustomerBirthDay" class="form-control" type="date" required="">                                  
                                 </div>
                             </div>
                             <div class='form-group'>                              
                                 <div class='col-xs-12 form-group' id="left">
                                     <label class="control-label locked" for="name-input-field">Số điện thoại</label>
-                                    <input id="name" name="HREmployeeTel1" value= "${Employee.HREmployeeTel1}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="ARCustomerTel1" value= "${Customer.ARCustomerTel1}" class="form-control" type="text" required="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="email-input-field">Email</label>
-                                    <input id="email" name="HREmployeeEmail" value= "${Employee.HREmployeeEmail}" type="text" placeholder="email@gmail.com" class="form-control" required="">
+                                    <input id="email" name="ARCustomerEmail" value= "${Customer.ARCustomerEmail}" type="text" placeholder="email@gmail.com" class="form-control" required="">
                                 </div>
                             </div>
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="name-input-field">Chứng minh nhân dân</label>
-                                    <input id="name" name="HREmployeeIDNumber" value= "${Employee.HREmployeeIDNumber}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="ARCustomerIDNumber" value= "${Customer.ARCustomerIDNumber}" class="form-control" type="text" required="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="name-input-field">Số tài khoản</label>
-                                    <input id="name" name="HREmployeeCardNumber" value= "${Employee.HREmployeeCardNumber}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="ARCustomerCardNumber" value= "${Customer.ARCustomerCardNumber}" class="form-control" type="text" required="">                                  
                                 </div>
                             </div>                                                                           
                             <div class='form-group'>
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="name-input-field">Thành phố </label>
-                                    <input id="name" name="HREmployeeContactAddressCity" value= "${Employee.HREmployeeContactAddressCity}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="ARCustomerContactAddressCity" value= "${Customer.ARCustomerContactAddressCity}" class="form-control" type="text" required="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="name-input-field">Quốc gia</label>
-                                    <input id="name" name="HREmployeeContactAddressCountry"value= "${Employee.HREmployeeContactAddressCountry}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="ARCustomerContactAddressCountry"value= "${Customer.ARCustomerContactAddressCountry}" class="form-control" type="text" required="">                                  
                                 </div>
                             </div>
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="desc-input-field">Address</label>
-                                    <textarea name="HREmployeeContactAddress" id="address"value= "${Employee.HREmployeeContactAddress}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeContactAddress}</textarea>
+                                    <textarea name="ARCustomerContactAddress" id="address"value= "${Customer.ARCustomerContactAddress}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeContactAddress}</textarea>
                                 </div>
                             </div>
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="desc-input-field">Mô tả</label>
-                                    <textarea name="HREmployeeDesc" id="desc" value= "${Employee.HREmployeeDesc}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeDesc}</textarea>
+                                    <textarea name="ARCustomerDesc" id="desc" value= "${Customer.ARCustomerDesc}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeDesc}</textarea>
                                 </div>
                             </div>
 
-                            <div class='form-group'>                              
-                                <div class='col-xs-12 form-group' id="left">
-                                    <label class="control-label locked" for="name-input-field">Ngày bắt đầu làm việc</label>
-                                    <input id="name" name="HREmployeeStartWorkingDate" value= "${Employee.HREmployeeStartWorkingDate}" class="form-control" type="date" readonly="">                                  
-                                </div>
-                                <div class='col-xs-12 form-group' id="right">
-                                    <label class="control-label locked" for="email-input-field">Ngày kết thúc làm việc</label>
-                                    <input id="email" name="HREmployeeEndWorkingDate" value= "${Employee.HREmployeeEndWorkingDate}" type="date"  class="form-control locked" readonly="">
-                                </div>
-                            </div>
+                            
                             <input type="submit" value="Cập nhật" class="form-control locked" style="background-color: #17a2b8">
                         </form>
                     </div>

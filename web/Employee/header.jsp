@@ -76,11 +76,9 @@
                 <div id="user" class="wrapper-dropdown" tabindex="1">TK
                     <strong class="opencart"> </strong>
                     <ul class="dropdown languges">					
+                       
                         <li>
-                            <a href="/Logout_Servlet">Logout</a>
-                        </li>
-                        <li>
-                            <a>Tài khoản</a>
+                            <a href="Employee_Home_Servlet">TT cá nhân</a>
                         </li>
                         <li>
                             <a href="/Logout_Servlet">Logout</a>
