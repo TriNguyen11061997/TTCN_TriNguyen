@@ -25,7 +25,7 @@ public class ARCustomersInfo {
     private Date ARCustomerBirthDay;
     private String ARCustomerStatus;
     private String ARCustomerDesc;
-    private Byte[] ARCustomerPicture;
+    private String ARCustomerPicture;
     private String ARCustomerIDNumber;
     private String ARCustomerCardNumber;
     private String ARCustomerTaxNumber;
@@ -41,7 +41,7 @@ public class ARCustomersInfo {
     public ARCustomersInfo() {
     }
 
-    public ARCustomersInfo(int ARCustomerID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, String ARCustomerNo, String ARCustomerName, int ARCustomerGender, Date ARCustomerBirthDay, String ARCustomerStatus, String ARCustomerDesc, Byte[] ARCustomerPicture, String ARCustomerIDNumber, String ARCustomerCardNumber, String ARCustomerTaxNumber, Date ARCustomerStartWorkingDate, Date ARCustomerEndWorkingDate, String ARCustomerTel1, String ARCustomerTel2, String ARCustomerEmail, String ARCustomerContactAddress, String ARCustomerContactAddressCity, String ARCustomerContactAddressCountry) {
+    public ARCustomersInfo(int ARCustomerID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, String ARCustomerNo, String ARCustomerName, int ARCustomerGender, Date ARCustomerBirthDay, String ARCustomerStatus, String ARCustomerDesc, String ARCustomerPicture, String ARCustomerIDNumber, String ARCustomerCardNumber, String ARCustomerTaxNumber, Date ARCustomerStartWorkingDate, Date ARCustomerEndWorkingDate, String ARCustomerTel1, String ARCustomerTel2, String ARCustomerEmail, String ARCustomerContactAddress, String ARCustomerContactAddressCity, String ARCustomerContactAddressCountry) {
         this.ARCustomerID = ARCustomerID;
         this.AAStatus = AAStatus;
         this.AACreatedUser = AACreatedUser;
@@ -164,13 +164,7 @@ public class ARCustomersInfo {
         this.ARCustomerDesc = ARCustomerDesc;
     }
 
-    public Byte[] getARCustomerPicture() {
-        return ARCustomerPicture;
-    }
 
-    public void setARCustomerPicture(Byte[] ARCustomerPicture) {
-        this.ARCustomerPicture = ARCustomerPicture;
-    }
 
     public String getARCustomerIDNumber() {
         return ARCustomerIDNumber;
@@ -258,6 +252,16 @@ public class ARCustomersInfo {
 
     public void setARCustomerContactAddressCountry(String ARCustomerContactAddressCountry) {
         this.ARCustomerContactAddressCountry = ARCustomerContactAddressCountry;
+    }
+
+
+    public String getARCustomerPicture() {
+        return ARCustomerPicture;
+    }
+
+
+    public void setARCustomerPicture(String ARCustomerPicture) {
+        this.ARCustomerPicture = ARCustomerPicture;
     }
 
 }

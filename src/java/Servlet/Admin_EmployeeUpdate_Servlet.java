@@ -59,7 +59,8 @@ public class Admin_EmployeeUpdate_Servlet extends HttpServlet {
                 request.setAttribute("Employee", objEmployeesInfo);
                 request.setAttribute("Error", "Cập nhật thông tin không thành công!");
             }
-            request.getRequestDispatcher("Admin/admin_Home.jsp").forward(request, response);
+            //request.getRequestDispatcher("Admin_EmployeeManagement_Servlet").forward(request, response);
+            response.sendRedirect("Admin_EmployeeManagement_Servlet");
         } else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
