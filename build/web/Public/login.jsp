@@ -105,7 +105,7 @@
                                 <div><input type="text" required="true"  name="user" value="User" onfocus="this.value = '';" onblur="if (this.value == '') {
                                             this.value = 'User';
                                         }"></div>        
-                                <div><input  style="padding: 8px; margin: 5px  0 5px 0; width: 340px; height: 14px" value="password" type="password" required="true" name="password"   onfocus="this.value = '';" onblur="if (this.value == '') {
+                                <div><input  style="padding: 8px; margin: 5px  0 5px 0; width: 340px; height: 34px" value="password" type="password" required="true" name="password"   onfocus="this.value = '';" onblur="if (this.value == '') {
                                             this.value = 'password';
                                         }"></div> 
                             </td>
@@ -115,7 +115,7 @@
                                 <div><input type="text" required="true" value="City" name="city" onfocus="this.value = '';" onblur="if (this.value == '') {
                                             this.value = 'City';
                                         }"></div>
-                                <div><select id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
+                                        <div><select style="width: 340px;" id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
                                         <option value="null">Select a Country</option>         
                                         <option value="AX">Ãland Islands</option>
                                         <option value="AF">Afghanistan</option>

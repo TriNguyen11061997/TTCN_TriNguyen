@@ -5,21 +5,31 @@
  */
 package Servlet;
 
+
 import Controller.HREmployeesController;
 import Info.HREmployeesInfo;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Date;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+import libraryDB.LibraryFile;
 
 /**
  *
  * @author PC
  */
+@MultipartConfig
 public class Admin_EmployeesAdd_Servlet extends HttpServlet {
 
     /**
@@ -40,7 +50,49 @@ public class Admin_EmployeesAdd_Servlet extends HttpServlet {
         if (session.getAttribute("HREmployeeID") != null){
             HREmployeesController hREmployeesController = new HREmployeesController();
             HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
-            
+            // xu ly anh
+		String picture = "";
+		// file
+		final String path = request.getServletContext().getRealPath("Images");
+		System.out.println(path);
+		File dirFile = new File(path);
+		if (!dirFile.exists()) {
+			dirFile.mkdir();
+		}
+
+		final Part filePart = request.getPart("hinhanh");
+                System.out.println("ten: " + filePart);
+		final String fileName = LibraryFile.getName(filePart);
+                
+		if (!"".equals(fileName)) { // cÃ³ chá»�n áº£nh
+			OutputStream out = null;
+                    
+			InputStream filecontent = null;
+			picture = LibraryFile.rename(fileName);
+			System.out.println(picture);
+			try {
+				out = new FileOutputStream(new File(path + File.separator + picture));
+				filecontent = filePart.getInputStream();
+
+				int read = 0;
+				final byte[] bytes = new byte[1024];
+
+				while ((read = filecontent.read(bytes)) != -1) {
+					out.write(bytes, 0, read);
+				}
+
+                        } catch (FileNotFoundException fne) {
+				fne.printStackTrace();
+			} finally {
+				if (out != null) {
+					out.close();
+				}
+				if (filecontent != null) {
+					filecontent.close();
+				}
+			}
+		}
+            objEmployeesInfo.setHREmployeePicture(picture);
             objEmployeesInfo.setHREmployeeNo(request.getParameter("HREmployeeNo"));
             objEmployeesInfo.setHREmployeeName(request.getParameter("HREmployeeName"));
             objEmployeesInfo.setHREmployeeGender(Integer.parseInt(request.getParameter("HREmployeeGender")));
