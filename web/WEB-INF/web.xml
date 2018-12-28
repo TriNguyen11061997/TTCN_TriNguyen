@@ -116,6 +116,10 @@
         <servlet-name>Employee_InvoiceExport_Servlet</servlet-name>
         <servlet-class>Servlet.Employee_InvoiceExport_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin_InvoiceManagement_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_InvoiceManagement_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerManagement_Servlet</url-pattern>
@@ -232,10 +236,13 @@
         <servlet-name>Employee_InvoiceExport_Servlet</servlet-name>
         <url-pattern>/Employee_InvoiceExport_Servlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_InvoiceManagement_Servlet</servlet-name>
+        <url-pattern>/Admin_InvoiceManagement_Servlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
-    
     <servlet>
         <servlet-name>SubmitPay_Servlet</servlet-name>
         <servlet-class>Servlet.SubmitPay_Servlet</servlet-class>
