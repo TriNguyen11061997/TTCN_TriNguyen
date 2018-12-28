@@ -20,8 +20,17 @@
                 <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THÊM MỚI NHÂN VIÊN</h2>               
                 <div class="container">
                     <div class="row">                       
-                        <form class="form-card" action="/Admin_EmployeesAdd_Servlet" method="post">
-
+                        <form class="form-card" action="/Admin_EmployeesAdd_Servlet" method="post" enctype="multipart/form-data">
+                            <div class='form-group'>                        
+                                <div class='col-xs-12 form-group'  id="left">
+                                    <label class="control-label locked" for="name-input-field">Chọn ảnh</label>
+                                    <input style="height: 38px; padding-top: 3px" type="file" name="hinhanh" class="form-control" placeholder="Chọn ảnh" />                                      
+                                </div>
+                                <div class='col-xs-12 form-group' id="right">
+                                    <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
+                                    <input id="name" name="HREmployeeName" class="form-control" type="text" required="">                                  
+                                </div>                               
+                            </div>
                             <div class='form-group'>                        
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="name-input-field">Mã nhân viên</label>

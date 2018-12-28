@@ -43,7 +43,7 @@ public class CustomerLoadUpdate_Servlet extends HttpServlet {
                 ARCustomersController aRCustomersController = new ARCustomersController();
                 ARCustomersInfo aRCustomersInfo = aRCustomersController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
                 request.setAttribute("Customer", aRCustomersInfo);
-                request.getRequestDispatcher("Employee/employee_Home.jsp").include(request, response);
+                request.getRequestDispatcher("Employee/Employee_CustomerUpdate.jsp").include(request, response);
             }
             else{
                 response.sendRedirect("/Employee_CustomerManagement_Servlet");

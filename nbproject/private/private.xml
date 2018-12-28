@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Desktop/TTCN/src/java/Servlet/Employee_HomeUpdate_Servlet.java</file>
-            <file>file:/C:/Users/PC/Desktop/TTCN/src/java/Servlet/CustomerLoadUpdate_Servlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/TTCN/web/Employee/Employee_CustomerUpdate.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/TTCN/web/Admin/admin_EmployeeAdd.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/TTCN/src/java/Servlet/Admin_EmployeeLoadUpdate_Servlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/TTCN/src/java/Servlet/Admin_EmployeesAdd_Servlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/TTCN/src/java/libraryDB/LibraryFile.java</file>
             <file>file:/C:/Users/PC/Desktop/TTCN/web/Employee/employee_Home.jsp</file>
             <file>file:/C:/Users/PC/Desktop/TTCN/src/java/Servlet/Admin_EmployeeUpdate_Servlet.java</file>
-            <file>file:/C:/Users/PC/Desktop/TTCN/src/java/Controller/ARCustomersController.java</file>
         </group>
     </open-files>
 </project-private>
