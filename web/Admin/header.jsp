@@ -127,7 +127,7 @@
                 </li>
                 <li><a href="/Admin_SaleOrderManagement_Servlet">Đơn bán hàng</a>			                                
                 </li>		
-                <li><a href="faq.jsp">Hóa đơn bán hàng</a>
+                <li><a href="/Admin_InvoiceManagement_Servlet">Hóa đơn bán hàng</a>
                 </li>
                 <li><a href="/Admin_Revenue_Servlet">Doanh thu</a></li>
                 <li><a href="faq.jsp">Tính lương</a></li>                           
