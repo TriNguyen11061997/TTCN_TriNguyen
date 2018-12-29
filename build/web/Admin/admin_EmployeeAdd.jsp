@@ -26,19 +26,20 @@
                                     <label class="control-label locked" for="name-input-field">Chọn ảnh</label>
                                     <input style="height: 38px; padding-top: 3px" type="file" name="hinhanh" class="form-control" placeholder="Chọn ảnh" />                                      
                                 </div>
-                                <div class='col-xs-12 form-group' id="right">
-                                    <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
-                                    <input id="name" name="HREmployeeName" class="form-control" type="text" required="">                                  
-                                </div>                               
+                                <div class='col-xs-12 form-group'  id="right">
+                                    <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
+                                    <input id="name" name="HREmployeeNo" value="${NO}" class="form-control" type="text" required="" readonly="">                                  
+                                </div>
+
                             </div>
                             <div class='form-group'>                        
-                                <div class='col-xs-12 form-group'  id="left">
-                                    <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
-                                    <input id="name" name="HREmployeeNo" class="form-control" type="text" required="">                                  
-                                </div>
-                                <div class='col-xs-12 form-group' id="right">
+                                <div class='col-xs-12 form-group' id="left">
                                     <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
                                     <input id="name" name="HREmployeeName" class="form-control" type="text" required="">                                  
+                                </div> 
+                                <div class='col-xs-12 form-group' id="right">
+                                    <label class="control-label locked" for="name-input-field">Ngày bắt đầu làm việc</label>
+                                    <input id="name" name="HREmployeeStartWorkingDate" class="form-control" type="date" required="">                                  
                                 </div>                               
                             </div>
                             <div class='form-group'>
@@ -51,7 +52,7 @@
                                     </select>                                
                                 </div>
                                 <div class='col-xs-12 form-group'  id="right">
-                         
+
                                     <label class="control-label locked" for="name-input-field">Tình trạng</label>
                                     <select class="form-control locked" name="HREmployeeStatus">
                                         <option value="Working">Đang làm việc</option>

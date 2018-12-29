@@ -26,7 +26,7 @@ public class Admin_EmployeeUpdate_Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html; charset=UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
@@ -42,7 +42,7 @@ public class Admin_EmployeeUpdate_Servlet extends HttpServlet {
             objEmployeesInfo.setHREmployeeGender(Integer.parseInt(request.getParameter("HREmployeeGender")));
             objEmployeesInfo.setHREmployeeBirthDay(Date.valueOf(request.getParameter("HREmployeeBirthDay")));
             objEmployeesInfo.setHREmployeeStatus(request.getParameter("HREmployeeStatus"));
-            objEmployeesInfo.setHREmployeeDesc(request.getParameter("HREmployeeDecs"));
+            objEmployeesInfo.setHREmployeeDesc(request.getParameter("HREmployeeDesc"));
             objEmployeesInfo.setHREmployeeIDNumber(request.getParameter("HREmployeeIDNumber"));
             objEmployeesInfo.setHREmployeeCardNumber(request.getParameter("HREmployeeCardNumber"));
             objEmployeesInfo.setHREmployeeTaxNumber(request.getParameter("HREmployeeTaxNumber"));
@@ -60,7 +60,11 @@ public class Admin_EmployeeUpdate_Servlet extends HttpServlet {
                 request.setAttribute("Error", "Cập nhật thông tin không thành công!");
             }
             //request.getRequestDispatcher("Admin_EmployeeManagement_Servlet").forward(request, response);
-            response.sendRedirect("Admin_EmployeeManagement_Servlet");
+            if (objEmployeesInfo.getHREmployeeID() != Integer.parseInt(session.getAttribute("HREmployeeID").toString())) {
+                response.sendRedirect("Admin_EmployeeManagement_Servlet");
+            } else {
+                response.sendRedirect("Admin_Home_Servlet");
+            }
         } else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }

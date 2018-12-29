@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,11 +31,16 @@ public class Admin_EmployeeManagement_Servlet extends HttpServlet {
         try {
             response.setContentType("text/html; charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
-            HREmployeesController objHEmployeesController = new HREmployeesController();
-            List<HREmployeesInfo> listEmployees = objHEmployeesController.GetALlObject();
-            if (listEmployees.size() > 0) {
-                request.setAttribute("listEmployees", listEmployees);
-                request.getRequestDispatcher("Admin/admin_EmployeeManagement.jsp").include(request, response);
+            HttpSession session = request.getSession();
+            if (session.getAttribute("HREmployeeID") != null) {
+                HREmployeesController objHEmployeesController = new HREmployeesController();
+                List<HREmployeesInfo> listEmployees = objHEmployeesController.GetALlObject();
+                if (listEmployees.size() > 0) {
+                    request.setAttribute("listEmployees", listEmployees);
+                    request.getRequestDispatcher("Admin/admin_EmployeeManagement.jsp").include(request, response);
+                }
+            } else {
+                request.getRequestDispatcher("Public/login.jsp").include(request, response);
             }
         } catch (SQLException ex) {
             request.getRequestDispatcher("Admin/admin_Home.jsp").include(request, response);

@@ -33,10 +33,8 @@ public class Admin_SaleOrderManagement_Servlet extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
             List<ARSaleOrdersInfo> listSaleOrder = objARSaleOrdersController.GetAllObjectForAdmin();
-            if (listSaleOrder.size() > 0) {
-                request.setAttribute("listSaleOrder", listSaleOrder);
-                request.getRequestDispatcher("Admin/admin_SaleOrderManagement.jsp").include(request, response);
-            }
+            request.setAttribute("listSaleOrder", listSaleOrder);
+            request.getRequestDispatcher("Admin/admin_SaleOrderManagement.jsp").include(request, response);
         } catch (SQLException ex) {
             request.getRequestDispatcher("Admin/admin_Home.jsp").include(request, response);
         }

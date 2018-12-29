@@ -120,6 +120,14 @@
         <servlet-name>Admin_InvoiceManagement_Servlet</servlet-name>
         <servlet-class>Servlet.Admin_InvoiceManagement_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin_ProductManagement_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_ProductManagement_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin_EmployeeLoadAdd_Servlet</servlet-name>
+        <servlet-class>Servlet.Admin_EmployeeLoadAdd_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerManagement_Servlet</url-pattern>
@@ -239,6 +247,14 @@
     <servlet-mapping>
         <servlet-name>Admin_InvoiceManagement_Servlet</servlet-name>
         <url-pattern>/Admin_InvoiceManagement_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_ProductManagement_Servlet</servlet-name>
+        <url-pattern>/Admin_ProductManagement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin_EmployeeLoadAdd_Servlet</servlet-name>
+        <url-pattern>/Admin_EmployeeLoadAdd</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -76,7 +76,7 @@
                 <div id="user" class="wrapper-dropdown" tabindex="1">TK
                     <strong class="opencart"> </strong>
                     <ul class="dropdown languges">					
-                        
+
                         <li>
                             <a href="/Admin_Home_Servlet">TT cá nhân</a>
                         </li>
@@ -122,13 +122,14 @@
         <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
         <nav>
             <ul class="menu list-unstyled">
-                <li><a href="/Admin_Home_Servlet">Trang chủ</a></li>
+                <li><a href="/Admin_Home_Servlet">TT Cá nhân</a></li>
                 <li class="activate"><a href="/Admin_EmployeeManagement_Servlet">Nhân viên</a>
                 </li>
                 <li><a href="/Admin_SaleOrderManagement_Servlet">Đơn bán hàng</a>			                                
                 </li>		
-                <li><a href="/Admin_InvoiceManagement_Servlet">Hóa đơn bán hàng</a>
+                <li><a href="/Admin_InvoiceManagement_Servlet">Hóa đơn</a>
                 </li>
+                <li><a href="/Admin_ProductManagement">Sản phẩm</a></li>             
                 <li><a href="/Admin_Revenue_Servlet">Doanh thu</a></li>
                 <li><a href="faq.jsp">Tính lương</a></li>                           
                 <div class="clear"> </div>

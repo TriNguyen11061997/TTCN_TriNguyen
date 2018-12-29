@@ -83,7 +83,7 @@
                 <input name="Password" type="password" value="Password" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
                             this.value = 'Password';
                         }">
-                <p style="color: red">${Error}</p>
+                
                 <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
                 <div class="search"><div><input type="submit" value="Sign In" class="grey"></div></div>
             </form>
@@ -115,7 +115,7 @@
                                 <div><input type="text" required="true" value="City" name="city" onfocus="this.value = '';" onblur="if (this.value == '') {
                                             this.value = 'City';
                                         }"></div>
-                                        <div><select style="width: 340px;" id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
+                                <div><select style="width: 340px;" id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
                                         <option value="null">Select a Country</option>         
                                         <option value="AX">Ãland Islands</option>
                                         <option value="AF">Afghanistan</option>

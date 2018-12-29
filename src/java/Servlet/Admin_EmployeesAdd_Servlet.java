@@ -5,7 +5,6 @@
  */
 package Servlet;
 
-
 import Controller.HREmployeesController;
 import Info.HREmployeesInfo;
 import java.io.File;
@@ -32,66 +31,57 @@ import libraryDB.LibraryFile;
 @MultipartConfig
 public class Admin_EmployeesAdd_Servlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        if (session.getAttribute("HREmployeeID") != null){
+        if (session.getAttribute("HREmployeeID") != null) {
             HREmployeesController hREmployeesController = new HREmployeesController();
             HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
             // xu ly anh
-		String picture = "";
-		// file
-		final String path = request.getServletContext().getRealPath("Images");
-		System.out.println(path);
-		File dirFile = new File(path);
-		if (!dirFile.exists()) {
-			dirFile.mkdir();
-		}
+            String picture = "";
+            // file
+            final String path = request.getServletContext().getRealPath("Images");
+            System.out.println(path);
+            File dirFile = new File(path);
+            if (!dirFile.exists()) {
+                dirFile.mkdir();
+            }
 
-		final Part filePart = request.getPart("hinhanh");
-                System.out.println("ten: " + filePart);
-		final String fileName = LibraryFile.getName(filePart);
-                
-		if (!"".equals(fileName)) { // cÃ³ chá»�n áº£nh
-			OutputStream out = null;
-                    
-			InputStream filecontent = null;
-			picture = LibraryFile.rename(fileName);
-			System.out.println(picture);
-			try {
-				out = new FileOutputStream(new File(path + File.separator + picture));
-				filecontent = filePart.getInputStream();
+            final Part filePart = request.getPart("hinhanh");
+            System.out.println("ten: " + filePart);
+            final String fileName = LibraryFile.getName(filePart);
 
-				int read = 0;
-				final byte[] bytes = new byte[1024];
+            if (!"".equals(fileName)) { // cÃ³ chá»�n áº£nh
+                OutputStream out = null;
 
-				while ((read = filecontent.read(bytes)) != -1) {
-					out.write(bytes, 0, read);
-				}
+                InputStream filecontent = null;
+                picture = LibraryFile.rename(fileName);
+                System.out.println(picture);
+                try {
+                    out = new FileOutputStream(new File(path + File.separator + picture));
+                    filecontent = filePart.getInputStream();
 
-                        } catch (FileNotFoundException fne) {
-				fne.printStackTrace();
-			} finally {
-				if (out != null) {
-					out.close();
-				}
-				if (filecontent != null) {
-					filecontent.close();
-				}
-			}
-		}
+                    int read = 0;
+                    final byte[] bytes = new byte[1024];
+
+                    while ((read = filecontent.read(bytes)) != -1) {
+                        out.write(bytes, 0, read);
+                    }
+
+                } catch (FileNotFoundException fne) {
+                    fne.printStackTrace();
+                } finally {
+                    if (out != null) {
+                        out.close();
+                    }
+                    if (filecontent != null) {
+                        filecontent.close();
+                    }
+                }
+            }
             objEmployeesInfo.setHREmployeePicture(picture);
             objEmployeesInfo.setHREmployeeNo(request.getParameter("HREmployeeNo"));
             objEmployeesInfo.setHREmployeeName(request.getParameter("HREmployeeName"));
@@ -106,8 +96,8 @@ public class Admin_EmployeesAdd_Servlet extends HttpServlet {
             objEmployeesInfo.setHREmployeeContactAddress(request.getParameter("HREmployeeContactAddress"));
             objEmployeesInfo.setHREmployeeContactAddressCity(request.getParameter("HREmployeeContactAddressCity"));
             objEmployeesInfo.setHREmployeeContactAddressCountry(request.getParameter("HREmployeeContactAddressCountry"));
-            
-                HREmployeesInfo objHREmployeesInfo = hREmployeesController.Add(objEmployeesInfo);
+            objEmployeesInfo.setHREmployeeStartWorkingDate(Date.valueOf(request.getParameter("HREmployeeStartWorkingDate")));
+            HREmployeesInfo objHREmployeesInfo = hREmployeesController.Add(objEmployeesInfo);
             if (objHREmployeesInfo != null) {
                 response.sendRedirect("/Admin_EmployeeManagement_Servlet");
                 request.setAttribute("Complete", "Thêm thông tin thành công!");
@@ -116,9 +106,8 @@ public class Admin_EmployeesAdd_Servlet extends HttpServlet {
                 request.setAttribute("Error", "Thêm thông tin thất bại!");
                 request.getRequestDispatcher("Admin/admin_EmployeeAdd.jsp");
             }
-    
-        }
-        else {
+
+        } else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }

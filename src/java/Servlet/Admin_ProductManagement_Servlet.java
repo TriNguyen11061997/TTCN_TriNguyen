@@ -6,40 +6,32 @@
 package Servlet;
 
 import Controller.HREmployeesController;
+import Controller.ICProductController;
 import Info.HREmployeesInfo;
+import Info.ICProductsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Trí Nguyễn
  */
-public class Admin_EmployeeLoadUpdate_Servlet extends HttpServlet {
+public class Admin_ProductManagement_Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            response.setContentType("text/html; charset=UTF-8");
-            request.setCharacterEncoding("UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            HttpSession session = request.getSession();
-            if (session.getAttribute("HREmployeeID") != null) {
-                HREmployeesController objEmployeesController = new HREmployeesController();
-                HREmployeesInfo objEmployeesInfo = objEmployeesController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
-                request.setAttribute("Employee", objEmployeesInfo);
-                request.getRequestDispatcher("Admin/admin_Home.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("Public/login.jsp").forward(request, response);
-            }
-        } catch (SQLException ex) {
-            response.sendRedirect("/Admin_EmployeeManagement_Servlet");
-        }
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        ICProductController productController = new ICProductController();
+        List<ICProductsInfo> listProduct = productController.GetAllObject();
+        request.setAttribute("listProduct", listProduct);
+        request.getRequestDispatcher("Admin/admin_ProductManagement.jsp").include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
