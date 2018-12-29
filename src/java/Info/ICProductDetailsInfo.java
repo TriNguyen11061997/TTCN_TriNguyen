@@ -33,7 +33,17 @@ public class ICProductDetailsInfo {
     String ICProductDetailQuayPhim;
     String ICProductDetailCPU;
     String ICProductDetailBaoHanh;
+    private ICProductsInfo product;
 
+    public ICProductsInfo getProduct() {
+        return product;
+    }
+
+    public void setProduct(ICProductsInfo product) {
+        this.product = product;
+    }
+    
+    
     public ICProductDetailsInfo() {
     }
 

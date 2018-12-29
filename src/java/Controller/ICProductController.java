@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Info.ICProductDetailsInfo;
 import Info.ICProductsInfo;
 import Util.ConnectionPool;
 import java.sql.Connection;
@@ -57,6 +58,47 @@ public class ICProductController {
         }
         return listPro;
     }
+    
+    public ICProductDetailsInfo getObjectProductDetail(int ID) throws SQLException {
+        
+        try {
+            conn = connection.getConnection();
+            pst = conn.prepareCall("CALL ICProductDetails_GetObjectByProductID(?)");
+            pst.setInt(1, ID);
+            rs = pst.executeQuery();
+            ICProductDetailsInfo obj;
+            while (rs.next()) {
+                
+              obj  = new ICProductDetailsInfo();
+              
+              
+              //bang product
+              ICProductsInfo productInfo = new ICProductsInfo();
+              productInfo.setICProductName(rs.getString("ICProductName"));
+              productInfo.setICProductPrice(rs.getDouble("ICProductPrice"));
+              productInfo.setICProductDesc(rs.getString("ICProductDesc"));
+              productInfo.setICProductID(rs.getInt("ICProductID"));
+              productInfo.setICProductPicture1(rs.getString("ICProductPicture1"));
+              obj.setProduct(productInfo);
+              
+              return obj;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+    
     //Số lượng sản phẩm
 
     public int countProducts() {
