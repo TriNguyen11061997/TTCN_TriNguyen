@@ -86,7 +86,7 @@ public class HREmployeesController {
         try {
             sttm = conn.prepareCall("CALL HREmployees_Update(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             sttm.setInt(1, objEmployeesInfo.getHREmployeeID());
-            sttm.setString(2,objEmployeesInfo.getHREmployeeName());
+            sttm.setString(2, objEmployeesInfo.getHREmployeeName());
             sttm.setInt(3, objEmployeesInfo.getHREmployeeGender());
             sttm.setDate(4, objEmployeesInfo.getHREmployeeBirthDay());
             sttm.setString(5, objEmployeesInfo.getHREmployeeStatus());
@@ -106,12 +106,12 @@ public class HREmployeesController {
             return null;
         }
     }
-    
-    public HREmployeesInfo Add(HREmployeesInfo objEmployeesInfo){
+
+    public HREmployeesInfo Add(HREmployeesInfo objEmployeesInfo) {
         try {
-            sttm = conn.prepareCall("CALL HREmployees_Add(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            sttm = conn.prepareCall("CALL HREmployees_Add(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
             sttm.setString(1, objEmployeesInfo.getHREmployeeNo());
-            sttm.setString(2,objEmployeesInfo.getHREmployeeName());
+            sttm.setString(2, objEmployeesInfo.getHREmployeeName());
             sttm.setInt(3, objEmployeesInfo.getHREmployeeGender());
             sttm.setDate(4, objEmployeesInfo.getHREmployeeBirthDay());
             sttm.setString(5, objEmployeesInfo.getHREmployeeStatus());
@@ -124,7 +124,7 @@ public class HREmployeesController {
             sttm.setString(12, objEmployeesInfo.getHREmployeeContactAddress());
             sttm.setString(13, objEmployeesInfo.getHREmployeeContactAddressCity());
             sttm.setString(14, objEmployeesInfo.getHREmployeeContactAddressCountry());
-
+            sttm.setDate(15, objEmployeesInfo.getHREmployeeStartWorkingDate());
             sttm.execute();
             return objEmployeesInfo;
         } catch (SQLException ex) {
@@ -132,8 +132,8 @@ public class HREmployeesController {
             return null;
         }
     }
-    
-    public HREmployeesInfo Delete(HREmployeesInfo objEmployeesInfo){
+
+    public HREmployeesInfo Delete(HREmployeesInfo objEmployeesInfo) {
         try {
             sttm = conn.prepareCall("CALL HREmployees_Delete(?)");
             sttm.setInt(1, objEmployeesInfo.getHREmployeeID());

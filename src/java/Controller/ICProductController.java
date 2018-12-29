@@ -55,7 +55,6 @@ public class ICProductController {
                 ex.printStackTrace();
             }
         }
-
         return listPro;
     }
     //Số lượng sản phẩm
@@ -154,6 +153,37 @@ public class ICProductController {
             }
         }
 
+        return listPro;
+    }
+
+    public List<ICProductsInfo> GetAllObject() {
+        List<ICProductsInfo> listPro = new ArrayList<>();
+        try {
+            conn = connection.getConnection();
+            pst = conn.prepareCall("CALL ICProducts_GetAllObject()");
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                ICProductsInfo item = new ICProductsInfo();
+                item.setICProductID(rs.getInt("ICProductID"));
+                item.setICProductNo(rs.getString("ICProductNo"));
+                item.setICProductName(rs.getString("ICProductName"));
+                item.setICProductDesc(rs.getString("ICProductDesc"));
+                item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                item.setICProductPrice(rs.getDouble("ICProductPrice"));
+                listPro.add(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
         return listPro;
     }
 }

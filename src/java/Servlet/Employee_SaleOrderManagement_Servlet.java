@@ -34,10 +34,8 @@ public class Employee_SaleOrderManagement_Servlet extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
             List<ARSaleOrdersInfo> listSaleOrder = objARSaleOrdersController.GetAllObjectForEmployee();
-            if (listSaleOrder.size() > 0) {
-                request.setAttribute("listSaleOrder", listSaleOrder);
-                request.getRequestDispatcher("Employee/employee_SaleOrderManagement.jsp").include(request, response);
-            }
+            request.setAttribute("listSaleOrder", listSaleOrder);
+            request.getRequestDispatcher("Employee/employee_SaleOrderManagement.jsp").include(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(Employee_SaleOrderManagement_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }

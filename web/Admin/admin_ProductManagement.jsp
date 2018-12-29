@@ -21,9 +21,9 @@
             <%@include file="/Admin/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH NHÂN VIÊN</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH SẢN PHẨM</h2>
                 </div>
-                <a href="/Admin_EmployeeLoadAdd"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm nhân viên</button></a>
+                <a href="/Admin/admin_ProductAdd.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm sản phẩm</button></a>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -52,31 +52,25 @@
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
-                        <th style="color:white">Mã nhân viên</th>
-                        <th style="color:white">Tên nhân viên</th>
-                        <th style="color:white">Ngày sinh</th>
-                        <th style="color:white">CMND</th>
-                        <th style="color:white">Số điện thoại</th>
-                        <th style="color:white">Địa chỉ</th>
-                        <th style="color:white">Thành phố</th>
-                        <th style="color:white">Trạng thái làm việc</th>
+                        <th style="color:white">Mã sản phẩm</th>
+                        <th style="color:white">Tên sản phẩm</th>
+                        <th style="color:white">Mô tả</th>
+                        <th style="color:white">Giá NCC</th>
+                        <th style="color:white">Giá</th>
+                        <th style="color:white">Cập nhật chi tiết</th>
                         <th style="color:white">Edit</th>
                         <th style="color:white">Delete</th>
                     </tr>
-                    <c:forEach var="employee" items = "${listEmployees}">                     
+                    <c:forEach var="product" items = "${listProduct}">                     
                         <tr>
-                            <td style="color:black">${employee.HREmployeeNo}</td>
-                            <td style="color:black">${employee.HREmployeeName}</td>
-                            <td style="color:black">${employee.HREmployeeBirthDay}</td>
-                            <td style="color:black">${employee.HREmployeeCardNumber}</td>
-                            <td style="color:black">${employee.HREmployeeTel1}</td>
-                            <td style="color:black">${employee.HREmployeeContactAddress}</td>
-                            <td style="color:black">${employee.HREmployeeContactAddressCity}</td>
-                            <td style="color:black">${employee.HREmployeeStatus}</td>
-
+                            <td style="color:black">${product.ICProductNo}</td>
+                            <td style="color:black">${product.ICProductName}</td>
+                            <td style="color:black">${product.ICProductDesc}</td>
+                            <td style="color:black">${product.ICProductSupplierPrice}</td>
+                            <td style="color:black">${product.ICProductPrice}</td>
+                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30p;width: 100%">Cập nhật chi tiết</button></a></td> 
                             <td><a href="/Admin_EmployeeLoadUpdate_Servlet?ID=${employee.HREmployeeID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href="/Admin_EmployeeDelete_Servlet?ID=${employee.HREmployeeID}"><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-
                         </tr>
                     </c:forEach>
                 </table>

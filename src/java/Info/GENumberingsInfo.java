@@ -9,17 +9,17 @@ package Info;
  *
  * @author Trí Nguyễn
  */
-public class GENumberings {
+public class GENumberingsInfo {
 
     private int GENumberingID;
     private String GENumberingName;
     private int GENumberingNumber;
     private String GETableName;
 
-    public GENumberings() {
+    public GENumberingsInfo() {
     }
 
-    public GENumberings(int GENumberingID, String GENumberingName, int GENumberingNumber, String GETableName) {
+    public GENumberingsInfo(int GENumberingID, String GENumberingName, int GENumberingNumber, String GETableName) {
         this.GENumberingID = GENumberingID;
         this.GENumberingName = GENumberingName;
         this.GENumberingNumber = GENumberingNumber;

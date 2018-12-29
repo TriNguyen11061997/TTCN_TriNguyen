@@ -5,11 +5,10 @@
  */
 package Servlet;
 
-import Controller.HREmployeesController;
-import Info.HREmployeesInfo;
+import Controller.GeNumberingsController;
+import Info.GENumberingsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,25 +19,21 @@ import javax.servlet.http.HttpSession;
  *
  * @author Trí Nguyễn
  */
-public class Admin_EmployeeLoadUpdate_Servlet extends HttpServlet {
+public class Admin_EmployeeLoadAdd_Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            response.setContentType("text/html; charset=UTF-8");
-            request.setCharacterEncoding("UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            HttpSession session = request.getSession();
-            if (session.getAttribute("HREmployeeID") != null) {
-                HREmployeesController objEmployeesController = new HREmployeesController();
-                HREmployeesInfo objEmployeesInfo = objEmployeesController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
-                request.setAttribute("Employee", objEmployeesInfo);
-                request.getRequestDispatcher("Admin/admin_Home.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("Public/login.jsp").forward(request, response);
-            }
-        } catch (SQLException ex) {
-            response.sendRedirect("/Admin_EmployeeManagement_Servlet");
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+        if (session.getAttribute("HREmployeeID") != null) {
+            GeNumberingsController objGeNumberingsController = new GeNumberingsController();
+            String no = objGeNumberingsController.GetNo("HREmployees");
+            request.setAttribute("NO", no);
+            request.getRequestDispatcher("Admin/admin_EmployeeAdd.jsp").include(request, response);
+        } else {
+            request.getRequestDispatcher("Public/login.jsp").include(request, response);
         }
     }
 
