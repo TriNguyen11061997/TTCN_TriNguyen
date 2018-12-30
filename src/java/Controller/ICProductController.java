@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -185,5 +187,31 @@ public class ICProductController {
             }
         }
         return listPro;
+    }
+    
+    public ICProductsInfo Add(ICProductsInfo icp){
+        try {
+            conn =connection.getConnection();
+            pst = conn.prepareCall("CALL ICProducts_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            pst.setString(1, icp.getICProductNo());
+            pst.setDouble(2, icp.getICProductPrice());
+            pst.setDouble(3, icp.getICProductSupplierPrice());
+            pst.setString(4, icp.getICProductName());
+            pst.setString(5, icp.getICProductDesc());
+            pst.setInt(6, icp.getFK_HREmployeeID());
+            pst.setString(7, icp.getICProductPicture1());
+            pst.setString(8, icp.getICProductPicture2());
+            pst.setString(9, icp.getICProductPicture3());
+            pst.setString(10, icp.getICProductPicture4());
+            pst.setString(11, icp.getICProductPicture5());
+            pst.setString(12, icp.getICProductPicture6());
+            pst.setString(13, icp.getICProductVideo());
+            pst.setDate(14, icp.getICProductDate());
+            pst.execute();
+            return icp;
+        } catch (SQLException ex) {
+            Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 }

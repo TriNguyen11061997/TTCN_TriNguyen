@@ -36,6 +36,7 @@ public class ICProductsInfo {
     private String ICProductPicture7;
     private String ICProductPicture8;
     private String ICProductVideo;
+    private Date ICProductDate; 
     private String ICProductDetailHeDieuHanh;
     private int Qty;
 
@@ -268,6 +269,16 @@ public class ICProductsInfo {
 
     public void setICProductDetailHeDieuHanh(String ICProductDetailHeDieuHanh) {
         this.ICProductDetailHeDieuHanh = ICProductDetailHeDieuHanh;
+    }
+
+
+    public Date getICProductDate() {
+        return ICProductDate;
+    }
+
+
+    public void setICProductDate(Date ICProductDate) {
+        this.ICProductDate = ICProductDate;
     }
 
 }
