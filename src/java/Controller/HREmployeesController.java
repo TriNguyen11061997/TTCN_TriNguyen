@@ -126,6 +126,8 @@ public class HREmployeesController {
             sttm.setString(14, objEmployeesInfo.getHREmployeeContactAddressCountry());
             sttm.setDate(15, objEmployeesInfo.getHREmployeeStartWorkingDate());
             sttm.execute();
+            GeNumberingsController objGeNumberingsController = new GeNumberingsController();
+            objGeNumberingsController.Update("HREmployees");
             return objEmployeesInfo;
         } catch (SQLException ex) {
             Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);

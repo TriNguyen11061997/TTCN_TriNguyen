@@ -81,7 +81,7 @@
                             <a href="/Admin_Home_Servlet">TT cá nhân</a>
                         </li>
                         <li>
-                            <a href="/Logout_Servlet">Logout</a>
+                            <a href="/Logout_Servlet">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
@@ -122,16 +122,24 @@
         <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
         <nav>
             <ul class="menu list-unstyled">
-                <li><a href="/Admin_Home_Servlet">TT Cá nhân</a></li>
-                <li class="activate"><a href="/Admin_EmployeeManagement_Servlet">Nhân viên</a>
+                <li><a href="/Admin_Home_Servlet">Thông tin Cá nhân</a></li>
+                <li class="activate"><a href="">Nhân viên</a>
+                    <ul class="sub-menu list-unstyled sub-menu2">
+                        <div class="navg-drop-main">
+                            <div class="nav-drop nav-top-brand"> 
+                                <li><a href="/Admin_EmployeeManagement_Servlet">Quản lý nhân viên</a></li>
+                                <li><a href="products.jsp">Tính lương</a></li>
+                                <li><a href="products.jsp">Tài khoản</a></li>					                              
+                            </div>								
+                        </div>
+                    </ul>
                 </li>
                 <li><a href="/Admin_SaleOrderManagement_Servlet">Đơn bán hàng</a>			                                
                 </li>		
                 <li><a href="/Admin_InvoiceManagement_Servlet">Hóa đơn</a>
                 </li>
                 <li><a href="/Admin_ProductManagement">Sản phẩm</a></li>             
-                <li><a href="/Admin_Revenue_Servlet">Doanh thu</a></li>
-                <li><a href="faq.jsp">Tính lương</a></li>                           
+                <li><a href="/Admin_Revenue_Servlet">Doanh thu</a></li>                        
                 <div class="clear"> </div>
             </ul>
         </nav> 

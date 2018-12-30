@@ -30,10 +30,10 @@ public class Employee_InvoiceAdd_Servlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
             ARInvoicesController objARInvoicesController = new ARInvoicesController();
-            objARInvoicesController.Insert(Integer.parseInt(request.getParameter("ARSaleOrderID")));     
+            objARInvoicesController.Insert(Integer.parseInt(request.getParameter("ARSaleOrderID")));
             response.sendRedirect("/Employee_InvoiceManagement");
         } catch (SQLException ex) {
-            Logger.getLogger(Employee_InvoiceAdd_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("/Employee_InvoiceManagement");
         }
     }
 

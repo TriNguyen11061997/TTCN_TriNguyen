@@ -130,6 +130,7 @@ public class ARInvoicesController {
                 sttm.setDouble(8, objARInvoicesInfo.getARInvoiceFeeShipment());
                 sttm.setDouble(9, objARInvoicesInfo.getARInvoiceTotalAmount());
                 sttm.executeQuery();
+                objARSaleOrdersController.UpdateComplete(SaleOrderID);
                 return true;
             } catch (SQLException ex) {
                 System.out.println(ex.toString());

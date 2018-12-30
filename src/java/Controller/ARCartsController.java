@@ -49,7 +49,7 @@ public class ARCartsController {
 //        
 //    }
 
-    public int Insert(ARCartsInfo objCart) {      
+    public int Insert(ARCartsInfo objCart) {
         int result = 0;
         String sql = "INSERT INTO ARCarts(AAStatus,ARCartQty,FK_ICProductID,FK_ARCustomerID) VALUES(?,?,?,?)";
         try {
@@ -181,17 +181,22 @@ public class ARCartsController {
     //submit giỏ hàng
     public int submit_cart(ARSaleOrdersInfo objSale) {
         int result = 0;
-        String sql = "INSERT INTO ARSaleOrders(AAStatus,FK_ARCustomerID,ARSaleOrderStatus,ARSaleOrderShippingFees,ARSaleOrderTotalAmount) VALUES(?,?,?,?,?)";
+        String sql = "Call ARSaleOrders_Insert(?,?,?,?,?,?,?)";
         try {
             conn = ConnectionPool.getConnection();
             pst = conn.prepareStatement(sql);
-            pst.setString(1, objSale.getAAStatus());
-            pst.setInt(2, objSale.getFK_ARCustomerID());
-            pst.setString(3, objSale.getARSaleOrderStatus());
-            pst.setDouble(4, objSale.getARSaleOrderShippingFees());
-            pst.setDouble(5, objSale.getARSaleOrderTotalAmount());
-
-            result = pst.executeUpdate();
+            pst.setInt(1, objSale.getFK_ARCustomerID());
+            pst.setString(2, objSale.getARSaleOrderNo());
+            pst.setString(3, "Đơn bán hàng "+objSale.getARSaleOrderNo());
+            ARCustomersController objARCustomersController = new ARCustomersController();
+            pst.setString(4, "Bán hàng cho "+ objARCustomersController.GetObjectByID(objSale.getFK_ARCustomerID()).getARCustomerName());
+            pst.setDate(5, objSale.getARSaleOrderDate());
+            pst.setDouble(6, objSale.getARSaleOrderShippingFees());
+            pst.setDouble(7, objSale.getARSaleOrderTotalAmount());
+            pst.executeUpdate();
+            result = 1;
+            GeNumberingsController objGeNumberingsController = new GeNumberingsController();
+            objGeNumberingsController.Update("ARSaleOrders");
         } catch (Exception e) {
         } finally {
             try {

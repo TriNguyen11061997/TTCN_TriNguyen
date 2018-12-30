@@ -29,7 +29,7 @@ public class ARSaleOrdersController {
     ResultSet rs;
 
     public ARSaleOrdersController() {
-        
+
     }
 
     public List<ARSaleOrdersInfo> GetAllObjectForEmployee() throws SQLException {
@@ -127,7 +127,22 @@ public class ARSaleOrdersController {
     public boolean Update(ARSaleOrdersInfo objARSaleOrdersInfo) {
         conn = ConnectionPool.getConnection();
         try {
-            sttm = conn.prepareCall("Call ARSaleOrders_Update(?,?,?,?)");
+            sttm = conn.prepareCall("Call ARSaleOrders_Update(?,?,?,?,?)");
+            sttm.setInt(1, objARSaleOrdersInfo.getARSaleOrderID());
+            sttm.setString(2, objARSaleOrdersInfo.getARSaleOrderStatus());
+            sttm.setString(3, objARSaleOrdersInfo.getARSaleOrderPaymentStatus());
+            sttm.setDouble(4, objARSaleOrdersInfo.getARSaleOrderShippingFees());
+            sttm.setInt(5, objARSaleOrdersInfo.getFK_HREmployeeID());
+            rs = sttm.executeQuery();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+     public boolean AdminUpdate(ARSaleOrdersInfo objARSaleOrdersInfo) {
+        conn = ConnectionPool.getConnection();
+        try {
+            sttm = conn.prepareCall("Call ARSaleOrders_AdminUpdate(?,?,?,?)");
             sttm.setInt(1, objARSaleOrdersInfo.getARSaleOrderID());
             sttm.setString(2, objARSaleOrdersInfo.getARSaleOrderStatus());
             sttm.setString(3, objARSaleOrdersInfo.getARSaleOrderPaymentStatus());
@@ -138,6 +153,18 @@ public class ARSaleOrdersController {
             return false;
         }
     }
+      public boolean UpdateComplete(int ID) {
+        conn = ConnectionPool.getConnection();
+        try {
+            sttm = conn.prepareCall("Call ARSaleOrders_UpdateComplete(?)");
+            sttm.setInt(1, ID);      
+            rs = sttm.executeQuery();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+     
 
     public List<ARSaleOrdersInfo> GetObjectForInvoice() throws SQLException {
         conn = ConnectionPool.getConnection();
