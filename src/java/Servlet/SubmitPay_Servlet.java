@@ -7,11 +7,13 @@ package Servlet;
 
 import Controller.ARCartsController;
 import Controller.ARSaleOrderItemsController;
+import Controller.GeNumberingsController;
 import Info.ARSaleOrderItemsInfo;
 import Info.ARSaleOrdersInfo;
 import Info.ICProductsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -27,13 +29,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 //@WebServlet(name = "About_Servlet", urlPatterns = {"/About_Servlet"})
 public class SubmitPay_Servlet extends HttpServlet {
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -59,12 +61,13 @@ public class SubmitPay_Servlet extends HttpServlet {
             tongphu += tongTien;
         }
         tongchinh = tongphu + phiship;
-        objSale.setAAStatus("Alive");
         objSale.setFK_ARCustomerID(idcus);
-        objSale.setARSaleOrderStatus("New");
         objSale.setARSaleOrderShippingFees(phiship);
         objSale.setARSaleOrderTotalAmount(tongchinh);
-        
+        objSale.setARSaleOrderDate(new Date(System.currentTimeMillis()));
+        GeNumberingsController objGeNumberingsController = new GeNumberingsController();
+        String no = objGeNumberingsController.GetNo("ARSaleOrders");
+        objSale.setARSaleOrderNo(no);
         if (arc.submit_cart(objSale) == 1) {
             for (ARSaleOrderItemsInfo SaleOrderItem : listSaleOrderItems) {
                 objARSaleOrderItemsController.Insert(SaleOrderItem);
@@ -79,7 +82,7 @@ public class SubmitPay_Servlet extends HttpServlet {
         //chuyển trang về index
         RequestDispatcher rd = request.getRequestDispatcher("/index_servlet");
         rd.forward(request, response);
-        
+
     }
-    
+
 }

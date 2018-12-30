@@ -12,8 +12,6 @@
                     if (i == 3) {
                         break;
                     }
-
-
             %>
             <div class="listview_1_of_2 images_1_of_2">
                 <div class="listimg listimg_2_of_1">
@@ -83,7 +81,6 @@
                 <input name="Password" type="password" value="Password" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
                             this.value = 'Password';
                         }">
-                
                 <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
                 <div class="search"><div><input type="submit" value="Sign In" class="grey"></div></div>
             </form>
@@ -95,38 +92,18 @@
                     <tbody>
                         <tr>
                             <td>
-                                <div>
-                                    <input type="text" required="true" value="Name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                this.value = 'Name';
-                                            }" ></div>
-                                <div><input type="text" required="true" value="E-Mail" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'E-Mail';
-                                        }"></div>
-                                <div><input type="text" required="true"  name="user" value="User" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'User';
-                                        }"></div>        
-                                <div><input  style="padding: 8px; margin: 5px  0 5px 0; width: 340px; height: 34px" value="password" type="password" required="true" name="password"   onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'password';
-                                        }"></div> 
+
+                                <input type="text" required=""  name="name" placeholder="Name">
+                                <input type="text" required="true"  name="email" placeholder="Email">
+                                <input type="text" required="true"  name="gender" >
+                                <input type="text" required="true"  name="user" placeholder="UserName">
+                                <input  style="padding: 8px; margin: 5px  0 5px 0; width: 340px; height: 34px"  type="password" required="true" name="password" placeholder="password">
                             </td>
                             <td><div><input type="text" required="true" value="Address" name="address" onfocus="this.value = '';" onblur="if (this.value == '') {
                                         this.value = 'Address';
                                     }"></div>
-                                <div><input type="text" required="true" value="City" name="city" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'City';
-                                        }"></div>
-                                <div><select style="width: 340px;" id="country" name="country" onchange="change_country(this.value)" class="frm-field required">
-                                        <option value="null">Select a Country</option>         
-                                        <option value="AX">Ãland Islands</option>
-                                        <option value="AF">Afghanistan</option>
-                                        <option value="AL">Albania</option>
-                                        <option value="DZ">Algeria</option>
-                                        <option value="AS">American Samoa</option>
-                                        <option value="AD">Andorra</option>
-                                        <option value="AO">Angola</option>
-                                        <option value="AI">Anguilla</option>
-                                        <option value="AQ">Antarctica</option>
-                                        <option value="AG">Antigua And Barbuda</option>
+                                        <div><input type="text" required="true" placeholder="city" name="city" ></div>
+                                <div><select style="width: 340px;" id="country" name="country" onchange="change_country(this.value)" class="frm-field required">                                      
                                         <option value="AR">Argentina</option>
                                         <option value="AM">Armenia</option>
                                         <option value="AW">Aruba</option>
@@ -199,66 +176,10 @@
                                         <option value="GA">Gabon</option>
                                         <option value="GM">Gambia, The</option>
                                         <option value="GE">Georgia</option>
-                                        <option value="DE">Germany</option>
-                                        <option value="GH">Ghana</option>
-                                        <option value="GI">Gibraltar</option>
-                                        <option value="GR">Greece</option>
-                                        <option value="GL">Greenland</option>
-                                        <option value="GD">Grenada</option>
-                                        <option value="GP">Guadeloupe</option>
-                                        <option value="GU">Guam</option>
-                                        <option value="GT">Guatemala</option>
-                                        <option value="GG">Guernsey</option>
-                                        <option value="GN">Guinea</option>
-                                        <option value="GW">Guinea-Bissau</option>
-                                        <option value="GY">Guyana</option>
-                                        <option value="HT">Haiti</option>
-                                        <option value="HM">Heard and McDonald Islands</option>
-                                        <option value="HN">Honduras</option>
-                                        <option value="HK">Hong Kong S.A.R.</option>
-                                        <option value="HU">Hungary</option>
-                                        <option value="IS">Iceland</option>
-                                        <option value="IN">India</option>
+                                        <option value="GN">Guinea</option>                                     
                                         <option value="ID">Indonesia</option>
                                         <option value="IR">Iran</option>
-                                        <option value="IQ">Iraq</option>
-                                        <option value="IE">Ireland</option>
-                                        <option value="IM">Isle of Man</option>
-                                        <option value="IL">Israel</option>
-                                        <option value="IT">Italy</option>
-                                        <option value="JM">Jamaica</option>
-                                        <option value="JP">Japan</option>
-                                        <option value="JE">Jersey</option>
-                                        <option value="JO">Jordan</option>
-                                        <option value="KZ">Kazakhstan</option>
-                                        <option value="KE">Kenya</option>
-                                        <option value="KI">Kiribati</option>
-                                        <option value="KR">Korea</option>
-                                        <option value="KP">Korea, North</option>
-                                        <option value="KW">Kuwait</option>
-                                        <option value="KG">Kyrgyzstan</option>
-                                        <option value="LA">Laos</option>
-                                        <option value="LV">Latvia</option>
-                                        <option value="LB">Lebanon</option>
-                                        <option value="LS">Lesotho</option>
-                                        <option value="LR">Liberia</option>
-                                        <option value="LY">Libya</option>
-                                        <option value="LI">Liechtenstein</option>
-                                        <option value="LT">Lithuania</option>
-                                        <option value="LU">Luxembourg</option>
-                                        <option value="MO">Macau S.A.R.</option>
-                                        <option value="MK">Macedonia</option>
-                                        <option value="MG">Madagascar</option>
-                                        <option value="MW">Malawi</option>
-                                        <option value="MY">Malaysia</option>
-                                        <option value="MV">Maldives</option>
-                                        <option value="ML">Mali</option>
-                                        <option value="MT">Malta</option>
-                                        <option value="MH">Marshall Islands</option>
-                                        <option value="MQ">Martinique</option>
-                                        <option value="MR">Mauritania</option>
-                                        <option value="MU">Mauritius</option>
-                                        <option value="YT">Mayotte</option>
+                                        <option value="IQ">Iraq</option>                                       
                                         <option value="MX">Mexico</option>
                                         <option value="FM">Micronesia</option>
                                         <option value="MD">Moldova</option>
@@ -271,25 +192,7 @@
                                         <option value="MM">Myanmar</option>
                                         <option value="NA">Namibia</option>
                                         <option value="NR">Nauru</option>
-                                        <option value="NP">Nepal</option>
-                                        <option value="NL">Netherlands</option>
-                                        <option value="AN">Netherlands Antilles</option>
-                                        <option value="NC">New Caledonia</option>
-                                        <option value="NZ">New Zealand</option>
-                                        <option value="NI">Nicaragua</option>
-                                        <option value="NE">Niger</option>
-                                        <option value="NG">Nigeria</option>
-                                        <option value="NU">Niue</option>
-                                        <option value="NF">Norfolk Island</option>
-                                        <option value="MP">Northern Mariana Islands</option>
-                                        <option value="NO">Norway</option>
-                                        <option value="OM">Oman</option>
-                                        <option value="PK">Pakistan</option>
-                                        <option value="PW">Palau</option>
-                                        <option value="PS">Palestinian Territory, Occupied</option>
-                                        <option value="PA">Panama</option>
-                                        <option value="PG">Papua new Guinea</option>
-                                        <option value="PY">Paraguay</option>
+                                        <option value="NP">Nepal</option>                                     
                                         <option value="PE">Peru</option>
                                         <option value="PH">Philippines</option>
                                         <option value="PN">Pitcairn Island</option>
@@ -300,8 +203,8 @@
                                         <option value="RE">Reunion</option>
                                         <option value="RO">Romania</option>
                                         <option value="RU">Russia</option>
-                                        <option value="RW">Rwanda</option>
-                                        <option value="VN">VietNam</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="Việt Nam" selected="">Việt Nam</option>
                                         <option value="SH">Saint Helena</option>
                                         <option value="KN">Saint Kitts And Nevis</option>
                                         <option value="LC">Saint Lucia</option>
@@ -313,11 +216,9 @@
                                         <option value="SA">Saudi Arabia</option>
                                         <option value="SN">Senegal</option>
                                     </select></div>		        
-
                                 <div>
-                                    <input type="text" required="t  rue" name="numberID" value="NumberID" onfocus="this.value = '';"  > 
-                                    <input type="text" required="true" name="phone"  value="Phone number" onfocus="this.value = '';" >
-
+                                    <input type="text" required="true" name="numberID" placeholder="CMND"> 
+                                    <input type="text" required="true" name="phone"  placeholder="Số điện thoại">
                                 </div>
                             </td>
                         </tr> 

@@ -81,7 +81,7 @@
                             <a href="Employee_Home_Servlet">TT cá nhân</a>
                         </li>
                         <li>
-                            <a href="/Logout_Servlet">Logout</a>
+                            <a href="/Logout_Servlet">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
@@ -122,7 +122,7 @@
         <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
         <nav>
             <ul class="menu list-unstyled">
-                <li><a href="/Employee_Home_Servlet">Trang chủ</a></li>
+                <li><a href="/Employee_Home_Servlet">Thông tin cá nhân</a></li>
                 <li class="activate"><a href="/Employee_CustomerManagement_Servlet">Khách hàng</a>
                 </li>
                 <li><a href="/Employee_SaleOrderManagement_Servlet">Đơn bán hàng</a>			                                
@@ -131,7 +131,6 @@
                 </li>
                 <li><a href="about.jsp">Bình luận</a></li>
                 <li><a href="faq.jsp">Bài đăng</a></li>
-                <li><a href="/employee_servlet">Sản phẩm</a></li>
                 <div class="clear"> </div>
             </ul>
         </nav> 

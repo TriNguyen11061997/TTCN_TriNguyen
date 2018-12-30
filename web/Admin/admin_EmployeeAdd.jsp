@@ -24,7 +24,7 @@
                             <div class='form-group'>                        
                                 <div class='col-xs-12 form-group'  id="left">
                                     <label class="control-label locked" for="name-input-field">Chọn ảnh</label>
-                                    <input style="height: 38px; padding-top: 3px" type="file" name="hinhanh" class="form-control" placeholder="Chọn ảnh" />                                      
+                                    <input style="height: 38px; padding-top: 3px" type="file" name="hinhanh" class="form-control" placeholder="Chọn ảnh" required=""/>                                      
                                 </div>
                                 <div class='col-xs-12 form-group'  id="right">
                                     <label class="control-label locked" for="name-input-field">Mã nhân viên</label>

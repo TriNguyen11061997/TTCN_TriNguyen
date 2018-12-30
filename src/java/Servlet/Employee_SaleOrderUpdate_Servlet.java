@@ -7,8 +7,10 @@ package Servlet;
 
 import Controller.ARSaleOrderItemsController;
 import Controller.ARSaleOrdersController;
+import Controller.HREmployeesController;
 import Info.ARSaleOrderItemsInfo;
 import Info.ARSaleOrdersInfo;
+import Info.HREmployeesInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -19,6 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,29 +31,35 @@ public class Employee_SaleOrderUpdate_Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        ARSaleOrdersController obARSaleOrdersController = new ARSaleOrdersController();
-        ARSaleOrdersInfo objARSaleOrdersInfo = new ARSaleOrdersInfo();
-        objARSaleOrdersInfo.setARSaleOrderID(Integer.parseInt(request.getParameter("ARSaleOrderID")));
-        objARSaleOrdersInfo.setARSaleOrderStatus(request.getParameter("ARSaleOrderStatus"));
-        objARSaleOrdersInfo.setARSaleOrderPaymentStatus(request.getParameter("ARSaleOrderPaymentStatus"));
-        objARSaleOrdersInfo.setARSaleOrderShippingFees(Double.parseDouble(request.getParameter("ARSaleOrderShippingFees")));
-        if (obARSaleOrdersController.Update(objARSaleOrdersInfo)) {
-            request.setAttribute("Complete", "Cập nhật thành công!");
-            response.sendRedirect("Employee_SaleOrderManagement_Servlet");
-        } else {
-            try {
-                request.setAttribute("Error", "Cập nhật không thành công!");
-                ARSaleOrderItemsController objARSaleOrderItemsController = new ARSaleOrderItemsController();
-                List<ARSaleOrderItemsInfo> listSaleOrderItem = objARSaleOrderItemsController.GetObjectBySaleOrderID(objARSaleOrdersInfo.getARSaleOrderID());
-                request.setAttribute("saleorder", objARSaleOrdersInfo);
-                request.setAttribute("listSaleOrderItem", listSaleOrderItem);
-                request.getRequestDispatcher("Employee/employee_SaleOrderUpdate.jsp").forward(request, response);
-            } catch (SQLException ex) {
-                Logger.getLogger(Admin_SaleOrderUpdate_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("HREmployeeID") != null) {
+            response.setContentType("text/html;charset=UTF-8");
+            request.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
+            ARSaleOrdersController obARSaleOrdersController = new ARSaleOrdersController();
+            ARSaleOrdersInfo objARSaleOrdersInfo = new ARSaleOrdersInfo();
+            objARSaleOrdersInfo.setARSaleOrderID(Integer.parseInt(request.getParameter("ARSaleOrderID")));
+            objARSaleOrdersInfo.setARSaleOrderStatus(request.getParameter("ARSaleOrderStatus"));
+            objARSaleOrdersInfo.setARSaleOrderPaymentStatus(request.getParameter("ARSaleOrderPaymentStatus"));
+            objARSaleOrdersInfo.setARSaleOrderShippingFees(Double.parseDouble(request.getParameter("ARSaleOrderShippingFees")));
+            objARSaleOrdersInfo.setFK_HREmployeeID(Integer.parseInt(session.getAttribute("HREmployeeID").toString()));
+            if (obARSaleOrdersController.Update(objARSaleOrdersInfo)) {
+                request.setAttribute("Complete", "Cập nhật thành công!");
+                response.sendRedirect("Employee_SaleOrderManagement_Servlet");
+            } else {
+                try {
+                    request.setAttribute("Error", "Cập nhật không thành công!");
+                    ARSaleOrderItemsController objARSaleOrderItemsController = new ARSaleOrderItemsController();
+                    List<ARSaleOrderItemsInfo> listSaleOrderItem = objARSaleOrderItemsController.GetObjectBySaleOrderID(objARSaleOrdersInfo.getARSaleOrderID());
+                    request.setAttribute("saleorder", objARSaleOrdersInfo);
+                    request.setAttribute("listSaleOrderItem", listSaleOrderItem);
+                    request.getRequestDispatcher("Employee/employee_SaleOrderUpdate.jsp").forward(request, response);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_SaleOrderUpdate_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+        } else {
+            request.getRequestDispatcher("Public/login.jsp").include(request, response);
         }
     }
 
