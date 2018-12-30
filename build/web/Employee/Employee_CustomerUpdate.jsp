@@ -57,8 +57,8 @@
                                     <label class="control-label locked" for="name-input-field">Tình trạng</label>
                                     <select class="form-control locked" name="HREmployeeStatus">
                                         
-                                        <option value="Working">Đang làm việc</option>
-                                        <option value="NotWorking">Ngưng làm việc</option>
+                                        <option value="Working">Đang đặt hàng</option>
+                                        <option value="NotWorking">Chưa đặt hàng</option>
                                        
                                     </select>                                         
                                 </div>
@@ -66,7 +66,7 @@
                             <div class='form-group'>                              
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="name-input-field">Ngày sinh</label>
-                                    <input id="name" value= "${Customer.ARCustomerBirthDay}" name="ARCustomerBirthDay" class="form-control" type="date" required="">                                  
+                                    <input id="name" value= "${Customer.ARCustomerBirthDay}" name="ARCustomerBirthDay" class="form-control" type="date">                                  
                                 </div>
                             </div>
                             <div class='form-group'>                              
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="name-input-field">Số tài khoản</label>
-                                    <input id="name" name="ARCustomerCardNumber" value= "${Customer.ARCustomerCardNumber}" class="form-control" type="text" required="">                                  
+                                    <input id="name" name="ARCustomerCardNumber" value= "${Customer.ARCustomerCardNumber}" class="form-control" type="text" >                                  
                                 </div>
                             </div>                                                                           
                             <div class='form-group'>
@@ -102,7 +102,7 @@
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group'>
                                     <label class="control-label locked" for="desc-input-field">Address</label>
-                                    <textarea name="ARCustomerContactAddress" id="address"value= "${Customer.ARCustomerContactAddress}" cols="0" rows="3" class="form-control locked">${Employee.HREmployeeContactAddress}</textarea>
+                                    <textarea name="ARCustomerContactAddress" id="address" cols="0" rows="3" class="form-control locked">${Customer.ARCustomerContactAddress}</textarea>
                                 </div>
                             </div>
                             <div class="form-group locked">

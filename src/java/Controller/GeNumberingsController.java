@@ -42,4 +42,15 @@ public class GeNumberingsController {
             return null;
         }
     }
+
+    public void Update(String table) {
+        try {
+            conn = ConnectionPool.getConnection();
+            sttm = conn.prepareCall("Call GENumberings_Update(?)");
+            sttm.setString(1, table);
+            sttm.executeQuery();
+        } catch (SQLException ex) {
+            
+        }
+    }
 }

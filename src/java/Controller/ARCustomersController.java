@@ -132,8 +132,9 @@ public class ARCustomersController {
             while (rs.next()) {
                 return false;
             }
-
-            sttm = conn.prepareCall("CALL ARCustomesr_Add(?, ?, ?, ?, ?, ?, ?)");
+            GeNumberingsController objGeNumberingsController = new GeNumberingsController();
+            String no = objGeNumberingsController.GetNo("ARCustomers");
+            sttm = conn.prepareCall("CALL ARCustomesr_Add(?,?, ?, ?, ?, ?, ?, ?)");
             sttm.setString(1, arc.getARCustomerName());
             sttm.setString(2, arc.getARCustomerTel1());
             sttm.setString(3, arc.getARCustomerEmail());
@@ -141,10 +142,11 @@ public class ARCustomersController {
             sttm.setString(5, arc.getARCustomerContactAddress());
             sttm.setString(6, arc.getARCustomerContactAddressCity());
             sttm.setString(7, arc.getARCustomerContactAddressCountry());
+            sttm.setString(8, no);
             if (sttm.execute()) {
                 return false;
             }
-
+            objGeNumberingsController.Update("ARCustomers");
             sttm = conn.prepareCall("CALL CreateAccount(?, ?, ?)");
             sttm.setString(1, user);
             sttm.setString(2, password);

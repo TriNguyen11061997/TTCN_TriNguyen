@@ -37,7 +37,7 @@ public class Admin_SaleOrderUpdate_Servlet extends HttpServlet {
         objARSaleOrdersInfo.setARSaleOrderStatus(request.getParameter("ARSaleOrderStatus"));
         objARSaleOrdersInfo.setARSaleOrderPaymentStatus(request.getParameter("ARSaleOrderPaymentStatus"));
         objARSaleOrdersInfo.setARSaleOrderShippingFees(Double.parseDouble(request.getParameter("ARSaleOrderShippingFees")));
-        if (obARSaleOrdersController.Update(objARSaleOrdersInfo)) {
+        if (obARSaleOrdersController.AdminUpdate(objARSaleOrdersInfo)) {
             request.setAttribute("Complete", "Cập nhật thành công!");
             response.sendRedirect("Admin_SaleOrderManagement_Servlet");
         } else {
