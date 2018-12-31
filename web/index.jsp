@@ -83,12 +83,12 @@
         </div>
         <div class="section group">
             <%
-                ArrayList<ICProductsInfo> listPro1 = ProductDAO.getItemPagination(4);
+                ArrayList<ICProductsInfo> listPro1 = ProductDAO.getItemPagination();
                 if (listPro1 != null) {
                     for (ICProductsInfo item : listPro1) {
             %>
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="/preview?id=<%=item.getICProductID()%>"><img src="Images/<%=item.getICProductPicture1()%>" alt="" /></a>
+                <a href="/preview?id=<%=item.getICProductID()%>"><img style="width:266px;height:300px;" src="Images/<%=item.getICProductPicture1()%>" alt="" /></a>
                 <h2><%=item.getICProductDesc()%> </h2>
                 <p><%=item.getICProductName()%></p>
                 <p><span class="strike"></span><span class="price"><%=item.getICProductPrice()%> VNĐ</span></p>
@@ -115,7 +115,7 @@
                     for (ICProductsInfo item2 : listPro1) {
             %>
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="preview-3.jsp"><img src="Images/<%=item2.getICProductPicture1()%>" alt="" /></a>
+                <a href="preview-3.jsp"><img style="width:266px;height:300px;" src="Images/<%=item2.getICProductPicture1()%>" alt="" /></a>
                 <div class="discount">
                     <span class="percentage">40%</span>
                 </div>

@@ -33,8 +33,8 @@ public class ICProductDetailsInfo {
     String ICProductDetailQuayPhim;
     String ICProductDetailCPU;
     String ICProductDetailBaoHanh;
-    private String ICProductDetailHeDieuHanh;
-    private String ICProductDetailJack3dot5mm;
+    String ICProductDetailHeDieuHanh;
+    String ICProductDetailJack3dot5mm;
     private ICProductsInfo product;
 
     public ICProductsInfo getProduct() {
