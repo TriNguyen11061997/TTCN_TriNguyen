@@ -20,9 +20,9 @@
             <%@include file="/Employee/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH HÓA ĐƠN</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH HÓA ĐƠN</h2>
                 </div>
-                <br><br>
+                <br>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -68,6 +68,7 @@
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
+                        <th style="color:white">Mã hóa đơn</th>
                         <th style="color:white">Ngày chứng từ</th>
                         <th style="color:white">Mã đơn hàng</th>
                         <th style="color:white">Khách hàng</th>
@@ -81,6 +82,7 @@
                     </tr>
                     <c:forEach var="invoice" items = "${listInvoice}">                     
                         <tr>
+                            <td style="color:black">${invoice.ARInvoiceNo}</td>
                             <td style="color:black">${invoice.ARInvoiceDate}</td>
                             <td style="color:black">${invoice.saleorder.ARSaleOrderNo}</td>
                             <td style="color:black">${invoice.customer.ARCustomerName}</td>
@@ -90,7 +92,18 @@
                             <td style="color:black">${invoice.ARInvoiceStatus}</td>
                             <td style="color:black">${invoice.ARInvoiceTotalAmount}</td>                                               
                             <td><a href="/Employee_InvoiceExport_Servlet?ID=${invoice.ARInvoiceID}"><button class="btn btn-success" style="heightMaBenhNhan:30px">XUẤT HÓA ĐƠN</button></a></td>
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30p;width: 100%"> ...</button></a></td>               
+                            <td>
+                                <form action="/Employee_InvoiceUpdateStatus" method="get">
+                                    <input type="text" name="FK_ARSaleOrderID" hidden="" value="${invoice.FK_ARSaleOrderID}">
+                                    <input type="text" name="ARInvoiceID" hidden="" value="${invoice.ARInvoiceID}">
+                                    <select style="float: left;width: 50%" name="ARInvoiceStatus">                  
+                                        <option value="Delivering">Đang giao</option>
+                                        <option value="Delivered">Đã giao</option>
+                                        <option value="Cancel">Hủy</option>
+                                    </select>
+                                    <input  style="float: left;margin-top: 0px;font-size: 8px;width: 20%;height: 34px" type="submit"  value="OK">
+                                </form>
+                            </td>          
                         </tr>
                     </c:forEach>
                 </table>

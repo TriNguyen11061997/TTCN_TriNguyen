@@ -5,13 +5,8 @@
  */
 package Servlet;
 
-import Controller.ARInvoicesController;
-import Info.ARInvoicesInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,21 +16,32 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Trí Nguyễn
  */
-public class Employee_InvoiceAdd_Servlet extends HttpServlet {
+public class Cart_Delete_Servlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            response.setContentType("text/html; charset=UTF-8");
-            request.setCharacterEncoding("UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            ARInvoicesController objARInvoicesController = new ARInvoicesController();
-            objARInvoicesController.Insert(Integer.parseInt(request.getParameter("ARSaleOrderID")));
-            response.sendRedirect("/Employee_InvoiceManagement");
-        } catch (SQLException ex) {
-            response.sendRedirect("/Employee_InvoiceManagement");
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Cart_Delete_Servlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Cart_Delete_Servlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

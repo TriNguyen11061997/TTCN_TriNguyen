@@ -128,7 +128,7 @@
                         <div class="navg-drop-main">
                             <div class="nav-drop nav-top-brand"> 
                                 <li><a href="/Admin_EmployeeManagement_Servlet">Quản lý nhân viên</a></li>
-                                <li><a href="products.jsp">Tính lương</a></li>
+                                <li><a href="/Admin_SalaryManagement">Thống kê lương</a></li>
                                 <li><a href="products.jsp">Tài khoản</a></li>					                              
                             </div>								
                         </div>

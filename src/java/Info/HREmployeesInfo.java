@@ -37,6 +37,15 @@ public class HREmployeesInfo {
     private String HREmployeeContactAddress;
     private String HREmployeeContactAddressCity;
     private String HREmployeeContactAddressCountry;
+    private double HREmployeeSalaryBasic;
+
+    public double getHREmployeeSalaryBasic() {
+        return HREmployeeSalaryBasic;
+    }
+
+    public void setHREmployeeSalaryBasic(double HREmployeeSalaryBasic) {
+        this.HREmployeeSalaryBasic = HREmployeeSalaryBasic;
+    }
 
     public HREmployeesInfo() {
     }

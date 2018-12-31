@@ -38,7 +38,7 @@ public class Admin_Home_Servlet extends HttpServlet {
                 request.setAttribute("Employee", objEmployeesInfo);
                 request.getRequestDispatcher("Admin/admin_Home.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("Public/login.jsp").forward(request, response);
             }
         } catch (SQLException ex) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
