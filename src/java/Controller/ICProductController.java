@@ -73,6 +73,29 @@ public class ICProductController {
                 
               obj  = new ICProductDetailsInfo();
               
+              obj.setICProductDetail3G(rs.getString("ICProductDetail3G"));
+              obj.setICProductDetail4G(rs.getString("ICProductDetail4G"));
+              obj.setICProductDetailSIM(rs.getString("ICProductDetailSIM"));
+              obj.setICProductDetailKichThuoc(rs.getString("ICProductDetailKichThuoc"));
+              obj.setICProductDetailMauSac(rs.getString("ICProductDetailMauSac"));
+              obj.setICProductDetailTrongLuong(rs.getString("ICProductDetailTrongLuong"));
+              obj.setICProductDetailLoai(rs.getString("ICProductDetailLoai"));
+              obj.setICProductDetailManHinh(rs.getString("ICProductDetailManHinh"));
+              //obj.setICProductDetailAudio(rs.getString("ICProductDetailAudio"));
+              obj.setICProductDetailLoaNgoai(rs.getString("ICProductDetailLoaNgoai"));
+              //obj.setICProductDetailVideo(rs.getString("ICProductDetailVideo"));
+              obj.setICProductDetailBoNhoTrong(rs.getString("ICProductDetailBoNhoTrong"));
+              obj.setICProductDetailBluetooth(rs.getString("ICProductDetailBluetooth"));
+              obj.setICProductDetailGPS(rs.getString("ICProductDetailGPS"));
+              obj.setICProductDetailPin(rs.getString("ICProductDetailPin"));
+              obj.setICProductDetailWLAN(rs.getString("ICProductDetailWLAN"));
+              obj.setICProductDetailCameraChinh(rs.getString("ICProductDetailCameraChinh"));
+              obj.setICProductDetailCamaraPhu(rs.getString("ICProductDetailCamaraPhu"));
+              obj.setICProductDetailQuayPhim(rs.getString("ICProductDetailQuayPhim"));
+              obj.setICProductDetailCPU(rs.getString("ICProductDetailCPU"));
+              obj.setICProductDetailBaoHanh(rs.getString("ICProductDetailBaoHanh"));
+              obj.setICProductDetailHeDieuHanh(rs.getString("ICProductDetailHeDieuHanh"));
+              obj.setICProductDetailJack3dot5mm(rs.getString("ICProductDetailJack3dot5mm"));
               
               //bang product
               ICProductsInfo productInfo = new ICProductsInfo();
@@ -131,10 +154,10 @@ public class ICProductController {
     }
 
     //phân trang public cho phần sản phẩm 
-    public ArrayList<ICProductsInfo> getItemPagination(int offset) {
+    public ArrayList<ICProductsInfo> getItemPagination() {
         ArrayList<ICProductsInfo> listProduct = new ArrayList<>();
 
-        String sql = "SELECT * FROM ICProducts ORDER BY ICProducts.ICProductID DESC LIMIT " + offset + ",4";
+        String sql = "SELECT * FROM ICProducts ORDER BY ICProducts.ICProductID DESC LIMIT 4";
         try {
             conn = ConnectionPool.getConnection();
             st = conn.createStatement();
