@@ -299,4 +299,13 @@
         <servlet-name>SubmitPay_Servlet</servlet-name>
         <url-pattern>/submit</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ShowDhct_Servlet</servlet-name>
+        <servlet-class>Servlet.ShowDhct_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowDhct_Servlet</servlet-name>
+        <url-pattern>/dhct</url-pattern>
+    </servlet-mapping>
 </web-app>
