@@ -69,7 +69,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="Thông tin giỏ hàng">
+                                        <a href="/dhct" title="Thông tin giỏ hàng">
                                             <span class="lang">Đơn hàng của bạn</span>
                                         </a>
                                     </li>

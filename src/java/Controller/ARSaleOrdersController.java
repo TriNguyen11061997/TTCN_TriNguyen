@@ -217,4 +217,24 @@ public class ARSaleOrdersController {
         }
         return listSaleOrder;
     }
+    
+    public List<ARSaleOrdersInfo> getListOrderById(int id) throws SQLException{
+        
+         conn = ConnectionPool.getConnection();
+        List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
+        sttm = conn.prepareCall("Call ARSaleOrder_GetObjectForCustomerID(?)");
+        sttm.setInt(1, id);
+        rs = sttm.executeQuery();
+        ARSaleOrdersInfo objARSaleOrdersInfo;
+        while (rs.next()) {
+            objARSaleOrdersInfo = new ARSaleOrdersInfo();
+            objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
+            
+            objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
+            objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
+            objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
+            listSaleOrder.add(objARSaleOrdersInfo);
+        }
+        return listSaleOrder;
+    }
 }

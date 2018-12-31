@@ -37,6 +37,7 @@ public class ARSaleOrdersInfo {
     String ARSaleOrderPaymentStatus;
     ARCustomersInfo customer;
     HREmployeesInfo employee;
+    
 
     public ARSaleOrdersInfo() {
     }
