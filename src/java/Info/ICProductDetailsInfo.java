@@ -33,6 +33,8 @@ public class ICProductDetailsInfo {
     String ICProductDetailQuayPhim;
     String ICProductDetailCPU;
     String ICProductDetailBaoHanh;
+    private String ICProductDetailHeDieuHanh;
+    private String ICProductDetailJack3dot5mm;
     private ICProductsInfo product;
 
     public ICProductsInfo getProduct() {
@@ -255,6 +257,34 @@ public class ICProductDetailsInfo {
 
     public void setICProductDetailBaoHanh(String ICProductDetailBaoHanh) {
         this.ICProductDetailBaoHanh = ICProductDetailBaoHanh;
+    }
+
+    /**
+     * @return the ICProductDetailHeDieuHanh
+     */
+    public String getICProductDetailHeDieuHanh() {
+        return ICProductDetailHeDieuHanh;
+    }
+
+    /**
+     * @param ICProductDetailHeDieuHanh the ICProductDetailHeDieuHanh to set
+     */
+    public void setICProductDetailHeDieuHanh(String ICProductDetailHeDieuHanh) {
+        this.ICProductDetailHeDieuHanh = ICProductDetailHeDieuHanh;
+    }
+
+    /**
+     * @return the ICProductDetailJack3dot5mm
+     */
+    public String getICProductDetailJack3dot5mm() {
+        return ICProductDetailJack3dot5mm;
+    }
+
+    /**
+     * @param ICProductDetailJack3dot5mm the ICProductDetailJack3dot5mm to set
+     */
+    public void setICProductDetailJack3dot5mm(String ICProductDetailJack3dot5mm) {
+        this.ICProductDetailJack3dot5mm = ICProductDetailJack3dot5mm;
     }
     
     
