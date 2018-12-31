@@ -30,7 +30,7 @@ public class ARInvoicesController {
     PreparedStatement sttm;
     ResultSet rs;
 
-    public ARInvoicesController() {       
+    public ARInvoicesController() {
     }
 
     public List<ARInvoicesInfo> GetAllObject() throws SQLException {
@@ -42,6 +42,7 @@ public class ARInvoicesController {
         while (rs.next()) {
             objARInvoicesInfo = new ARInvoicesInfo();
             objARInvoicesInfo.setARInvoiceID(rs.getInt("ARInvoiceID"));
+            objARInvoicesInfo.setFK_ARSaleOrderID(rs.getInt("FK_ARSaleOrderID"));
             objARInvoicesInfo.setARInvoiceDate(rs.getDate("ARInvoiceDate"));
             objARInvoicesInfo.setARInvoiceNo(rs.getString("ARInvoiceNo"));
             objARInvoicesInfo.setARInvoiceName(rs.getString("ARInvoiceName"));
@@ -103,7 +104,7 @@ public class ARInvoicesController {
         return null;
     }
 
-    public boolean Insert(int SaleOrderID) throws SQLException{  
+    public boolean Insert(int SaleOrderID) throws SQLException {
         ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
         ARSaleOrdersInfo objARSaleOrdersInfo = objARSaleOrdersController.GetObjectByID(SaleOrderID);
         if (objARSaleOrdersInfo != null) {
@@ -119,7 +120,7 @@ public class ARInvoicesController {
                 objARInvoicesInfo.setARInvoiceFeeShipment(objARSaleOrdersInfo.getARSaleOrderShippingFees());
                 objARInvoicesInfo.setARInvoiceTotalAmount(objARSaleOrdersInfo.getARSaleOrderTotalAmount());
                 conn = ConnectionPool.getConnection();
-                sttm = conn.prepareCall("Call ARInvoices_Insert(?,?,?,?,?,?,?,?,?)");
+                sttm = conn.prepareCall("Call ARInvoices_Insert(?,?,?,?,?,?,?,?,?,?)");
                 sttm.setDate(1, objARInvoicesInfo.getARInvoiceDate());
                 sttm.setString(2, objARInvoicesInfo.getARInvoiceName());
                 sttm.setString(3, objARInvoicesInfo.getARInvoiceDesc());
@@ -129,7 +130,11 @@ public class ARInvoicesController {
                 sttm.setDouble(7, objARInvoicesInfo.getARInvoiceDiscountAmount());
                 sttm.setDouble(8, objARInvoicesInfo.getARInvoiceFeeShipment());
                 sttm.setDouble(9, objARInvoicesInfo.getARInvoiceTotalAmount());
+                GeNumberingsController objGeNumberingsController = new GeNumberingsController();
+                String no = objGeNumberingsController.GetNo("ARInvoices");
+                sttm.setString(10, no);
                 sttm.executeQuery();
+                objGeNumberingsController.Update("ARInvoices");
                 objARSaleOrdersController.UpdateComplete(SaleOrderID);
                 return true;
             } catch (SQLException ex) {
@@ -137,6 +142,29 @@ public class ARInvoicesController {
                 return false;
             }
         } else {
+            return false;
+        }
+    }
+
+    public boolean UpdateStatus(int FK_ARSaleOrderID, int ID, String status) {
+        ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
+        conn = ConnectionPool.getConnection();
+        try {
+            sttm = conn.prepareCall("Call ARInvoices_UpdateStatus(?,?)");
+            sttm.setInt(1, ID);
+            sttm.setString(2, status);
+            rs = sttm.executeQuery();
+            if (status.equals("Cancel")) {
+                objARSaleOrdersController.UpdateStatus(FK_ARSaleOrderID, "Cancel");
+            }
+            if (status.equals("Delivered")) {
+                objARSaleOrdersController.UpdateStatus(FK_ARSaleOrderID, "Delivered");
+            }
+            if (status.equals("Delivering")) {
+                objARSaleOrdersController.UpdateStatus(FK_ARSaleOrderID, "Complete");
+            }
+            return true;
+        } catch (SQLException ex) {
             return false;
         }
     }

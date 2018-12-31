@@ -20,7 +20,7 @@
             <%@include file="/Employee/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH ĐƠN HÀNG</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH ĐƠN HÀNG</h2>                  
                 </div>
                 <div style="float:right">
                     <form action="" method="post">

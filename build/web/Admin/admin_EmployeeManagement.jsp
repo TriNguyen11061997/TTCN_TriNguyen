@@ -21,8 +21,9 @@
             <%@include file="/Admin/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH NHÂN VIÊN</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH NHÂN VIÊN</h2>
                 </div>
+                <br>
                 <a href="/Admin_EmployeeLoadAdd"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm nhân viên</button></a>
                 <div style="float:right">
                     <form action="" method="post">

@@ -250,6 +250,8 @@ public class ICProductController {
             pst.setString(13, icp.getICProductVideo());
             pst.setDate(14, icp.getICProductDate());
             pst.execute();
+            GeNumberingsController objGeNumberingsController = new GeNumberingsController();
+            objGeNumberingsController.Update("ICProducts");
             return icp;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);

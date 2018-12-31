@@ -139,7 +139,8 @@ public class ARSaleOrdersController {
             return false;
         }
     }
-     public boolean AdminUpdate(ARSaleOrdersInfo objARSaleOrdersInfo) {
+
+    public boolean AdminUpdate(ARSaleOrdersInfo objARSaleOrdersInfo) {
         conn = ConnectionPool.getConnection();
         try {
             sttm = conn.prepareCall("Call ARSaleOrders_AdminUpdate(?,?,?,?)");
@@ -153,18 +154,32 @@ public class ARSaleOrdersController {
             return false;
         }
     }
-      public boolean UpdateComplete(int ID) {
+
+    public boolean UpdateComplete(int ID) {
         conn = ConnectionPool.getConnection();
         try {
-            sttm = conn.prepareCall("Call ARSaleOrders_UpdateComplete(?)");
-            sttm.setInt(1, ID);      
+            sttm = conn.prepareCall("Call ARSaleOrders_UpdateStatus(?,?)");
+            sttm.setInt(1, ID);
+            sttm.setString(2, "Complete");
             rs = sttm.executeQuery();
             return true;
         } catch (SQLException ex) {
             return false;
         }
     }
-     
+    
+     public boolean UpdateStatus(int ID,String status) {
+        conn = ConnectionPool.getConnection();
+        try {
+            sttm = conn.prepareCall("Call ARSaleOrders_UpdateStatus(?,?)");
+            sttm.setInt(1, ID);      
+            sttm.setString(2, status);
+            rs = sttm.executeQuery();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
 
     public List<ARSaleOrdersInfo> GetObjectForInvoice() throws SQLException {
         conn = ConnectionPool.getConnection();

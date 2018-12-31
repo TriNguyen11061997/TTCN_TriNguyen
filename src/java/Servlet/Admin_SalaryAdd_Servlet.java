@@ -5,10 +5,10 @@
  */
 package Servlet;
 
-import Controller.ARSaleOrderItemsController;
-import Controller.ARSaleOrdersController;
-import Info.ARSaleOrderItemsInfo;
-import Info.ARSaleOrdersInfo;
+import Controller.HREmployeesController;
+import Controller.HRSalarysController;
+import Info.HREmployeesInfo;
+import Info.HRSalarysInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -25,33 +25,39 @@ import javax.servlet.http.HttpSession;
  *
  * @author Trí Nguyễn
  */
-public class Admin_SaleOrderLoadUpdate_Servlet extends HttpServlet {
+public class Admin_SalaryAdd_Servlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         if (session.getAttribute("HREmployeeID") != null) {
             try {
-                ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
-                ARSaleOrdersInfo objARSaleOrdersInfo = objARSaleOrdersController.GetObjectByID(Integer.parseInt(request.getParameter("ARSaleOrderID")));
-                ARSaleOrderItemsController objARSaleOrderItemsController = new ARSaleOrderItemsController();
-                List<ARSaleOrderItemsInfo> listSaleOrderItem = objARSaleOrderItemsController.GetObjectBySaleOrderID(Integer.parseInt(request.getParameter("ARSaleOrderID")));
-                request.setAttribute("saleorder", objARSaleOrdersInfo);
-                request.setAttribute("listSaleOrderItem", listSaleOrderItem);
-                request.getRequestDispatcher("Admin/admin_SaleOrderUpdate.jsp").forward(request, response);
+                HRSalarysController objHRSalarysController = new HRSalarysController();
+                HRSalarysInfo objHRSalarysInfo = new HRSalarysInfo();
+                objHRSalarysInfo.setFK_HREmployeeID(Integer.parseInt(request.getParameter("FK_HREmployeeID")));
+                objHRSalarysInfo.setHRSalaryMonth(Integer.parseInt(request.getParameter("HRSalaryMonth")));
+                objHRSalarysInfo.setHRSalaryYear(Integer.parseInt(request.getParameter("HRSalaryYear")));
+                objHRSalarysInfo.setHRSalaryBasic(Double.parseDouble(request.getParameter("HRSalaryBasic")));
+                objHRSalarysInfo.setHRSalaryBonus(Double.parseDouble(request.getParameter("HRSalaryBonus")));
+                objHRSalarysInfo.setHRSalaryReduce(Double.parseDouble(request.getParameter("HRSalaryReduce")));
+                objHRSalarysInfo.setHRSalaryQty(Double.parseDouble(request.getParameter("HRSalaryQty")));
+                double total = (objHRSalarysInfo.getHRSalaryQty() * 4) * objHRSalarysInfo.getHRSalaryBasic()
+                        + objHRSalarysInfo.getHRSalaryBonus() - objHRSalarysInfo.getHRSalaryReduce();
+                objHRSalarysInfo.setHRSalaryToTal(total);
+                response.sendRedirect("/Admin_SalaryManagement");
+                objHRSalarysController.Insert(objHRSalarysInfo);
             } catch (SQLException ex) {
-                request.setAttribute("Error", "Không thể cập nhật cho đơn hàng này");
-                request.getRequestDispatcher("Admin/admin_SaleOrderManagement.jsp").forward(request, response);
+                response.sendRedirect("/Admin_SalaryManagement");
             }
         } else {
             request.getRequestDispatcher("Public/login.jsp").forward(request, response);
         }
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

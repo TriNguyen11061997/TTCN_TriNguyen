@@ -48,11 +48,11 @@
                                         <option value="New" disabled="">Tạo mới</option>
                                         <option value="Confirm" selected="selected">Xác nhận</option>
                                         <option value="Approve">Duyệt</option>
-                                        <option value="Cancel" >Hủy</option>
+                                        <option value="Cancel">Hủy</option>
                                         <option value="Approve" disabled="">Hoàn tất</option>
                                         <%} else {%>
                                         <option value="New" disabled="">Tạo mới</option>
-                                        <option value="Confirm" >Xác nhận</option>
+                                        <option value="Confirm" disabled="">Xác nhận</option>
                                         <option value="Approve" selected="selected">Duyệt</option>
                                         <option value="Cancel">Hủy</option>
                                         <option value="Approve" disabled="">Hoàn tất</option>

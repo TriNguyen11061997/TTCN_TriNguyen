@@ -20,9 +20,8 @@
             <%@include file="/Admin/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DANH SÁCH HÓA ĐƠN</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH HÓA ĐƠN</h2>
                 </div>
-                <br><br>
                 <div style="float:right">
                     <form action="" method="post">
                         <table>
@@ -33,23 +32,7 @@
                         </table>
                     </form>
                 </div>
-               
-                <div style="float:left;">
-                    <form action="" method="post">
-                        <table>
-                            <tr>
-                                <th>
-                                    <select name="thongtin_sort">
-                                        <option value="0">Mã khách hàng</option>
-                                        <option value="1">Tên khách hàng</option>
-                                        <option value="2">Ngày sinh</option>
-                                    </select>
-                                </th>
-                                <th><button type="submit" class="btn btn-success" style="width:auto;">Sort</button></th>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
+                             
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
                         <th style="color:white">Ngày chứng từ</th>
@@ -61,7 +44,6 @@
                         <th style="color:white">Tình trạng</th>   
                         <th style="color:white">Tổng tiền</th>
                         <th style="color:white">Xuất hóa đơn</th>
-                        <th style="color:white">Cập nhật t/t đơn hàng</th>
                     </tr>
                     <c:forEach var="invoice" items = "${listInvoice}">                     
                         <tr>
@@ -73,8 +55,7 @@
                             <td style="color:black">${invoice.employee.HREmployeeName}</td>
                             <td style="color:black">${invoice.ARInvoiceStatus}</td>
                             <td style="color:black">${invoice.ARInvoiceTotalAmount}</td>                                               
-                            <td><a href="/Employee_InvoiceExport_Servlet?ID=${invoice.ARInvoiceID}"><button class="btn btn-success" style="heightMaBenhNhan:30px">XUẤT HÓA ĐƠN</button></a></td>
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30p;width: 100%"> ...</button></a></td>               
+                            <td><a href="/Employee_InvoiceExport_Servlet?ID=${invoice.ARInvoiceID}"><button class="btn btn-success" style="heightMaBenhNhan:30px">XUẤT HÓA ĐƠN</button></a></td>             
                         </tr>
                     </c:forEach>
                 </table>

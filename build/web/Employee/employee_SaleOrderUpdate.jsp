@@ -49,13 +49,13 @@
                                         <option value="Confirm" selected="selected">Xác nhận</option>
                                         <option value="Approve" disabled="">Duyệt</option>
                                         <option value="Cancel">Hủy</option>
-                                        <option value="Approve" disabled="">Hoàn tất</option>
+                                        <option value="Complete" disabled="">Hoàn tất</option>
                                         <%} else {%>
                                         <option value="New" selected="selected">Tạo mới</option>
                                         <option value="Confirm" >Xác nhận</option>
-                                        <option value="Approve">Duyệt</option>
+                                        <option value="Approve" disabled="">Duyệt</option>
                                         <option value="Cancel">Hủy</option>
-                                        <option value="Approve" disabled="">Hoàn tất</option>
+                                        <option value="Complete" disabled="">Hoàn tất</option>
                                         <%}%>
                                     </select>                                
                                 </div>  

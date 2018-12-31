@@ -20,7 +20,7 @@
             <%@include file="/Admin/header.jsp" %>
             <div class="main">
                 <div>
-                    <h2 style="text-align: center;margin-top: 20px; color: ">DOANH THU</h2>
+                    <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THỐNG KÊ DOANH THU</h2>
                 </div>             
                 <div style="float:left;">
                     <form action="/Admin_Revenue_Servlet" method="get">
