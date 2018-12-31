@@ -33,7 +33,7 @@
             <%@include file="/Employee/header.jsp" %>
           
             <div class="main">
-                <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THÔNG TIN ĐƠN HÀNG</h2>               
+                <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">THÊM ĐƠN HÀNG</h2>               
                 <div class="container">
                     <div class="row">                       
                         <form class="form-card" action="/Admin_ProductAdd_Servlet" method="post" enctype="multipart/form-data">

@@ -68,7 +68,7 @@
                             <td style="color:black">${product.ICProductDesc}</td>
                             <td style="color:black">${product.ICProductSupplierPrice}</td>
                             <td style="color:black">${product.ICProductPrice}</td>
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30p;width: 100%">Cập nhật chi tiết</button></a></td> 
+                            <td><a href="/Admin/admin_ProductDetailAdd.jsp?ID=${product.ICProductID}"><button class="btn btn-success" style="height:30p;width: 100%">Cập nhật chi tiết</button></a></td> 
                             <td><a href="/Admin_EmployeeLoadUpdate_Servlet?ID=${employee.HREmployeeID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href="/Admin_EmployeeDelete_Servlet?ID=${employee.HREmployeeID}"><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                         </tr>
