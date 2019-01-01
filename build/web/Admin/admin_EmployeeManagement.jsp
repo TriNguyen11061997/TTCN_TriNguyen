@@ -26,7 +26,7 @@
                 <br>
                 <a href="/Admin_EmployeeLoadAdd"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm nhân viên</button></a>
                 <div style="float:right">
-                    <form action="" method="post">
+                    <form action="/Admin_EmployeeSort_Servlet" method="post">
                         <table>
                             <tr>
                                 <th><input type="text" name="thongtin_search" /></th>
@@ -36,7 +36,7 @@
                     </form>
                 </div>
                 <div style="float:left;margin-left:30px;">
-                    <form action="" method="post">
+<!--                    <form action="" method="post">
                         <table>
                             <tr>
                                 <th>
@@ -49,7 +49,7 @@
                                 <th><button type="submit" class="btn btn-success" style="width:auto;">Sort</button></th>
                             </tr>
                         </table>
-                    </form>
+                    </form>-->
                 </div>
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">

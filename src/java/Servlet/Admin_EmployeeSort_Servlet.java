@@ -44,16 +44,12 @@ public class Admin_EmployeeSort_Servlet extends HttpServlet {
             HREmployeesController hREmployeesController = new HREmployeesController();
             HREmployeesController objHEmployeesController = new HREmployeesController();
             List<HREmployeesInfo> listEmployees = objHEmployeesController.Sort(request.getParameter("thongtin_search"));
-            if (listEmployees.size() > 0) {
-                request.setAttribute("listEmployees", listEmployees);
-                request.getRequestDispatcher("Admin/admin_EmployeeManagement.jsp").include(request, response);
-            }
-            else{
-                request.getRequestDispatcher("Public/login.jsp").include(request, response);
-            }
-        }
-        else{
-             request.getRequestDispatcher("Admin/admin_Home.jsp").include(request, response);
+
+            request.setAttribute("listEmployees", listEmployees);
+            request.getRequestDispatcher("Admin/admin_EmployeeManagement.jsp").include(request, response);
+
+        } else {
+            request.getRequestDispatcher("Admin/admin_Home.jsp").include(request, response);
         }
     }
 
