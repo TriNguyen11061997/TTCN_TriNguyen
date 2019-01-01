@@ -28,10 +28,11 @@ public class HREmployeesController {
     ResultSet rs;
 
     public HREmployeesController() {
-        conn = ConnectionPool.getConnection();
+
     }
 
     public List<HREmployeesInfo> GetALlObject() throws SQLException {
+        conn = ConnectionPool.getConnection();
         List<HREmployeesInfo> listHREmployeesInfos = new ArrayList<>();
         sttm = conn.prepareCall("CALL HREmployees_GetAllObject()");
         rs = sttm.executeQuery();
@@ -50,10 +51,12 @@ public class HREmployeesController {
             objHREmployeesInfo.setHREmployeeStatus(rs.getString("HREmployeeStatus"));
             listHREmployeesInfos.add(objHREmployeesInfo);
         }
+        conn.close();
         return listHREmployeesInfos;
     }
 
     public HREmployeesInfo GetObjectByID(int ID) throws SQLException {
+        conn = ConnectionPool.getConnection();
         sttm = conn.prepareCall("CALL HREmployees_GetObjectByID(?)");
         sttm.setInt(1, ID);
         rs = sttm.executeQuery();
@@ -77,6 +80,7 @@ public class HREmployeesController {
             objHREmployeesInfo.setHREmployeeIDNumber(rs.getString("HREmployeeIDNumber"));
             objHREmployeesInfo.setHREmployeeStartWorkingDate(rs.getDate("HREmployeeStartWorkingDate"));
             objHREmployeesInfo.setHREmployeeEndWorkingDate(rs.getDate("HREmployeeEndWorkingDate"));
+            conn.close();
             return objHREmployeesInfo;
         }
         return null;
@@ -84,6 +88,7 @@ public class HREmployeesController {
 
     public HREmployeesInfo Update(HREmployeesInfo objEmployeesInfo) {
         try {
+            conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL HREmployees_Update(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             sttm.setInt(1, objEmployeesInfo.getHREmployeeID());
             sttm.setString(2, objEmployeesInfo.getHREmployeeName());
@@ -101,6 +106,7 @@ public class HREmployeesController {
             sttm.setString(14, objEmployeesInfo.getHREmployeeContactAddressCountry());
             rs = sttm.executeQuery();
             sttm.execute();
+            conn.close();
             return objEmployeesInfo;
         } catch (SQLException ex) {
             return null;
@@ -109,6 +115,7 @@ public class HREmployeesController {
 
     public HREmployeesInfo Add(HREmployeesInfo objEmployeesInfo) {
         try {
+            conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL HREmployees_Add(?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
             sttm.setString(1, objEmployeesInfo.getHREmployeeNo());
             sttm.setString(2, objEmployeesInfo.getHREmployeeName());
@@ -128,6 +135,7 @@ public class HREmployeesController {
             sttm.execute();
             GeNumberingsController objGeNumberingsController = new GeNumberingsController();
             objGeNumberingsController.Update("HREmployees");
+            conn.close();
             return objEmployeesInfo;
         } catch (SQLException ex) {
             Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,9 +145,11 @@ public class HREmployeesController {
 
     public HREmployeesInfo Delete(HREmployeesInfo objEmployeesInfo) {
         try {
+            conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL HREmployees_Delete(?)");
             sttm.setInt(1, objEmployeesInfo.getHREmployeeID());
             sttm.execute();
+            conn.close();
             return objEmployeesInfo;
         } catch (SQLException ex) {
             Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);

@@ -7,7 +7,7 @@
         <div class="header_top_right">
             <div class="search_box">
                 <form>
-                    <input type="text" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
+                    <input type="text"  value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
                                 this.value = 'Search for Products';
                             }"><input type="submit" value="SEARCH">
                 </form>

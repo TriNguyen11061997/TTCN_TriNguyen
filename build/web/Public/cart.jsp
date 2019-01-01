@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="Info.ARCustomersInfo"%>
 <%@page import="Controller.ARCustomersController"%>
 <%@page import="Info.ADUsersInfo"%>
@@ -30,7 +31,14 @@
                     <div class="logo">
                         <a href="/index_servlet"><img src="Assets/images/logo.png" alt="" /></a>
                     </div>
-                    <div class="header_top_right">                       
+                    <div class="header_top_right">              
+                        <div class="search_box">
+                            <form action="/search" method="POST">
+                                <input type="text" style="height: 2.5%" name="name" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                            this.value = 'Search for Products';
+                                        }"><input type="submit" value="SEARCH">
+                            </form>
+                        </div>
                         <%
                             ARCartsController ar = new ARCartsController();
                         %>
@@ -44,8 +52,10 @@
                                 <a href="/cart?idcus=<%=id%>" title="View my shopping cart" rel="nofollow">
                                     <strong class="opencart"> </strong>
                                     <span class="cart_title">Giỏ hàng</span>
-                                    <%if (session.getAttribute("HREmployeeID") != null) {
-                                            List<ARCartsInfo> listar = ar.getListCartByID(id);%>
+                                    <%
+                                        List<ARCartsInfo> listar = null;
+                                        if (session.getAttribute("HREmployeeID") != null) {
+                                            listar = ar.getListCartByID(id);%>
                                     <span class="no_product"><%=listar.size()%></span>
                                     <%} else {%>
                                     <span class="no_product">Rỗng</span>
@@ -60,7 +70,7 @@
                                 <ul class="dropdown languges" style="width:200px;">
                                     <%if (session.getAttribute("HREmployeeID") != null) {%>
                                     <li>
-                                        <a href="#" title="Thông tin cá nhân">
+                                        <a href="/customer" title="Thông tin cá nhân">
                                             <span class="lang">Thông tin cá nhân</span>
                                         </a>
                                     </li>
@@ -180,9 +190,7 @@
 
                                     <%  Double tongPhu = 0.0;
                                         Double fax = 0.0;
-
                                         if (request.getAttribute("listProduct") != null) {
-
                                             List<ICProductsInfo> list = (List<ICProductsInfo>) request.getAttribute("listProduct");
                                             for (ICProductsInfo item : list) {
 
@@ -210,7 +218,7 @@
                                                     }%>
 
                                             </select>
-                                            <a  class="remove-item remove" href="/Cart_Delete" id="remove_item-125new">
+                                            <a  class="remove-item remove" href="/Cart_Delete?ID=<%=item.getARCartID()%>" id="remove_item-125new">
                                                 <img class="deleteItem" src="https://www.idera.com/assets/corporate/images/deleteItem.png" width="15" height="18" alt="Delete Cart Item">
                                             </a>
                                         </div>
@@ -249,11 +257,9 @@
 
                                 </div>
                                 <%
-
                                     if (session.getAttribute("HREmployeeID") != null) {
                                         id = (Integer) session.getAttribute("HREmployeeID");
                                         ARCartsController ar1 = new ARCartsController();
-                                        List<ARCartsInfo> listar = ar1.getListCartByID(id);
                                         if (listar.size() != 0) {
                                 %>
                                 <div class="full-width order-summary">
@@ -431,7 +437,7 @@
                                                 </div>
                                             </div>
                                             <div class="wy-inline-block" style="padding-left: 42px">
-                                                <button style="color: #000;background-color: #6ea426;height: 5%;width: 165%"><a href="">Chỉnh sửa thông tin</a></button>                                               
+                                                <button style="color: #000;background-color: #6ea426;height: 5%;width: 165%"><a href="/customer">Chỉnh sửa thông tin</a></button>                                               
                                             </div>
                                         </div>
                                     </div>

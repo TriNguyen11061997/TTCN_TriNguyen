@@ -41,7 +41,7 @@ public class Admin_Home_Servlet extends HttpServlet {
                 request.getRequestDispatcher("Public/login.jsp").forward(request, response);
             }
         } catch (SQLException ex) {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("Pulic/login.jsp").forward(request, response);
         }
 
     }

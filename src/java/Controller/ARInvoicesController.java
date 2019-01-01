@@ -64,6 +64,51 @@ public class ARInvoicesController {
         return listInvoice;
     }
 
+    public List<ARInvoicesInfo> GetSearchData(String info) throws SQLException {
+        conn = ConnectionPool.getConnection();
+        List<ARInvoicesInfo> listInvoice = new ArrayList<>();
+        sttm = conn.prepareStatement("	SELECT 	so.*,\n" +
+"		ee.HREmployeeName,\n" +
+"		c.ARCustomerName,\n" +
+"		s.ARSaleOrderNo\n" +
+"	FROM 	ARInvoices so\n" +
+"	INNER JOIN HREmployees ee ON so.FK_HREmployeeID = ee.HREmployeeID\n" +
+"	INNER JOIN ARCustomers c  ON so.FK_ARCustomersID = c.ARCustomerID \n" +
+"	INNER JOIN ARSaleOrders s ON so.FK_ARSaleOrderID = s.ARSaleOrderID\n" +
+"	WHERE	ee.AAStatus = 'Alive'\n" +
+"	AND	c.AAStatus = 'Alive'\n" +
+"	AND	ee.HREmployeeName LIKE '%"+info+"%'\n" +
+"	OR	c.ARCustomerName  LIKE '%"+info+"%'	\n" +
+"	OR	s.ARSaleOrderNo LIKE '%"+info+"%'\n" +
+"	OR 	so.ARInvoiceNo	LIKE '%"+info+"%'		\n" +
+"	ORDER BY so.ARInvoiceDate DESC; ");
+        rs = sttm.executeQuery();
+        ARInvoicesInfo objARInvoicesInfo;
+        while (rs.next()) {
+            objARInvoicesInfo = new ARInvoicesInfo();
+            objARInvoicesInfo.setARInvoiceID(rs.getInt("ARInvoiceID"));
+            objARInvoicesInfo.setFK_ARSaleOrderID(rs.getInt("FK_ARSaleOrderID"));
+            objARInvoicesInfo.setARInvoiceDate(rs.getDate("ARInvoiceDate"));
+            objARInvoicesInfo.setARInvoiceNo(rs.getString("ARInvoiceNo"));
+            objARInvoicesInfo.setARInvoiceName(rs.getString("ARInvoiceName"));
+            objARInvoicesInfo.setARInvoiceTotalAmount(rs.getDouble("ARInvoiceTotalAmount"));
+            objARInvoicesInfo.setARInvoiceStatus(rs.getString("ARInvoiceStatus"));
+            objARInvoicesInfo.setARInvoiceDesc(rs.getString("ARInvoiceDesc"));
+            ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            objARInvoicesInfo.setCustomer(objARCustomersInfo);
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objARInvoicesInfo.setEmployee(objEmployeesInfo);
+            ARSaleOrdersInfo obARSaleOrdersInfo = new ARSaleOrdersInfo();
+            obARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
+            objARInvoicesInfo.setSaleorder(obARSaleOrdersInfo);
+            listInvoice.add(objARInvoicesInfo);
+        }
+        conn.close();
+        return listInvoice;
+    }
+
     public ARInvoicesInfo GetObjectByID(int ID) throws SQLException {
         conn = ConnectionPool.getConnection();
         sttm = conn.prepareCall("Call ARInvoices_GetObjectByID(?)");
@@ -136,6 +181,7 @@ public class ARInvoicesController {
                 sttm.executeQuery();
                 objGeNumberingsController.Update("ARInvoices");
                 objARSaleOrdersController.UpdateComplete(SaleOrderID);
+                conn.close();
                 return true;
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
@@ -146,7 +192,7 @@ public class ARInvoicesController {
         }
     }
 
-    public boolean UpdateStatus(int FK_ARSaleOrderID, int ID, String status) {
+    public boolean UpdateStatus(int FK_ARSaleOrderID, int ID, String status) throws SQLException {
         ARSaleOrdersController objARSaleOrdersController = new ARSaleOrdersController();
         conn = ConnectionPool.getConnection();
         try {
@@ -163,8 +209,10 @@ public class ARInvoicesController {
             if (status.equals("Delivering")) {
                 objARSaleOrdersController.UpdateStatus(FK_ARSaleOrderID, "Complete");
             }
+            conn.close();
             return true;
         } catch (SQLException ex) {
+            conn.close();
             return false;
         }
     }

@@ -9,6 +9,9 @@ import Controller.ARCustomersController;
 import Info.ARCustomersInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,10 +43,14 @@ public class CustomerLoadUpdate_Servlet extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             HttpSession session = request.getSession();
             if (session.getAttribute("HREmployeeID") != null) {
-                ARCustomersController aRCustomersController = new ARCustomersController();
-                ARCustomersInfo aRCustomersInfo = aRCustomersController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
-                request.setAttribute("Customer", aRCustomersInfo);
-                request.getRequestDispatcher("Employee/Employee_CustomerUpdate.jsp").include(request, response);
+                try {
+                    ARCustomersController aRCustomersController = new ARCustomersController();
+                    ARCustomersInfo aRCustomersInfo = aRCustomersController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
+                    request.setAttribute("Customer", aRCustomersInfo);
+                    request.getRequestDispatcher("Employee/Employee_CustomerUpdate.jsp").include(request, response);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CustomerLoadUpdate_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             else{
                 response.sendRedirect("/Employee_CustomerManagement_Servlet");

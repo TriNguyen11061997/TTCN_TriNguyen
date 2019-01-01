@@ -30,11 +30,11 @@
                             <div class='form-group'>
                                                              
                                 <div class='col-xs-12 form-group'  id="left">
-                                    <label class="control-label locked" for="name-input-field">Mã nhân viên</label>
+                                    <label class="control-label locked" for="name-input-field">Mã khách hàng</label>
                                     <input id="name" name="ARCustomerNo" value= "${Customer.ARCustomerNo}" class="form-control" type="text" readonly="">                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
-                                    <label class="control-label locked" for="name-input-field">Tên nhân viên</label>
+                                    <label class="control-label locked" for="name-input-field">Tên khách hàng</label>
                                     <input id="name" name="ARCustomerName" value= "${Customer.ARCustomerName}" class="form-control" type="text" required="">                                  
                                 </div>                               
                             </div>

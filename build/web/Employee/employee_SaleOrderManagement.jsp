@@ -23,31 +23,16 @@
                     <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH ĐƠN HÀNG</h2>                  
                 </div>
                 <div style="float:right">
-                    <form action="" method="post">
+                    <form action="/Admin_SaleOrderSearchDataForEmployee" method="post">
                         <table>
                             <tr>
-                                <th><input type="text" name="thongtin_search" /></th>
+                                <th><input type="text" name="info" /></th>
                                 <th><button type="submit" class="btn btn-success" style="width:auto;">Search</button></th>
                             </tr>
                         </table>
                     </form>
                 </div>
-                <div style="float:left;">
-                    <form action="" method="post">
-                        <table>
-                            <tr>
-                                <th>
-                                    <select name="thongtin_sort">
-                                        <option value="0">Mã khách hàng</option>
-                                        <option value="1">Tên khách hàng</option>
-                                        <option value="2">Ngày sinh</option>
-                                    </select>
-                                </th>
-                                <th><button type="submit" class="btn btn-success" style="width:auto;">Sort</button></th>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
+
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
                         <th style="color:white">Ngày chứng từ</th>
@@ -68,9 +53,9 @@
                             <td style="color:black">${saleOrder.customer.ARCustomerName}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderName}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderDesc}</td>
-                             <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
-                             <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
-                             <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>                         
+                            <td style="color:black">${saleOrder.employee.HREmployeeName}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
+                            <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>                         
                             <td><a href="/Employee_SaleOrderLoadUpdate_Servlet?ARSaleOrderID=${saleOrder.ARSaleOrderID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>                          
                         </tr>
@@ -78,7 +63,7 @@
                 </table>
             </div>
         </div>
-            <%@include file="/Employee/footer.jsp" %>
+        <%@include file="/Employee/footer.jsp" %>
     </body>
 </html>
 

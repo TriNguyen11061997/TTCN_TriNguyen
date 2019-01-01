@@ -55,6 +55,7 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
             listSaleOrder.add(objARSaleOrdersInfo);
         }
+        conn.close();
         return listSaleOrder;
     }
 
@@ -81,6 +82,80 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
             listSaleOrder.add(objARSaleOrdersInfo);
         }
+        conn.close();
+        return listSaleOrder;
+    }
+
+    public List<ARSaleOrdersInfo> GetSearchDataForAdmin(String info) throws SQLException {
+        conn = ConnectionPool.getConnection();
+        List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
+        sttm = conn.prepareStatement("SELECT 	*\n"
+                + "	FROM 	ARSaleOrders so\n"
+                + "	INNER JOIN HREmployees ee ON so.FK_HREmployeeID = ee.HREmployeeID\n"
+                + "	INNER JOIN ARCustomers c  ON so.FK_ARCustomerID = c.ARCustomerID \n"
+                + "	WHERE	so.AAStatus = 'Alive'\n"
+                + "	AND	c.AAStatus = 'Alive'\n"
+                + "	AND	so.ARSaleOrderStatus IN('Confirm','Approve','Complete','Delivered','Delivering')\n"
+                + "	AND	ee.HREmployeeName LIKE '%" + info + "%'\n"
+                + "	OR	c.ARCustomerName  LIKE '%" + info + "%'	\n"
+                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%'		\n"
+                + "	ORDER BY so.ARSaleOrderDate DESC; ");
+        rs = sttm.executeQuery();
+        ARSaleOrdersInfo objARSaleOrdersInfo;
+        while (rs.next()) {
+            objARSaleOrdersInfo = new ARSaleOrdersInfo();
+            objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
+            objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
+            objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
+            objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
+            objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
+            objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
+            objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
+            ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            objARSaleOrdersInfo.setCustomer(objARCustomersInfo);
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
+            listSaleOrder.add(objARSaleOrdersInfo);
+        }
+        conn.close();
+        return listSaleOrder;
+    }
+
+    public List<ARSaleOrdersInfo> GetSearchDataForEmployee(String info) throws SQLException {
+        conn = ConnectionPool.getConnection();
+        List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
+        sttm = conn.prepareStatement("SELECT 	*\n"
+                + "	FROM 	ARSaleOrders so\n"
+                + "	INNER JOIN HREmployees ee ON so.FK_HREmployeeID = ee.HREmployeeID\n"
+                + "	INNER JOIN ARCustomers c  ON so.FK_ARCustomerID = c.ARCustomerID \n"
+                + "	WHERE	so.AAStatus = 'Alive'\n"
+                + "	AND	c.AAStatus = 'Alive'\n"              
+                + "	AND	ee.HREmployeeName LIKE '%" + info + "%'\n"
+                + "	OR	c.ARCustomerName  LIKE '%" + info + "%'	\n"
+                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%'		\n"
+                + "	ORDER BY so.ARSaleOrderDate DESC; ");
+        rs = sttm.executeQuery();
+        ARSaleOrdersInfo objARSaleOrdersInfo;
+        while (rs.next()) {
+            objARSaleOrdersInfo = new ARSaleOrdersInfo();
+            objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
+            objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
+            objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
+            objARSaleOrdersInfo.setARSaleOrderName(rs.getString("ARSaleOrderName"));
+            objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
+            objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
+            objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
+            ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            objARSaleOrdersInfo.setCustomer(objARCustomersInfo);
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
+            listSaleOrder.add(objARSaleOrdersInfo);
+        }
+        conn.close();
         return listSaleOrder;
     }
 
@@ -119,8 +194,10 @@ public class ARSaleOrdersController {
             HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
             objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
             objARSaleOrdersInfo.setEmployee(objEmployeesInfo);
+            conn.close();
             return objARSaleOrdersInfo;
         }
+        conn.close();
         return null;
     }
 
@@ -134,6 +211,7 @@ public class ARSaleOrdersController {
             sttm.setDouble(4, objARSaleOrdersInfo.getARSaleOrderShippingFees());
             sttm.setInt(5, objARSaleOrdersInfo.getFK_HREmployeeID());
             rs = sttm.executeQuery();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             return false;
@@ -149,6 +227,7 @@ public class ARSaleOrdersController {
             sttm.setString(3, objARSaleOrdersInfo.getARSaleOrderPaymentStatus());
             sttm.setDouble(4, objARSaleOrdersInfo.getARSaleOrderShippingFees());
             rs = sttm.executeQuery();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             return false;
@@ -162,19 +241,21 @@ public class ARSaleOrdersController {
             sttm.setInt(1, ID);
             sttm.setString(2, "Complete");
             rs = sttm.executeQuery();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             return false;
         }
     }
-    
-     public boolean UpdateStatus(int ID,String status) {
+
+    public boolean UpdateStatus(int ID, String status) {
         conn = ConnectionPool.getConnection();
         try {
             sttm = conn.prepareCall("Call ARSaleOrders_UpdateStatus(?,?)");
-            sttm.setInt(1, ID);      
+            sttm.setInt(1, ID);
             sttm.setString(2, status);
             rs = sttm.executeQuery();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             return false;
@@ -198,6 +279,7 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
             listSaleOrder.add(objARSaleOrdersInfo);
         }
+        conn.close();
         return listSaleOrder;
     }
 
@@ -230,12 +312,13 @@ public class ARSaleOrdersController {
             objARSaleOrdersInfo.setARSaleOrderDesc(rs.getString("ARSaleOrderDesc"));
             listSaleOrder.add(objARSaleOrdersInfo);
         }
+        conn.close();
         return listSaleOrder;
     }
-    
-    public List<ARSaleOrdersInfo> getListOrderById(int id) throws SQLException{
-        
-         conn = ConnectionPool.getConnection();
+
+    public List<ARSaleOrdersInfo> getListOrderById(int id) throws SQLException {
+
+        conn = ConnectionPool.getConnection();
         List<ARSaleOrdersInfo> listSaleOrder = new ArrayList<>();
         sttm = conn.prepareCall("Call ARSaleOrder_GetObjectForCustomerID(?)");
         sttm.setInt(1, id);
@@ -244,12 +327,13 @@ public class ARSaleOrdersController {
         while (rs.next()) {
             objARSaleOrdersInfo = new ARSaleOrdersInfo();
             objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
-            
+
             objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
             objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
             objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
             listSaleOrder.add(objARSaleOrdersInfo);
         }
+        conn.close();
         return listSaleOrder;
     }
 }

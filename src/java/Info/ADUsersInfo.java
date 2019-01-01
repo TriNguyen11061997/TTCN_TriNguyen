@@ -27,9 +27,21 @@ public class ADUsersInfo {
     private String ADUserResetToken;
     private HREmployeesInfo HREmployee;
     private ADUserGroupsInfo ADUserGroup;
+    private String ma;
+    private String ten;
+    private String userGroup;
 
     public ADUsersInfo() {
     }
+
+    public String getUserGroup() {
+        return userGroup;
+    }
+
+    public void setUserGroup(String userGroup) {
+        this.userGroup = userGroup;
+    }
+
 
     public ADUsersInfo(int ADUserID, String AAStatus, String AACreatedUser, String AAUpdatedUser, Date AACreatedDate, Date AAUpdatedDate, int FK_HREmployeeID, int FK_ADUserGroupID, String ADUserName, String ADPassword, int ADUserActiveCheck, String ADUserResetToken, HREmployeesInfo HREmployee, ADUserGroupsInfo ADUserGroup) {
         this.ADUserID = ADUserID;
@@ -46,6 +58,22 @@ public class ADUsersInfo {
         this.ADUserResetToken = ADUserResetToken;
         this.HREmployee = HREmployee;
         this.ADUserGroup = ADUserGroup;
+    }
+
+    public String getMa() {
+        return ma;
+    }
+
+    public void setMa(String ma) {
+        this.ma = ma;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 
     public int getADUserID() {
@@ -159,5 +187,5 @@ public class ADUsersInfo {
     public void setADUserGroup(ADUserGroupsInfo ADUserGroup) {
         this.ADUserGroup = ADUserGroup;
     }
-    
+
 }

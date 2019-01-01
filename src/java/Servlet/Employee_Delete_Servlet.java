@@ -11,18 +11,23 @@ import Info.ARCustomersInfo;
 import Info.HREmployeesInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author PC
  */
 @WebServlet(urlPatterns = {"/Employee_Delete_Servlet"})
 public class Employee_Delete_Servlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,25 +39,26 @@ public class Employee_Delete_Servlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        
-        ARCustomersController aRCustomersController = new ARCustomersController();
-        ARCustomersInfo aRCustomersInfo = new ARCustomersInfo();
-        aRCustomersInfo.setARCustomerID(Integer.parseInt(request.getParameter("id")));
-        
-        
-        ARCustomersInfo objARCustomersInfo = aRCustomersController.Delete(aRCustomersInfo);
-        
-        
-        
-        if (objARCustomersInfo != null) {
+        try {
+            response.setContentType("text/html;charset=UTF-8");
+            request.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
+
+            ARCustomersController aRCustomersController = new ARCustomersController();
+            ARCustomersInfo aRCustomersInfo = new ARCustomersInfo();
+            aRCustomersInfo.setARCustomerID(Integer.parseInt(request.getParameter("id")));
+
+            ARCustomersInfo objARCustomersInfo = aRCustomersController.Delete(aRCustomersInfo);
+
+            if (objARCustomersInfo != null) {
                 response.sendRedirect("Employee_CustomerManagement_Servlet");
-                      
-        } else {
-            request.setAttribute("Delete", "Xóa khách hàng thất bại!");
-            request.getRequestDispatcher("Employee_CustomerManagement_Servlet").include(request, response);
+
+            } else {
+                request.setAttribute("Delete", "Xóa khách hàng thất bại!");
+                request.getRequestDispatcher("Employee_CustomerManagement_Servlet").include(request, response);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Employee_Delete_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
