@@ -176,6 +176,10 @@
         <servlet-name>Employee_CustomerGetSearchData_Servlet</servlet-name>
         <servlet-class>Servlet.Employee_CustomerGetSearchData_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CanCelSaleOrder_Servlet</servlet-name>
+        <servlet-class>Servlet.CanCelSaleOrder_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerManagement_Servlet</url-pattern>
@@ -351,6 +355,10 @@
     <servlet-mapping>
         <servlet-name>Employee_CustomerGetSearchData_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerGetSearchData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CanCelSaleOrder_Servlet</servlet-name>
+        <url-pattern>/CanCelSaleOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

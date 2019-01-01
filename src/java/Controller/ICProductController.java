@@ -91,7 +91,7 @@ public class ICProductController {
                 obj.setICProductDetailLoai(rs.getString("ICProductDetailLoai"));
                 obj.setICProductDetailManHinh(rs.getString("ICProductDetailManHinh"));
                 //obj.setICProductDetailAudio(rs.getString("ICProductDetailAudio"));
-                //obj.setICProductDetailLoaNgoai(rs.getString("ICProductDetailLoaNgoai"));
+                obj.setICProductDetailRAM(rs.getString("ICProductDetailRAM"));
                 //obj.setICProductDetailVideo(rs.getString("ICProductDetailVideo"));
                 obj.setICProductDetailBoNhoTrong(rs.getString("ICProductDetailBoNhoTrong"));
                 obj.setICProductDetailBluetooth(rs.getString("ICProductDetailBluetooth"));

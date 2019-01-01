@@ -27,25 +27,26 @@ import javax.servlet.http.HttpSession;
  *
  * @author KA
  */
-
 public class ShowDhct_Servlet extends HttpServlet {
+
     ARSaleOrdersController arSaleDAO = new ARSaleOrdersController();
-    
-         @Override
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         doPost(request, response);
+        doPost(request, response);
     }
-        @Override
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-            HttpSession session = request.getSession();
-            int id = (Integer) session.getAttribute("HREmployeeID");
-            
+
+        HttpSession session = request.getSession();
+        int id = (Integer) session.getAttribute("HREmployeeID");
+
         try {
             //show du liệu đơn hàng theo id khách hàng
-            List<ARSaleOrdersInfo> list =  arSaleDAO.getListOrderById(id);
+            List<ARSaleOrdersInfo> list = arSaleDAO.getListOrderById(id);
             System.out.println("list = " + list.size());
             request.setAttribute("list", list);
             RequestDispatcher rd = request.getRequestDispatcher("/Public/dhct.jsp");
@@ -53,8 +54,6 @@ public class ShowDhct_Servlet extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(ShowDhct_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-            
-            
+
     }
 }

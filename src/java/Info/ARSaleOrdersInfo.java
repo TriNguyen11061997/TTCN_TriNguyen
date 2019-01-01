@@ -37,7 +37,6 @@ public class ARSaleOrdersInfo {
     String ARSaleOrderPaymentStatus;
     ARCustomersInfo customer;
     HREmployeesInfo employee;
-    
 
     public ARSaleOrdersInfo() {
     }
@@ -67,8 +66,8 @@ public class ARSaleOrdersInfo {
         this.ARSaleOrderPaymentStatus = ARSaleOrderPaymentStatus;
         this.customer = customer;
         this.employee = employee;
-    }
-
+    }   
+    
     public int getARSaleOrderID() {
         return ARSaleOrderID;
     }

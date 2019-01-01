@@ -43,6 +43,7 @@ public class ARSaleOrderItemsController {
             objARSaleOrderItemsInfo.setARSaleOrderItemTotalAmount(rs.getDouble("ARSaleOrderItemTotalAmount"));
             objARSaleOrderItemsInfo.setARSaleOrderItemQty(rs.getDouble("ARSaleOrderItemQty"));
             objARSaleOrderItemsInfo.setARSaleOrderItemUnitCost(rs.getDouble("ARSaleOrderItemUnitCost"));
+            objARSaleOrderItemsInfo.setPicture(rs.getString("picture"));
             listSaleOrderItem.add(objARSaleOrderItemsInfo);
         }
         conn.close();
