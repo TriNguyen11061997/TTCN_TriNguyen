@@ -60,9 +60,9 @@ public class ICProductController {
         }
         return listPro;
     }
-    
+
     public ICProductDetailsInfo getObjectProductDetail(int ID) throws SQLException {
-        
+
         try {
             conn = connection.getConnection();
             pst = conn.prepareCall("CALL ICProductDetails_GetObjectByProductID(?)");
@@ -70,6 +70,20 @@ public class ICProductController {
             rs = pst.executeQuery();
             ICProductDetailsInfo obj;
             while (rs.next()) {
+
+
+                obj = new ICProductDetailsInfo();
+
+                //bang product
+                ICProductsInfo productInfo = new ICProductsInfo();
+                productInfo.setICProductName(rs.getString("ICProductName"));
+                productInfo.setICProductPrice(rs.getDouble("ICProductPrice"));
+                productInfo.setICProductDesc(rs.getString("ICProductDesc"));
+                productInfo.setICProductID(rs.getInt("ICProductID"));
+                productInfo.setICProductPicture1(rs.getString("ICProductPicture1"));
+                obj.setProduct(productInfo);
+
+                return obj;
                 
               obj  = new ICProductDetailsInfo();
               
@@ -123,9 +137,8 @@ public class ICProductController {
 
         return null;
     }
-    
-    //Số lượng sản phẩm
 
+    //Số lượng sản phẩm
     public int countProducts() {
         int result = 0;
 
@@ -253,30 +266,81 @@ public class ICProductController {
         }
         return listPro;
     }
-    
-    public ICProductsInfo GetObjectByID(int ID){
+
+    public ICProductsInfo GetObjectByID(int ID) {
         try {
             conn = connection.getConnection();
             pst = conn.prepareCall("CALL ICProducts_GetObjectByID(?)");
             pst.setInt(1, ID);
             rs = pst.executeQuery();
             ICProductsInfo iCProductsInfo = new ICProductsInfo();
-            while(rs.next()){
+            while (rs.next()) {
                 iCProductsInfo.setICProductID(rs.getInt("ICProductID"));
-                iCProductsInfo.setICProductNo(rs.getString("ICProductNo"));
                 iCProductsInfo.setICProductName(rs.getString("ICProductName"));
                 iCProductsInfo.setICProductDate(rs.getDate("ICProductDate"));
-            } 
+                iCProductsInfo.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                iCProductsInfo.setICProductPrice(rs.getDouble("ICProductPrice"));
+                iCProductsInfo.setICProductDesc(rs.getString("ICProductDesc"));
+                iCProductsInfo.setICProductVideo(rs.getString("ICProductVideo"));
+            }
             return iCProductsInfo;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
-    
-    public ICProductsInfo Add(ICProductsInfo icp){
+
+        public ICProductsInfo GetObjectByProductID(int id){
+        
         try {
-            conn =connection.getConnection();
+            conn = connection.getConnection();
+            pst = conn.prepareCall("CALL ICProducts_GetObjectByProductID(?)");
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+           
+            ICProductsInfo icp = new ICProductsInfo();
+            while(rs.next()){
+            icp.setICProductID(rs.getInt("ICProductID"));
+            icp.setICProductNo(rs.getString("ICProductNo"));
+            icp.setICProductName(rs.getString("ICProductName"));
+            icp.setICProductDate(rs.getDate("ICProductDate"));
+            
+            ICProductDetailsInfo icpd = new ICProductDetailsInfo();
+            icpd.setICProductDetail3G(rs.getString("ICProductDetail3G"));
+            icpd.setICProductDetail4G(rs.getString("ICProductDetail4G"));
+            icpd.setICProductDetailSIM(rs.getString("ICProductDetailSIM"));
+            icpd.setICProductDetailKichThuoc(rs.getString("ICProductDetailKichThuoc"));
+            icpd.setICProductDetailMauSac(rs.getString("ICProductDetailMauSac"));
+            icpd.setICProductDetailTrongLuong(rs.getString("ICProductDetailTrongLuong"));
+            icpd.setICProductDetailLoai(rs.getString("ICProductDetailLoai"));
+            icpd.setICProductDetailManHinh(rs.getString("ICProductDetailManHinh"));
+            icpd.setICProductDetailHeDieuHanh(rs.getString("ICProductDetailHeDieuHanh"));
+            icpd.setICProductDetailRAM(rs.getString("ICProductDetailRAM"));
+            icpd.setICProductDetailJack(rs.getString("ICProductDetailJack"));
+            icpd.setICProductDetailBoNhoTrong(rs.getString("ICProductDetailBoNhoTrong"));
+            icpd.setICProductDetailBluetooth(rs.getString("ICProductDetailBluetooth"));
+            icpd.setICProductDetailGPS(rs.getString("ICProductDetailGPS"));
+            icpd.setICProductDetailPin(rs.getString("ICProductDetailPin"));
+            icpd.setICProductDetailWLAN(rs.getString("ICProductDetailWLAN"));
+            icpd.setICProductDetailCameraChinh(rs.getString("ICProductDetailCameraChinh"));
+            icpd.setICProductDetailCamaraPhu(rs.getString("ICProductDetailCamaraPhu"));
+            icpd.setICProductDetailQuayPhim(rs.getString("ICProductDetailQuayPhim"));
+            icpd.setICProductDetailCPU(rs.getString("ICProductDetailCPU"));
+            icpd.setICProductDetailBaoHanh(rs.getString("ICProductDetailBaoHanh"));
+            icp.setiCProductDetailsInfo(icpd);
+            }
+            
+            
+            return  icp;
+        } catch (SQLException ex) {
+            Logger.getLogger(ICProductDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    public ICProductsInfo Add(ICProductsInfo icp) {
+        try {
+            conn = connection.getConnection();
             pst = conn.prepareCall("CALL ICProducts_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pst.setString(1, icp.getICProductNo());
             pst.setDouble(2, icp.getICProductPrice());
@@ -295,6 +359,29 @@ public class ICProductController {
             pst.execute();
             GeNumberingsController objGeNumberingsController = new GeNumberingsController();
             objGeNumberingsController.Update("ICProducts");
+            ICProductDetailsController objCProductDetailsController = new ICProductDetailsController();
+            objCProductDetailsController.Insert();
+            return icp;
+        } catch (SQLException ex) {
+            Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    
+    public ICProductsInfo Update(ICProductsInfo icp){
+        try {
+            conn = connection.getConnection();
+            pst = conn.prepareCall("CALL ICProducts_Update(?, ?, ?, ?, ?, ?, ?)");
+            pst.setInt(1, icp.getICProductID());
+            pst.setDouble(2, icp.getICProductPrice());
+            pst.setDouble(3, icp.getICProductSupplierPrice());
+            pst.setString(4, icp.getICProductName());
+            pst.setString(5, icp.getICProductDesc());
+            pst.setString(6, icp.getICProductVideo());
+            pst.setDate(7, icp.getICProductDate());
+            
+            pst.execute();
             return icp;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
@@ -302,37 +389,17 @@ public class ICProductController {
         }
     }
     
-    public ICProductDetailsInfo Add(ICProductDetailsInfo icpd){
+    public boolean Delete(int id){
         try {
-            conn =connection.getConnection();
-            pst = conn.prepareCall("CALL ICProductDetail_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            pst.setInt(1, icpd.getFK_ICProductID());
-            pst.setString(2, icpd.getICProductDetail3G());
-            pst.setString(3, icpd.getICProductDetail4G());
-            pst.setString(4, icpd.getICProductDetailSIM());
-            pst.setString(5, icpd.getICProductDetailKichThuoc());
-            pst.setString(6, icpd.getICProductDetailMauSac());
-            pst.setString(7, icpd.getICProductDetailTrongLuong());
-            pst.setString(8, icpd.getICProductDetailLoai());
-            pst.setString(9, icpd.getICProductDetailManHinh());
-            pst.setString(10, icpd.getICProductDetailHeDieuHanh());
-            pst.setString(11, icpd.getICProductDetailLoaNgoai());
-            pst.setString(12, icpd.getICProductDetailJack3dot5mm());
-            pst.setString(13, icpd.getICProductDetailBoNhoTrong());
-            pst.setString(14, icpd.getICProductDetailBluetooth());
-            pst.setString(15, icpd.getICProductDetailGPS());
-            pst.setString(16, icpd.getICProductDetailPin());
-            pst.setString(17, icpd.getICProductDetailWLAN());
-            pst.setString(18, icpd.getICProductDetailCameraChinh());
-            pst.setString(19, icpd.getICProductDetailCamaraPhu());
-            pst.setString(20, icpd.getICProductDetailQuayPhim());
-            pst.setString(21, icpd.getICProductDetailCPU());
-            pst.setString(22, icpd.getICProductDetailBaoHanh());
+            conn = connection.getConnection();
+            pst = conn.prepareCall("CALL ICProducts_Delete(?)");
+            pst.setInt(1, id);
+
             pst.execute();
-            return icpd;
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            return false;
         }
     }
 }

@@ -39,6 +39,7 @@ public class ICProductsInfo {
     private Date ICProductDate; 
     private String ICProductDetailHeDieuHanh;
     private int Qty;
+    private ICProductDetailsInfo iCProductDetailsInfo;
 
     public ICProductsInfo() {
     }
@@ -279,6 +280,20 @@ public class ICProductsInfo {
 
     public void setICProductDate(Date ICProductDate) {
         this.ICProductDate = ICProductDate;
+    }
+
+    /**
+     * @return the iCProductDetailsInfo
+     */
+    public ICProductDetailsInfo getiCProductDetailsInfo() {
+        return iCProductDetailsInfo;
+    }
+
+    /**
+     * @param iCProductDetailsInfo the iCProductDetailsInfo to set
+     */
+    public void setiCProductDetailsInfo(ICProductDetailsInfo iCProductDetailsInfo) {
+        this.iCProductDetailsInfo = iCProductDetailsInfo;
     }
 
 }
