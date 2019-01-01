@@ -75,7 +75,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="Thông tin giỏ hàng">
+                                        <a href="/dhct" title="Đơn hàng của bạn">
                                             <span class="lang">Đơn hàng của bạn</span>
                                         </a>
                                     </li>

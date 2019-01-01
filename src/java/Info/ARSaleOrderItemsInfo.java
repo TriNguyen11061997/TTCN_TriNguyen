@@ -12,6 +12,7 @@ import java.sql.Date;
  * @author Trí Nguyễn
  */
 public class ARSaleOrderItemsInfo {
+
     int ARSaleOrderItemID;
     Date AACreatedDate;
     String AACreatedUser;
@@ -38,6 +39,7 @@ public class ARSaleOrderItemsInfo {
     String ARSaleOrderItemPaymentStatus;
     Double ARSaleOrderItemUnitCost;
     Double ARSaleOrderItemQty;
+    private String picture;
 
     public ARSaleOrderItemsInfo() {
     }
@@ -69,6 +71,14 @@ public class ARSaleOrderItemsInfo {
         this.ARSaleOrderItemPaymentStatus = ARSaleOrderItemPaymentStatus;
         this.ARSaleOrderItemUnitCost = ARSaleOrderItemUnitCost;
         this.ARSaleOrderItemQty = ARSaleOrderItemQty;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public int getARSaleOrderItemID() {
@@ -278,6 +288,5 @@ public class ARSaleOrderItemsInfo {
     public void setARSaleOrderItemQty(Double ARSaleOrderItemQty) {
         this.ARSaleOrderItemQty = ARSaleOrderItemQty;
     }
-    
-    
+
 }

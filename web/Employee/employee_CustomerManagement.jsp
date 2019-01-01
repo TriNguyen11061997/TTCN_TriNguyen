@@ -29,7 +29,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <%@include file="/Employee/header.jsp" %>
             <div class="main">
                 <div>
-                     <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH KHÁCH HÀNG</h2> 
+                    <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH KHÁCH HÀNG</h2> 
                 </div>
                 <div style="float:right">
                     <form action="/Employee_CustomerGetSearchData" method="post">
@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <th style="color:white">Thành phố</th>
                         <th style="color:white">Edit</th>
                         <th style="color:white">Delete</th>
-                        <th style="color:white">Xem chi tiết</th>
+
                     </tr>
                     <c:forEach var="customer" items = "${listCustomer}">                     
                         <tr>
@@ -65,7 +65,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <td style="color:black">${customer.ARCustomerContactAddressCity}</td>
                             <td><a href="/CustomerLoadUpdate_Servlet?ID=${customer.ARCustomerID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                             <td><a href="/Employee_Delete_Servlet?id=${customer.ARCustomerID}"><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-                            <td><a href="/QuanLiBenhNhan/LoadChiSoBenhLi?ma=@i.MaBenhNhan"><button class="btn btn-success" style="height:30px">XEM CHI TIẾT</button></a></td>
                         </tr>
                     </c:forEach>
                 </table>

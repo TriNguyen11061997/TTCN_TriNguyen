@@ -67,21 +67,21 @@ public class ARInvoicesController {
     public List<ARInvoicesInfo> GetSearchData(String info) throws SQLException {
         conn = ConnectionPool.getConnection();
         List<ARInvoicesInfo> listInvoice = new ArrayList<>();
-        sttm = conn.prepareStatement("	SELECT 	so.*,\n" +
-"		ee.HREmployeeName,\n" +
-"		c.ARCustomerName,\n" +
-"		s.ARSaleOrderNo\n" +
-"	FROM 	ARInvoices so\n" +
-"	INNER JOIN HREmployees ee ON so.FK_HREmployeeID = ee.HREmployeeID\n" +
-"	INNER JOIN ARCustomers c  ON so.FK_ARCustomersID = c.ARCustomerID \n" +
-"	INNER JOIN ARSaleOrders s ON so.FK_ARSaleOrderID = s.ARSaleOrderID\n" +
-"	WHERE	ee.AAStatus = 'Alive'\n" +
-"	AND	c.AAStatus = 'Alive'\n" +
-"	AND	ee.HREmployeeName LIKE '%"+info+"%'\n" +
-"	OR	c.ARCustomerName  LIKE '%"+info+"%'	\n" +
-"	OR	s.ARSaleOrderNo LIKE '%"+info+"%'\n" +
-"	OR 	so.ARInvoiceNo	LIKE '%"+info+"%'		\n" +
-"	ORDER BY so.ARInvoiceDate DESC; ");
+        sttm = conn.prepareStatement("	SELECT 	so.*,\n"
+                + "		ee.HREmployeeName,\n"
+                + "		c.ARCustomerName,\n"
+                + "		s.ARSaleOrderNo\n"
+                + "	FROM 	ARInvoices so\n"
+                + "	INNER JOIN HREmployees ee ON so.FK_HREmployeeID = ee.HREmployeeID\n"
+                + "	INNER JOIN ARCustomers c  ON so.FK_ARCustomersID = c.ARCustomerID \n"
+                + "	INNER JOIN ARSaleOrders s ON so.FK_ARSaleOrderID = s.ARSaleOrderID\n"
+                + "	WHERE	ee.AAStatus = 'Alive'\n"
+                + "	AND	c.AAStatus = 'Alive'\n"
+                + "	AND	(ee.HREmployeeName LIKE '%" + info + "%'\n"
+                + "	OR	c.ARCustomerName  LIKE '%" + info + "%'	\n"
+                + "	OR	s.ARSaleOrderNo LIKE '%" + info + "%'\n"
+                + "	OR 	so.ARInvoiceNo	LIKE '%" + info + "%')		\n"
+                + "	ORDER BY so.ARInvoiceDate DESC; ");
         rs = sttm.executeQuery();
         ARInvoicesInfo objARInvoicesInfo;
         while (rs.next()) {
@@ -147,6 +147,21 @@ public class ARInvoicesController {
         }
         conn.close();
         return null;
+    }
+
+    public int GetObjectBySaleOrderID(int ID) throws SQLException {
+        conn = ConnectionPool.getConnection();
+        sttm = conn.prepareCall("Call ARInvoices_GetObjectBySaleOrderID(?)");
+        sttm.setInt(1, ID);
+        rs = sttm.executeQuery();
+        ARInvoicesInfo objARInvoicesInfo;
+        while (rs.next()) {
+            objARInvoicesInfo = new ARInvoicesInfo();
+            objARInvoicesInfo.setARInvoiceID(rs.getInt("ARInvoiceID"));          
+            return objARInvoicesInfo.getARInvoiceID();
+        }
+        conn.close();
+        return 1;
     }
 
     public boolean Insert(int SaleOrderID) throws SQLException {

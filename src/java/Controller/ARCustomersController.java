@@ -58,9 +58,10 @@ public class ARCustomersController {
         sttm = conn.prepareStatement("	SELECT 	*\n"
                 + "	FROM 	ARCustomers arc\n"
                 + "	WHERE	arc.AAStatus = 'Alive'\n"
-                + "	AND	arc.ARCustomerNo LIKE '%" + info + "%'\n"
+                + "	AND	(arc.ARCustomerNo LIKE '%" + info + "%'\n"
                 + "	OR 	arc.ARCustomerName	LIKE '%" + info + "%'\n"
-                + "	OR 	arc.ARCustomerContactAddress 	LIKE '%" + info + "%'");
+                + "	OR 	arc.ARCustomerContactAddress 	LIKE '%" + info + "%'"
+                + "	OR 	arc.ARCustomerContactAddressCity 	LIKE '%" + info + "%')");
         rs = sttm.executeQuery();
         ARCustomersInfo objARCustomersInfo;
         while (rs.next()) {

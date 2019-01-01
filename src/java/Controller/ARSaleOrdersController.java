@@ -95,10 +95,10 @@ public class ARSaleOrdersController {
                 + "	INNER JOIN ARCustomers c  ON so.FK_ARCustomerID = c.ARCustomerID \n"
                 + "	WHERE	so.AAStatus = 'Alive'\n"
                 + "	AND	c.AAStatus = 'Alive'\n"
-                + "	AND	so.ARSaleOrderStatus IN('Confirm','Approve','Complete','Delivered','Delivering')\n"
-                + "	AND	ee.HREmployeeName LIKE '%" + info + "%'\n"
+                + "	AND	so.ARSaleOrderStatus IN('Confirm','Approve','Complete','Delivered')\n"
+                + "	AND	(ee.HREmployeeName LIKE '%" + info + "%'\n"
                 + "	OR	c.ARCustomerName  LIKE '%" + info + "%'	\n"
-                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%'		\n"
+                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%')		\n"
                 + "	ORDER BY so.ARSaleOrderDate DESC; ");
         rs = sttm.executeQuery();
         ARSaleOrdersInfo objARSaleOrdersInfo;
@@ -131,10 +131,10 @@ public class ARSaleOrdersController {
                 + "	INNER JOIN HREmployees ee ON so.FK_HREmployeeID = ee.HREmployeeID\n"
                 + "	INNER JOIN ARCustomers c  ON so.FK_ARCustomerID = c.ARCustomerID \n"
                 + "	WHERE	so.AAStatus = 'Alive'\n"
-                + "	AND	c.AAStatus = 'Alive'\n"              
-                + "	AND	ee.HREmployeeName LIKE '%" + info + "%'\n"
+                + "	AND	c.AAStatus = 'Alive'\n"
+                + "	AND	(ee.HREmployeeName LIKE '%" + info + "%'\n"
                 + "	OR	c.ARCustomerName  LIKE '%" + info + "%'	\n"
-                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%'		\n"
+                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%')		\n"
                 + "	ORDER BY so.ARSaleOrderDate DESC; ");
         rs = sttm.executeQuery();
         ARSaleOrdersInfo objARSaleOrdersInfo;
@@ -327,7 +327,7 @@ public class ARSaleOrdersController {
         while (rs.next()) {
             objARSaleOrdersInfo = new ARSaleOrdersInfo();
             objARSaleOrdersInfo.setARSaleOrderID(rs.getInt("ARSaleOrderID"));
-
+            objARSaleOrdersInfo.setARSaleOrderNo(rs.getString("ARSaleOrderNo"));
             objARSaleOrdersInfo.setARSaleOrderDate(rs.getDate("ARSaleOrderDate"));
             objARSaleOrdersInfo.setARSaleOrderTotalAmount(rs.getDouble("ARSaleOrderTotalAmount"));
             objARSaleOrdersInfo.setARSaleOrderStatus(rs.getString("ARSaleOrderStatus"));
