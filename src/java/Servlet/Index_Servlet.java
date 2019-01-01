@@ -53,7 +53,7 @@ public class Index_Servlet extends HttpServlet {
 //            request.setAttribute("sumpage", sumpage);
 //            request.setAttribute("current_page", current_page);
             
-            ArrayList<ICProductsInfo> listPro = ic.getItemPagination(4);
+            ArrayList<ICProductsInfo> listPro = ic.getItemPagination();
             request.setAttribute("listPro", listPro);
             
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
