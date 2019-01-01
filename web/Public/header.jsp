@@ -64,7 +64,7 @@
                                 <ul class="dropdown languges" style="width:200px;">
                                     <%if (session.getAttribute("HREmployeeID") != null) {%>
                                     <li>
-                                        <a href="#" title="Thông tin cá nhân">
+                                        <a href="/customer" title="Thông tin cá nhân">
                                             <span class="lang">Thông tin cá nhân</span>
                                         </a>
                                     </li>

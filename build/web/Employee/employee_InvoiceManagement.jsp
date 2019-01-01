@@ -24,10 +24,10 @@
                 </div>
                 <br>
                 <div style="float:right">
-                    <form action="" method="post">
+                    <form action="/Employee_InvoiceGetSearchData" method="post">
                         <table>
                             <tr>
-                                <th><input type="text" name="thongtin_search" /></th>
+                                <th><input type="text" name="info" /></th>
                                 <th><button type="submit" class="btn btn-success" style="width:auto;">Search</button></th>
                             </tr>
                         </table>
@@ -46,22 +46,6 @@
                                     </select>
                                 </th>
                                 <th><button type="submit" class="btn btn-success" style="width:auto;">Tạo hóa đơn</button></th>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-                <div style="float:left;margin-left: 20px">
-                    <form action="" method="post">
-                        <table>
-                            <tr>
-                                <th>
-                                    <select name="thongtin_sort">
-                                        <option value="0">Mã khách hàng</option>
-                                        <option value="1">Tên khách hàng</option>
-                                        <option value="2">Ngày sinh</option>
-                                    </select>
-                                </th>
-                                <th><button type="submit" class="btn btn-success" style="width:auto;">Sort</button></th>
                             </tr>
                         </table>
                     </form>
@@ -96,12 +80,12 @@
                                 <form action="/Employee_InvoiceUpdateStatus" method="get">
                                     <input type="text" name="FK_ARSaleOrderID" hidden="" value="${invoice.FK_ARSaleOrderID}">
                                     <input type="text" name="ARInvoiceID" hidden="" value="${invoice.ARInvoiceID}">
-                                    <select style="float: left;width: 50%" name="ARInvoiceStatus">                  
+                                    <select style="float: left;width:45%" name="ARInvoiceStatus">                  
                                         <option value="Delivering">Đang giao</option>
                                         <option value="Delivered">Đã giao</option>
                                         <option value="Cancel">Hủy</option>
                                     </select>
-                                    <input  style="float: left;margin-top: 0px;font-size: 8px;width: 20%;height: 34px" type="submit"  value="OK">
+                                    <input  style="float: right;margin-top: 0px;font-size: 8px;width: 20%;height: 34px" type="submit"  value="OK">
                                 </form>
                             </td>          
                         </tr>

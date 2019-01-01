@@ -23,10 +23,10 @@
                     <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH ĐƠN HÀNG</h2>
                 </div>
                 <div style="float:right">
-                    <form action="" method="post">
+                    <form action="/Admin_SearchData" method="post">
                         <table>
                             <tr>
-                                <th><input type="text" name="thongtin_search" /></th>
+                                <th><input type="text" name="info" /></th>
                                 <th><button type="submit" class="btn btn-success" style="width:auto;">Search</button></th>
                             </tr>
                         </table>
@@ -72,7 +72,7 @@
                             <td style="color:black">${saleOrder.ARSaleOrderStatus}</td>
                             <td style="color:black">${saleOrder.ARSaleOrderTotalAmount}</td>                         
                             <td><a href="/Admin_SaleOrderLoadUpdate_Servlet?ARSaleOrderID=${saleOrder.ARSaleOrderID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href=""><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>                          
+                            <td><a href=""><button type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>                          
                         </tr>
                     </c:forEach>
                 </table>

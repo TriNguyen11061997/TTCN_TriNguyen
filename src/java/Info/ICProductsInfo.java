@@ -39,6 +39,7 @@ public class ICProductsInfo {
     private Date ICProductDate; 
     private String ICProductDetailHeDieuHanh;
     private int Qty;
+    private int ARCartID;
 
     public ICProductsInfo() {
     }
@@ -71,6 +72,16 @@ public class ICProductsInfo {
         this.Qty = Qty;
     }
 
+    public int getARCartID() {
+        return ARCartID;
+    }
+
+    public void setARCartID(int ARCartID) {
+        this.ARCartID = ARCartID;
+    }
+
+    
+    
     public int getQty() {
         return Qty;
     }

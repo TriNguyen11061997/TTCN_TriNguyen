@@ -45,6 +45,7 @@ public class ARSaleOrderItemsController {
             objARSaleOrderItemsInfo.setARSaleOrderItemUnitCost(rs.getDouble("ARSaleOrderItemUnitCost"));
             listSaleOrderItem.add(objARSaleOrderItemsInfo);
         }
+        conn.close();
         return listSaleOrderItem;
     }
 
@@ -59,6 +60,7 @@ public class ARSaleOrderItemsController {
             ps.setDouble(5, objSaleOrderItemsInfo.getARSaleOrderItemUnitCost());
             ps.setDouble(6, objSaleOrderItemsInfo.getARSaleOrderItemTotalAmount());
             rs = ps.executeQuery();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             return false;

@@ -32,27 +32,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                      <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH KHÁCH HÀNG</h2> 
                 </div>
                 <div style="float:right">
-                    <form action="" method="post">
+                    <form action="/Employee_CustomerGetSearchData" method="post">
                         <table>
                             <tr>
-                                <th><input type="text" name="thongtin_search" /></th>
+                                <th><input type="text" name="info" /></th>
                                 <th><button type="submit" class="btn btn-success" style="width:auto;">Search</button></th>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-                <div style="float:left;">
-                    <form action="" method="post">
-                        <table>
-                            <tr>
-                                <th>
-                                    <select name="thongtin_sort">
-                                        <option value="0">Mã khách hàng</option>
-                                        <option value="1">Tên khách hàng</option>
-                                        <option value="2">Ngày sinh</option>
-                                    </select>
-                                </th>
-                                <th><button type="submit" class="btn btn-success" style="width:auto;">Sort</button></th>
                             </tr>
                         </table>
                     </form>

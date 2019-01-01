@@ -10,6 +10,9 @@ import Info.ARCustomersInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,27 +44,31 @@ public class Employee_HomeUpdate_Servlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         if (session.getAttribute("HREmployeeID") != null) {
-            ARCustomersController aRCustomersController = new ARCustomersController();
-            ARCustomersInfo aRCustomersInfo = new ARCustomersInfo();
-            aRCustomersInfo.setARCustomerID(Integer.parseInt(request.getParameter("ARCustomerID")));
-            aRCustomersInfo.setARCustomerNo(request.getParameter("ARCustomerNo"));
-            aRCustomersInfo.setARCustomerName(request.getParameter("ARCustomerName"));
-            aRCustomersInfo.setARCustomerGender(Integer.parseInt(request.getParameter("ARCustomerGender")));
-            aRCustomersInfo.setARCustomerBirthDay(Date.valueOf(request.getParameter("ARCustomerBirthDay")));
-            aRCustomersInfo.setARCustomerTel1(request.getParameter("ARCustomerTel1"));
-            aRCustomersInfo.setARCustomerEmail(request.getParameter("ARCustomerEmail"));
-            aRCustomersInfo.setARCustomerIDNumber(request.getParameter("ARCustomerIDNumber"));
-            aRCustomersInfo.setARCustomerCardNumber(request.getParameter("ARCustomerCardNumber"));
-            aRCustomersInfo.setARCustomerContactAddressCity(request.getParameter("ARCustomerContactAddressCity"));
-            aRCustomersInfo.setARCustomerContactAddressCountry(request.getParameter("ARCustomerContactAddressCountry"));
-            aRCustomersInfo.setARCustomerContactAddress(request.getParameter("ARCustomerContactAddress"));
-            aRCustomersInfo.setARCustomerDesc(request.getParameter("ARCustomerDesc"));
-            ARCustomersInfo arc = aRCustomersController.Update(aRCustomersInfo);
-            if(arc != null){
-                response.sendRedirect("Employee_CustomerManagement_Servlet");
-            }
-            else{
-                response.sendRedirect("Employee_CustomerManagement_Servlet");
+            try {
+                ARCustomersController aRCustomersController = new ARCustomersController();
+                ARCustomersInfo aRCustomersInfo = new ARCustomersInfo();
+                aRCustomersInfo.setARCustomerID(Integer.parseInt(request.getParameter("ARCustomerID")));
+                aRCustomersInfo.setARCustomerNo(request.getParameter("ARCustomerNo"));
+                aRCustomersInfo.setARCustomerName(request.getParameter("ARCustomerName"));
+                aRCustomersInfo.setARCustomerGender(Integer.parseInt(request.getParameter("ARCustomerGender")));
+                aRCustomersInfo.setARCustomerBirthDay(Date.valueOf(request.getParameter("ARCustomerBirthDay")));
+                aRCustomersInfo.setARCustomerTel1(request.getParameter("ARCustomerTel1"));
+                aRCustomersInfo.setARCustomerEmail(request.getParameter("ARCustomerEmail"));
+                aRCustomersInfo.setARCustomerIDNumber(request.getParameter("ARCustomerIDNumber"));
+                aRCustomersInfo.setARCustomerCardNumber(request.getParameter("ARCustomerCardNumber"));
+                aRCustomersInfo.setARCustomerContactAddressCity(request.getParameter("ARCustomerContactAddressCity"));
+                aRCustomersInfo.setARCustomerContactAddressCountry(request.getParameter("ARCustomerContactAddressCountry"));
+                aRCustomersInfo.setARCustomerContactAddress(request.getParameter("ARCustomerContactAddress"));
+                aRCustomersInfo.setARCustomerDesc(request.getParameter("ARCustomerDesc"));
+                ARCustomersInfo arc = aRCustomersController.Update(aRCustomersInfo);
+                if(arc != null){
+                    response.sendRedirect("Employee_CustomerManagement_Servlet");
+                }
+                else{
+                    response.sendRedirect("Employee_CustomerManagement_Servlet");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Employee_HomeUpdate_Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

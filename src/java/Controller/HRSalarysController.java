@@ -48,6 +48,7 @@ public class HRSalarysController {
             objHRSalarysInfo.setEmployee(objEmployeesInfo);
             list.add(objHRSalarysInfo);
         }
+        conn.close();
         return list;
     }
 
@@ -63,6 +64,7 @@ public class HRSalarysController {
         sttm.setDouble(7, objHRSalarysInfo.getHRSalaryToTal());
         sttm.setDouble(8, objHRSalarysInfo.getHRSalaryReduce());
         sttm.executeQuery();
+        conn.close();
         return true;
     }
 }

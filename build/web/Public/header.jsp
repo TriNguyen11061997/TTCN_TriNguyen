@@ -64,12 +64,12 @@
                                 <ul class="dropdown languges" style="width:200px;">
                                     <%if (session.getAttribute("HREmployeeID") != null) {%>
                                     <li>
-                                        <a href="#" title="Thông tin cá nhân">
+                                        <a href="/customer" title="Thông tin cá nhân">
                                             <span class="lang">Thông tin cá nhân</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="Thông tin giỏ hàng">
+                                        <a href="/dhct" title="Thông tin giỏ hàng">
                                             <span class="lang">Đơn hàng của bạn</span>
                                         </a>
                                     </li>

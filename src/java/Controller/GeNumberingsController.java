@@ -37,6 +37,7 @@ public class GeNumberingsController {
                 break;
             }
             String no = objNumberingsInfo.getGENumberingName() + objNumberingsInfo.getGENumberingNumber();
+            conn.close();
             return no;
         } catch (SQLException ex) {
             return null;
@@ -49,6 +50,7 @@ public class GeNumberingsController {
             sttm = conn.prepareCall("Call GENumberings_Update(?)");
             sttm.setString(1, table);
             sttm.executeQuery();
+            conn.close();
         } catch (SQLException ex) {
             
         }

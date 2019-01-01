@@ -64,10 +64,12 @@ public class ARCartsController {
             pst.setInt(4, objCart.getFK_ARCustomerID());
             //pst.setInt(2, objCart.getFK_ARCustomerID());
             result = pst.executeUpdate();
+            conn.close();
         } catch (Exception e) {
         } finally {
             try {
                 pst.close();
+                conn.close();
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -90,10 +92,11 @@ public class ARCartsController {
             objARCartsInfo.setFK_ICProductID(rs.getInt("FK_ICProductID"));
             listARCartsInfos.add(objARCartsInfo);
         }
+        conn.close();
         return listARCartsInfos;
     }
 
-    public ArrayList<ARCartsInfo> getListCartByID(int idcus) {
+    public ArrayList<ARCartsInfo> getListCartByID(int idcus) throws SQLException {
         ArrayList<ARCartsInfo> listCart = new ArrayList<>();
         String sql = "SELECT * FROM ARCarts WHERE FK_ARCustomerID = ?";
         ARCartsInfo objARCartsInfo;
@@ -120,11 +123,11 @@ public class ARCartsController {
                 e.printStackTrace();
             }
         }
-
+        conn.close();
         return listCart;
     }
 
-    public int Update(ARCartsInfo objCart) {
+    public int Update(ARCartsInfo objCart) throws SQLException {
         int result = 0;
         String sql = "UPDATE ARCarts SET ARCartQty = ? WHERE ARCartID = ?";
         try {
@@ -143,18 +146,19 @@ public class ARCartsController {
                 e.printStackTrace();
             }
         }
-
+        conn.close();
         return result;
     }
 
     //show ra giỏ hàng  
-    public List<ICProductsInfo> getListProduct(int idcus) {
+    public List<ICProductsInfo> getListProduct(int idcus) throws SQLException {
         List<ICProductsInfo> listProduct = new ArrayList<>();
-        String sql = "SELECT *, ARCarts.ARCartQty as qty FROM ICProducts INNER JOIN ARCarts ON ICProducts.ICProductID=ARCarts.FK_ICProductID WHERE ARCarts.FK_ARCustomerID = " + idcus;
+        String sql = "Call ARCarts_GetObjectByCustomerID(?)";
         try {
             conn = ConnectionPool.getConnection();
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
+            pst = conn.prepareCall(sql);
+            pst.setInt(1, idcus);
+            rs = pst.executeQuery();
             while (rs.next()) {
                 ICProductsInfo item = new ICProductsInfo();
                 item.setICProductID(rs.getInt("ICProductID"));
@@ -162,24 +166,17 @@ public class ARCartsController {
                 item.setICProductDesc(rs.getString("ICProductDesc"));
                 item.setICProductPrice(rs.getDouble("ICProductPrice"));
                 item.setQty(rs.getInt("qty"));
+                item.setARCartID(rs.getInt("ARCartID"));
                 listProduct.add(item);
             }
         } catch (Exception e) {
-        } finally {
-            try {
-                rs.close();
-                st.close();
-            } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
         }
-
+        conn.close();
         return listProduct;
     }
 
     //submit giỏ hàng
-    public int submit_cart(ARSaleOrdersInfo objSale) {
+    public int submit_cart(ARSaleOrdersInfo objSale) throws SQLException {
         int result = 0;
         String sql = "Call ARSaleOrders_Insert(?,?,?,?,?,?,?)";
         try {
@@ -187,9 +184,9 @@ public class ARCartsController {
             pst = conn.prepareStatement(sql);
             pst.setInt(1, objSale.getFK_ARCustomerID());
             pst.setString(2, objSale.getARSaleOrderNo());
-            pst.setString(3, "Đơn bán hàng "+objSale.getARSaleOrderNo());
+            pst.setString(3, "Đơn bán hàng " + objSale.getARSaleOrderNo());
             ARCustomersController objARCustomersController = new ARCustomersController();
-            pst.setString(4, "Bán hàng cho "+ objARCustomersController.GetObjectByID(objSale.getFK_ARCustomerID()).getARCustomerName());
+            pst.setString(4, "Bán hàng cho " + objARCustomersController.GetObjectByID(objSale.getFK_ARCustomerID()).getARCustomerName());
             pst.setDate(5, objSale.getARSaleOrderDate());
             pst.setDouble(6, objSale.getARSaleOrderShippingFees());
             pst.setDouble(7, objSale.getARSaleOrderTotalAmount());
@@ -207,12 +204,12 @@ public class ARCartsController {
                 e.printStackTrace();
             }
         }
-
+        conn.close();
         return result;
     }
 
     //xóa đơn hàng khi đã submit
-    public int delCart(int idcus) {
+    public int delCart(int idcus) throws SQLException {
         int result = 0;
         String sql = "DELETE FROM ARCarts WHERE ARCarts.FK_ARCustomerID = " + idcus;
 
@@ -233,7 +230,16 @@ public class ARCartsController {
                 e.printStackTrace();
             }
         }
-
+        conn.close();
         return result;
+    }
+
+    public boolean Delete(int ID) throws SQLException {
+        conn = ConnectionPool.getConnection();
+        pst = conn.prepareCall("CALL ARCart_Delete(?)");
+        pst.setInt(1, ID);
+        pst.executeQuery();
+        conn.close();
+        return true;
     }
 }

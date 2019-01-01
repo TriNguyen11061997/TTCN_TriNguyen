@@ -60,9 +60,9 @@ public class ICProductController {
         }
         return listPro;
     }
-    
+
     public ICProductDetailsInfo getObjectProductDetail(int ID) throws SQLException {
-        
+
         try {
             conn = connection.getConnection();
             pst = conn.prepareCall("CALL ICProductDetails_GetObjectByProductID(?)");
@@ -70,20 +70,19 @@ public class ICProductController {
             rs = pst.executeQuery();
             ICProductDetailsInfo obj;
             while (rs.next()) {
-                
-              obj  = new ICProductDetailsInfo();
-              
-              
-              //bang product
-              ICProductsInfo productInfo = new ICProductsInfo();
-              productInfo.setICProductName(rs.getString("ICProductName"));
-              productInfo.setICProductPrice(rs.getDouble("ICProductPrice"));
-              productInfo.setICProductDesc(rs.getString("ICProductDesc"));
-              productInfo.setICProductID(rs.getInt("ICProductID"));
-              productInfo.setICProductPicture1(rs.getString("ICProductPicture1"));
-              obj.setProduct(productInfo);
-              
-              return obj;
+
+                obj = new ICProductDetailsInfo();
+
+                //bang product
+                ICProductsInfo productInfo = new ICProductsInfo();
+                productInfo.setICProductName(rs.getString("ICProductName"));
+                productInfo.setICProductPrice(rs.getDouble("ICProductPrice"));
+                productInfo.setICProductDesc(rs.getString("ICProductDesc"));
+                productInfo.setICProductID(rs.getInt("ICProductID"));
+                productInfo.setICProductPicture1(rs.getString("ICProductPicture1"));
+                obj.setProduct(productInfo);
+
+                return obj;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,9 +99,8 @@ public class ICProductController {
 
         return null;
     }
-    
-    //Số lượng sản phẩm
 
+    //Số lượng sản phẩm
     public int countProducts() {
         int result = 0;
 
@@ -230,30 +228,65 @@ public class ICProductController {
         }
         return listPro;
     }
-    
-    public ICProductsInfo GetObjectByID(int ID){
+
+    public List<ICProductsInfo> GetSearchData(String info) {
+        List<ICProductsInfo> listPro = new ArrayList<>();
+        try {
+            conn = connection.getConnection();
+            pst = conn.prepareStatement("SELECT 	*\n" +
+"	FROM 	ICProducts\n" +
+"	WHERE 	AAStatus = 'Alive'\n" +
+"	AND	ICProductNo LIKE '%"+info+"%'\n" +
+"	OR	ICProductName LIKE '%"+info+"%'");
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                ICProductsInfo item = new ICProductsInfo();
+                item.setICProductID(rs.getInt("ICProductID"));
+                item.setICProductNo(rs.getString("ICProductNo"));
+                item.setICProductName(rs.getString("ICProductName"));
+                item.setICProductDesc(rs.getString("ICProductDesc"));
+                item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                item.setICProductPrice(rs.getDouble("ICProductPrice"));
+                listPro.add(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listPro;
+    }
+
+    public ICProductsInfo GetObjectByID(int ID) {
         try {
             conn = connection.getConnection();
             pst = conn.prepareCall("CALL ICProducts_GetObjectByID(?)");
             pst.setInt(1, ID);
             rs = pst.executeQuery();
             ICProductsInfo iCProductsInfo = new ICProductsInfo();
-            while(rs.next()){
+            while (rs.next()) {
                 iCProductsInfo.setICProductID(rs.getInt("ICProductID"));
                 iCProductsInfo.setICProductNo(rs.getString("ICProductNo"));
                 iCProductsInfo.setICProductName(rs.getString("ICProductName"));
                 iCProductsInfo.setICProductDate(rs.getDate("ICProductDate"));
-            } 
+            }
             return iCProductsInfo;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
-    
-    public ICProductsInfo Add(ICProductsInfo icp){
+
+    public ICProductsInfo Add(ICProductsInfo icp) {
         try {
-            conn =connection.getConnection();
+            conn = connection.getConnection();
             pst = conn.prepareCall("CALL ICProducts_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pst.setString(1, icp.getICProductNo());
             pst.setDouble(2, icp.getICProductPrice());
@@ -278,10 +311,10 @@ public class ICProductController {
             return null;
         }
     }
-    
-    public ICProductDetailsInfo Add(ICProductDetailsInfo icpd){
+
+    public ICProductDetailsInfo Add(ICProductDetailsInfo icpd) {
         try {
-            conn =connection.getConnection();
+            conn = connection.getConnection();
             pst = conn.prepareCall("CALL ICProductDetail_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pst.setInt(1, icpd.getFK_ICProductID());
             pst.setString(2, icpd.getICProductDetail3G());

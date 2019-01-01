@@ -23,10 +23,10 @@
                     <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH HÓA ĐƠN</h2>
                 </div>
                 <div style="float:right">
-                    <form action="" method="post">
+                    <form action="/Admin_InvoiceGetSearchData" method="post">
                         <table>
                             <tr>
-                                <th><input type="text" name="thongtin_search" /></th>
+                                <th><input type="text" name="info" /></th>
                                 <th><button type="submit" class="btn btn-success" style="width:auto;">Search</button></th>
                             </tr>
                         </table>
@@ -36,6 +36,7 @@
                 <table class="table" style="border:1px;">
                     <tr class="tr" style="background-color: #666666">
                         <th style="color:white">Ngày chứng từ</th>
+                        <th style="color:white">Mã hóa đơn</th>
                         <th style="color:white">Mã đơn hàng</th>
                         <th style="color:white">Khách hàng</th>
                         <th style="color:white">Tên đơn hàng</th>
@@ -48,6 +49,7 @@
                     <c:forEach var="invoice" items = "${listInvoice}">                     
                         <tr>
                             <td style="color:black">${invoice.ARInvoiceDate}</td>
+                            <td style="color:black">${invoice.ARInvoiceNo}</td>
                             <td style="color:black">${invoice.saleorder.ARSaleOrderNo}</td>
                             <td style="color:black">${invoice.customer.ARCustomerName}</td>
                             <td style="color:black">${invoice.ARInvoiceName}</td>

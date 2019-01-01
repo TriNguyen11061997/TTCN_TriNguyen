@@ -7,7 +7,7 @@
         <div class="header_top_right">
             <div class="search_box">
                 <form>
-                    <input type="text" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
+                    <input type="text"  value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
                                 this.value = 'Search for Products';
                             }"><input type="submit" value="SEARCH">
                 </form>
@@ -129,7 +129,7 @@
                             <div class="nav-drop nav-top-brand"> 
                                 <li><a href="/Admin_EmployeeManagement_Servlet">Quản lý nhân viên</a></li>
                                 <li><a href="/Admin_SalaryManagement">Thống kê lương</a></li>
-                                <li><a href="products.jsp">Tài khoản</a></li>					                              
+                                <li><a href="/Admin_UserManagement">Tài khoản</a></li>					                              
                             </div>								
                         </div>
                     </ul>

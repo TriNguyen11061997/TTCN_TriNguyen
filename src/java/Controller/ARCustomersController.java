@@ -28,10 +28,10 @@ public class ARCustomersController {
     ResultSet rs;
 
     public ARCustomersController() {
-        conn = ConnectionPool.getConnection();
     }
 
     public List<ARCustomersInfo> GetALlObject() throws SQLException {
+        conn = ConnectionPool.getConnection();
         List<ARCustomersInfo> listARCustomersInfos = new ArrayList<>();
         sttm = conn.prepareCall("CALL ARCustomers_GetALLObject()");
         rs = sttm.executeQuery();
@@ -48,16 +48,45 @@ public class ARCustomersController {
             objARCustomersInfo.setARCustomerContactAddressCity(rs.getString("ARCustomerContactAddressCity"));
             listARCustomersInfos.add(objARCustomersInfo);
         }
+        conn.close();
         return listARCustomersInfos;
     }
-    
-    public ARCustomersInfo GetObjectByID(int ID){
+
+    public List<ARCustomersInfo> GetSearchData(String info) throws SQLException {
+        conn = ConnectionPool.getConnection();
+        List<ARCustomersInfo> listARCustomersInfos = new ArrayList<>();
+        sttm = conn.prepareStatement("	SELECT 	*\n"
+                + "	FROM 	ARCustomers arc\n"
+                + "	WHERE	arc.AAStatus = 'Alive'\n"
+                + "	AND	arc.ARCustomerNo LIKE '%" + info + "%'\n"
+                + "	OR 	arc.ARCustomerName	LIKE '%" + info + "%'\n"
+                + "	OR 	arc.ARCustomerContactAddress 	LIKE '%" + info + "%'");
+        rs = sttm.executeQuery();
+        ARCustomersInfo objARCustomersInfo;
+        while (rs.next()) {
+            objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerID(rs.getInt("ARCustomerID"));
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            objARCustomersInfo.setARCustomerNo(rs.getString("ARCustomerNo"));
+            objARCustomersInfo.setARCustomerBirthDay(rs.getDate("ARCustomerBirthDay"));
+            objARCustomersInfo.setARCustomerTel1(rs.getString("ARCustomerTel1"));
+            objARCustomersInfo.setARCustomerEmail(rs.getString("ARCustomerEmail"));
+            objARCustomersInfo.setARCustomerContactAddress(rs.getString("ARCustomerContactAddress"));
+            objARCustomersInfo.setARCustomerContactAddressCity(rs.getString("ARCustomerContactAddressCity"));
+            listARCustomersInfos.add(objARCustomersInfo);
+        }
+        conn.close();
+        return listARCustomersInfos;
+    }
+
+    public ARCustomersInfo GetObjectByID(int ID) throws SQLException {
         try {
+            conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL ARCustomer_GetObjectByID(?)");
             sttm.setInt(1, ID);
             rs = sttm.executeQuery();
             ARCustomersInfo aRCustomersInfo = new ARCustomersInfo();
-            while(rs.next()){
+            while (rs.next()) {
                 aRCustomersInfo.setARCustomerID(rs.getInt("ARCustomerID"));
                 aRCustomersInfo.setARCustomerNo(rs.getString("ARCustomerNo"));
                 aRCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
@@ -76,31 +105,35 @@ public class ARCustomersController {
                 aRCustomersInfo.setARCustomerContactAddress(rs.getString("ARCustomerContactAddress"));
                 aRCustomersInfo.setARCustomerContactAddressCity(rs.getString("ARCustomerContactAddressCity"));
                 aRCustomersInfo.setARCustomerContactAddressCountry(rs.getString("ARCustomerContactAddressCountry"));
+                conn.close();
                 return aRCustomersInfo;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ARCustomersController.class.getName()).log(Level.SEVERE, null, ex);
+            conn.close();
             return null;
         }
+        conn.close();
         return null;
     }
 
-    public ARCustomersInfo Delete(ARCustomersInfo arc) {
+    public ARCustomersInfo Delete(ARCustomersInfo arc) throws SQLException {
         try {
+            conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL ARCustomer_Delete(?)");
             sttm.setInt(1, arc.getARCustomerID());
             sttm.execute();
             conn.close();
+            conn.close();
             return arc;
         } catch (SQLException ex) {
-            Logger.getLogger(ARCustomersController.class.getName()).log(Level.SEVERE, null, ex);
+            conn.close();
             return null;
         }
     }
-    
-    
-    public ARCustomersInfo Update(ARCustomersInfo arc){
+
+    public ARCustomersInfo Update(ARCustomersInfo arc) throws SQLException {
         try {
+            conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL ARCustomer_Update(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             sttm.setInt(1, arc.getARCustomerID());
             sttm.setString(2, arc.getARCustomerNo());
@@ -116,15 +149,18 @@ public class ARCustomersController {
             sttm.setString(12, arc.getARCustomerContactAddressCity());
             sttm.setString(13, arc.getARCustomerContactAddressCountry());
             rs = sttm.executeQuery();
+            conn.close();
             return arc;
         } catch (SQLException ex) {
+            conn.close();
             return null;
         }
     }
-    
+
     public boolean CreateAccount(String user, String password, ARCustomersInfo arc) {
         ADUsersInfo objADUsersInfo = new ADUsersInfo();
         try {
+            conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL ADUsers_CheckAccount(?, ?)");
             sttm.setString(1, user);
             sttm.setString(2, arc.getARCustomerIDNumber());
@@ -144,6 +180,7 @@ public class ARCustomersController {
             sttm.setString(7, arc.getARCustomerContactAddressCountry());
             sttm.setString(8, no);
             if (sttm.execute()) {
+                conn.close();
                 return false;
             }
             objGeNumberingsController.Update("ARCustomers");
@@ -155,6 +192,7 @@ public class ARCustomersController {
                 conn.close();
                 return false;
             }
+            conn.close();
             return true;
 
         } catch (SQLException ex) {
