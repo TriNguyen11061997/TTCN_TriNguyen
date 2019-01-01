@@ -23,8 +23,7 @@
                 <div>
                     <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH SẢN PHẨM</h2>
                 </div>
-                <br>
-                <p style="color: red">${Execute}</p>
+                <br>                            
                 <a href="/Admin/admin_ProductAdd.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm sản phẩm</button></a>
                 <div style="float:right">
                     <form action="Admin_ProductGetSearchData" method="post">

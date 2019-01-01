@@ -25,13 +25,17 @@
                 <div class="text list_2_of_1">
                     <h2><%=item1.getICProductName()%></h2>
                     <p><%=item1.getICProductDesc()%></p>
-                    <div class="button"><span><a href="/cart_add?id=<%=item1.getICProductID()%>" >Giỏ hàng</a></span></div>
+                    <div class="button"><span><a <%if (session.getAttribute("HREmployeeID") != null) { %> 
+                                <% int ID = 0;
+                                    ID = (Integer) session.getAttribute("HREmployeeID");
+                                %>
+                                href="/cart_add?id=<%=item1.getICProductID()%>&idcus=<%=ID%>"<%} else {%> href="/Login_Servlet" <%}%> class="cart-button">Giỏ hàng</a></span></div>
                 </div>
             </div>
             <%i++;
                 }%>
         </div>
-        
+
         <div class="section group">
             <div class="listview_1_of_2 images_1_of_2">
                 <div class="listimg listimg_2_of_1">
@@ -89,7 +93,7 @@
             %>
             <div class="grid_1_of_4 images_1_of_4">
                 <a href="/preview?id=<%=item.getICProductID()%>"><img style="width:266px;height:300px;" src="Images/<%=item.getICProductPicture1()%>" alt="" /></a>
-                <h2><%=item.getICProductDesc()%> </h2>
+
                 <p><%=item.getICProductName()%></p>
                 <p><span class="strike"></span><span class="price"><%=item.getICProductPrice()%> VNĐ</span></p>
                 <div class="button"><span><img src="Assets/images/cart.jpg" alt="" /><a <%if (session.getAttribute("HREmployeeID") != null) { %> 

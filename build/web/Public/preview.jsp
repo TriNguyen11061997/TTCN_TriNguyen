@@ -99,79 +99,70 @@
                             </style>
 
                             <div id="toggleThongSo" rv-class-show="FeatureProduct | lengthCount 16 | == false" class="show">
-                                <table class="tablet" rv-show="FeatureProduct | lengthCount 0" style="">
+                                <table class="tablet" rv-show="FeatureProduct | lengthCount 0" style="width: 70%;">
                                     <tbody><!-- rivets: each-item --><tr>
-                                        <th rv-text="item.ProductFeatureDescription">Mạng 2G</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Có</p></td>
-                                    </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Mạng 3G</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Có</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetail3G()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Mạng 4G</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Có</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetail4G()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">SIM</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>2 sim 2 sóng</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailSIM()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Kích Thước</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>156.1 x 76 x 7.95mm</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailKichThuoc()%> mm</p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Màu Sắc</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Xanh lục bảo / Vàng hồng / Đen</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailMauSac()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Trọng Lượng</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>180g</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailTrongLuong()%> g</p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Loại</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>IPS FHD+ (1080 x 2280 pixels)</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailLoai()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Màn Hình</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>6.18 inches</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailManHinh()%> inches</p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Loa Ngoài</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Có</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailRAM()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Bộ Nhớ Trong</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>RAM 6GB, ROM 64GB</p></td>
-                                    </tr><tr>
-                                        <th rv-text="item.ProductFeatureDescription">Khe Cắm Thẻ Nhớ</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>microSD, hỗ trợ lên đến 256GB</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailBoNhoTrong()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">3.5mm jack</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Có</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailJack()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Bluetooth</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>4.2</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailBluetooth()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">WLAN</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>802.11 a/b/g/n</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailWLAN()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Camera chính</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>24MP + 12MP, f/1.8</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailCameraChinh()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Camera Phụ</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>20MP, f/2.0</p></td>
-                                    </tr><tr>
-                                        <th rv-text="item.ProductFeatureDescription">Chức Năng</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Chụp ảnh xóa phông, Lấy nét theo pha, Tự động lấy nét, Chạm lấy nét, Nhận diện khuôn mặt, HDR, Panorama</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailCamaraPhu()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Quay Phim</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>1080p@30fps, 2160p@30fps</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailQuayPhim()%></p></td>
                                     </tr><tr>
-                                        <th rv-text="item.ProductFeatureDescription">CPU</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Snapdragon 660, 8 nhân, 4 nhân 2.2 GHz Kryo 260 &amp; 4 nhân 1.8 GHz Kryo 260</p></td>
+                                        <th rv-text="item.ProductFeatureDescription">GPS</th>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailGPS()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">GPU</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Adreno 512</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailCPU()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Bảo Hành</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription">18 tháng</td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><%=obj.getICProductDetailBaoHanh()%></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Loại Pin</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>3650mAh, QC 3.0</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailPin()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Hệ Điều Hành</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p>Android 8.1 (Oreo)&nbsp;- VOS</p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailHeDieuHanh()%></p></td>
                                     </tr>
                                 </tbody></table>
                             </div>
@@ -192,28 +183,7 @@
                            <h3 class="detail-title">Đánh giá chi tiết</h3>
                            <div class="row">
 
-                               <style>
-                                   .short-description p img {
-                                       float: left;
-                                       width: 50%;
-                                       max-width: 100%;
-                                       height: auto;
-                                       padding-right: 15px;
-                                       margin-right: 0;
-                                   }
-
-                                   .short-description p span {
-                                       float: left;
-                                       width: 50%;
-                                       padding-right: 15px;
-                                   }
-
-                                   .detail-topic img {
-                                       max-width: 100%;
-                                       height: auto;
-                                   }
-                               </style>
-                               <div class="short-description" rv-show="ProductDes.HtmlDetailDesc | stringEmty" rv-html="ProductDes.HtmlDetailDesc" style=""><p style="text-align: justify;"><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-home.jpg" alt="Vsmart Active 1+" title="Vsmart Active 1+" style="float: left;" width="380" height="180">Là 1 trong 4 điện thoại Vsmart vừa ra mắt, <b>Active 1+</b> gây ấn tượng với người dùng ngay từ thiết kế khung kim loại bền chắc, mặt lưng kính sang trọng, độ hoàn thiện tốt đi kèm mức giá đánh vào phân khúc tầm trung. Đặc biệt cấu hình mạnh mẽ và công nghệ sạc nhanh là ưu điểm nổi bật của sản phẩm, giúp bạn trải nghiệm giải trí thoải mái ở bất cứ nơi đâu.</p></div>
+                           
 
                            </div>
                           
@@ -224,8 +194,6 @@
 
 
                         <div class="detail-topic paragraph collapse in" id="chitietbaiviet" rv-show="ProductDes.HtmlFullDescription | stringEmty" style="" aria-expanded="true">
-
-                            <div rv-html="ProductDes.HtmlFullDescription"><h2 align="center" style="text-align: center;"><b>Vsmart Active 1+ - Vẻ đẹp hoàn thiện từ ngôn ngữ thiết kế</b></h2>
 <p style="text-align: justify;">Được xem là chiếc điện thoại đắt giá nhất so với các “em út” của mình là Vsmart Joy 1, Joy 1+ và Active 1, smartphone Vsmart Active 1+ “khoác” lên mình thiết kế hiện đại và tinh xảo, sang trọng hướng đến nhiều đối tượng người dùng, phổ biến là các doanh nhân trẻ thành đạt. Hiệu năng mạnh mẽ cùng camera chụp hình chất lượng chắc chắn cho bạn những trải nghiệm tốt nhất trong cuộc sống.</p>
 <h3 style="text-align: justify;"><b>Thiết kế hoàn hảo, khung hình tinh xảo</b></h3>
 <p style="text-align: justify;">Active 1+ sở hữu lối thiết kế sang trọng với khung kim loại chắc chắn, kết hợp 2 mặt kính tinh xảo và các góc được bo cong mềm mại, mang đến cảm giác cầm nắm dễ chịu cho người sử dụng. Mặt lưng sau là cụm camera kép thiết kế lồi nằm dọc bên trái và nổi bật logo Vsmart hình ngọn lửa thể hiện tinh thần và trí tuệ sáng tạo của người Việt. Ngoài ra còn có cảm biến vân tay 1 chạm giúp bạn dễ dàng mở khóa máy mà vẫn đảm bảo an toàn thông tin cá nhân.</p>
