@@ -66,7 +66,7 @@
                 </form>
                 <br>
                 <div style="float:left;">
-                    <form action="/Admin_Revenue_Servlet" method="get">
+                    <form action="/Admin_SalaryReportByMonthAndYear_Servlet" method="get">
                         <table>
                             <tr>
                                 <th>

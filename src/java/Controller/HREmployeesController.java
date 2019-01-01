@@ -156,4 +156,43 @@ public class HREmployeesController {
             return null;
         }
     }
+    
+    public List<HREmployeesInfo> Sort(String info){
+   
+            List<HREmployeesInfo> listHREmployeesInfos = new ArrayList<>();
+            try {
+            conn = ConnectionPool.getConnection();
+            sttm = conn.prepareStatement("SELECT 	*\n"
+                             + "	FROM 	hremployees so\n"
+                             + "	WHERE	so.AAStatus = 'Alive'\n"
+                             + "	AND (so.HREmployeeNo like '%"+info+"%' "
+                             + "or so.HREmployeeName like '%"+info+"%' "
+                             + "or so.HREmployeeIDNumber like '%"+info+"%' "
+                             + "or so.HREmployeeContactAddress like '%"+info+"%' "
+                             + "or so.HREmployeeContactAddressCity like '%"+info+"%' "
+                             + "or so.HREmployeeTel1 like '%"+info+"%')"
+                     );	
+            rs = sttm.executeQuery();
+            HREmployeesInfo objHREmployeesInfo;
+            while (rs.next()) {
+                objHREmployeesInfo = new HREmployeesInfo();
+                objHREmployeesInfo.setHREmployeeID(rs.getInt("HREmployeeID"));
+                objHREmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+                objHREmployeesInfo.setHREmployeeNo(rs.getString("HREmployeeNo"));
+                objHREmployeesInfo.setHREmployeeBirthDay(rs.getDate("HREmployeeBirthDay"));
+                objHREmployeesInfo.setHREmployeeCardNumber(rs.getString("HREmployeeCardNumber"));
+                objHREmployeesInfo.setHREmployeeTel1(rs.getString("HREmployeeTel1"));
+                objHREmployeesInfo.setHREmployeeContactAddress(rs.getString("HREmployeeContactAddress"));
+                objHREmployeesInfo.setHREmployeeContactAddressCity(rs.getString("HREmployeeContactAddressCity"));
+                objHREmployeesInfo.setHREmployeeContactAddressCountry(rs.getString("HREmployeeContactAddressCountry"));
+                objHREmployeesInfo.setHREmployeeStatus(rs.getString("HREmployeeStatus"));
+                listHREmployeesInfos.add(objHREmployeesInfo);
+            }
+            conn.close();
+            return listHREmployeesInfos;
+             } catch (SQLException ex) {
+                 Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+                 return null;
+             }
+    }
 }

@@ -67,4 +67,38 @@ public class HRSalarysController {
         conn.close();
         return true;
     }
+    
+    public List<HRSalarysInfo> GetObjectByMonthAndYear(int Month, int Year) throws SQLException {
+        conn = ConnectionPool.getConnection();
+        if(Month != 0 && Year != 0){
+            sttm = conn.prepareCall("CALL HRSalary_ReportByMonthAndYear(?, ?)");
+        }
+        else{
+            sttm = conn.prepareCall("CALL HRSalary_ReportByMonthOrYear(?, ?)");
+        }
+        sttm.setInt(1, Month);
+        sttm.setInt(2, Year);
+        rs = sttm.executeQuery();
+        List<HRSalarysInfo> list = new ArrayList<>();
+        HRSalarysInfo objHRSalarysInfo;
+        while (rs.next()) {
+            objHRSalarysInfo = new HRSalarysInfo();
+            objHRSalarysInfo.setHRSalaryID(rs.getInt("HRSalaryID"));
+            objHRSalarysInfo.setFK_HREmployeeID(rs.getInt("FK_HREmployeeID"));
+            objHRSalarysInfo.setHRSalaryMonth(rs.getInt("HRSalaryMonth"));
+            objHRSalarysInfo.setHRSalaryYear(rs.getInt("HRSalaryYear"));
+            objHRSalarysInfo.setHRSalaryQty(rs.getDouble("HRSalaryQty"));
+            objHRSalarysInfo.setHRSalaryBonus(rs.getDouble("HRSalaryBonus"));
+            objHRSalarysInfo.setHRSalaryBasic(rs.getDouble("HRSalaryBasic"));
+            objHRSalarysInfo.setHRSalaryToTal(rs.getDouble("HRSalaryToTal"));
+            objHRSalarysInfo.setHRSalaryReduce(rs.getDouble("HRSalaryReduce"));
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeNo(rs.getString("HREmployeeNo"));
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objHRSalarysInfo.setEmployee(objEmployeesInfo);
+            list.add(objHRSalarysInfo);
+        }
+        conn.close();
+        return list;
+    }
 }
