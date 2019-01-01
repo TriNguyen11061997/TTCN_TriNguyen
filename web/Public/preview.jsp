@@ -126,13 +126,13 @@
                                         <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailManHinh()%> inches</p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Loa Ngoài</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailLoaNgoai()%></p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailRAM()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Bộ Nhớ Trong</th>
                                         <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailBoNhoTrong()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">3.5mm jack</th>
-                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailJack3dot5mm()%></p></td>
+                                        <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailJack()%></p></td>
                                     </tr><tr>
                                         <th rv-text="item.ProductFeatureDescription">Bluetooth</th>
                                         <td rv-html="item.VariantId | valueVariant item.Value item.ProductFeatureVariantDescription"><p><%=obj.getICProductDetailBluetooth()%></p></td>
