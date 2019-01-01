@@ -15,7 +15,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>   
     <head>
-        <<title>Smart phone store</title>
+        <title>Smart phone store</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="../Assets/css/style.css" rel="stylesheet" type="text/css" media="all"/>
@@ -206,7 +206,7 @@
                                     %>
                                     <input id="email" name="FK_HREmployeeID"value="<%= objEmployeesInfo.getHREmployeeName()%>" type="text" placeholder="" class="form-control" required="" readonly="">
                                 </div>
-                                <input id="right" type="submit" value="Thêm" class="form-control locked" style="background-color: #17a2b8">
+                                <input id="right" type="submit" value="Cập nhật" class="form-control locked" style="background-color: #17a2b8">
                             </div>
 
                         </form>

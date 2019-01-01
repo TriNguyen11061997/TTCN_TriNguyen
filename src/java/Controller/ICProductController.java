@@ -253,16 +253,15 @@ public class ICProductController {
         return listPro;
     }
 
-
     public List<ICProductsInfo> GetSearchData(String info) {
         List<ICProductsInfo> listPro = new ArrayList<>();
         try {
             conn = connection.getConnection();
-            pst = conn.prepareStatement("SELECT 	*\n" +
-"	FROM 	ICProducts\n" +
-"	WHERE 	AAStatus = 'Alive'\n" +
-"	AND	ICProductNo LIKE '%"+info+"%'\n" +
-"	OR	ICProductName LIKE '%"+info+"%'");
+            pst = conn.prepareStatement("SELECT 	*\n"
+                    + "	FROM 	ICProducts\n"
+                    + "	WHERE 	AAStatus = 'Alive'\n"
+                    + "	AND	ICProductNo LIKE '%" + info + "%'\n"
+                    + "	OR	ICProductName LIKE '%" + info + "%'");
             rs = pst.executeQuery();
             while (rs.next()) {
                 ICProductsInfo item = new ICProductsInfo();
@@ -298,6 +297,7 @@ public class ICProductController {
             ICProductsInfo iCProductsInfo = new ICProductsInfo();
             while (rs.next()) {
                 iCProductsInfo.setICProductID(rs.getInt("ICProductID"));
+                iCProductsInfo.setICProductNo(rs.getString("ICProductNo"));
                 iCProductsInfo.setICProductName(rs.getString("ICProductName"));
                 iCProductsInfo.setICProductDate(rs.getDate("ICProductDate"));
                 iCProductsInfo.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
@@ -312,9 +312,6 @@ public class ICProductController {
         }
     }
 
-    public ICProductsInfo Add(ICProductsInfo icp) {
-        try {
-            conn = connection.getConnection();
     public ICProductsInfo GetObjectByProductID(int id) {
 
         try {
@@ -392,32 +389,6 @@ public class ICProductController {
         }
     }
 
-    public ICProductDetailsInfo Add(ICProductDetailsInfo icpd) {
-        try {
-            conn = connection.getConnection();
-            pst = conn.prepareCall("CALL ICProductDetail_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            pst.setInt(1, icpd.getFK_ICProductID());
-            pst.setString(2, icpd.getICProductDetail3G());
-            pst.setString(3, icpd.getICProductDetail4G());
-            pst.setString(4, icpd.getICProductDetailSIM());
-            pst.setString(5, icpd.getICProductDetailKichThuoc());
-            pst.setString(6, icpd.getICProductDetailMauSac());
-            pst.setString(7, icpd.getICProductDetailTrongLuong());
-            pst.setString(8, icpd.getICProductDetailLoai());
-            pst.setString(9, icpd.getICProductDetailManHinh());
-            pst.setString(10, icpd.getICProductDetailHeDieuHanh());
-            pst.setString(11, icpd.getICProductDetailLoaNgoai());
-            pst.setString(12, icpd.getICProductDetailJack3dot5mm());
-            pst.setString(13, icpd.getICProductDetailBoNhoTrong());
-            pst.setString(14, icpd.getICProductDetailBluetooth());
-            pst.setString(15, icpd.getICProductDetailGPS());
-            pst.setString(16, icpd.getICProductDetailPin());
-            pst.setString(17, icpd.getICProductDetailWLAN());
-            pst.setString(18, icpd.getICProductDetailCameraChinh());
-            pst.setString(19, icpd.getICProductDetailCamaraPhu());
-            pst.setString(20, icpd.getICProductDetailQuayPhim());
-            pst.setString(21, icpd.getICProductDetailCPU());
-            pst.setString(22, icpd.getICProductDetailBaoHanh());
     public ICProductsInfo Update(ICProductsInfo icp) {
         try {
             conn = connection.getConnection();
