@@ -21,8 +21,7 @@ public class ICProductDetailsInfo {
     String ICProductDetailLoai;
     String ICProductDetailManHinh;
     String ICProductDetailAudio;
-    String ICProductDetailLoaNgoai;
-    String ICProductDetailVideo;
+    String ICProductDetailRAM;
     String ICProductDetailBoNhoTrong;
     String ICProductDetailBluetooth;
     String ICProductDetailGPS;
@@ -34,7 +33,7 @@ public class ICProductDetailsInfo {
     String ICProductDetailCPU;
     String ICProductDetailBaoHanh;
     private String ICProductDetailHeDieuHanh;
-    private String ICProductDetailJack3dot5mm;
+    private String ICProductDetailJack;
     private ICProductsInfo product;
 
     public ICProductsInfo getProduct() {
@@ -49,7 +48,7 @@ public class ICProductDetailsInfo {
     public ICProductDetailsInfo() {
     }
 
-    public ICProductDetailsInfo(int ICProductDetailID, int FK_ICProductID, String ICProductDetail3G, String ICProductDetail4G, String ICProductDetailSIM, String ICProductDetailKichThuoc, String ICProductDetailMauSac, String ICProductDetailTrongLuong, String ICProductDetailLoai, String ICProductDetailManHinh, String ICProductDetailAudio, String ICProductDetailLoaNgoai, String ICProductDetailVideo, String ICProductDetailBoNhoTrong, String ICProductDetailBluetooth, String ICProductDetailGPS, String ICProductDetailPin, String ICProductDetailWLAN, String ICProductDetailCameraChinh, String ICProductDetailCamaraPhu, String ICProductDetailQuayPhim, String ICProductDetailCPU, String ICProductDetailBaoHanh) {
+    public ICProductDetailsInfo(int ICProductDetailID, int FK_ICProductID, String ICProductDetail3G, String ICProductDetail4G, String ICProductDetailSIM, String ICProductDetailKichThuoc, String ICProductDetailMauSac, String ICProductDetailTrongLuong, String ICProductDetailLoai, String ICProductDetailManHinh, String ICProductDetailAudio,  String ICProductDetailVideo, String ICProductDetailBoNhoTrong, String ICProductDetailBluetooth, String ICProductDetailGPS, String ICProductDetailPin, String ICProductDetailWLAN, String ICProductDetailCameraChinh, String ICProductDetailCamaraPhu, String ICProductDetailQuayPhim, String ICProductDetailCPU, String ICProductDetailBaoHanh) {
         this.ICProductDetailID = ICProductDetailID;
         this.FK_ICProductID = FK_ICProductID;
         this.ICProductDetail3G = ICProductDetail3G;
@@ -61,8 +60,7 @@ public class ICProductDetailsInfo {
         this.ICProductDetailLoai = ICProductDetailLoai;
         this.ICProductDetailManHinh = ICProductDetailManHinh;
         this.ICProductDetailAudio = ICProductDetailAudio;
-        this.ICProductDetailLoaNgoai = ICProductDetailLoaNgoai;
-        this.ICProductDetailVideo = ICProductDetailVideo;
+
         this.ICProductDetailBoNhoTrong = ICProductDetailBoNhoTrong;
         this.ICProductDetailBluetooth = ICProductDetailBluetooth;
         this.ICProductDetailGPS = ICProductDetailGPS;
@@ -163,22 +161,6 @@ public class ICProductDetailsInfo {
         this.ICProductDetailAudio = ICProductDetailAudio;
     }
 
-    public String getICProductDetailLoaNgoai() {
-        return ICProductDetailLoaNgoai;
-    }
-
-    public void setICProductDetailLoaNgoai(String ICProductDetailLoaNgoai) {
-        this.ICProductDetailLoaNgoai = ICProductDetailLoaNgoai;
-    }
-
-    public String getICProductDetailVideo() {
-        return ICProductDetailVideo;
-    }
-
-    public void setICProductDetailVideo(String ICProductDetailVideo) {
-        this.ICProductDetailVideo = ICProductDetailVideo;
-    }
-
     public String getICProductDetailBoNhoTrong() {
         return ICProductDetailBoNhoTrong;
     }
@@ -273,18 +255,34 @@ public class ICProductDetailsInfo {
         this.ICProductDetailHeDieuHanh = ICProductDetailHeDieuHanh;
     }
 
+
+
     /**
-     * @return the ICProductDetailJack3dot5mm
+     * @return the ICProductDetailRAM
      */
-    public String getICProductDetailJack3dot5mm() {
-        return ICProductDetailJack3dot5mm;
+    public String getICProductDetailRAM() {
+        return ICProductDetailRAM;
     }
 
     /**
-     * @param ICProductDetailJack3dot5mm the ICProductDetailJack3dot5mm to set
+     * @param ICProductDetailRAM the ICProductDetailRAM to set
      */
-    public void setICProductDetailJack3dot5mm(String ICProductDetailJack3dot5mm) {
-        this.ICProductDetailJack3dot5mm = ICProductDetailJack3dot5mm;
+    public void setICProductDetailRAM(String ICProductDetailRAM) {
+        this.ICProductDetailRAM = ICProductDetailRAM;
+    }
+
+    /**
+     * @return the ICProductDetailJack
+     */
+    public String getICProductDetailJack() {
+        return ICProductDetailJack;
+    }
+
+    /**
+     * @param ICProductDetailJack the ICProductDetailJack to set
+     */
+    public void setICProductDetailJack(String ICProductDetailJack) {
+        this.ICProductDetailJack = ICProductDetailJack;
     }
     
     

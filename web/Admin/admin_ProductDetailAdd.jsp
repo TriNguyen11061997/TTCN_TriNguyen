@@ -4,6 +4,7 @@
     Author     : PC
 --%>
 
+<%@page import="Controller.ICProductDetailsController"%>
 <%@page import="Info.ICProductsInfo"%>
 <%@page import="Controller.ICProductController"%>
 <%@page import="Info.HREmployeesInfo"%>
@@ -40,8 +41,10 @@
                     <p style="color: red">${ProductDetailAdd}</p>
                     <div class="row">   
                         <%
-                        ICProductController iCProductController = new ICProductController();
-                        ICProductsInfo iCProductsInfo = iCProductController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
+                        //ICProductController iCProductController = new ICProductController();
+                        //ICProductsInfo iCProductsInfo = iCProductController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
+                        ICProductsInfo iCProductsInfo = (ICProductsInfo)request.getAttribute("iCProductsInfo");
+                        
                         %>
                         <form class="form-card" action="/Admin_ProductDetailAdd_Servlet" method="post" >
                             <input id="name" name="FK_ICProductID" value="<%=iCProductsInfo.getICProductID()%>" class="form-control" type="hidden">
@@ -64,117 +67,130 @@
                                 <div class='col-xs-12 form-group' id="left3">
                                     <label class="control-label locked" for="name-input-field">3G</label>
                                     <select class="form-control" name="ICProductDetail3G">
-                                        <option value="Có">Có</option>
+                                        <%if("Có".equals(iCProductsInfo.getiCProductDetailsInfo().getICProductDetail3G())){  %>
+                                        <option selected="selected" value="Có">Có</option>
                                         <option value="Không">Không</option>
+                                        <%}else if("Không".equals(iCProductsInfo.getiCProductDetailsInfo().getICProductDetail3G())){%>
+                                        <option  value="Có">Có</option>
+                                        <option selected="selected" value="Không">Không</option>
+                                        <%}else{%>
+                                        <option value="">---Mời chọn---</option>
+                                        <option  value="Có">Có</option>
+                                        <option value="Không">Không</option>
+                                        <%}%>
                                     </select>
                                 </div>
                                 <div class='col-xs-12 form-group' id="left4">
                                     <label class="control-label locked" for="name-input-field">4G</label>
                                     <select class="form-control" name="ICProductDetail4G">
-                                        <option value="Có">Có</option>
+                                        <%if("Có".equals(iCProductsInfo.getiCProductDetailsInfo().getICProductDetail4G())){  %>
+                                        <option selected="selected" value="Có">Có</option>
                                         <option value="Không">Không</option>
+                                        <%}else if("Không".equals(iCProductsInfo.getiCProductDetailsInfo().getICProductDetail4G())){%>
+                                        <option  value="Có">Có</option>
+                                        <option selected="selected" value="Không">Không</option>
+                                        <%}else{%>
+                                        <option value="">---Mời chọn---</option>
+                                        <option  value="Có">Có</option>
+                                        <option value="Không">Không</option>
+                                        <%}%>
                                     </select>
                                 </div>
                                 <div class='col-xs-12 form-group' id="right3">
                                     <label class="control-label locked" for="email-input-field">SIM</label>
-                                    <input id="email" name="ICProductDetailSIM"  type="text"  class="form-control" >
+                                    <input id="email" name="ICProductDetailSIM"  value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailSIM()%>" type="text"  class="form-control" >
                                 </div>
                             </div> 
+                                    
                             <br> <br> <br>                          
                             <div class='form-group'>                                                          
                                 <div class='col-xs-12 form-group'  id="left3">
                                     <label class="control-label locked" for="name-input-field">Kích thước</label>
-                                    <input id="name" name="ICProductDetailKichThuoc"  class="form-control" type="text" >                                  
+                                    <input id="name" name="ICProductDetailKichThuoc" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailKichThuoc()%>"  class="form-control" type="text" >                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="left4">
                                     <label class="control-label locked" for="name-input-field">Màu sắc</label>
-                                    <input id="name" name="ICProductDetailMauSac"  class="form-control" type="text">                                  
+                                    <input id="name" name="ICProductDetailMauSac" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailMauSac()%>" class="form-control" type="text">                                  
                                 </div>    
                                 <div class='col-xs-12 form-group' id="right3">
                                     <label class="control-label locked" for="phone-input-field">Trọng lượng</label>
-                                    <input id="name" name="ICProductDetailTrongLuong"  class="form-control" type="text">                       
+                                    <input id="name" name="ICProductDetailTrongLuong" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailTrongLuong()%>" class="form-control" type="text">                       
                                 </div>  
                             </div>
 
                             <div class='form-group'>                                                          
                                 <div class='col-xs-12 form-group'  id="left3">
                                     <label class="control-label locked" for="name-input-field">Loại</label>
-                                    <input id="name" name="ICProductDetailLoai"  class="form-control" type="text" >                                  
+                                    <input id="name" name="ICProductDetailLoai" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailLoai()%>" class="form-control" type="text" >                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="left4">
                                     <label class="control-label locked" for="name-input-field">Màn hình</label>
-                                    <input id="name" name="ICProductDetailManHinh" class="form-control" type="text">                                  
+                                    <input id="name" name="ICProductDetailManHinh" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailManHinh()%>" class="form-control" type="text">                                  
                                 </div> 
                                 <div class='col-xs-12 form-group' id="right3">
                                     <label class="control-label locked" for="phone-input-field">Hệ điều hành</label>
-                                    <input id="name" name="ICProductDetailHeDieuHanh"  class="form-control" type="text">                       
+                                    <input id="name" name="ICProductDetailHeDieuHanh" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailHeDieuHanh()%>"  class="form-control" type="text">                       
                                 </div>                                                                
                             </div>
                             
                             <div class='form-group'>                                                          
                                 <div class='col-xs-12 form-group'  id="left3">
-                                    <label class="control-label locked" for="name-input-field">Loa ngoài</label>
-                                    <select class="form-control" name="ICProductDetailLoaNgoai">
-                                        <option value="Có">Có</option>
-                                        <option value="Không">Không</option>
-                                    </select>
+                                    <label class="control-label locked" for="name-input-field">RAM</label>
+                                    <input id="name" name="ICProductDetailRAM" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailRAM()%>"  class="form-control" type="text">                       
                                 </div>
                                  <div class='col-xs-12 form-group' id="left4">
-                                    <label class="control-label locked" for="name-input-field">Jack 3.5mm</label>
-                                    <select class="form-control" name="ICProductDetailJack3dot5mm">
-                                        <option value="Có">Có</option>
-                                        <option value="Không">Không</option>
-                                    </select>
+                                    <label class="control-label locked" for="name-input-field">Jack</label>
+                                    <input id="name" name="ICProductDetailJack" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailJack()%>"  class="form-control" type="text">                       
                                 </div> 
                                 
                                 <div class='col-xs-12 form-group' id="right3">
                                     <label class="control-label locked" for="phone-input-field">Bluetooth</label>
-                                    <input id="name" name="ICProductDetailBluetooth"  class="form-control" type="text">                       
+                                    <input id="name" name="ICProductDetailBluetooth" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailBluetooth()%>" class="form-control" type="text">                       
                                 </div>                                                                
                             </div>
 
                             <div class='form-group'>                                                          
                                 <div class='col-xs-12 form-group'  id="left3">
                                     <label class="control-label locked" for="name-input-field">GPS</label>
-                                    <input id="name" name="ICProductDetailGPS"  class="form-control" type="text" >                                  
+                                    <input id="name" name="ICProductDetailGPS" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailGPS()%>" class="form-control" type="text" >                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="left4">
                                     <label class="control-label locked" for="name-input-field">PIN</label>
-                                    <input id="name" name="ICProductDetailPin" class="form-control" type="text">                                  
+                                    <input id="name" name="ICProductDetailPin" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailPin()%>" class="form-control" type="text">                                  
                                 </div> 
                                 <div class='col-xs-12 form-group' id="right3">
                                     <label class="control-label locked" for="phone-input-field">WLAN</label>
-                                    <input id="name" name="ICProductDetailWLAN"  class="form-control" type="text">                       
+                                    <input id="name" name="ICProductDetailWLAN" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailWLAN()%>"  class="form-control" type="text">                       
                                 </div>                                                                
                             </div>
                             
                             <div class='form-group'>                                                          
                                 <div class='col-xs-12 form-group'  id="left3">
                                     <label class="control-label locked" for="name-input-field">Camera chính</label>
-                                    <input id="name" name="ICProductDetailCameraChinh"  class="form-control" type="text" >                                  
+                                    <input id="name" name="ICProductDetailCameraChinh" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailCameraChinh()%>"  class="form-control" type="text" >                                  
                                 </div>
                                 <div class='col-xs-12 form-group' id="left4">
                                     <label class="control-label locked" for="name-input-field">Camera phụ</label>
-                                    <input id="name" name="ICProductDetailCamaraPhu" class="form-control" type="text">                                  
+                                    <input id="name" name="ICProductDetailCamaraPhu" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailCamaraPhu()%>" class="form-control" type="text">                                  
                                 </div> 
                                 <div class='col-xs-12 form-group' id="right3">
                                     <label class="control-label locked" for="phone-input-field">Quay phim</label>
-                                    <input id="name" name="ICProductDetailQuayPhim"  class="form-control" type="text">                       
+                                    <input id="name" name="ICProductDetailQuayPhim"  value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailQuayPhim()%>" class="form-control" type="text">                       
                                 </div>                                                                
                             </div>
                             
                             <div class='form-group'>                                                          
                                 <div class='col-xs-12 form-group'  id="left3">
                                     <label class="control-label locked" for="name-input-field">CPU</label>
-                                    <input id="name" name="ICProductDetailCPU"  class="form-control" type="text" >                                  
+                                    <input id="name" name="ICProductDetailCPU" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailCPU()%>"  class="form-control" type="text" >                                  
                                 </div>
                                <div class='col-xs-12 form-group' id="left4">
                                     <label class="control-label locked" for="name-input-field">Bộ nhớ trong</label>
-                                    <input id="name" name="ICProductDetailBoNhoTrong" class="form-control" type="text">                                  
+                                    <input id="name" name="ICProductDetailBoNhoTrong" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailBoNhoTrong()%>" class="form-control" type="text">                                  
                                 </div> 
                                 <div class='col-xs-12 form-group' id="right3">
                                     <label class="control-label locked" for="phone-input-field">Bảo hành</label>
-                                    <input id="name" name="ICProductDetailBaoHanh"  class="form-control" type="text">                       
+                                    <input id="name" name="ICProductDetailBaoHanh" value="<%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailBaoHanh()%>"  class="form-control" type="text">                       
                                 </div>                                                                
                             </div>
 

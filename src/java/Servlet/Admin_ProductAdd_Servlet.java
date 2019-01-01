@@ -139,6 +139,7 @@ public class Admin_ProductAdd_Servlet extends HttpServlet {
             
             ICProductsInfo icp = iCProductController.Add(iCProductsInfo);
             if(icp != null){
+                request.setAttribute("Execute", "Thêm thông tin thành công");
                 response.sendRedirect("/Admin_ProductManagement");
             }
             else{
