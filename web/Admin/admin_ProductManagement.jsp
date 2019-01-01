@@ -24,6 +24,7 @@
                     <h2 style="text-align: center;margin-top: 20px; color:darkviolet ">DANH SÁCH SẢN PHẨM</h2>
                 </div>
                 <br>
+                <p style="color: red">${Execute}</p>
                 <a href="/Admin/admin_ProductAdd.jsp"><button style="float:left;width:auto;" class="btn btn-success"><span class="glyphicon glyphicon-user"></span>Thêm sản phẩm</button></a>
                 <div style="float:right">
                     <form action="Admin_ProductGetSearchData" method="post">
@@ -53,9 +54,9 @@
                             <td style="color:black">${product.ICProductDesc}</td>
                             <td style="color:black">${product.ICProductSupplierPrice}</td>
                             <td style="color:black">${product.ICProductPrice}</td>
-                            <td><a href="/Admin/admin_ProductDetailAdd.jsp?ID=${product.ICProductID}"><button class="btn btn-success" style="height:30p;width: 100%">Cập nhật chi tiết</button></a></td> 
-                            <td><a href="/Admin_EmployeeLoadUpdate_Servlet?ID=${employee.HREmployeeID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href="/Admin_EmployeeDelete_Servlet?ID=${employee.HREmployeeID}"><button onclick="myFunction('@i.MaBenhNhan')" type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
+                            <td><a href="/Admin_ProductDetailLoad_Servlet?ID=${product.ICProductID}"><button class="btn btn-success" style="height:30p;width: 100%">Cập nhật chi tiết</button></a></td> 
+                            <td><a href="/Admin_ProductLoadupdate_Servlet?ID=${product.ICProductID}"><button type="button" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="/Admin_ProductDelete_Servlet?ID=${product.ICProductID}"><button  type="button" class="delete btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a></td>
                         </tr>
                     </c:forEach>
                 </table>

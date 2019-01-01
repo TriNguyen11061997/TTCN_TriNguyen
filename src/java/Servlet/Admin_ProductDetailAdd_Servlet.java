@@ -6,10 +6,12 @@
 package Servlet;
 
 import Controller.ICProductController;
+import Controller.ICProductDetailsController;
 import Info.ICProductDetailsInfo;
 import Info.ICProductsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +43,7 @@ public class Admin_ProductDetailAdd_Servlet extends HttpServlet {
         HttpSession session = request.getSession();
         if (session.getAttribute("HREmployeeID") != null) {
             ICProductDetailsInfo iCProductDetailsInfo = new ICProductDetailsInfo();
-            ICProductController iCProductController = new ICProductController();
+            ICProductDetailsController iCProductDetailsController = new ICProductDetailsController();
             
             
             //ICProductsInfo iCProductsInfo = iCProductController.GetObjectByID(Integer.parseInt(request.getParameter("ID")));
@@ -50,14 +52,14 @@ public class Admin_ProductDetailAdd_Servlet extends HttpServlet {
             iCProductDetailsInfo.setICProductDetail3G(request.getParameter("ICProductDetail3G"));
             iCProductDetailsInfo.setICProductDetail4G(request.getParameter("ICProductDetail4G"));
             iCProductDetailsInfo.setICProductDetailSIM(request.getParameter("ICProductDetailSIM"));
-            iCProductDetailsInfo.setICProductDetailKichThuoc("ICProductDetailKichThuoc");
+            iCProductDetailsInfo.setICProductDetailKichThuoc(request.getParameter("ICProductDetailKichThuoc"));
             iCProductDetailsInfo.setICProductDetailMauSac(request.getParameter("ICProductDetailMauSac"));
             iCProductDetailsInfo.setICProductDetailTrongLuong(request.getParameter("ICProductDetailTrongLuong"));
             iCProductDetailsInfo.setICProductDetailLoai(request.getParameter("ICProductDetailLoai"));
             iCProductDetailsInfo.setICProductDetailManHinh(request.getParameter("ICProductDetailManHinh"));
             iCProductDetailsInfo.setICProductDetailHeDieuHanh(request.getParameter("ICProductDetailHeDieuHanh"));
-            iCProductDetailsInfo.setICProductDetailLoaNgoai(request.getParameter("ICProductDetailLoaNgoai"));
-            iCProductDetailsInfo.setICProductDetailJack3dot5mm(request.getParameter("ICProductDetailJack3dot5mm"));
+            iCProductDetailsInfo.setICProductDetailRAM(request.getParameter("ICProductDetailRAM"));
+            iCProductDetailsInfo.setICProductDetailJack(request.getParameter("ICProductDetailJack"));
             iCProductDetailsInfo.setICProductDetailBoNhoTrong(request.getParameter("ICProductDetailBoNhoTrong"));
             iCProductDetailsInfo.setICProductDetailBluetooth(request.getParameter("ICProductDetailBluetooth"));
             iCProductDetailsInfo.setICProductDetailGPS(request.getParameter("ICProductDetailGPS"));
@@ -69,9 +71,11 @@ public class Admin_ProductDetailAdd_Servlet extends HttpServlet {
             iCProductDetailsInfo.setICProductDetailCPU(request.getParameter("ICProductDetailCPU"));
             iCProductDetailsInfo.setICProductDetailBaoHanh(request.getParameter("ICProductDetailBaoHanh"));
             
-            ICProductDetailsInfo icpd = iCProductController.Add(iCProductDetailsInfo);
+            ICProductDetailsInfo icpd = iCProductDetailsController.Add(iCProductDetailsInfo);
             if(icpd != null){
-                response.sendRedirect("/Admin_ProductManagement");
+                request.setAttribute("Execute", "Thêm thông tin thành công");
+                 request.getRequestDispatcher("/Admin_ProductManagement").include(request, response);
+                
             }
             else{
                 request.setAttribute("ProductDetailAdd", "Thêm thông tin thất bại");
