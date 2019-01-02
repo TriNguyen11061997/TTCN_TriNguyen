@@ -101,8 +101,6 @@ public class ARCustomersController {
                 aRCustomersInfo.setARCustomerIDNumber(rs.getString("ARCustomerIDNumber"));
                 aRCustomersInfo.setARCustomerCardNumber(rs.getString("ARCustomerCardNumber"));
                 aRCustomersInfo.setARCustomerTaxNumber(rs.getString("ARCustomerTaxNumber"));
-                aRCustomersInfo.setARCustomerStartWorkingDate(rs.getDate("ARCustomerStartWorkingDate"));
-                aRCustomersInfo.setARCustomerEndWorkingDate(rs.getDate("ARCustomerEndWorkingDate"));
                 aRCustomersInfo.setARCustomerTel1(rs.getString("ARCustomerTel1"));
                 aRCustomersInfo.setARCustomerEmail(rs.getString("ARCustomerEmail"));
                 aRCustomersInfo.setARCustomerContactAddress(rs.getString("ARCustomerContactAddress"));

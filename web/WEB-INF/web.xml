@@ -180,6 +180,10 @@
         <servlet-name>CanCelSaleOrder_Servlet</servlet-name>
         <servlet-class>Servlet.CanCelSaleOrder_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Product_Servlet</servlet-name>
+        <servlet-class>Servlet.Product_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerManagement_Servlet</url-pattern>
@@ -359,6 +363,10 @@
     <servlet-mapping>
         <servlet-name>CanCelSaleOrder_Servlet</servlet-name>
         <url-pattern>/CanCelSaleOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Product_Servlet</servlet-name>
+        <url-pattern>/product</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

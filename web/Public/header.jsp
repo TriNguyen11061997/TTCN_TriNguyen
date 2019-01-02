@@ -30,7 +30,7 @@
                     <div class="header_top_right">
                         <div class="search_box">
                             <form action="/search" method="POST">
-                                <input type="text" name="name" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                <input type="text" name="info" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {
                                             this.value = 'Search for Products';
                                         }"><input type="submit" value="SEARCH">
                             </form>
@@ -130,23 +130,10 @@
                     <nav>
                         <ul class="menu list-unstyled">
                             <li><a href="/index_servlet">Trang chủ</a></li>
-                            <li class="activate"><a href="/product">Sản phẩm</a>
+                            <li><a href="/product">Sản phẩm yêu thích</a>
                             </li>
-                            <li><a href="">Sản phẩm hàng đầu</a>			
-                                <ul class="sub-menu list-unstyled sub-menu2">
-                                    <div class="navg-drop-main">
-                                        <div class="nav-drop nav-top-brand"> 
-                                            <li><a href="products.jsp">Product 1</a></li>
-                                            <li><a href="products.jsp">Product 2</a></li>
-                                            <li><a href="products.jsp">Product 3</a></li>					
-                                            <li><a href="products.jsp">Product 4</a></li>
-                                            <li><a href="products.jsp">Product 5</a></li>
-                                            <li><a href="products.jsp">Product 6</a></li>
-                                        </div>								
-                                    </div>
-                                </ul>
                             </li>		
-                            <li><a href="">Dịch vụ</a>
+                            <li><a href="">Tin tức</a>
                             </li>
                             <li><a href="/about">Giới thiệu</a></li>                           
                             <li><a href="/faq">Faqs</a></li>

@@ -1,8 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/Public/header.jsp" %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Info.ARCartsInfo"%>
+<%@page import="Controller.ARCartsController"%>
+
 <%  ICProductController ProductDAO = new ICProductController();
     List<ICProductsInfo> listPro = ProductDAO.getListProduct();
-
+    List<ICProductsInfo> listItems = ProductDAO.getItemBanChay();
 %>
 <div class="header_bottom">
     <div class="header_bottom_left">
@@ -20,39 +24,43 @@
                 <div class="text list_2_of_1">
                     <h2><%=item1.getICProductName()%></h2>
                     <p><%=item1.getICProductDesc()%></p>
-
-                    <div class="button"><span><a href="/cart_add?id=<%=item1.getICProductID()%>" >Giỏ hàng</a></span></div>
+                    <div class="button"><span><a <%if (session.getAttribute("HREmployeeID") != null) { %> 
+                                <% int ID = 0;
+                                    ID = (Integer) session.getAttribute("HREmployeeID");
+                                %>
+                                href="/cart_add?id=<%=item1.getICProductID()%>&idcus=<%=ID%>"<%} else {%> href="/Login_Servlet" <%}%> class="cart-button">Giỏ hàng</a></span></div>
                 </div>
             </div>
-
             <%i++;
                 }%>
         </div>
-
         <div class="section group">
+            <%   int j = 1;
+                for (ICProductsInfo item1 : listItems) {
+                    if (j == 3) {
+                        break;
+                    }
+            %>
             <div class="listview_1_of_2 images_1_of_2">
                 <div class="listimg listimg_2_of_1">
-                    <a href="preview-3.jsp"> <img src="Assets/images/pic3.jpg" alt="" /></a>
+                    <a href="/preview?id=<%=item1.getICProductID()%>"> <img src="Images/<%=item1.getICProductPicture1()%>" alt="" /></a>
                 </div>
                 <div class="text list_2_of_1">
-                    <h2>Acer</h2>
-                    <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-                    <div class="button"><span><a href="preview.jsp">Giỏ hàng</a></span></div>
-                </div>
-            </div>			
-            <div class="listview_1_of_2 images_1_of_2">
-                <div class="listimg listimg_2_of_1">
-                    <a href="preview.jsp"><img src="Assets/images/pic1.png" alt="" /></a>
-                </div>
-                <div class="text list_2_of_1">
-                    <h2>Canon</h2>
-                    <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-                    <div class="button"><span><a href="preview.jsp">Giỏ hàng</a></span></div>
+                    <h2><%=item1.getICProductName()%></h2>
+
+                    <div class="button"><span><a <%if (session.getAttribute("HREmployeeID") != null) { %> 
+                                <% int ID = 0;
+                                    ID = (Integer) session.getAttribute("HREmployeeID");
+                                %>
+                                href="/cart_add?id=<%=item1.getICProductID()%>&idcus=<%=ID%>"<%} else {%> href="/Login_Servlet" <%}%> class="cart-button">Giỏ hàng</a></span></div>
                 </div>
             </div>
+            <%j++;
+                }%>
         </div>
         <div class="clear"></div>
     </div>
+
     <div class="header_bottom_right_images">
         <!-- FlexSlider -->
         <section class="slider">
@@ -68,7 +76,7 @@
         <!-- FlexSlider -->
     </div>
     <div class="clear"></div>
-</div>	
+</div>
 <div class="main">
     <div class="content">
         <div class="login_panel">
@@ -76,11 +84,11 @@
             <p>Sign in with the form below.</p>
             <form action="/Login_Servlet" method="Post" id="member">
                 <input name="UserName" type="text" value="Username" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
-                            this.value = 'Username';
-                        }">
+                                this.value = 'Username';
+                            }">
                 <input name="Password" type="password" value="Password" class="field" onfocus="this.value = '';" onblur="if (this.value == '') {
-                            this.value = 'Password';
-                        }">
+                                this.value = 'Password';
+                            }">
                 <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
                 <div class="search"><div><input type="submit" value="Sign In" class="grey"></div></div>
             </form>
@@ -100,9 +108,9 @@
                                 <input  style="padding: 8px; margin: 5px  0 5px 0; width: 340px; height: 34px"  type="password" required="true" name="password" placeholder="password">
                             </td>
                             <td><div><input type="text" required="true" value="Address" name="address" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Address';
-                                    }"></div>
-                                        <div><input type="text" required="true" placeholder="city" name="city" ></div>
+                                            this.value = 'Address';
+                                        }"></div>
+                                <div><input type="text" required="true" placeholder="city" name="city" ></div>
                                 <div><select style="width: 340px;" id="country" name="country" onchange="change_country(this.value)" class="frm-field required">                                      
                                         <option value="AR">Argentina</option>
                                         <option value="AM">Armenia</option>

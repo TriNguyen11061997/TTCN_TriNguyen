@@ -138,20 +138,7 @@
                             <li><a href="/index_servlet">Trang chủ</a></li>
                             <li class="activate"><a href="/product">Sản phẩm</a>
                             </li>
-                            <li><a href="">Sản phẩm hàng đầu</a>			
-                                <ul class="sub-menu list-unstyled sub-menu2">
-                                    <div class="navg-drop-main">
-                                        <div class="nav-drop nav-top-brand"> 
-                                            <li><a href="products.jsp">Product 1</a></li>
-                                            <li><a href="products.jsp">Product 2</a></li>
-                                            <li><a href="products.jsp">Product 3</a></li>					
-                                            <li><a href="products.jsp">Product 4</a></li>
-                                            <li><a href="products.jsp">Product 5</a></li>
-                                            <li><a href="products.jsp">Product 6</a></li>
-                                        </div>								
-                                    </div>
-                                </ul>
-                            </li>		
+                          	
                             <li><a href="">Dịch vụ</a>
 
 

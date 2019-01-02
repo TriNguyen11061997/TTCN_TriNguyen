@@ -189,23 +189,65 @@ public class ICProductController {
         return listProduct;
     }
 
-    //tìm kiếm sản phẩm 
-    public ArrayList<ICProductsInfo> getListSearch(String name) {
-        ArrayList<ICProductsInfo> listPro = new ArrayList<>();
-        String sql = "SELECT * FROM ICProducts WHERE ICProducts.ICProductName LIKE " + "'%" + name + "%'";
+    public ArrayList<ICProductsInfo> getItemBanChay() {
+        ArrayList<ICProductsInfo> listProduct = new ArrayList<>();
+
+        String sql = "SELECT p.*\n"
+                + "FROM ICProducts p INNER JOIN ARSaleOrderItems soi ON p.ICProductID = soi.FK_ICProductID\n"
+                + "GROUP BY p.ICProductID\n"
+                + "ORDER BY SUM(soi.ARSaleOrderItemQty) DESC LIMIT 4";
         try {
             conn = ConnectionPool.getConnection();
             st = conn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()) {
-                ICProductsInfo obj = new ICProductsInfo();
-                obj.setICProductID(rs.getInt("ICProductID"));
-                obj.setICProductName(rs.getString("ICProductName"));
-                obj.setICProductDesc(rs.getString("ICProductDesc"));
-                obj.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
-                obj.setICProductPicture1(rs.getString("ICProductPicture1"));
+                ICProductsInfo objProduct = new ICProductsInfo();
+                objProduct.setICProductID(rs.getInt("ICProductID"));
+                objProduct.setICProductName(rs.getString("ICProductName"));
+                objProduct.setICProductPrice(rs.getDouble("ICProductPrice"));
+                objProduct.setICProductPicture1(rs.getString("ICProductPicture1"));
 
-                listPro.add(obj);
+                listProduct.add(objProduct);
+            }
+        } catch (Exception e) {
+
+        } finally {
+            if (rs != null && st != null && conn != null) {
+                try {
+                    rs.close();
+                    st.close();
+                    conn.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return listProduct;
+    }
+
+    //tìm kiếm sản phẩm 
+    public ArrayList<ICProductsInfo> getListSearch(String name) {
+        ArrayList<ICProductsInfo> listPro = new ArrayList<>();
+        String sql = "SELECT * FROM ICProducts WHERE "
+                + "(ICProducts.ICProductName LIKE " + "'%" + name + "%'"
+                + " OR ICProducts.ICProductPrice LIKE " + "'%" + name + "%')"
+                ;
+        try {
+            conn = ConnectionPool.getConnection();
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                ICProductsInfo item = new ICProductsInfo();
+                item.setICProductID(rs.getInt("ICProductID"));
+                item.setICProductNo(rs.getString("ICProductNo"));
+                item.setICProductName(rs.getString("ICProductName"));
+                item.setICProductDesc(rs.getString("ICProductDesc"));
+                item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                item.setICProductPrice(rs.getDouble("ICProductPrice"));
+                item.setICProductPicture1(rs.getString("ICProductPicture1"));
+                listPro.add(item);
             }
 
         } catch (Exception e) {
@@ -237,6 +279,38 @@ public class ICProductController {
                 item.setICProductDesc(rs.getString("ICProductDesc"));
                 item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
                 item.setICProductPrice(rs.getDouble("ICProductPrice"));
+                listPro.add(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listPro;
+    }
+
+    public List<ICProductsInfo> GetAllObjectForProduct() {
+        List<ICProductsInfo> listPro = new ArrayList<>();
+        try {
+            conn = connection.getConnection();
+            pst = conn.prepareCall("CALL ICProducts_GetAllObjectForProduct()");
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                ICProductsInfo item = new ICProductsInfo();
+                item.setICProductID(rs.getInt("ICProductID"));
+                item.setICProductNo(rs.getString("ICProductNo"));
+                item.setICProductName(rs.getString("ICProductName"));
+                item.setICProductDesc(rs.getString("ICProductDesc"));
+                item.setICProductSupplierPrice(rs.getDouble("ICProductSupplierPrice"));
+                item.setICProductPrice(rs.getDouble("ICProductPrice"));
+                item.setICProductPicture1(rs.getString("ICProductPicture1"));
                 listPro.add(item);
             }
         } catch (SQLException e) {
@@ -306,9 +380,11 @@ public class ICProductController {
                 iCProductsInfo.setICProductDesc(rs.getString("ICProductDesc"));
                 iCProductsInfo.setICProductVideo(rs.getString("ICProductVideo"));
             }
+            conn.close();
             return iCProductsInfo;
         } catch (SQLException e) {
             e.printStackTrace();
+
             return null;
         }
     }
@@ -353,7 +429,7 @@ public class ICProductController {
                 icpd.setICProductDetailDesc(rs.getString("ICProductDetailDesc"));
                 icp.setiCProductDetailsInfo(icpd);
             }
-
+            conn.close();
             return icp;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductDetailsController.class.getName()).log(Level.SEVERE, null, ex);
@@ -384,6 +460,7 @@ public class ICProductController {
             objGeNumberingsController.Update("ICProducts");
             ICProductDetailsController objCProductDetailsController = new ICProductDetailsController();
             objCProductDetailsController.Insert();
+            conn.close();
             return icp;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
@@ -404,6 +481,7 @@ public class ICProductController {
             pst.setDate(7, icp.getICProductDate());
 
             pst.execute();
+            conn.close();
             return icp;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
@@ -418,6 +496,7 @@ public class ICProductController {
             pst.setInt(1, id);
 
             pst.execute();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);

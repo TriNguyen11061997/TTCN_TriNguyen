@@ -134,7 +134,8 @@ public class ARSaleOrdersController {
                 + "	AND	c.AAStatus = 'Alive'\n"
                 + "	AND	(ee.HREmployeeName LIKE '%" + info + "%'\n"
                 + "	OR	c.ARCustomerName  LIKE '%" + info + "%'	\n"
-                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%')		\n"
+                + "	OR	so.ARSaleOrderNo LIKE '%" + info + "%'"
+                + "	OR	so.ARSaleOrderStatus LIKE '%" + info + "%')		\n"
                 + "	ORDER BY so.ARSaleOrderDate DESC; ");
         rs = sttm.executeQuery();
         ARSaleOrdersInfo objARSaleOrdersInfo;
