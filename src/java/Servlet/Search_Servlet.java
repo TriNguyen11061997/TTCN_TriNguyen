@@ -10,6 +10,7 @@ import Info.ICProductsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,27 +22,25 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KA
  */
-//@WebServlet(name = "About_Servlet", urlPatterns = {"/About_Servlet"})
+@WebServlet(name = "Search_Servlet", urlPatterns = {"/search"})
 public class Search_Servlet extends HttpServlet {
 
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         doPost(request, response);
+        doPost(request, response);
     }
-        @Override
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-            String name = request.getParameter("name");
-            System.out.println(name);
-            ICProductController ic = new ICProductController();
-            ArrayList<ICProductsInfo> listsearch = ic.getListSearch(name);
-            
-            request.setAttribute("listsearch", listsearch);
-        
-            RequestDispatcher rd = request.getRequestDispatcher("/Public/products.jsp");
-            rd.forward(request, response);
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String name = request.getParameter("info");
+        ICProductController ic = new ICProductController();
+        List<ICProductsInfo> listProduct = ic.getListSearch(name);
+        request.setAttribute("listProduct", listProduct);
+        request.getRequestDispatcher("Public/product.jsp").include(request, response);
     }
 
 }

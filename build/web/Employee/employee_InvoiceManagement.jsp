@@ -80,12 +80,12 @@
                                 <form action="/Employee_InvoiceUpdateStatus" method="get">
                                     <input type="text" name="FK_ARSaleOrderID" hidden="" value="${invoice.FK_ARSaleOrderID}">
                                     <input type="text" name="ARInvoiceID" hidden="" value="${invoice.ARInvoiceID}">
-                                    <select style="float: left;width:45%" name="ARInvoiceStatus">                  
+                                    <select style="float: left;width:100%" name="ARInvoiceStatus">                  
                                         <option value="Delivering">Đang giao</option>
                                         <option value="Delivered">Đã giao</option>
                                         <option value="Cancel">Hủy</option>
                                     </select>
-                                    <input  style="float: right;margin-top: 0px;font-size: 8px;width: 20%;height: 34px" type="submit"  value="OK">
+                                    <input  style="float: right;margin-top: 0px;font-size: 8px;height: 34px;width: 100%" type="submit"  value="OK">
                                 </form>
                             </td>          
                         </tr>
