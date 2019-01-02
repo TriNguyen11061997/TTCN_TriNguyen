@@ -41,7 +41,7 @@ public class ICProductDetailsController {
     public ICProductDetailsInfo Add(ICProductDetailsInfo icpd) {
         try {
             conn = connection.getConnection();
-            pst = conn.prepareCall("CALL ICProductDetail_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            pst = conn.prepareCall("CALL ICProductDetail_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pst.setInt(1, icpd.getFK_ICProductID());
             pst.setString(2, icpd.getICProductDetail3G());
             pst.setString(3, icpd.getICProductDetail4G());
@@ -64,6 +64,7 @@ public class ICProductDetailsController {
             pst.setString(20, icpd.getICProductDetailQuayPhim());
             pst.setString(21, icpd.getICProductDetailCPU());
             pst.setString(22, icpd.getICProductDetailBaoHanh());
+            pst.setString(23, icpd.getICProductDetailDesc());
             pst.execute();
             return icpd;
         } catch (SQLException ex) {

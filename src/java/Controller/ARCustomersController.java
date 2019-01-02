@@ -6,9 +6,11 @@
 package Controller;
 
 import Info.ADUsersInfo;
+import Info.ARCustomerCommentsInfo;
 import Info.ARCustomersInfo;
 import Util.ConnectionPool;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -201,4 +203,56 @@ public class ARCustomersController {
             return false;
         }
     }
+    
+    
+    public boolean InsertComment(int idpro, int idcus, String comment){
+        try {
+           
+            conn = ConnectionPool.getConnection();
+            sttm = conn.prepareCall("CALL ARCustomersComments_Insert(?, ?, ?, ?)");
+            sttm.setDate(1, new Date(System.currentTimeMillis()));
+            sttm.setString(2, comment);
+            sttm.setInt(3, idcus);
+            sttm.setInt(4, idpro);
+            sttm.executeQuery();
+            conn.close();
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+        
+        
+    }
+    
+    public List<ARCustomerCommentsInfo> ListComment(int idpro)throws SQLException{
+        
+        conn = ConnectionPool.getConnection();
+        List<ARCustomerCommentsInfo> list = new ArrayList<>();
+        sttm = conn.prepareCall("CALL ARCustomerComment_GetAllObjectByID(?)");
+        sttm.setInt(1, idpro);
+        rs = sttm.executeQuery();
+        ARCustomerCommentsInfo arc;
+        while (rs.next()) {
+            arc = new ARCustomerCommentsInfo();
+            arc.setARCustomerCommentDate(rs.getDate("ARCustomerCommentDate"));
+            arc.setARCustomerCommentDesc(rs.getString("ARCustomerCommentDesc"));
+            arc.setARCustomerCommentID(rs.getInt("ARCustomerCommentID"));
+            arc.setCustomerName(rs.getString("customerName"));
+            
+            list.add(arc);
+            
+            
+        }
+        conn.close();
+        return list;
+        
+        
+        
+       
+    }
+    
+    
 }

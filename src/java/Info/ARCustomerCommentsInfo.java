@@ -5,6 +5,8 @@
  */
 package Info;
 
+import java.util.Date;
+
 /**
  *
  * @author Trí Nguyễn
@@ -12,23 +14,35 @@ package Info;
 public class ARCustomerCommentsInfo {
     int ARCustomerCommentID;
     String AAStatus;
-    String ARCustomerCommentDate;
+    Date ARCustomerCommentDate;
     String ARCustomerCommentDesc;
     int FK_ARCustomerID;
     int FK_ICProductID;
+    String customerName;
 
     public ARCustomerCommentsInfo(){
         
     }
-    
-    public ARCustomerCommentsInfo(int ARCustomerCommentID, String AAStatus, String ARCustomerCommentDate, String ARCustomerCommentDesc, int FK_ARCustomerID, int FK_ICProductID) {
+
+    public ARCustomerCommentsInfo(int ARCustomerCommentID, String AAStatus, Date ARCustomerCommentDate, String ARCustomerCommentDesc, int FK_ARCustomerID, int FK_ICProductID, String customerName) {
         this.ARCustomerCommentID = ARCustomerCommentID;
         this.AAStatus = AAStatus;
         this.ARCustomerCommentDate = ARCustomerCommentDate;
         this.ARCustomerCommentDesc = ARCustomerCommentDesc;
         this.FK_ARCustomerID = FK_ARCustomerID;
         this.FK_ICProductID = FK_ICProductID;
+        this.customerName = customerName;
     }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    
 
     public int getARCustomerCommentID() {
         return ARCustomerCommentID;
@@ -46,11 +60,11 @@ public class ARCustomerCommentsInfo {
         this.AAStatus = AAStatus;
     }
 
-    public String getARCustomerCommentDate() {
+    public Date getARCustomerCommentDate() {
         return ARCustomerCommentDate;
     }
 
-    public void setARCustomerCommentDate(String ARCustomerCommentDate) {
+    public void setARCustomerCommentDate(Date ARCustomerCommentDate) {
         this.ARCustomerCommentDate = ARCustomerCommentDate;
     }
 
@@ -78,5 +92,8 @@ public class ARCustomerCommentsInfo {
         this.FK_ICProductID = FK_ICProductID;
     }
     
+    
+
+   
     
 }

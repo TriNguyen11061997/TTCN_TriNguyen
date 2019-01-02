@@ -1,3 +1,4 @@
+<%@page import="Info.ARCustomerCommentsInfo"%>
 <%@page import="Info.ICProductDetailsInfo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/Public/header.jsp" %>
@@ -179,45 +180,11 @@
                 <div class="product-desc">
                     <div id="baiviet" class="onepageNav">
 
-                        <div class="detail-review-chitiet" rv-show="ProductDes.HtmlDetailDesc | stringEmty" style="">
+                        <div class="detail-review-chitiet" rv-show="ProductDes.HtmlDetailDesc | stringEmty" style="font-size:18px;">
                             <h3 class="detail-title">Đánh giá chi tiết</h3>
-                            <div class="row">
+                            
 
-
-
-                            </div>
-
-                        </div>
-
-
-
-
-
-                        <div class="detail-topic paragraph collapse in" id="chitietbaiviet" rv-show="ProductDes.HtmlFullDescription | stringEmty" style="" aria-expanded="true">
-                            <p style="text-align: justify;">Được xem là chiếc điện thoại đắt giá nhất so với các “em út” của mình là Vsmart Joy 1, Joy 1+ và Active 1, smartphone Vsmart Active 1+ “khoác” lên mình thiết kế hiện đại và tinh xảo, sang trọng hướng đến nhiều đối tượng người dùng, phổ biến là các doanh nhân trẻ thành đạt. Hiệu năng mạnh mẽ cùng camera chụp hình chất lượng chắc chắn cho bạn những trải nghiệm tốt nhất trong cuộc sống.</p>
-                            <h3 style="text-align: justify;"><b>Thiết kế hoàn hảo, khung hình tinh xảo</b></h3>
-                            <p style="text-align: justify;">Active 1+ sở hữu lối thiết kế sang trọng với khung kim loại chắc chắn, kết hợp 2 mặt kính tinh xảo và các góc được bo cong mềm mại, mang đến cảm giác cầm nắm dễ chịu cho người sử dụng. Mặt lưng sau là cụm camera kép thiết kế lồi nằm dọc bên trái và nổi bật logo Vsmart hình ngọn lửa thể hiện tinh thần và trí tuệ sáng tạo của người Việt. Ngoài ra còn có cảm biến vân tay 1 chạm giúp bạn dễ dàng mở khóa máy mà vẫn đảm bảo an toàn thông tin cá nhân.</p>
-                            <p style="text-align: center;"><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-1.jpg" width="600" height="338" alt="Vsmart Active 1+" title="Vsmart Active 1+"></p>
-                            <h3 style="text-align: justify;"><b>Hình ảnh chất lượng sắt nét nhờ cụm camera kép</b></h3>
-                            <p style="text-align: justify;">Vsmart Active 1+ trang bị cụm camera kép ở phía sau với độ phân giải lớn 24MP và 12MP cho khả năng tự động lấy nét, chụp ảnh xóa phông ảo diệu nhằm mang lại cho bạn những bức ảnh chân dung rõ nét, màu sắc sống động tự nhiên. Máy còn tích hợp các chức năng chụp hình chuyên nghiệp, HDR, Panorama và chế độ làm đẹp thông minh.</p>
-                            <p style="text-align: center;"><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-2.jpg" width="600" height="336" alt="Vsmart Active 1+" title="Vsmart Active 1+"></p>
-                            <p style="text-align: justify;">Bên cạnh đó, không thể không kể đến camera trước cảm biến 20MP đi kèm đèn flash trợ sáng, sẵn sàng giúp bạn có được các tấm ảnh selfie giữ được độ chi tiết cao, sáng đẹp tự nhiên dù chụp trong cả môi trường thiếu sáng. Máy còn hỗ trợ khả năng quay phim 4K 2160p@30fps, luôn ghi lại mọi khoảnh khắc ý nghĩa trong cuộc sống của bạn.</p>
-                            <p style="text-align: center;"><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-3.jpg" width="600" height="370" alt="Vsmart Active 1+" title="Vsmart Active 1+"></p>
-                            <h3 style="text-align: justify;"><b>Màn hình tràn viền Full HD+</b></h3>
-                            <p style="text-align: justify;">Bạn sẽ được trải nghiệm không gian điện ảnh bất tận trên màn hình lớn 6.18 inches với độ phân giải Full HD+ (1080 x 2280 pixels), giúp hiển thị khung hình sắc nét và sống động. Tấm nền IPS của máy và màn hình tai thỏ thời thượng đã tạo nên một thiết bị được thiết kế tối giản nhưng vẫn đẹp mắt, mở rộng diện tích hiển thị tối đa ở mọi góc nhìn.</p>
-                            <p style="text-align: center;"><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-4.jpg" width="600" height="338" alt="Vsmart Active 1+" title="Vsmart Active 1+"></p>
-                            <h3 style="text-align: justify;"><b>Cấu hình vượt trội cho trải nghiệm đỉnh cao</b></h3>
-                            <p style="text-align: justify;">Vsmart Active 1+ sở hữu hiệu năng mạnh mẽ không thua kém các đối thủ trong cùng phân khúc khi được trang bị chip Snapdragon 660 kết hợp bộ RAM 6GB đáp ứng mọi tác vụ cơ bản thường ngày, xử lý các chương trình game đồ họa nặng cũng rất mượt mà, ổn định. Bộ nhớ trong 64GB và khe cắm thẻ nhớ ngoài có thể mở rộng tối đa 256GB cho phép bạn lưu trữ thêm nhiều hình ảnh và dữ liệu quan trọng.</p>
-                            <p style="text-align: center;"><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-5.jpg" width="600" height="380" alt="Vsmart Active 1+" title="Vsmart Active 1+"></p>
-                            <p style="text-align: justify;">Máy hoạt động trơn tru trên giao diện độc quyền VOS được tùy biến thông minh thông qua hệ điều hành Android 8.1, giúp người dùng trải nghiệm những tính năng công nghệ một cách hoàn hảo nhất.</p>
-                            <h3 style="text-align: justify;"><b>Dung lượng pin khủng, tích hợp công nghệ sạc nhanh</b></h3>
-                            <p style="text-align: center;"><b><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-6.jpg" width="600" height="338" alt="Vsmart Active 1+" title="Vsmart Active 1+"></b></p>
-                            <p style="text-align: justify;">Bên trong máy là viên pin có dung lượng 3650mAh đáp ứng thoải mái cho mọi nhu cầu giải trí và làm việc hằng ngày của bạn. Đặc biệt khi sạc pin bạn không phải chờ đợi quá lâu vì đã có công nghệ sạc nhanh Quick Charge thông qua cổng USB-C 2.0.</p>
-                            <p style="text-align: center;"><img src="https://cdn1.vienthonga.vn/image/2018/12/2/100000_vsmart-active-1-plus-7.jpg" width="600" height="338" alt="Vsmart Active 1+" title="Vsmart Active 1+"></p>
-                            <p style="text-align: justify;">Active 1+ tích hợp 2 sim 2 sóng, hỗ trợ mạng 4G và vẫn có jack cắm 3.5mm, Bluetooth 4.0 hỗ trợ việc truy xuất dữ liệu dễ dàng với kết nối bên ngoài.</p></div>
-
-
-                    </div>
+                            <%=obj.getICProductDetailDesc()%>
 
 
                 </div>
@@ -249,64 +216,93 @@
 
                     </style>
 
-                    <div id="form-comment" class="container"><div class="row"><div class="col-sm-8"><div class="cm__wrapper"><h3 class="cm__heading">Đánh giá ()</h3> <div class="cm__feature"> <!----></div></div> <div class="cm__wrapper"><h3 class="cm__heading">Bình luận ()</h3> <div class="cm"><!----> <div class="cm__body"><div style="display: block" class="cm__replay2"><div style="min-height: 90px;padding:5px;" id="cm__editable" contenteditable="true" placeholder="Nhập nội dung thảo luận" class="cm__editable"></div> <div class="cm__replay--info"><!----> <div class="cm__replay--input"><div style="padding:5px;display: none;" class="huong-dan"><a style="color: #2d34ff" href="https://vienthonga.vn/huong-dan-mua-hang#hdcomment" target="_blank">Quy định đăng bình luận</a></div> <span><input type="radio" name="gender4" value="M"> <label style="padding: 0 5px 0 5px">Anh</label></span><span><input type="radio" name="gender4" value="F"> <label style="padding: 0 5px 0 5px">Chị</label></span> <input type="text" name="user-name" placeholder="Họ và Tên" class="input "> <input type="email" name="user-email" placeholder="Email" class="input "> </div> <div class="cm__replay--button"><a href="javasript:void(0);" style="margin-left: 34px" class="button cm__emotion--btn"><img src="https://cdn1.vienthonga.vn/image/2017/2/4/100000_icon-face.png" width="15" alt=""></a> <a href="javascript:void(0)" class="button-blue button alert">GỬI</a></div></div> <div style="display: none" class="cm__emotion"><ul class="list-inline"><li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-ad-mire.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-ad-mire2.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-ahaaah.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-angel.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-bleed.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-bleed2.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-cheer.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-cheer2.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-confused.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-confused2.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-cruch.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-cry.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-cry2.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-cry3.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-cute.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-depressed.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-desperate.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-desperate2.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-dying.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-embarrassed.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-embarrassed2.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-embarrassed3.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-embarrassed4.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-evil.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-frozen.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-haha.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-happy.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-heart.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-hi.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-knife.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-relax.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-shy.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-stone.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-thumb.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-waiting.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-what.gif" contenteditable="false" class="i1-2"></span></li> <li><span><img width="43" height="43" src="https://assets.vienthonga.vn/emotion/onion-wow.gif" contenteditable="false" class="i1-2"></span></li></ul></div> <div class="cm__review"><div class="cm__star">
-
-                                                        Đánh giá sản phẩm :
-                                                        <div class="raty"></div></div> <div id="g-captcha" class="cm__captcha"></div></div></div></div></div> <div class="cm__filter"><select name="" id=""><option value="" selected="selected">Mới nhất</option> <option value="" selected="selected">Top thảo luận</option></select></div> <!----></div></div></div> <div id="popup-comment" style="display: none"><h4 class="title">Viễn thông A - Trả lời</h4> </div></div>
-
-
-
-
-                    <script>
-
-                        function pasteHtmlAtCaret(html) {
-                            var sel, range;
-                            if (window.getSelection) {
-                                // IE9 and non-IE
-                                sel = window.getSelection();
-                                if (sel.getRangeAt && sel.rangeCount) {
-                                    range = sel.getRangeAt(0);
-                                    range.deleteContents();
-
-                                    // Range.createContextualFragment() would be useful here but is
-                                    // non-standard and not supported in all browsers (IE9, for one)
-                                    var el = document.createElement("div");
-                                    el.innerHTML = html;
-                                    var frag = document.createDocumentFragment(), node, lastNode;
-                                    while ((node = el.firstChild)) {
-                                        lastNode = frag.appendChild(node);
-                                    }
-                                    range.insertNode(frag);
-
-                                    // Preserve the selection
-                                    if (lastNode) {
-                                        range = range.cloneRange();
-                                        range.setStartAfter(lastNode);
-                                        range.collapse(true);
-                                        sel.removeAllRanges();
-                                        sel.addRange(range);
-                                    }
-                                }
-                            } else if (document.selection && document.selection.type != "Control") {
-                                // IE < 9
-                                document.selection.createRange().pasteHTML(html);
-                            }
-                        }
-
-
-
-
-                    </script>
-
-
-
-
-                    <!-- End Google Tag Manager -->
-
-
-                </div> 
-
+                    <div id="form-comment" class="container">
+   <div class="row">
+      <div class="col-sm-8">
+         
+         <div class="cm__wrapper">
+            <h3 class="cm__heading">Bình luận (10)</h3>
+            <div class="cm">
+               <!----> 
+               <div class="cm__body">
+                  <div style="display: block" class="cm__replay2">
+                      <%if (session.getAttribute("HREmployeeID") != null) { %> 
+                             <% int ID = 0;
+                                   ID = (Integer) session.getAttribute("HREmployeeID");
+                             %>
+                      <form action="/Customer_Comment_Servlet?idpro=<%=obj.getProduct().getICProductID()%>&idcus=<%=ID%>" method="POST">
+                       <%}else{%>   
+                          <form action="/Login_Servlet" method="POST"> 
+                       <%}%>
+                          <textarea name="ARCustomerCommentDesc" cols="80" rows="4" class="cm__editable"></textarea>
+                          <br/>
+                          <input class="button-blue button alert" type="submit" value="GỬI" />
+                      </form>
+                      
+                  </div>
+               </div>
             </div>
+            
+            <!---->
+            <!-- binh luan -->
+            <%
+                if(request.getAttribute("listcomment") != null){
+                      List<ARCustomerCommentsInfo> listComment = (List<ARCustomerCommentsInfo>)request.getAttribute("listcomment");
+                      for(ARCustomerCommentsInfo cm : listComment){
+                    
+            %>
+            <div class="cm cm__first">
+   <div class="cm__figure">N
+   </div>
+   <div class="cm__body">
+   <div class="cm__title">
+      <h5 class="cm__name"><%=cm.getCustomerName()%></h5>
+   </div>
+   <div class="cm__content"><%=cm.getARCustomerCommentDesc()%></div>
+   <div class="cm__meta">
+      <ul class="cm__meta--list list-inline">
+         <li><a href="javascript:void(0);" class="cm__meta--reply"><i class="vta vta-back-right"></i> Bình luận</a></li>
+         
+         <li>
+            <div class="cm__date">Ngày <%=cm.getARCustomerCommentDate()%></div>
+         </li>
+      </ul>
+   </div>
+         <!-- traloi comment-->
+  <div class="cm">
+      <div class="cm__figure">
+         N
+         
+      </div>
+      <div class="cm__body">
+         <div class="cm__title">
+            <h5 class="cm__name">nguyen van thanh</h5>
+            
+         </div>
+         <div class="cm__content">hubj</div>
+         <div class="cm__meta">
+            <ul class="cm__meta--list list-inline">
+               <li><a href="javascript:void(0);" class="cm__meta--reply"><i class="vta vta-back-right"></i> Bình luận</a></li>
+               
+               <li>
+                  <div class="cm__date">Ngày 02/01/2019</div>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+         <!-- -->
+   
+</div>
+</div>
+            <%}}%>
+         <!--ket thuc binh luan  ; -->
+            
+         </div>
+      </div>
+   </div>
+   
+</div> 
             <%}%>			
         </div>
 

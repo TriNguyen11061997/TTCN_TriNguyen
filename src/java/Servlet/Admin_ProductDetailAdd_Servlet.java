@@ -70,6 +70,7 @@ public class Admin_ProductDetailAdd_Servlet extends HttpServlet {
             iCProductDetailsInfo.setICProductDetailQuayPhim(request.getParameter("ICProductDetailQuayPhim"));
             iCProductDetailsInfo.setICProductDetailCPU(request.getParameter("ICProductDetailCPU"));
             iCProductDetailsInfo.setICProductDetailBaoHanh(request.getParameter("ICProductDetailBaoHanh"));
+            iCProductDetailsInfo.setICProductDetailDesc(request.getParameter("ICProductDetailDesc"));
             
             ICProductDetailsInfo icpd = iCProductDetailsController.Add(iCProductDetailsInfo);
             if(icpd != null){

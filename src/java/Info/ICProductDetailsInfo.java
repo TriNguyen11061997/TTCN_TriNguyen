@@ -32,6 +32,7 @@ public class ICProductDetailsInfo {
     String ICProductDetailQuayPhim;
     String ICProductDetailCPU;
     String ICProductDetailBaoHanh;
+    String ICProductDetailDesc;
     private String ICProductDetailHeDieuHanh;
     private String ICProductDetailJack;
     private ICProductsInfo product;
@@ -48,7 +49,16 @@ public class ICProductDetailsInfo {
     public ICProductDetailsInfo() {
     }
 
-    public ICProductDetailsInfo(int ICProductDetailID, int FK_ICProductID, String ICProductDetail3G, String ICProductDetail4G, String ICProductDetailSIM, String ICProductDetailKichThuoc, String ICProductDetailMauSac, String ICProductDetailTrongLuong, String ICProductDetailLoai, String ICProductDetailManHinh, String ICProductDetailAudio,  String ICProductDetailVideo, String ICProductDetailBoNhoTrong, String ICProductDetailBluetooth, String ICProductDetailGPS, String ICProductDetailPin, String ICProductDetailWLAN, String ICProductDetailCameraChinh, String ICProductDetailCamaraPhu, String ICProductDetailQuayPhim, String ICProductDetailCPU, String ICProductDetailBaoHanh) {
+    public String getICProductDetailDesc() {
+        return ICProductDetailDesc;
+    }
+
+    public void setICProductDetailDesc(String ICProductDetailDesc) {
+        this.ICProductDetailDesc = ICProductDetailDesc;
+    }
+    
+
+    public ICProductDetailsInfo(int ICProductDetailID, int FK_ICProductID, String ICProductDetail3G, String ICProductDetail4G, String ICProductDetailSIM, String ICProductDetailKichThuoc, String ICProductDetailMauSac, String ICProductDetailTrongLuong, String ICProductDetailLoai, String ICProductDetailManHinh, String ICProductDetailAudio, String ICProductDetailRAM, String ICProductDetailBoNhoTrong, String ICProductDetailBluetooth, String ICProductDetailGPS, String ICProductDetailPin, String ICProductDetailWLAN, String ICProductDetailCameraChinh, String ICProductDetailCamaraPhu, String ICProductDetailQuayPhim, String ICProductDetailCPU, String ICProductDetailBaoHanh, String ICProductDetailDesc, String ICProductDetailHeDieuHanh, String ICProductDetailJack, ICProductsInfo product) {
         this.ICProductDetailID = ICProductDetailID;
         this.FK_ICProductID = FK_ICProductID;
         this.ICProductDetail3G = ICProductDetail3G;
@@ -60,7 +70,7 @@ public class ICProductDetailsInfo {
         this.ICProductDetailLoai = ICProductDetailLoai;
         this.ICProductDetailManHinh = ICProductDetailManHinh;
         this.ICProductDetailAudio = ICProductDetailAudio;
-
+        this.ICProductDetailRAM = ICProductDetailRAM;
         this.ICProductDetailBoNhoTrong = ICProductDetailBoNhoTrong;
         this.ICProductDetailBluetooth = ICProductDetailBluetooth;
         this.ICProductDetailGPS = ICProductDetailGPS;
@@ -71,8 +81,13 @@ public class ICProductDetailsInfo {
         this.ICProductDetailQuayPhim = ICProductDetailQuayPhim;
         this.ICProductDetailCPU = ICProductDetailCPU;
         this.ICProductDetailBaoHanh = ICProductDetailBaoHanh;
+        this.ICProductDetailDesc = ICProductDetailDesc;
+        this.ICProductDetailHeDieuHanh = ICProductDetailHeDieuHanh;
+        this.ICProductDetailJack = ICProductDetailJack;
+        this.product = product;
     }
 
+    
     public int getICProductDetailID() {
         return ICProductDetailID;
     }

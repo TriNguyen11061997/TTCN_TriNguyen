@@ -30,6 +30,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href="../Assets/css/form1.css" rel="stylesheet" type="text/css"/>
+        <script src="<%=request.getContextPath()%>/Libraries/ckeditor/ckeditor.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="wrap">
@@ -196,8 +197,8 @@
 
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group' id="left">
-                                    <label class="control-label locked" for="desc-input-field">Ghi chú</label>
-                                    <textarea name="ICProductDesc" id="desc" cols="0" rows="3" class="form-control">${saleorder.ARSaleOrderDesc}</textarea>
+                                    <label class="control-label locked" for="desc-input-field">Chi tiết</label>
+                                    <textarea name="ICProductDetailDesc" id="editor"  cols="0" rows="3" class="form-control"><%=iCProductsInfo.getiCProductDetailsInfo().getICProductDetailDesc()%></textarea>
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="email-input-field">Nhân viên xác nhận</label>
@@ -210,6 +211,9 @@
                             </div>
 
                         </form>
+                                <script>
+                                    CKEDITOR.replace('editor');
+                                </script>
                     </div>
                 </div> 
 
