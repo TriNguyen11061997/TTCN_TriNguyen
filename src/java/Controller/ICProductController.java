@@ -105,6 +105,7 @@ public class ICProductController {
                 obj.setICProductDetailBaoHanh(rs.getString("ICProductDetailBaoHanh"));
                 obj.setICProductDetailHeDieuHanh(rs.getString("ICProductDetailHeDieuHanh"));
                 obj.setICProductDetailJack(rs.getString("ICProductDetailJack"));
+                obj.setICProductDetailDesc(rs.getString("ICProductDetailDesc"));
                 conn.close();
                 return obj;
             }
@@ -425,6 +426,7 @@ public class ICProductController {
                 icpd.setICProductDetailQuayPhim(rs.getString("ICProductDetailQuayPhim"));
                 icpd.setICProductDetailCPU(rs.getString("ICProductDetailCPU"));
                 icpd.setICProductDetailBaoHanh(rs.getString("ICProductDetailBaoHanh"));
+                icpd.setICProductDetailDesc(rs.getString("ICProductDetailDesc"));
                 icp.setiCProductDetailsInfo(icpd);
             }
             conn.close();

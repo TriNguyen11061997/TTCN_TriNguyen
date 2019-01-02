@@ -5,10 +5,13 @@
  */
 package Servlet;
 
+import Controller.ARCustomersController;
 import Controller.ICProductController;
+import Info.ARCustomerCommentsInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -25,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet(name = "Preview_Servlet", urlPatterns = {"/Preview_Servlet"})
 public class Preview_Servlet extends HttpServlet {
     ICProductController icDAO = new ICProductController();
+    ARCustomersController arc = new ARCustomersController();
      @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,6 +42,9 @@ public class Preview_Servlet extends HttpServlet {
         
         try {
             //truy van
+            List<ARCustomerCommentsInfo> list = arc.ListComment(id);
+            //System.out.println("List" + list.size());
+            request.setAttribute("listcomment", list);
             request.setAttribute("ObjProduct", icDAO.getObjectProductDetail(id));
             RequestDispatcher rd = request.getRequestDispatcher("/Public/preview.jsp");
             rd.forward(request, response);
