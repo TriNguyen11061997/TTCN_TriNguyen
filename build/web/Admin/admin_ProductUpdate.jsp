@@ -30,6 +30,8 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href="../Assets/css/form1.css" rel="stylesheet" type="text/css"/>
+        
+        
     </head>
     <body>
         <div class="wrap">
@@ -83,7 +85,7 @@
                             <div class="form-group locked">
                                 <div class='col-xs-12 form-group' id="left">
                                     <label class="control-label locked" for="desc-input-field">Ghi chú</label>
-                                    <textarea name="ICProductDesc" id="desc" cols="0" rows="3" value="<%=iCProductsInfo.getICProductDesc()%>" class="form-control"><%=iCProductsInfo.getICProductDesc()%></textarea>
+                                    <textarea name="ICProductDesc" cols="0" rows="3" value="<%=iCProductsInfo.getICProductDesc()%>" class="form-control" ><%=iCProductsInfo.getICProductDesc()%></textarea>
                                 </div>
                                 <div class='col-xs-12 form-group' id="right">
                                     <label class="control-label locked" for="email-input-field">Nhân viên</label>
@@ -96,11 +98,12 @@
                             </div>
 
                         </form>
+                                
                     </div>
                 </div> 
             </div>
         </div>
-
+                                
         <%@include file="/Admin/footer.jsp" %>
     </body>
 </html>

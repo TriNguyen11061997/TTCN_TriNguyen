@@ -8,6 +8,9 @@ package Controller;
 import Info.ADUsersInfo;
 import Info.ARCustomerCommentsInfo;
 import Info.ARCustomersInfo;
+import Info.HREmployeeCommentsInfo;
+import Info.HREmployeesInfo;
+import Info.ICProductsInfo;
 import Util.ConnectionPool;
 import java.sql.Connection;
 import java.sql.Date;
@@ -201,11 +204,10 @@ public class ARCustomersController {
             return false;
         }
     }
-    
-    
-    public boolean InsertComment(int idpro, int idcus, String comment){
+
+    public boolean InsertComment(int idpro, int idcus, String comment) {
         try {
-           
+
             conn = ConnectionPool.getConnection();
             sttm = conn.prepareCall("CALL ARCustomersComments_Insert(?, ?, ?, ?)");
             sttm.setDate(1, new Date(System.currentTimeMillis()));
@@ -214,19 +216,17 @@ public class ARCustomersController {
             sttm.setInt(4, idpro);
             sttm.executeQuery();
             conn.close();
-            
+
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(ICProductController.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-        
-        
-        
+
     }
-    
-    public List<ARCustomerCommentsInfo> ListComment(int idpro)throws SQLException{
-        
+
+    public List<ARCustomerCommentsInfo> ListComment(int idpro) throws SQLException {
+
         conn = ConnectionPool.getConnection();
         List<ARCustomerCommentsInfo> list = new ArrayList<>();
         sttm = conn.prepareCall("CALL ARCustomerComment_GetAllObjectByID(?)");
@@ -239,18 +239,103 @@ public class ARCustomersController {
             arc.setARCustomerCommentDesc(rs.getString("ARCustomerCommentDesc"));
             arc.setARCustomerCommentID(rs.getInt("ARCustomerCommentID"));
             arc.setCustomerName(rs.getString("customerName"));
-            
+
+            HREmployeeCommentsInfo objCommentsInfo = new HREmployeeCommentsInfo();
+            objCommentsInfo.setHREmployeeCommentDesc(rs.getString("HREmployeeCommentDesc"));
+            arc.setEmployeeComment(objCommentsInfo);
+
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));          
+            arc.setEmployee(objEmployeesInfo);
+
             list.add(arc);
-            
-            
+
         }
         conn.close();
         return list;
-        
-        
-        
-       
+
     }
-    
-    
+
+    public List<ARCustomerCommentsInfo> GetAllObjectComment() throws SQLException {
+
+        conn = ConnectionPool.getConnection();
+        List<ARCustomerCommentsInfo> list = new ArrayList<>();
+        sttm = conn.prepareCall("CALL ARCustomerComments_GetAllObject()");
+        rs = sttm.executeQuery();
+        ARCustomerCommentsInfo arc;
+        while (rs.next()) {
+            arc = new ARCustomerCommentsInfo();
+            arc.setARCustomerCommentDate(rs.getDate("ARCustomerCommentDate"));
+            arc.setARCustomerCommentDesc(rs.getString("ARCustomerCommentDesc"));
+            arc.setARCustomerCommentID(rs.getInt("ARCustomerCommentID"));
+            arc.setFK_ICProductID(rs.getInt("FK_ICProductID"));
+
+            HREmployeeCommentsInfo objCommentsInfo = new HREmployeeCommentsInfo();
+            objCommentsInfo.setHREmployeeCommentDesc(rs.getString("HREmployeeCommentDesc"));
+            arc.setEmployeeComment(objCommentsInfo);
+
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objEmployeesInfo.setHREmployeeNo(rs.getString("HREmployeeNo"));
+            arc.setEmployee(objEmployeesInfo);
+
+            ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerNo(rs.getString("ARCustomerNo"));
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            arc.setCustomer(objARCustomersInfo);
+
+            ICProductsInfo objCProductsInfo = new ICProductsInfo();
+            objCProductsInfo.setICProductNo(rs.getString("ICProductNo"));
+            objCProductsInfo.setICProductName(rs.getString("ICProductName"));
+            arc.setProduct(objCProductsInfo);
+            list.add(arc);
+
+        }
+        conn.close();
+        return list;
+
+    }
+
+    public ARCustomerCommentsInfo GetObjectCommentByID(int ID) throws SQLException {
+
+        conn = ConnectionPool.getConnection();
+
+        sttm = conn.prepareCall("CALL ARCustomerComments_GetObjectByID(?)");
+        sttm.setInt(1, ID);
+        rs = sttm.executeQuery();
+        ARCustomerCommentsInfo arc = new ARCustomerCommentsInfo();;
+        while (rs.next()) {
+            arc.setARCustomerCommentDate(rs.getDate("ARCustomerCommentDate"));
+            arc.setARCustomerCommentDesc(rs.getString("ARCustomerCommentDesc"));
+            arc.setARCustomerCommentID(rs.getInt("ARCustomerCommentID"));
+            arc.setFK_ICProductID(rs.getInt("FK_ICProductID"));
+
+            HREmployeeCommentsInfo objCommentsInfo = new HREmployeeCommentsInfo();
+            objCommentsInfo.setHREmployeeCommentDesc(rs.getString("HREmployeeCommentDesc"));
+            arc.setEmployeeComment(objCommentsInfo);
+
+            HREmployeesInfo objEmployeesInfo = new HREmployeesInfo();
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeName"));
+            objEmployeesInfo.setHREmployeeName(rs.getString("HREmployeeNo"));
+            objEmployeesInfo.setHREmployeeID(rs.getInt("HREmployeeID"));
+            arc.setEmployee(objEmployeesInfo);
+
+            ARCustomersInfo objARCustomersInfo = new ARCustomersInfo();
+            objARCustomersInfo.setARCustomerNo(rs.getString("ARCustomerNo"));
+            objARCustomersInfo.setARCustomerName(rs.getString("ARCustomerName"));
+            arc.setCustomer(objARCustomersInfo);
+
+            ICProductsInfo objCProductsInfo = new ICProductsInfo();
+            objCProductsInfo.setICProductNo(rs.getString("ICProductNo"));
+            objCProductsInfo.setICProductName(rs.getString("ICProductName"));
+            arc.setProduct(objCProductsInfo);
+
+            return arc;
+
+        }
+        conn.close();
+        return null;
+
+    }
+
 }

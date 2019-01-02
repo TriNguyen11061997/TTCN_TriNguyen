@@ -19,6 +19,47 @@ public class ARCustomerCommentsInfo {
     int FK_ARCustomerID;
     int FK_ICProductID;
     String customerName;
+    HREmployeeCommentsInfo employeeComment;
+    ARCustomersInfo customer;
+    HREmployeesInfo employee;
+    ICProductsInfo product;
+
+    public ICProductsInfo getProduct() {
+        return product;
+    }
+
+    public void setProduct(ICProductsInfo product) {
+        this.product = product;
+    }
+    
+    
+    public ARCustomersInfo getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(ARCustomersInfo customer) {
+        this.customer = customer;
+    }
+
+    public HREmployeesInfo getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(HREmployeesInfo employee) {
+        this.employee = employee;
+    }
+    
+    
+
+    public HREmployeeCommentsInfo getEmployeeComment() {
+        return employeeComment;
+    }
+
+    public void setEmployeeComment(HREmployeeCommentsInfo employeeComment) {
+        this.employeeComment = employeeComment;
+    }
+    
+    
 
     public ARCustomerCommentsInfo(){
         

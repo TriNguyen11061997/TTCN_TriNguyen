@@ -129,7 +129,7 @@
                 </li>		
                 <li><a href="/Employee_InvoiceManagement">Hóa đơn</a>
                 </li>
-                <li><a href="about.jsp">Bình luận</a></li>
+                <li><a href="/Employee_Comment">Bình luận</a></li>
                 <li><a href="faq.jsp">Bài đăng</a></li>
                 <div class="clear"> </div>
             </ul>
