@@ -184,6 +184,18 @@
         <servlet-name>Product_Servlet</servlet-name>
         <servlet-class>Servlet.Product_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Employee_Comment_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_Comment_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_CommentLoad_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_CommentLoad_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Employee_CommentReply_Servlet</servlet-name>
+        <servlet-class>Servlet.Employee_CommentReply_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Employee_CustomerManagement_Servlet</servlet-name>
         <url-pattern>/Employee_CustomerManagement_Servlet</url-pattern>
@@ -367,6 +379,18 @@
     <servlet-mapping>
         <servlet-name>Product_Servlet</servlet-name>
         <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_Comment_Servlet</servlet-name>
+        <url-pattern>/Employee_Comment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_CommentLoad_Servlet</servlet-name>
+        <url-pattern>/Employee_CommentLoad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Employee_CommentReply_Servlet</servlet-name>
+        <url-pattern>/Employee_CommentReply</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

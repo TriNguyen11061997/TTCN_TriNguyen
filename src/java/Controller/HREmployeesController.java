@@ -6,6 +6,7 @@
 package Controller;
 
 import Info.ARCustomersInfo;
+import Info.HREmployeeCommentsInfo;
 import Info.HREmployeesInfo;
 import Util.ConnectionPool;
 import java.sql.Connection;
@@ -156,22 +157,22 @@ public class HREmployeesController {
             return null;
         }
     }
-    
-    public List<HREmployeesInfo> Sort(String info){
-   
-            List<HREmployeesInfo> listHREmployeesInfos = new ArrayList<>();
-            try {
+
+    public List<HREmployeesInfo> Sort(String info) {
+
+        List<HREmployeesInfo> listHREmployeesInfos = new ArrayList<>();
+        try {
             conn = ConnectionPool.getConnection();
             sttm = conn.prepareStatement("SELECT 	*\n"
-                             + "	FROM 	hremployees so\n"
-                             + "	WHERE	so.AAStatus = 'Alive'\n"
-                             + "	AND (so.HREmployeeNo like '%"+info+"%' "
-                             + "or so.HREmployeeName like '%"+info+"%' "
-                             + "or so.HREmployeeIDNumber like '%"+info+"%' "
-                             + "or so.HREmployeeContactAddress like '%"+info+"%' "
-                             + "or so.HREmployeeContactAddressCity like '%"+info+"%' "
-                             + "or so.HREmployeeTel1 like '%"+info+"%')"
-                     );	
+                    + "	FROM 	hremployees so\n"
+                    + "	WHERE	so.AAStatus = 'Alive'\n"
+                    + "	AND (so.HREmployeeNo like '%" + info + "%' "
+                    + "or so.HREmployeeName like '%" + info + "%' "
+                    + "or so.HREmployeeIDNumber like '%" + info + "%' "
+                    + "or so.HREmployeeContactAddress like '%" + info + "%' "
+                    + "or so.HREmployeeContactAddressCity like '%" + info + "%' "
+                    + "or so.HREmployeeTel1 like '%" + info + "%')"
+            );
             rs = sttm.executeQuery();
             HREmployeesInfo objHREmployeesInfo;
             while (rs.next()) {
@@ -190,9 +191,25 @@ public class HREmployeesController {
             }
             conn.close();
             return listHREmployeesInfos;
-             } catch (SQLException ex) {
-                 Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);
-                 return null;
-             }
+        } catch (SQLException ex) {
+            Logger.getLogger(HREmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    public boolean comment_insert(HREmployeeCommentsInfo objCommentsInfo) {
+        try {
+            conn = ConnectionPool.getConnection();
+            sttm = conn.prepareCall("CALL HREmployeeComments_Insert(?,?,?,?)");
+            sttm.setString(1, objCommentsInfo.getHREmployeeCommentDesc());
+            sttm.setInt(2, objCommentsInfo.getFK_ARCustomerCommentID());
+            sttm.setInt(3, objCommentsInfo.getFK_ICProductID());
+            sttm.setInt(4, objCommentsInfo.getFK_HREmployeeID());
+            sttm.execute();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
     }
 }

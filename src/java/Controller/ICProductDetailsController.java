@@ -40,7 +40,7 @@ public class ICProductDetailsController {
     //Thêm chi tiết sản phẩm
     public ICProductDetailsInfo Add(ICProductDetailsInfo icpd) {
         try {
-            conn = connection.getConnection();
+            conn = ConnectionPool.getConnection();
             pst = conn.prepareCall("CALL ICProductDetail_Add(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pst.setInt(1, icpd.getFK_ICProductID());
             pst.setString(2, icpd.getICProductDetail3G());

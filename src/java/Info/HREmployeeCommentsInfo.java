@@ -10,12 +10,14 @@ package Info;
  * @author Trí Nguyễn
  */
 public class HREmployeeCommentsInfo {
+
     int HREmployeeCommentID;
     int AAStatus;
     String HREmployeeCommentNo;
     String HREmployeeCommentDesc;
     int FK_ARCustomerCommentID;
     int FK_ICProductID;
+    int FK_HREmployeeID;
 
     public HREmployeeCommentsInfo() {
     }
@@ -27,6 +29,14 @@ public class HREmployeeCommentsInfo {
         this.HREmployeeCommentDesc = HREmployeeCommentDesc;
         this.FK_ARCustomerCommentID = FK_ARCustomerCommentID;
         this.FK_ICProductID = FK_ICProductID;
+    }
+
+    public int getFK_HREmployeeID() {
+        return FK_HREmployeeID;
+    }
+
+    public void setFK_HREmployeeID(int FK_HREmployeeID) {
+        this.FK_HREmployeeID = FK_HREmployeeID;
     }
 
     public int getHREmployeeCommentID() {
@@ -76,6 +86,5 @@ public class HREmployeeCommentsInfo {
     public void setFK_ICProductID(int FK_ICProductID) {
         this.FK_ICProductID = FK_ICProductID;
     }
-    
-    
+
 }
